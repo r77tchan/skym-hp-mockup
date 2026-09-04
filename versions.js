@@ -16,7 +16,7 @@ window.MOCK = {
       live: 'https://skym.co.jp/service',
       versions: [
         { id: 'current', date: '2026-09-04', note: '現状再現(ID 6170。タイトル帯あり)' },
-        { id: 'draft1', date: '', note: '案1: 導入+事業4カード(採用と同一)+選ばれる理由+流れ+締め(問合せ/パートナー)。旧導線・スキル欄なし' },
+        { id: 'draft1', date: '', note: '案1: 現行からオーダーメイド・スキル行を削除し、問合せ+パートナー募集ボックス2連を追加(VC構造のまま)' },
       ],
     },
     {
