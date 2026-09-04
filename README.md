@@ -52,7 +52,7 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 - 新規画像はここに置かず、本番 uploads にアップロードしてから絶対 URL で参照する(モック段階は仮画像可)
 - ブラウザ MCP の `resize_window` は効かないので、スマホ幅の確認は `preview.html` を使う
 
-## ファイルの由来(top)
+## ファイルの由来(top。service / recruit も同じ加工を tools/make-current.py で実施)
 
 | ファイル | 内容 |
 |---|---|
@@ -63,6 +63,8 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 
 ## 別ページを追加するとき
 
-1. `curl -s https://skym.co.jp/<path>/ > <page>/source/live-YYYY-MM-DD.html` で無加工スナップショットを取る
-2. コピーして `<page>/current/index.html` を作り、top と同じ加工をする: 計測・広告タグ除去 / 相対パスを絶対 URL 化 / フォント CSS 4 本を `../../assets/...` に差し替え / `<meta name="robots" content="noindex, nofollow">` 追加 / 本文の前後に `MOCK:CONTENT START/END` マーカー
-3. `versions.js` の `pages` にページ(id・name・live・versions: current)を足す
+1. `python3 tools/make-current.py <page> <url> <WP のページ ID>`(例: `python3 tools/make-current.py service https://skym.co.jp/service 6170`)。無加工スナップショットを `<page>/source/live-YYYY-MM-DD.html` に取得し、`<page>/current/index.html` を生成する。加工内容: 計測・広告タグ除去 / 相対パスを絶対 URL 化 / フォント CSS 4 本を `../../assets/...` に差し替え / `noindex` メタ / title に `[snapshot]` / 本文の前後に `MOCK:CONTENT START/END` マーカー。件数が想定と違うと assert で止まる(テーマ側の構造が変わったときは手で確認)
+2. `versions.js` の `pages` にページ(id・name・live・versions: current)を足す
+3. ローカルで表示確認(`preview.html?a=<page>/current/&b=<本物の URL>&w=390`)→ commit → push
+
+作成済み: `top`(2026-09-01、手作業。上の加工を先に手で行ったもの)/ `service`(事業内容、ID 6170、2026-09-04)/ `recruit`(採用情報、ID 6177、2026-09-04)。URL は末尾スラッシュ無し(`/service/` は `/service` へ 301)
