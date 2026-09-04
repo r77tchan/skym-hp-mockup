@@ -1,0 +1,260 @@
+<!-- skym recruit draft3 / data-row-class は build-draft.py が VC 行(el_class)に付けるクラス -->
+<div id="skym-recruit" data-row-class="rc-wrap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="rc-wrap") */
+.l-section.rc-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.rc-wrap .g-cols,.l-section.rc-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-recruit{
+  --blue:#02A0E9;--navy:#111827;--lime:#D9FF55;--mint:#7BE7D0;--coral:#FF7865;--purple:#B9ACFF;
+  --light:#F6F8FA;--line:#DDE3E8;--muted:#5B6472;--ph:#E5E7EB;--ph-line:#9CA3AF;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;
+}
+#skym-recruit *,#skym-recruit *:before,#skym-recruit *:after{box-sizing:border-box}
+#skym-recruit h1,#skym-recruit h2,#skym-recruit h3{
+  font-family:inherit!important;font-weight:900!important;line-height:1.25!important;letter-spacing:-.01em!important;
+  color:inherit!important;margin:0 0 .5em!important;padding:0!important;text-transform:none!important;
+}
+#skym-recruit h1{font-size:clamp(38px,6vw,76px)!important;line-height:1.15!important}
+#skym-recruit h2{font-size:clamp(30px,4.2vw,54px)!important}
+#skym-recruit h3{font-size:clamp(22px,2vw,28px)!important;line-height:1.35!important}
+/* テーマが span/b の太さを上書きするので親から継承させる */
+#skym-recruit h1 span,#skym-recruit h2 span,#skym-recruit h3 span,#skym-recruit p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-recruit p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-recruit p:last-child{margin-bottom:0!important}
+#skym-recruit a{color:inherit;text-decoration:none!important}
+#skym-recruit img{border:0;box-shadow:none}
+#skym-recruit .rc-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-recruit section{padding:104px 0;margin:0}
+#skym-recruit .rc-label{display:block;font-size:12px!important;font-weight:800!important;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 18px!important;line-height:1.4!important}
+#skym-recruit .rc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+#skym-recruit .rc-lead{font-size:clamp(18px,1.6vw,22px)!important;font-weight:800!important;line-height:1.7!important;margin-top:24px!important}
+#skym-recruit .rc-copy{padding-top:14px}
+
+/* 写真プレースホルダー(撮影指示付き。写真が入ったら <img> に置き換える) */
+#skym-recruit .rc-ph{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  background:var(--ph) repeating-linear-gradient(135deg,rgba(17,24,39,.06) 0 14px,transparent 14px 28px);
+  border:2px dashed var(--ph-line);border-radius:24px;color:#4B5563;text-align:center;padding:16px}
+#skym-recruit .rc-ph svg{opacity:.7}
+#skym-recruit .rc-ph b{font-size:12px;letter-spacing:.2em;font-weight:800;line-height:1.4}
+#skym-recruit .rc-ph small{font-size:12px;line-height:1.5;color:#6B7280;white-space:pre-line}
+#skym-recruit .rc-ph.r-3-2{aspect-ratio:3/2}
+
+/* 1 ヒーロー(背景全体が写真の入る場所) */
+#skym-recruit .rc-hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 120px;color:#fff;overflow:hidden;
+  background:linear-gradient(rgba(17,24,39,.6),rgba(17,24,39,.6)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
+#skym-recruit .rc-hero .rc-label{color:var(--lime)}
+#skym-recruit .rc-hero h1{color:#fff!important;margin-bottom:36px!important}
+#skym-recruit .rc-chips{display:flex;flex-wrap:wrap;gap:10px;max-width:860px}
+#skym-recruit .rc-chips span{display:inline-block;border:2px solid rgba(255,255,255,.85);border-radius:999px;padding:9px 18px;font-weight:700;font-size:14px;line-height:1.4}
+#skym-recruit .rc-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);color:#fff!important;opacity:.85;line-height:0}
+
+/* 2 メッセージ */
+#skym-recruit .rc-message{background:#fff}
+#skym-recruit .rc-message h2 span,#skym-recruit .rc-closing .rc-msg span{color:var(--blue)}
+
+/* 3 事業 */
+#skym-recruit .rc-business{background:var(--light)}
+#skym-recruit .rc-head{max-width:780px;margin-bottom:48px}
+#skym-recruit .rc-head p{color:var(--muted)}
+/* 採用案内で使う素のカード */
+#skym-recruit .rc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+#skym-recruit .rc-card{position:relative;border:2px solid var(--navy);border-radius:24px;padding:30px 28px 28px;display:flex;flex-direction:column;background:#fff;transition:transform .2s}
+#skym-recruit .rc-card:hover{transform:translateY(-4px)}
+#skym-recruit .rc-card small{display:block;font-size:11px;font-weight:800;letter-spacing:.2em;margin-bottom:10px;opacity:.85;line-height:1.4}
+#skym-recruit .rc-card h3{margin-bottom:14px!important}
+#skym-recruit .rc-card p{font-size:14px!important;line-height:1.8!important;flex:1}
+/* 事業内容(.skym-business は事業内容ページと共有する部品。#skym-recruit に依存しない書き方) */
+.skym-business .bz-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;max-width:none}
+.skym-business .bz-head>div{max-width:780px;flex:1 1 auto}
+.skym-business .bz-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skym-business .bz-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(17,24,39,.06),0 8px 24px rgba(17,24,39,.06);display:flex;flex-direction:column}
+.skym-business .bz-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;aspect-ratio:3/2;background:#E5E7EB repeating-linear-gradient(135deg,rgba(17,24,39,.06) 0 14px,transparent 14px 28px);color:#4B5563;text-align:center;padding:16px}
+.skym-business .bz-ph svg{opacity:.7}
+.skym-business .bz-ph b{font-size:12px;letter-spacing:.2em;font-weight:800;line-height:1.4}
+.skym-business .bz-ph small{font-size:12px;line-height:1.5;color:#6B7280}
+/* 画像の代わりの「構想中」パネル(文字だけ。写真カードと並べても浮かない濃紺) */
+.skym-business .bz-soon{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;aspect-ratio:3/2;background:#111827;color:#fff;text-align:center;padding:16px}
+.skym-business .bz-soon b{font-size:15px;letter-spacing:.24em;font-weight:800;line-height:1.4;color:#D9FF55}
+.skym-business .bz-soon small{font-size:13px;line-height:1.5;color:rgba(255,255,255,.85)}
+/* 写真入りカード(画像は本番uploadsへ移し絶対URLに差し替える) */
+.skym-business .bz-ph.bz-photo{padding:0;overflow:hidden}
+.skym-business .bz-ph.bz-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.skym-business .bz-body{padding:22px 26px 28px;flex:1;display:flex;flex-direction:column}
+.skym-business .bz-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.skym-business .bz-num{font-size:12px;font-weight:800;color:#02A0E9;letter-spacing:.1em}
+.skym-business .bz-top small{font-size:11px;font-weight:700;letter-spacing:.16em;color:#5B6472;line-height:1.4;text-align:right}
+.skym-business .bz-card h3{font-size:21px!important;line-height:1.4!important;margin-bottom:10px!important}
+.skym-business .bz-card p{font-size:14px!important;line-height:1.85!important;color:#374151;flex:1}
+#skym-recruit .rc-story{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-top:64px;padding:48px;background:#fff;border:2px solid var(--navy);border-radius:24px}
+#skym-recruit .rc-story h3{font-size:clamp(26px,2.6vw,36px)!important;margin-bottom:18px!important}
+#skym-recruit .rc-story p{font-size:15px!important;line-height:1.95!important}
+#skym-recruit .rc-story .rc-ph{aspect-ratio:4/3}
+#skym-recruit .rc-note{max-width:780px;margin-top:48px;color:var(--muted)}
+
+/* 4 AI */
+#skym-recruit .rc-ai{background:var(--blue);color:#fff}
+#skym-recruit .rc-ai .rc-label{color:#fff;opacity:.9}
+#skym-recruit .rc-ai h2{color:#fff!important}
+#skym-recruit .rc-ai .rc-lead span{color:var(--lime)}
+
+/* 5 採用案内 */
+#skym-recruit .rc-positions{background:#fff}
+#skym-recruit .rc-pos .rc-card{background:var(--light);border-color:var(--line);min-height:0;padding-bottom:72px}
+#skym-recruit .rc-pos .rc-card:hover{border-color:var(--navy)}
+#skym-recruit .rc-pos .rc-card p{flex:0 0 auto}
+#skym-recruit .rc-pos .rc-arrow{position:absolute;right:24px;bottom:22px;width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center}
+#skym-recruit .rc-cta{margin-top:48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+#skym-recruit .rc-btn{display:inline-flex;align-items:center;gap:16px;background:var(--navy);color:#fff!important;border-radius:999px;padding:20px 34px;font-weight:800;letter-spacing:.06em;font-size:15px;line-height:1;border:2px solid var(--navy);transition:background .2s,border-color .2s}
+#skym-recruit .rc-btn:hover{background:var(--blue);border-color:var(--blue)}
+#skym-recruit .rc-btn.lime{background:var(--lime);color:var(--navy)!important}
+#skym-recruit .rc-btn.lime:hover{background:var(--navy);border-color:var(--navy);color:#fff!important}
+#skym-recruit .rc-cta p{color:var(--muted);font-size:14px!important}
+
+/* 6 インタビュー */
+#skym-recruit .rc-interview{background:var(--light)}
+#skym-recruit .rc-people{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+#skym-recruit .rc-person{display:block;background:#fff;border:2px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .2s,border-color .2s}
+#skym-recruit .rc-person:hover{transform:translateY(-4px);border-color:var(--navy)}
+#skym-recruit .rc-person img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;margin:0}
+#skym-recruit .rc-person .rc-person-t{padding:20px 24px 24px}
+#skym-recruit .rc-person b{display:block;font-size:20px!important;line-height:1.3!important;font-weight:800!important;font-family:inherit!important}
+#skym-recruit .rc-person small{display:block;color:var(--muted);font-size:13px;margin-top:4px;line-height:1.5}
+
+/* 7 締め(ヒーローと対の濃紺写真帯。画像はヒーローと共用で新規撮影不要) */
+#skym-recruit .rc-closing{position:relative;color:#fff;overflow:hidden;padding:120px 0;
+  background:linear-gradient(rgba(17,24,39,.72),rgba(17,24,39,.72)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
+#skym-recruit .rc-closing h2{color:#fff!important;max-width:920px;font-size:clamp(32px,4.4vw,56px)!important;margin-bottom:0!important}
+#skym-recruit .rc-closing .rc-msg{margin:20px 0 36px!important;font-size:clamp(16px,1.6vw,20px)!important;font-weight:700!important;line-height:1.8!important;color:rgba(255,255,255,.92)}
+#skym-recruit .rc-closing .rc-btn{margin-top:0}
+#skym-recruit .rc-close-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+#skym-recruit .rc-close-links{display:flex;gap:20px;flex-wrap:wrap;font-size:14px!important;font-weight:700!important;line-height:1.6!important}
+#skym-recruit .rc-close-links a{color:#fff!important;border-bottom:1px solid rgba(255,255,255,.6)!important;padding-bottom:2px}
+
+/* ヒーローと締めの背景はゆっくりスクロール(他ページのヒーローと同様。WPでは行背景のUltimateパララックスで付ける。モックはPCのみfixedで近似) */
+@media(min-width:901px){
+  #skym-recruit .rc-hero,#skym-recruit .rc-closing{background-attachment:fixed}
+}
+@media(max-width:900px){
+  #skym-recruit section{padding:72px 0}
+  #skym-recruit .rc-grid2{grid-template-columns:1fr;gap:32px}
+  #skym-recruit .rc-cards,.skym-business .bz-cards,#skym-recruit .rc-people{grid-template-columns:1fr 1fr}
+  .skym-business .bz-head{flex-direction:column;align-items:flex-start}
+  #skym-recruit .rc-hero{min-height:0;padding:140px 0 96px}
+  #skym-recruit .rc-story{grid-template-columns:1fr;gap:24px;padding:28px}
+  #skym-recruit .rc-scroll{display:none}
+}
+@media(max-width:600px){
+  #skym-recruit .rc-cards,.skym-business .bz-cards,#skym-recruit .rc-people{grid-template-columns:1fr}
+  #skym-recruit .rc-chips span{font-size:13px;padding:8px 14px}
+}
+</style>
+
+<!-- 1. ヒーロー -->
+<section class="rc-hero" id="rc-top">
+  <div class="rc-inner">
+    <span class="rc-label">Recruit</span>
+    <h1>何を<br>やってみたいですか？</h1>
+    <div class="rc-chips">
+      <span>服が好き。</span><span>アウトドアが好き。</span><span>音楽が好き。</span><span>イベントをやってみたい。</span><span>商品をつくってみたい。</span><span>AIを使って何かをつくってみたい。</span><span>いつか、自分のサービスを立ち上げてみたい。</span>
+    </div>
+  </div>
+  <a class="rc-scroll" href="#rc-message" aria-label="下へ"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+<!-- 2. メッセージ -->
+<section class="rc-message" id="rc-message">
+  <div class="rc-inner rc-grid2">
+    <div>
+      <span class="rc-label">Message</span>
+      <h2>「やってみたい」を、<br><span>入社動機に。</span></h2>
+      <p class="rc-lead">「こんなのあったら面白い」を、ガチに形にする。<br>SKYMで、動かせる人になろう。</p>
+    </div>
+    <div class="rc-copy">
+      <p>最初のきっかけは、それでいい。<br>その「やってみたい」に、ITやAIという武器を加えていく。</p>
+      <p>SKYMは、ITを中心にさまざまな仕事をしている会社です。企業のインフラ運用・システムの開発を支援する仕事もあれば、自分たちでサービスを考え、つくり、運営する仕事もあります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 事業内容(.skym-business = 事業内容ページと共有する部品) -->
+<section class="rc-business skym-business" id="rc-business">
+  <div class="rc-inner">
+    <div class="rc-head bz-head">
+      <div>
+        <span class="rc-label">Business</span>
+        <h2>事業内容</h2>
+      </div>
+    </div>
+    <div class="bz-cards">
+      <div class="bz-card"><div class="bz-ph bz-photo"><img src="card1-ses.jpg" alt="SES・開発運用の現場"></div><div class="bz-body"><div class="bz-top"><span class="bz-num">01</span><small>IT SOLUTION</small></div><h3>SES</h3><p>お客様先のプロジェクトにエンジニアとして参画します。システム開発・インフラの設計構築・運用保守から、キッティングなどの現場の仕事まで、幅広いIT業務がフィールドです。</p></div></div>
+      <div class="bz-card"><div class="bz-ph bz-photo"><img src="card2-shop.jpg" alt="釣具のECサイト"></div><div class="bz-body"><div class="bz-top"><span class="bz-num">02</span><small>EC &amp; PRODUCT</small></div><h3>EC運営・商品企画</h3><p>釣具のECサイトを自社で運営。商品の発送・ショップのSNS運用などの運営業務から、サイトブランドのTシャツ・帽子といったオリジナルグッズの企画・販売まで行います。</p></div></div>
+      <div class="bz-card"><div class="bz-ph bz-photo"><img src="card3-event.jpg" alt="釣り大会の様子"></div><div class="bz-body"><div class="bz-top"><span class="bz-num">03</span><small>EVENT &amp; ENTERTAINMENT</small></div><h3>イベント企画・運営</h3><p>釣りの大会を主催・運営し、スポンサーとともに育てる事業です。将来的には大会ブランドの提供に軸足を移していきます。</p></div></div>
+      <div class="bz-card"><div class="bz-soon"><b>COMING SOON</b><small>構想中</small></div><div class="bz-body"><div class="bz-top"><span class="bz-num">04</span><small>SAKURA＋</small></div><h3>応援プロジェクト</h3><p>路上ミュージシャンなど、挑戦する人を応援する仕組みを検討しています。支援のかたちや発信の方法は、これからつくっていく段階です。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. AI × HUMAN -->
+<section class="rc-ai" id="rc-ai">
+  <div class="rc-inner rc-grid2">
+    <div>
+      <span class="rc-label">AI × Human</span>
+      <h2>AIが当たり前になる<br>時代だから。</h2>
+      <p class="rc-lead">AIに仕事を奪われない人ではなく、<br><span>AIを使って、仕事を動かせる人へ。</span></p>
+    </div>
+    <div class="rc-copy">
+      <p>AIによって、これまで人がしてきた仕事の一部が変わっていく。その可能性は、ゼロではないと思っています。でもSKYMでは、AIが人間の代わりになるというより、AIが仕事や生活の中に当たり前に存在する時代になると考えています。</p>
+      <p>AIはコードを書くこともできる。調べることもできる。デザインやアイデアを出すこともできる。けど、その答えは本当に正しいのか。正解は人間側にしかありません。</p>
+      <p>AIとITを使って、自分のアイデアを形にする。サービスをつくる。商品をつくる。イベントをつくる。新しい仕組みをつくる。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 採用案内 -->
+<section class="rc-positions" id="rc-positions">
+  <div class="rc-inner">
+    <div class="rc-head">
+      <span class="rc-label">Guide</span>
+      <h2>採用案内</h2>
+    </div>
+    <div class="rc-cards rc-pos">
+      <a class="rc-card" href="https://skym.co.jp/graduate-pre"><small>NEW GRADUATE</small><h3>新卒採用</h3><p>これから社会に出る学生の方へ。</p><span class="rc-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="rc-card" href="https://skym.co.jp/recruit/career"><small>CAREER</small><h3>中途採用</h3><p>IT業界で実務経験のある方へ。現在のスキル＋これから伸ばせる力を見ています。</p><span class="rc-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="rc-card" href="https://skym.co.jp/recruit/newbie"><small>NEWBIE</small><h3>未経験採用</h3><p>IT業界未経験からエンジニアを目指す方へ。</p><span class="rc-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+    <div class="rc-cta">
+      <a class="rc-btn" href="https://skym.co.jp/recruit/form">応募フォームへ<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 社員インタビュー -->
+<section class="rc-interview" id="rc-interview">
+  <div class="rc-inner">
+    <div class="rc-head">
+      <span class="rc-label">Interview</span>
+      <h2>社員インタビュー</h2>
+    </div>
+    <div class="rc-people">
+      <a class="rc-person" href="https://skym.co.jp/recruit/interview#uchizawa"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/P1015953-600x600.jpg" alt=""><div class="rc-person-t"><b>Manabu Mimura</b><small>インフラエンジニア</small></div></a>
+      <a class="rc-person" href="https://skym.co.jp/recruit/interview#ikeda"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/ee080defd302d5fcdf92243d1e5e74ab-600x600.jpg" alt=""><div class="rc-person-t"><b>Takumi Izumiya</b><small>インフラエンジニア</small></div></a>
+      <a class="rc-person" href="https://skym.co.jp/recruit/interview#kanda"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/sato_ayaka.jpg" alt=""><div class="rc-person-t"><b>Ayaka Sato</b><small>Web開発エンジニア</small></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 締め(ヒーローと対。英語ラベルなし・見出し短縮・重複文削除) -->
+<section class="rc-closing" id="rc-closing">
+  <div class="rc-inner">
+    <h2>やってみたいことを、<br>聞かせてください。</h2>
+    <p class="rc-msg">技術は、入社してから身につければいい。</p>
+    <div class="rc-close-row">
+      <a class="rc-btn lime" href="https://skym.co.jp/recruit/form">応募フォームへ<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="rc-close-links"><a href="#rc-positions">採用案内を見る</a><a href="#rc-interview">社員インタビューを見る</a></div>
+    </div>
+  </div>
+</section>
+</div>
