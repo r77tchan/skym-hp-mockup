@@ -126,6 +126,10 @@
 #skym-recruit .rc-closing .rc-msg{font-size:clamp(20px,2vw,26px)!important;font-weight:800!important;line-height:1.6!important;margin:32px 0!important}
 #skym-recruit .rc-closing .rc-btn{margin-top:12px}
 
+/* ヒーローの背景はゆっくりスクロール(他ページのヒーローと同様。WPでは行背景のUltimateパララックスで付ける。モックはPCのみfixedで近似) */
+@media(min-width:901px){
+  #skym-recruit .rc-hero{background-attachment:fixed}
+}
 @media(max-width:900px){
   #skym-recruit section{padding:72px 0}
   #skym-recruit .rc-grid2{grid-template-columns:1fr;gap:32px}
