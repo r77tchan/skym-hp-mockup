@@ -44,8 +44,7 @@
 
 /* 1 ヒーロー(背景全体が写真の入る場所) */
 #skym-recruit .rc-hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 120px;color:#fff;overflow:hidden;
-  background:var(--navy) repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 14px,transparent 14px 28px)}
-#skym-recruit .rc-hero .rc-ph-hero{position:absolute;right:20px;bottom:20px;display:flex;align-items:center;gap:10px;border:1.5px dashed rgba(255,255,255,.5);border-radius:999px;padding:8px 16px;font-size:12px;line-height:1.4;color:rgba(255,255,255,.85);white-space:nowrap}
+  background:linear-gradient(rgba(17,24,39,.6),rgba(17,24,39,.6)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
 #skym-recruit .rc-hero .rc-label{color:var(--lime)}
 #skym-recruit .rc-hero h1{color:#fff!important;margin-bottom:36px!important}
 #skym-recruit .rc-chips{display:flex;flex-wrap:wrap;gap:10px;max-width:860px}
@@ -134,7 +133,6 @@
   .skym-business .bz-head{flex-direction:column;align-items:flex-start}
   #skym-recruit .rc-hero{min-height:0;padding:140px 0 96px}
   #skym-recruit .rc-story{grid-template-columns:1fr;gap:24px;padding:28px}
-  #skym-recruit .rc-hero .rc-ph-hero{left:20px;right:auto;bottom:14px;font-size:11px}
   #skym-recruit .rc-scroll{display:none}
 }
 @media(max-width:600px){
@@ -152,7 +150,6 @@
       <span>服が好き。</span><span>アウトドアが好き。</span><span>音楽が好き。</span><span>イベントをやってみたい。</span><span>商品をつくってみたい。</span><span>AIを使って何かをつくってみたい。</span><span>いつか、自分のサービスを立ち上げてみたい。</span>
     </div>
   </div>
-  <div class="rc-ph-hero"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg>PHOTO: オフィス風景 or 社員 ／ 16:9 横長 ／ 暗めに加工して文字を乗せる</div>
   <a class="rc-scroll" href="#rc-message" aria-label="下へ"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
 </section>
 
