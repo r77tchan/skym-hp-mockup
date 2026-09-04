@@ -76,7 +76,11 @@
 #skym-recruit .c-lime{background:var(--lime)}
 #skym-recruit .c-coral{background:var(--coral);color:#fff}
 #skym-recruit .c-purple{background:var(--purple)}
-#skym-recruit .rc-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+#skym-recruit .rc-story{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-top:64px;padding:48px;background:#fff;border:2px solid var(--navy);border-radius:24px}
+#skym-recruit .rc-story h3{font-size:clamp(26px,2.6vw,36px)!important;margin-bottom:18px!important}
+#skym-recruit .rc-story p{font-size:15px!important;line-height:1.95!important}
+#skym-recruit .rc-story .rc-ph{aspect-ratio:4/3}
+#skym-recruit .rc-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px}
 #skym-recruit .rc-note{max-width:780px;margin-top:48px;color:var(--muted)}
 
 /* 4 AI */
@@ -120,6 +124,7 @@
   #skym-recruit .rc-grid2{grid-template-columns:1fr;gap:32px}
   #skym-recruit .rc-cards,#skym-recruit .rc-photos,#skym-recruit .rc-people{grid-template-columns:1fr 1fr}
   #skym-recruit .rc-hero{min-height:0;padding:140px 0 96px}
+  #skym-recruit .rc-story{grid-template-columns:1fr;gap:24px;padding:28px}
   #skym-recruit .rc-hero .rc-ph-hero{left:20px;right:auto;bottom:14px;font-size:11px}
   #skym-recruit .rc-scroll{display:none}
 }
@@ -174,8 +179,16 @@
       <div class="rc-card"><span class="rc-num">05</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4M22 9v5"/></svg></div><small>EDUCATION</small><h3>学ぶだけではなく、<br>「できる」に。</h3><p>ITスクールの運営。ITやAIを実際に使い、自分で考えて動かせる人を育てます。</p><div class="rc-tags"><span>ITスクール</span><span>人材育成</span></div></div>
       <div class="rc-card c-purple"><span class="rc-num">06</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><small>SAKURA＋</small><h3>挑戦する人の、<br>最初の「＋」になる。</h3><p>スポーツ・音楽・趣味など、これから挑戦する人そのものを応援するプロジェクト。</p><div class="rc-tags"><span>CHALLENGE</span><span>SPORTS</span><span>MUSIC</span></div></div>
     </div>
+    <div class="rc-story">
+      <div>
+        <span class="rc-label">For example</span>
+        <h3>たとえば、EC。</h3>
+        <p>私たちは、ただ商品を仕入れて並べるだけのECサイトではなく、「今、何が売れている？」「どんな商品が品薄になっている？」「これから何が求められる？」AIを組み込んだ、ECアドバイザー型の新タイプECサイトをつくりました。「この商品を探してる」というお客様の声機能なんか付けました。</p>
+        <p>アウトドアグッズやアパレル製品も、自分たちで企画し、デザインし、販売する。ECサイトを運営するだけではなく、新しい“売り方”そのものを仕掛けていく事を行っています。</p>
+      </div>
+      <div class="rc-ph"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>EC の商品・アパレル ／ 4:3</small></div>
+    </div>
     <div class="rc-photos">
-      <div class="rc-ph r-3-2"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>EC の商品・アパレル ／ 3:2</small></div>
       <div class="rc-ph r-3-2"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>イベントの様子 ／ 3:2</small></div>
       <div class="rc-ph r-3-2"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>開発・運用の現場 ／ 3:2</small></div>
     </div>

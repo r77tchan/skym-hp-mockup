@@ -19,6 +19,7 @@
 /top/v01/, /top/v02/ …    index.html   節目で draftN を凍結したコピー(以後変更しない。共有用の固定 URL)
 /top/source/                           参照用の原本(公開ページの無加工スナップショット、WP 本文の VC ショートコード全文)
 /<page>/…                              別ページも同じ型(current / draftN / vNN / source)
+/<page>/lab/                           部品や見え方の試作(版ではない。比較用の単体ページ。例: recruit/lab/cards.html = 事業カードの 4 スタイル比較)
 ```
 
 「このページのこの版」= `https://r77tchan.github.io/skym-hp-mockup/<page>/<版>/` で直接開ける。

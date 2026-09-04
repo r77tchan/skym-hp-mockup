@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>事業カードの見え方 比較(recruit lab)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+:root{--blue:#02A0E9;--navy:#111827;--lime:#D9FF55;--mint:#7BE7D0;--coral:#FF7865;--purple:#B9ACFF;--light:#F6F8FA;--line:#DDE3E8;--muted:#5B6472}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.9;color:var(--navy);background:#e9ecef}
+h1,h2,h3{font-weight:900;line-height:1.25;letter-spacing:-.01em;margin:0}
+p{margin:0}
+.bar{position:sticky;top:0;z-index:2;background:#1b1e24;color:#ddd;font-size:13px;padding:10px 20px;display:flex;gap:18px;flex-wrap:wrap}
+.bar a{color:#8cc8ff;text-decoration:none}
+.inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+.variant{padding:80px 0}
+.variant .vh{margin-bottom:28px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.variant .vh .tag{font-size:12px;font-weight:800;letter-spacing:.2em;color:var(--blue);text-transform:uppercase}
+.variant .vh h2{font-size:26px}
+.variant .vh p{color:var(--muted);font-size:14px;width:100%}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+
+/* 今の案1 */
+.v0{background:var(--light)}
+.v0 .card{position:relative;border:2px solid var(--navy);border-radius:24px;padding:30px 28px 28px;min-height:300px;display:flex;flex-direction:column;background:#fff}
+.v0 .num{position:absolute;top:26px;right:26px;font-size:13px;font-weight:800}
+.v0 .ico{width:48px;height:48px;margin-bottom:36px}.v0 .ico svg{width:48px;height:48px}
+.v0 small{display:block;font-size:11px;font-weight:800;letter-spacing:.2em;margin-bottom:10px;opacity:.85}
+.v0 h3{font-size:26px;margin-bottom:14px}
+.v0 p{font-size:14px;line-height:1.8;flex:1}
+.v0 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}.v0 .tags span{border:1.5px solid currentColor;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:800}
+.v0 .c-blue{background:var(--blue);color:#fff}.v0 .c-mint{background:var(--mint)}.v0 .c-lime{background:var(--lime)}.v0 .c-coral{background:var(--coral);color:#fff}.v0 .c-purple{background:var(--purple)}
+
+/* A: 白 × ブルー1色、アイコンなし、番号を主役に */
+.vA{background:#fff}
+.vA .card{border:1px solid var(--line);border-radius:12px;padding:30px 28px 28px;min-height:280px;display:flex;flex-direction:column;background:#fff;transition:border-color .2s}
+.vA .card:hover{border-color:var(--navy)}
+.vA .num{font-size:44px;font-weight:900;color:var(--blue);line-height:1;letter-spacing:-.03em;margin-bottom:26px}
+.vA small{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted);margin-bottom:8px}
+.vA h3{font-size:24px;margin-bottom:14px}
+.vA p{font-size:14px;line-height:1.85;flex:1;color:#374151}
+.vA .tags{margin-top:20px;font-size:12px;color:var(--muted);font-weight:700}
+.vA .tags span+span::before{content:" / ";color:#c5cbd3;font-weight:400}
+
+/* B: ネイビーの編集リスト(行ごとに番号・英語・見出し・説明) */
+.vB{background:var(--navy);color:#fff}
+.vB .vh h2{color:#fff}.vB .vh p{color:#9aa3b2}
+.vB .row{display:grid;grid-template-columns:72px 240px 1fr;gap:28px;padding:34px 0;border-top:1px solid rgba(255,255,255,.14);align-items:start}
+.vB .row:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.vB .num{font-size:14px;font-weight:800;color:var(--blue);letter-spacing:.1em;padding-top:8px}
+.vB small{display:block;font-size:13px;font-weight:800;letter-spacing:.16em;color:#c8d0dc;padding-top:7px}
+.vB h3{font-size:26px;margin-bottom:10px;color:#fff}
+.vB p{font-size:14px;line-height:1.85;color:#c8d0dc;max-width:640px}
+.vB .tags{margin-top:12px;font-size:12px;color:#7f8a9b;font-weight:700}.vB .tags span+span::before{content:"　"}
+@media(max-width:800px){.vB .row{grid-template-columns:56px 1fr}.vB small{grid-column:2}.vB .body{grid-column:2}}
+
+/* C: 写真カード(色を使わず、写真で語る) */
+.vC{background:var(--light)}
+.vC .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(17,24,39,.06),0 8px 24px rgba(17,24,39,.06);display:flex;flex-direction:column}
+.vC .ph{aspect-ratio:3/2;background:#E5E7EB repeating-linear-gradient(135deg,rgba(17,24,39,.06) 0 14px,transparent 14px 28px);display:flex;align-items:center;justify-content:center;color:#6B7280;font-size:12px;font-weight:800;letter-spacing:.15em}
+.vC .body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column}
+.vC .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.vC .num{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.1em}
+.vC small{font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
+.vC h3{font-size:22px;margin-bottom:10px}
+.vC p{font-size:14px;line-height:1.85;color:#374151;flex:1}
+</style>
+</head>
+<body>
+<div class="bar"><a href="../../">一覧</a><a href="../draft1/">recruit/draft1 に戻る</a><span>事業カード(6 枚)の見え方を 4 通りで比較。内容・文章は同じ。#0 が今の案1</span><a href="#v0">#0 今</a><a href="#vA">#A 白×青</a><a href="#vB">#B リスト</a><a href="#vC">#C 写真</a></div>
+
+<section class="variant v0" id="v0"><div class="inner">
+  <div class="vh"><span class="tag">#0 今の案1</span><h2>色カード + 線アイコン + タグ(参考セットの雰囲気)</h2><p>5 色のパステル、汎用の線アイコン、角丸 24px、2px の黒枠、タグチップ。いま流行りの生成物に共通する組み合わせなので「AI っぽさ」が出る。</p></div>
+  <div class="grid" data-render="v0"></div>
+</div></section>
+
+<section class="variant vA" id="vA"><div class="inner">
+  <div class="vh"><span class="tag">#A おすすめ</span><h2>白 × SKYM ブルー 1 色。アイコンを捨てて、番号を主役に</h2><p>色は SKYM ブルーとネイビーだけ。線アイコンをやめて大きな「01」を置く。タグは枠を外して文字だけ。角丸は 12px に抑える。ページ全体(ネイビーのヒーロー、青い AI 帯)の中で、この区画は静かになる。</p></div>
+  <div class="grid" data-render="vA"></div>
+</div></section>
+
+<section class="variant vB" id="vB"><div class="inner">
+  <div class="vh"><span class="tag">#B いちばん「作った感」が出る</span><h2>ネイビー地に、番号・英語・見出し・説明を横一列に並べる編集リスト</h2><p>カードをやめて目次のような行にする。日本のコーポレートサイトで多い「事業一覧」の型で、生成物っぽさが最も薄い。6 項目を上から読ませるので、事業の数を見せるのにも向く。スマホでは縦に積む。</p></div>
+  <div data-render="vB"></div>
+</div></section>
+
+<section class="variant vC" id="vC"><div class="inner">
+  <div class="vh"><span class="tag">#C 写真がそろったら</span><h2>色を使わず、写真で語るカード</h2><p>上に写真、下に見出し。色もアイコンもいらない。写真が入れば最も「その会社らしさ」が出るが、写真が来るまではグレーの箱が 6 つ並ぶ。</p></div>
+  <div class="grid" data-render="vC"></div>
+</div></section>
+
+<script>
+const ICONS = {
+  it:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 9l3 3-3 3M12 15h5M8 21h8"/></svg>',
+  ai:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>',
+  ec:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>',
+  ev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16v4a2 2 0 000 4v2H4v-2a2 2 0 000-4z"/><path d="M12 7v10" stroke-dasharray="2 2"/></svg>',
+  ed:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4M22 9v5"/></svg>',
+  sk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>'};
+const ITEMS = [
+  {n:'01',en:'IT SOLUTION',ja:'企業のITを、<br>支える。',p:'システム開発、インフラの設計・構築、運用・保守。企業のインフラ運用・システム開発を支援します。',tags:['受託開発','インフラ','運用・保守'],c:'c-blue',ico:'it',ph:'PHOTO: 開発・運用の現場'},
+  {n:'02',en:'AI &amp; DIGITAL',ja:'AIを、<br>使える仕組みへ。',p:'AIやITを利用した業務改善、システム化、新しいサービス開発。これまでのIT経験とAIを組み合わせます。',tags:['AI活用','DX','業務改善'],c:'c-mint',ico:'ai',ph:'PHOTO: 画面・ツールの様子'},
+  {n:'03',en:'EC &amp; PRODUCT',ja:'モノを売るだけ<br>じゃない。',p:'AIを組み込んだ「ECアドバイザー型」の新タイプECサイト。アウトドアグッズやアパレル製品も、自分たちで企画し、デザインし、販売します。',tags:['EC','商品企画','アパレル','アウトドア'],c:'c-lime',ico:'ec',ph:'PHOTO: 商品・アパレル'},
+  {n:'04',en:'EVENT &amp; ENTERTAINMENT',ja:'リアルな「楽しい」に、<br>ITを掛け合わせる。',p:'ストリートライブ支援のシステム運営、アウトドアイベントの企画・集客・運営、フリーマーケットの企画・運営、イベントを便利にするWebサービス。',tags:['イベント','ライブ支援','Webサービス'],c:'',ico:'ev',ph:'PHOTO: イベントの様子'},
+  {n:'05',en:'EDUCATION',ja:'学ぶだけではなく、<br>「できる」に。',p:'ITスクールの運営。ITやAIを実際に使い、自分で考えて動かせる人を育てます。',tags:['ITスクール','人材育成'],c:'c-coral',ico:'ed',ph:'PHOTO: 研修・学習の様子'},
+  {n:'06',en:'SAKURA＋',ja:'挑戦する人の、<br>最初の「＋」になる。',p:'スポーツ・音楽・趣味など、これから挑戦する人そのものを応援するプロジェクト。',tags:['CHALLENGE','SPORTS','MUSIC'],c:'c-purple',ico:'sk',ph:'PHOTO: 挑戦する人'},
+];
+const tags = a => a.map(t => `<span>${t}</span>`).join('');
+const R = {
+  v0: it => `<div class="card ${it.c}"><span class="num">${it.n}</span><div class="ico">${ICONS[it.ico]}</div><small>${it.en}</small><h3>${it.ja}</h3><p>${it.p}</p><div class="tags">${tags(it.tags)}</div></div>`,
+  vA: it => `<div class="card"><div class="num">${it.n}</div><small>${it.en}</small><h3>${it.ja}</h3><p>${it.p}</p><div class="tags">${tags(it.tags)}</div></div>`,
+  vB: it => `<div class="row"><div class="num">${it.n}</div><small>${it.en}</small><div class="body"><h3>${it.ja.replace('<br>','')}</h3><p>${it.p}</p><div class="tags">${tags(it.tags)}</div></div></div>`,
+  vC: it => `<div class="card"><div class="ph">${it.ph}</div><div class="body"><div class="top"><span class="num">${it.n}</span><small>${it.en}</small></div><h3>${it.ja}</h3><p>${it.p}</p></div></div>`,
+};
+document.querySelectorAll('[data-render]').forEach(el => { el.innerHTML = ITEMS.map(R[el.dataset.render]).join(''); });
+</script>
+</body>
+</html>
