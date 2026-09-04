@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>preview — 幅指定・並列比較</title>
+<style>
+  html,body{margin:0;height:100%;background:#2b2f36;color:#ddd;font:13px/1.4 -apple-system,"Hiragino Sans",sans-serif}
+  header{position:sticky;top:0;display:flex;gap:12px;align-items:center;padding:8px 12px;background:#1b1e24;border-bottom:1px solid #444;z-index:1;flex-wrap:wrap}
+  header a{color:#8cc8ff;text-decoration:none;margin-right:4px}
+  header a.on{color:#fff;font-weight:bold;text-decoration:underline}
+  main{display:flex;gap:24px;justify-content:center;align-items:flex-start;padding:16px;overflow:auto;height:calc(100% - 37px);box-sizing:border-box}
+  .pane{display:flex;flex-direction:column;gap:6px}
+  .pane .cap{color:#aaa;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  iframe{border:0;background:#fff;box-shadow:0 0 0 1px #555;height:calc(100vh - 90px)}
+</style>
+</head>
+<body>
+<header>
+  <a href="./">一覧</a>
+  <span>幅:</span><span id="widths"></span>
+  <span style="margin-left:16px">表示:</span><span id="modes"></span>
+  <span style="margin-left:auto;color:#888">?a=top/v01/&amp;b=top/current/&amp;w=390 で指定(b は省略可、URL も可)</span>
+</header>
+<main id="main"></main>
+<script src="versions.js"></script>
+<script>
+  const q = new URLSearchParams(location.search);
+  const w = parseInt(q.get('w') || '390', 10);
+  const a = q.get('a') || 'top/current/';
+  const b = q.get('b') || null;
+  const pageId = a.split('/')[0];
+  const page = (window.MOCK.pages.find(p => p.id === pageId)) || window.MOCK.pages[0];
+  const widths = [375, 390, 430, 768, 1024, 1280, 1440];
+  const setQ = (k, v) => { const p = new URLSearchParams(location.search); v == null ? p.delete(k) : p.set(k, v); return '?' + p.toString(); };
+  document.getElementById('widths').innerHTML = widths.map(x => `<a class="${x===w?'on':''}" href="${setQ('w', x)}">${x}</a>`).join('');
+  const modes = [
+    ['単体', {a, b: null}],
+    ['本物と比較', {a, b: page.live}],
+    ['現状と比較', {a, b: `${page.id}/current/`}],
+  ];
+  document.getElementById('modes').innerHTML = modes.map(([n, m]) => {
+    const p = new URLSearchParams(location.search); p.set('a', m.a); m.b ? p.set('b', m.b) : p.delete('b');
+    return `<a class="${(m.a===a && (m.b||null)===(b||null))?'on':''}" href="?${p}">${n}</a>`;
+  }).join('');
+  const pane = (src) => `<div class="pane"><div class="cap" style="max-width:${w}px">${src} @ ${w}px</div><iframe src="${src}" width="${w}"></iframe></div>`;
+  document.getElementById('main').innerHTML = pane(a) + (b ? pane(b) : '');
+</script>
+</body>
+</html>

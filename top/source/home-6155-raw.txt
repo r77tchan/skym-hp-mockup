@@ -1,0 +1,39 @@
+[vc_row height="full" valign="center" width="full" color_scheme="primary" bg_type="image" parallax_style="vcpb-vz-jquery" bg_image_new="6610|http://skym.co.jp/wp20150417/wp-content/uploads/top-image.jpg" bg_image_repeat="no-repeat" parallax_sense="60" parallax_content="off" fadeout_row="off" enable_overlay="enable_overlay_value" overlay_pattern="01.png" overlay_pattern_opacity="30" overlay_pattern_size="1" overlay_pattern_attachment="fixed" parallax_bg_width="110" parallax_reverse="" section_overlay="rgba(53,47,35,0.55)" us_bg_overlay_color="rgba(0,0,0,0.3)"][vc_column][vc_row_inner columns_type="none"][vc_column_inner css=".vc_custom_1439564554133{background: !important;}"][vc_column_text]
+<h1 style="text-align: center;">自分らしく</h1>
+<h2 style="text-align: center;">WORK IN MY OWN WAY</h2>
+[/vc_column_text][/vc_column_inner][/vc_row_inner][vc_row_inner columns_type="none"][vc_column_inner css=".vc_custom_1439564554134{background: !important;}"][us_iconbox icon="mdfi_hardware_keyboard_arrow_down" color="custom" size="small" link="url:%23recruit" external=""]
+[/us_iconbox][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row height="full" valign="center" width="full" el_id="recruit"][vc_column css=".vc_custom_1439564554135{background: !important;}"][vc_row_inner columns_type="none"][vc_column_inner animate="fade" animate_delay="0.2"][ultimate_heading main_heading="仕事するなら楽しく"]
+
+Anyway it is fun if you work
+
+[/ultimate_heading][/vc_column_inner][/vc_row_inner][vc_row_inner columns_type="none"][vc_column_inner animate="fade" animate_delay="0.4"][vc_column_text]
+
+私たちスカイム（SKYM）は、2013年にインターネットビジネスに付随するサービスを主業として立ち上げた会社です。自分を理解してもらう仕組みや仕事に枠組みを決めずに、楽しく業務遂行できる仕組みなど、様々社員たちのアイデアを取り入れながら成長している会社です。
+
+[/vc_column_text][/vc_column_inner][/vc_row_inner][vc_row_inner columns_type="none"][vc_column_inner width="2/3" animate="afl" animate_delay="0.6"][ultimate_heading main_heading="一緒に楽しく働きませんか？" heading_tag="h3"]
+[/ultimate_heading][/vc_column_inner][vc_column_inner width="1/3" animate="afr" animate_delay="0.6"][us_btn text="さらに詳しく" size="large" align="center" external="" link="url:http%3A%2F%2Fskym.co.jp%2Frecruit"][/vc_column_inner][/vc_row_inner][us_iconbox icon="mdfi_hardware_keyboard_arrow_down" color="custom" size="small" link="url:%23development" external=""]
+[/us_iconbox][/vc_column][/vc_row][vc_row height="full" valign="center" width="full" color_scheme="primary" bg_type="image" parallax_style="vcpb-vz-jquery" bg_image_new="7284|http://skym.co.jp/wp20150417/wp-content/uploads/www_1920.jpg" enable_overlay="enable_overlay_value" overlay_pattern="01.png" overlay_pattern_opacity="80" overlay_pattern_size="1" el_id="development" us_bg_overlay_color="rgba(0,0,0,0.3)"][vc_column css=".vc_custom_1439564554140{background: !important;}"][vc_row_inner columns_type="none"][vc_column_inner css=".vc_custom_1439564554141{background: !important;}"][ultimate_heading main_heading="アプリケーション開発"]
+
+Web Application
+
+[/ultimate_heading][/vc_column_inner][/vc_row_inner][vc_row_inner columns_type="none"][vc_column_inner css=".vc_custom_1439564554142{background: !important;}"][vc_column_text]
+<div class="wpb_text_column ">
+<div class="wpb_wrapper">
+
+<span>私たちスカイム（SKYM）は、Java・・Ruby・PHP，C，Pyton・Oracle，MS-SQLといった多言語によるシステム開発事業を展開しています。</span>
+<span>お客様のニーズを深堀りする事により、短納期・低予算を実現しつつ、モダンなアプリケーションをご提供いたします。</span>
+<span>特にRubyonRails製のオーダーメイド開発は多くの納品実績があります。</span>
+
+</div>
+</div>
+[/vc_column_text][/vc_column_inner][/vc_row_inner][vc_row_inner columns_type="none"][vc_column_inner width="2/3" css=".vc_custom_1439564554143{background: !important;}"][ultimate_heading main_heading="WEBシステムの委託や受託開発先をお探しの方は、私たちスカイム（SKYM）へお任せください。" heading_tag="h5"]
+[/ultimate_heading][/vc_column_inner][vc_column_inner width="1/3" css=".vc_custom_1439564554144{background: !important;}"][us_btn text="さらに詳しく" size="large" align="center" external="" link="url:http%3A%2F%2Fskym.co.jp%2Fservice%2Forder-made-system"][/vc_column_inner][/vc_row_inner][us_iconbox icon="mdfi_hardware_keyboard_arrow_down" color="custom" size="small" link="url:%23ses" external=""]
+[/us_iconbox][/vc_column][/vc_row][vc_row height="full" valign="center" width="full" color_scheme="alternate" el_id="ses"][vc_column][vc_row_inner columns_type="none"][vc_column_inner animate="afl" animate_delay="0.6" css=".vc_custom_1439564554146{background: !important;}"][ultimate_heading main_heading="SES" main_heading_margin="margin-bottom:0px;" sub_heading_margin="margin-bottom:0px;"]
+
+System Engineering Service
+
+[/ultimate_heading][/vc_column_inner][/vc_row_inner][vc_row_inner columns_type="none" css=".vc_custom_1432948047071{margin-top: 0px !important;margin-bottom: 0px !important;border-top-width: 0px !important;border-bottom-width: 0px !important;padding-top: 0px !important;padding-bottom: 0px !important;}"][vc_column_inner animate="afl" animate_delay="0.6" css=".vc_custom_1439564554147{background: !important;}"][vc_column_text]
+
+スタッフの「技術力」と「人間力」を基盤にスキルの高いITエンジニアがお客様のシステムの構築、開発、運用をサポート致します。 私たちスカイム（SKYM）は、高いスキルの技術者集団として、お客様のニーズに合わせたシステムエンジニアリングサービスを提供します。
+
+[/vc_column_text][us_btn text="さらに詳しく" size="large" align="center" external="" link="url:http%3A%2F%2Fskym.co.jp%2Fservice%2Forder-made-system"][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row][vc_row columns_type="none" height="auto" width="full" color_scheme="primary" full_screen=""][vc_column css=".vc_custom_1439564554148{background: !important;}"][vc_row_inner][vc_column_inner css=".vc_custom_1439564554149{background: !important;}"][us_cta title="パートナー募集" message="ＳＥＳ事業において御協業いただけるビジネスパートナー企業様を募集しております。" color="primary" btn_link="url:http%3A%2F%2Fskym.co.jp%2Fpartnership" btn_label="募集フォームへ" btn_color="light" btn_size="large" btn_iconpos="right" button_target=""][/vc_column_inner][/vc_row_inner][/vc_column][/vc_row]

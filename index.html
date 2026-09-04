@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>skym-hp-mockup — 版一覧</title>
+<style>
+  body{margin:0;padding:24px;background:#f5f6f8;color:#222;font:14px/1.6 -apple-system,"Hiragino Sans",sans-serif}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:#666;margin:0 0 24px}
+  section{background:#fff;border:1px solid #ddd;border-radius:6px;padding:16px 20px;margin-bottom:20px}
+  h2{font-size:16px;margin:0 0 10px}
+  h2 small{font-weight:normal;color:#666;margin-left:8px}
+  table{border-collapse:collapse;width:100%}
+  th,td{text-align:left;padding:6px 8px;border-top:1px solid #eee;vertical-align:top}
+  th{color:#666;font-weight:normal;font-size:12px}
+  td.id{font-family:ui-monospace,Menlo,monospace;white-space:nowrap}
+  td.date{white-space:nowrap;color:#666}
+  td.links{white-space:nowrap}
+  a{color:#0b62c4;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .links a{margin-right:10px}
+  .tag{display:inline-block;font-size:11px;padding:0 6px;border-radius:3px;background:#eef3fa;color:#3a5a8a;margin-left:6px;vertical-align:middle}
+  .tag.draft{background:#fff4dc;color:#8a5a00}
+  footer{color:#888;font-size:12px;margin-top:24px}
+</style>
+</head>
+<body>
+<h1>skym-hp-mockup</h1>
+<p class="sub">株式会社スカイム コーポレートサイト改修の検討用モック。各版は固定 URL(<code>&lt;ページ&gt;/&lt;版&gt;/</code>)で直接開けます。</p>
+<div id="pages"></div>
+<footer>幅指定・並列比較: <a href="preview.html">preview.html</a>(<code>?a=top/v01/&amp;b=top/current/&amp;w=390</code>)。データは <code>versions.js</code>。</footer>
+<script src="versions.js"></script>
+<script>
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const cmp = (page, v, w, other) => `preview.html?a=${page.id}/${v.id}/&b=${other}&w=${w}`;
+  document.getElementById('pages').innerHTML = window.MOCK.pages.map(page => `
+    <section>
+      <h2>${esc(page.name)} <small>${esc(page.id)}/ ・ 本物: <a href="${esc(page.live)}" target="_blank" rel="noopener">${esc(page.live)}</a></small></h2>
+      <table>
+        <tr><th>版</th><th>日付</th><th>メモ</th><th>表示</th></tr>
+        ${page.versions.map(v => `
+          <tr>
+            <td class="id"><a href="${page.id}/${v.id}/">${esc(v.id)}</a>${v.id==='draft' ? '<span class="tag draft">作業中</span>' : v.id==='current' ? '<span class="tag">現状</span>' : ''}</td>
+            <td class="date">${esc(v.date || '')}</td>
+            <td>${esc(v.note || '')}</td>
+            <td class="links">
+              <a href="${page.id}/${v.id}/">単体</a>
+              <a href="${cmp(page, v, 390, '')}">390</a>
+              <a href="${cmp(page, v, 1280, '')}">1280</a>
+              ${v.id!=='current' ? `<a href="${cmp(page, v, 390, page.id+'/current/')}">現状と比較 390</a><a href="${cmp(page, v, 1280, page.id+'/current/')}">1280</a>` : `<a href="${cmp(page, v, 390, page.live)}">本物と比較 390</a>`}
+            </td>
+          </tr>`).join('')}
+      </table>
+    </section>`).join('');
+</script>
+</body>
+</html>
