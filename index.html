@@ -42,7 +42,7 @@
         <tr><th>版</th><th>日付</th><th>メモ</th><th>表示</th></tr>
         ${page.versions.map(v => `
           <tr>
-            <td class="id"><a href="${page.id}/${v.id}/">${esc(v.id)}</a>${v.id==='draft' ? '<span class="tag draft">作業中</span>' : v.id==='current' ? '<span class="tag">現状</span>' : ''}</td>
+            <td class="id"><a href="${page.id}/${v.id}/">${esc(v.id)}</a>${v.id.startsWith('draft') ? '<span class="tag draft">検討中</span>' : v.id==='current' ? '<span class="tag">現状</span>' : ''}</td>
             <td class="date">${esc(v.date || '')}</td>
             <td>${esc(v.note || '')}</td>
             <td class="links">
