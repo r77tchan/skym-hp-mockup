@@ -24,7 +24,7 @@ window.MOCK = {
       live: 'https://skym.co.jp/recruit',
       versions: [
         { id: 'current', date: '2026-09-04', note: '現状再現(ID 6177。タイトル帯なし)' },
-        { id: 'draft1', date: '2026-09-04', note: '案1: メッセージ中心に再構成(素材 A〜C、参考セットの雰囲気)。写真は撮影指示付きプレースホルダー。本文は block.html' },
+        { id: 'draft1', date: '2026-09-04', note: '案1: メッセージ中心に再構成。事業内容は写真カード(C 案)・平易な名称。写真は撮影指示付きプレースホルダー。本文は block.html' },
       ],
     },
   ],

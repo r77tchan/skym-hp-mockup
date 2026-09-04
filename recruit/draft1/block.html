@@ -60,27 +60,34 @@
 #skym-recruit .rc-business{background:var(--light)}
 #skym-recruit .rc-head{max-width:780px;margin-bottom:48px}
 #skym-recruit .rc-head p{color:var(--muted)}
+/* 募集職種で使う素のカード */
 #skym-recruit .rc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-#skym-recruit .rc-card{position:relative;border:2px solid var(--navy);border-radius:24px;padding:30px 28px 28px;min-height:300px;display:flex;flex-direction:column;background:#fff;transition:transform .2s}
+#skym-recruit .rc-card{position:relative;border:2px solid var(--navy);border-radius:24px;padding:30px 28px 28px;display:flex;flex-direction:column;background:#fff;transition:transform .2s}
 #skym-recruit .rc-card:hover{transform:translateY(-4px)}
-#skym-recruit .rc-card .rc-num{position:absolute;top:26px;right:26px;font-size:13px;font-weight:800;letter-spacing:.05em}
-#skym-recruit .rc-card .rc-ico{width:48px;height:48px;margin-bottom:36px}
-#skym-recruit .rc-card .rc-ico svg{display:block;width:48px;height:48px}
 #skym-recruit .rc-card small{display:block;font-size:11px;font-weight:800;letter-spacing:.2em;margin-bottom:10px;opacity:.85;line-height:1.4}
 #skym-recruit .rc-card h3{margin-bottom:14px!important}
 #skym-recruit .rc-card p{font-size:14px!important;line-height:1.8!important;flex:1}
-#skym-recruit .rc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
-#skym-recruit .rc-tags span{border:1.5px solid currentColor;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:800;letter-spacing:.04em;line-height:1.5}
-#skym-recruit .c-blue{background:var(--blue);color:#fff}
-#skym-recruit .c-mint{background:var(--mint)}
-#skym-recruit .c-lime{background:var(--lime)}
-#skym-recruit .c-coral{background:var(--coral);color:#fff}
-#skym-recruit .c-purple{background:var(--purple)}
+/* 事業内容(.skym-business は事業内容ページと共有する部品。#skym-recruit に依存しない書き方) */
+.skym-business .bz-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;max-width:none}
+.skym-business .bz-head>div{max-width:780px;flex:1 1 auto}
+.skym-business .bz-more{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:800;color:#111827!important;border-bottom:2px solid #111827;padding-bottom:4px;white-space:nowrap;text-decoration:none!important;line-height:1.4}
+.skym-business .bz-more:hover{color:#02A0E9!important;border-color:#02A0E9}
+.skym-business .bz-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skym-business .bz-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(17,24,39,.06),0 8px 24px rgba(17,24,39,.06);display:flex;flex-direction:column}
+.skym-business .bz-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;aspect-ratio:3/2;background:#E5E7EB repeating-linear-gradient(135deg,rgba(17,24,39,.06) 0 14px,transparent 14px 28px);color:#4B5563;text-align:center;padding:16px}
+.skym-business .bz-ph svg{opacity:.7}
+.skym-business .bz-ph b{font-size:12px;letter-spacing:.2em;font-weight:800;line-height:1.4}
+.skym-business .bz-ph small{font-size:12px;line-height:1.5;color:#6B7280}
+.skym-business .bz-body{padding:22px 26px 28px;flex:1;display:flex;flex-direction:column}
+.skym-business .bz-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.skym-business .bz-num{font-size:12px;font-weight:800;color:#02A0E9;letter-spacing:.1em}
+.skym-business .bz-top small{font-size:11px;font-weight:700;letter-spacing:.16em;color:#5B6472;line-height:1.4;text-align:right}
+.skym-business .bz-card h3{font-size:21px!important;line-height:1.4!important;margin-bottom:10px!important}
+.skym-business .bz-card p{font-size:14px!important;line-height:1.85!important;color:#374151;flex:1}
 #skym-recruit .rc-story{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-top:64px;padding:48px;background:#fff;border:2px solid var(--navy);border-radius:24px}
 #skym-recruit .rc-story h3{font-size:clamp(26px,2.6vw,36px)!important;margin-bottom:18px!important}
 #skym-recruit .rc-story p{font-size:15px!important;line-height:1.95!important}
 #skym-recruit .rc-story .rc-ph{aspect-ratio:4/3}
-#skym-recruit .rc-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px}
 #skym-recruit .rc-note{max-width:780px;margin-top:48px;color:var(--muted)}
 
 /* 4 AI */
@@ -122,15 +129,15 @@
 @media(max-width:900px){
   #skym-recruit section{padding:72px 0}
   #skym-recruit .rc-grid2{grid-template-columns:1fr;gap:32px}
-  #skym-recruit .rc-cards,#skym-recruit .rc-photos,#skym-recruit .rc-people{grid-template-columns:1fr 1fr}
+  #skym-recruit .rc-cards,.skym-business .bz-cards,#skym-recruit .rc-people{grid-template-columns:1fr 1fr}
+  .skym-business .bz-head{flex-direction:column;align-items:flex-start}
   #skym-recruit .rc-hero{min-height:0;padding:140px 0 96px}
   #skym-recruit .rc-story{grid-template-columns:1fr;gap:24px;padding:28px}
   #skym-recruit .rc-hero .rc-ph-hero{left:20px;right:auto;bottom:14px;font-size:11px}
   #skym-recruit .rc-scroll{display:none}
 }
 @media(max-width:600px){
-  #skym-recruit .rc-cards,#skym-recruit .rc-photos,#skym-recruit .rc-people{grid-template-columns:1fr}
-  #skym-recruit .rc-card{min-height:0}
+  #skym-recruit .rc-cards,.skym-business .bz-cards,#skym-recruit .rc-people{grid-template-columns:1fr}
   #skym-recruit .rc-chips span{font-size:13px;padding:8px 14px}
 }
 </style>
@@ -163,21 +170,24 @@
   </div>
 </section>
 
-<!-- 3. 事業内容 -->
-<section class="rc-business" id="rc-business">
+<!-- 3. 事業内容(.skym-business = 事業内容ページと共有する部品) -->
+<section class="rc-business skym-business" id="rc-business">
   <div class="rc-inner">
-    <div class="rc-head">
-      <span class="rc-label">What we do</span>
-      <h2>ITを軸に、<br>「面白い」を仕事にする。</h2>
-      <p>企業のITを支える仕事と、自分たちで考えてつくる仕事。その両方がSKYMにあります。</p>
+    <div class="rc-head bz-head">
+      <div>
+        <span class="rc-label">Business</span>
+        <h2>事業内容</h2>
+        <p>企業のITを支える仕事と、自分たちで考えてつくる仕事。その両方がSKYMにあります。</p>
+      </div>
+      <a class="bz-more" href="https://skym.co.jp/service">事業内容をくわしく見る<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="rc-cards">
-      <div class="rc-card c-blue"><span class="rc-num">01</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 9l3 3-3 3M12 15h5M8 21h8"/></svg></div><small>IT SOLUTION</small><h3>企業のITを、<br>支える。</h3><p>システム開発、インフラの設計・構築、運用・保守。企業のインフラ運用・システム開発を支援します。</p><div class="rc-tags"><span>受託開発</span><span>インフラ</span><span>運用・保守</span></div></div>
-      <div class="rc-card c-mint"><span class="rc-num">02</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div><small>AI &amp; DIGITAL</small><h3>AIを、<br>使える仕組みへ。</h3><p>AIやITを利用した業務改善、システム化、新しいサービス開発。これまでのIT経験とAIを組み合わせます。</p><div class="rc-tags"><span>AI活用</span><span>DX</span><span>業務改善</span></div></div>
-      <div class="rc-card c-lime"><span class="rc-num">03</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></div><small>EC &amp; PRODUCT</small><h3>モノを売るだけ<br>じゃない。</h3><p>AIを組み込んだ「ECアドバイザー型」の新タイプECサイト。アウトドアグッズやアパレル製品も、自分たちで企画し、デザインし、販売します。</p><div class="rc-tags"><span>EC</span><span>商品企画</span><span>アパレル</span><span>アウトドア</span></div></div>
-      <div class="rc-card c-coral"><span class="rc-num">04</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16v4a2 2 0 000 4v2H4v-2a2 2 0 000-4z"/><path d="M12 7v10" stroke-dasharray="2 2"/></svg></div><small>EVENT &amp; ENTERTAINMENT</small><h3>リアルな「楽しい」に、<br>ITを掛け合わせる。</h3><p>ストリートライブ支援のシステム運営、アウトドアイベントの企画・集客・運営、フリーマーケットの企画・運営、イベントを便利にするWebサービス。</p><div class="rc-tags"><span>イベント</span><span>ライブ支援</span><span>Webサービス</span></div></div>
-      <div class="rc-card"><span class="rc-num">05</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4M22 9v5"/></svg></div><small>EDUCATION</small><h3>学ぶだけではなく、<br>「できる」に。</h3><p>ITスクールの運営。ITやAIを実際に使い、自分で考えて動かせる人を育てます。</p><div class="rc-tags"><span>ITスクール</span><span>人材育成</span></div></div>
-      <div class="rc-card c-purple"><span class="rc-num">06</span><div class="rc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><small>SAKURA＋</small><h3>挑戦する人の、<br>最初の「＋」になる。</h3><p>スポーツ・音楽・趣味など、これから挑戦する人そのものを応援するプロジェクト。</p><div class="rc-tags"><span>CHALLENGE</span><span>SPORTS</span><span>MUSIC</span></div></div>
+    <div class="bz-cards">
+      <div class="bz-card"><div class="bz-ph"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>開発・運用の現場 ／ 3:2</small></div><div class="bz-body"><div class="bz-top"><span class="bz-num">01</span><small>IT SOLUTION</small></div><h3>システム開発・インフラ運用支援</h3><p>企業のシステム開発、インフラの設計・構築、運用・保守を支援します。SKYMの土台になっている事業です。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>AI を使っている画面・ツール ／ 3:2</small></div><div class="bz-body"><div class="bz-top"><span class="bz-num">02</span><small>AI &amp; DIGITAL</small></div><h3>AI活用・DX支援</h3><p>AIやITを利用した業務改善、システム化、新しいサービス開発。これまでのIT経験とAIを組み合わせます。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>EC サイトの画面・商品 ／ 3:2</small></div><div class="bz-body"><div class="bz-top"><span class="bz-num">03</span><small>EC &amp; PRODUCT</small></div><h3>自社ECサイト運営・商品企画</h3><p>AIを組み込んだ「ECアドバイザー型」のECサイトを自社で運営。アウトドアグッズやアパレル製品の企画・デザイン・販売も行います。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>イベントの様子 ／ 3:2</small></div><div class="bz-body"><div class="bz-top"><span class="bz-num">04</span><small>EVENT &amp; ENTERTAINMENT</small></div><h3>イベント企画・運営</h3><p>ストリートライブ支援のシステム運営、アウトドアイベントやフリーマーケットの企画・集客・運営、イベントを便利にするWebサービス。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>研修・学習の様子 ／ 3:2</small></div><div class="bz-body"><div class="bz-top"><span class="bz-num">05</span><small>EDUCATION</small></div><h3>ITスクール運営</h3><p>ITやAIを実際に使い、自分で考えて動かせる人を育てるITスクールの運営。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>挑戦する人(スポーツ・音楽) ／ 3:2</small></div><div class="bz-body"><div class="bz-top"><span class="bz-num">06</span><small>SAKURA＋</small></div><h3>挑戦する人の応援プロジェクト</h3><p>スポーツ・音楽・趣味など、これから何かに挑戦する人そのものを、IT・AI・Web・イベントの力で応援するプロジェクト「SAKURA＋」。</p></div></div>
     </div>
     <div class="rc-story">
       <div>
@@ -187,10 +197,6 @@
         <p>アウトドアグッズやアパレル製品も、自分たちで企画し、デザインし、販売する。ECサイトを運営するだけではなく、新しい“売り方”そのものを仕掛けていく事を行っています。</p>
       </div>
       <div class="rc-ph"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>EC の商品・アパレル ／ 4:3</small></div>
-    </div>
-    <div class="rc-photos">
-      <div class="rc-ph r-3-2"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>イベントの様子 ／ 3:2</small></div>
-      <div class="rc-ph r-3-2"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg><b>PHOTO</b><small>開発・運用の現場 ／ 3:2</small></div>
     </div>
     <p class="rc-note">最初から事業として完成していたものばかりではありません。日常の中で見つけた「これ、もっと便利にできない？」「こんなのあったら面白くない？」そんなところから始まっています。</p>
   </div>
