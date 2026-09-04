@@ -27,7 +27,9 @@
 
 - `current/` と `vNN/` は**凍結**(変更しない)。編集するのは `draftN/` だけ。番号は「案」の単位(案 1 = `draft1`、別方向の案 2 = `draft2`)。同じ案の手直しは同じディレクトリで上書きする(履歴は git)
 - 共有用に固定 URL が欲しいとき(節目)は凍結する: `cp -r top/draft1 top/v01` → `versions.js` の該当ページに `{ id: 'v01', date: '…', note: 'draft1 の YYYY-MM-DD 時点' }` を足す → commit → push
-- 案を作るとき: `cp -r top/current top/draft1` → `versions.js` に `{ id: 'draft1', date: '', note: '案1: 何を狙った案か' }` を足す
+- 案を作るとき(生 HTML + 独自 CSS 方式): `<page>/draftN/block.html` に **WP に貼る本文そのもの**(`<style>` + HTML。ルート要素に `data-row-class="…"` で VC 行に付けるクラスを書く)を書き、`python3 tools/build-draft.py <page> draftN` で current の骨格(ヘッダー/フッター)に差し込んだ `index.html` を生成する。current を直接コピーして本文だけ書き換えてもよい
+- `versions.js` に `{ id: 'draft1', date: '', note: '案1: 何を狙った案か' }` を足す
+- 写真がまだ無い場所は `.rc-ph` のような**撮影指示付きプレースホルダー**(ラベルに被写体と比率)を置き、写真が来たら `<img>` に置き換える
 - 何を変えた版かの詳細は `skym-hp-wp/doc/作業記録/` に書く(versions.js の note は一行の要約)
 
 ## 表示方法
@@ -41,6 +43,7 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 - 一覧: http://127.0.0.1:8765/
 - 現状: http://127.0.0.1:8765/top/current/
 - 幅指定・比較: http://127.0.0.1:8765/preview.html?a=top/draft1/&b=top/current/&w=390 (ヘッダーで幅・表示を切替。`b` には URL も指定可)
+- 全景(スマホ幅の縦長スクロール確認): `preview.html?a=recruit/draft1/&w=390&h=7200`(`h` = iframe の高さ px。ページ側をスクロールして見る。ブラウザ MCP は iframe 内をスクロールできないため)
 
 公開側も同じパス(`https://r77tchan.github.io/skym-hp-mockup/` 以下)。
 

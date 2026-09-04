@@ -20,7 +20,7 @@
   <a href="./">一覧</a>
   <span>幅:</span><span id="widths"></span>
   <span style="margin-left:16px">表示:</span><span id="modes"></span>
-  <span style="margin-left:auto;color:#888">?a=top/v01/&amp;b=top/current/&amp;w=390 で指定(b は省略可、URL も可)</span>
+  <span style="margin-left:auto;color:#888">?a=top/v01/&amp;b=top/current/&amp;w=390 で指定(b は省略可、URL も可。&amp;h=6000 で全景)</span>
 </header>
 <main id="main"></main>
 <script src="versions.js"></script>
@@ -29,6 +29,7 @@
   const w = parseInt(q.get('w') || '390', 10);
   const a = q.get('a') || 'top/current/';
   const b = q.get('b') || null;
+  const h = parseInt(q.get('h') || '0', 10); // h を指定すると iframe をその高さで固定し、ページ全体をスクロールして全景を見る
   const pageId = a.split('/')[0];
   const page = (window.MOCK.pages.find(p => p.id === pageId)) || window.MOCK.pages[0];
   const widths = [375, 390, 430, 768, 1024, 1280, 1440];
@@ -43,7 +44,8 @@
     const p = new URLSearchParams(location.search); p.set('a', m.a); m.b ? p.set('b', m.b) : p.delete('b');
     return `<a class="${(m.a===a && (m.b||null)===(b||null))?'on':''}" href="?${p}">${n}</a>`;
   }).join('');
-  const pane = (src) => `<div class="pane"><div class="cap" style="max-width:${w}px">${src} @ ${w}px</div><iframe src="${src}" width="${w}"></iframe></div>`;
+  const pane = (src) => `<div class="pane"><div class="cap" style="max-width:${w}px">${src} @ ${w}px</div><iframe src="${src}" width="${w}"${h ? ` style="height:${h}px"` : ''}></iframe></div>`;
+  if (h) { document.getElementById('main').style.height = 'auto'; document.getElementById('main').style.overflow = 'visible'; }
   document.getElementById('main').innerHTML = pane(a) + (b ? pane(b) : '');
 </script>
 </body>
