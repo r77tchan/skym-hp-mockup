@@ -33,5 +33,29 @@ window.MOCK = {
         { id: 'draft6', date: '', note: '案6: draft5 複製。全文チェックを反映(AI節末尾の「つくる」連打を1文に、カギ括弧を減らす、「仕事を動かせる人」、AI節1段落目の論理、きっかけの受け直し、インタビュー氏名を日本語+ローマ字)。メッセージ節の右カラム位置とカギ括弧のぶら下げ' },
       ],
     },
+    {
+      id: 'career',
+      name: '中途採用',
+      live: 'https://skym.co.jp/recruit/career',
+      versions: [
+        { id: 'current', date: '2026-09-07', note: '現状再現(ID 7807。タイトル帯あり。2015 年の内容: 第5期メンバー募集・5 職種タブ・SORAJUKU)' },
+      ],
+    },
+    {
+      id: 'newbie',
+      name: '未経験採用',
+      live: 'https://skym.co.jp/recruit/newbie',
+      versions: [
+        { id: 'current', date: '2026-09-07', note: '現状再現(ID 8464。タイトル帯あり。2015 年の内容: SORAJUKU・初任給 18 万円)' },
+      ],
+    },
+    {
+      id: 'graduate-pre',
+      name: '新卒採用',
+      live: 'https://skym.co.jp/graduate-pre',
+      versions: [
+        { id: 'current', date: '2026-09-07', note: '現状再現(ID 8577。タイトル帯あり。2026-08-25 作成の「未経験ITエンジニア採用」本文、VC の項目行 14 行)' },
+      ],
+    },
   ],
 };
