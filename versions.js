@@ -46,7 +46,7 @@ window.MOCK = {
     },
     {
       id: 'newbie',
-      name: '未経験採用',
+      name: '未経験採用(旧・2015 年のページ。WP 実装後は下書き化し、/recruit/newbie の URL は新卒・未経験ページが引き継ぐ)',
       live: 'https://skym.co.jp/recruit/newbie',
       versions: [
         { id: 'current', date: '2026-09-07', note: '現状再現(ID 8464。タイトル帯あり。2015 年の内容: SORAJUKU・初任給 18 万円)' },
@@ -54,7 +54,7 @@ window.MOCK = {
     },
     {
       id: 'graduate-pre',
-      name: '新卒採用',
+      name: '新卒・未経験採用(現 URL は /graduate-pre。WP 実装後は /recruit/newbie に移す。モックのディレクトリ名は現 URL のまま)',
       live: 'https://skym.co.jp/graduate-pre',
       versions: [
         { id: 'current', date: '2026-09-07', note: '現状再現(ID 8577。タイトル帯あり。2026-08-25 作成の「未経験ITエンジニア採用」本文、VC の項目行 14 行)' },
