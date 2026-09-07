@@ -69,10 +69,22 @@ a{color:inherit;text-decoration:none}
 .vC p{font-size:15px;line-height:1.9;color:#374151;flex:1;margin-bottom:26px}
 .vC .lnk{font-size:13px;font-weight:800}
 .vC .lnk::after{content:" ›";font-size:16px}
+/* #A2: A と同じ。ホバーだけ「行の背景が薄グレー + リンクが青」(見出しは青くしない) */
+.vA2 .list{border-top:1px solid var(--navy)}
+.vA2 .row{position:relative;isolation:isolate;display:grid;grid-template-columns:150px 260px 1fr auto;gap:32px;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--line)}
+.vA2 .row:last-child{border-bottom:1px solid var(--navy)}
+.vA2 .row::before{content:"";position:absolute;inset:0 -16px;border-radius:4px;background:transparent;transition:background .2s;z-index:-1}
+.vA2 .row:hover::before{background:var(--light)}
+.vA2 .row:hover .lnk{border-color:var(--blue);color:var(--blue)}
+.vA2 .en{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--muted)}
+.vA2 h3{font-size:28px;letter-spacing:.02em}
+.vA2 p{font-size:15px;line-height:1.9;color:#374151}
+.vA2 .lnk{font-size:13px;font-weight:800;white-space:nowrap;border-bottom:2px solid var(--navy);padding-bottom:4px;transition:color .2s,border-color .2s}
+@media(max-width:900px){.vA2 .row{grid-template-columns:1fr;gap:8px;padding:28px 0}.vA2 .lnk{justify-self:start;margin-top:6px}}
 </style>
 </head>
 <body>
-<div class="bar"><span>採用案内カードの見え方 比較(draft5 用 lab)</span><a href="#v0">#0 今</a><a href="#vA">#A 編集リスト</a><a href="#vB">#B 罫線 3 カラム</a><a href="#vC">#C 最小限カード</a><a href="../draft5/">draft5 へ</a></div>
+<div class="bar"><span>採用案内カードの見え方 比較(draft5 用 lab)</span><a href="#v0">#0 今</a><a href="#vA">#A 編集リスト</a><a href="#vA2">#A2 A のホバー違い(採用)</a><a href="#vB">#B 罫線 3 カラム</a><a href="#vC">#C 最小限カード</a><a href="../draft5/">draft5 へ</a></div>
 
 <section class="variant v0" id="v0"><div class="inner">
   <div class="vh"><span class="tag">#0 今の draft5</span><h2>薄グレーの角丸 24px 箱 + 両端揃えの番号行 + 右下の黒丸矢印</h2><p>生成 UI に共通する 3 点セット(角丸の淡色カード / 「01 … LABEL」の両端揃え / 黒丸の矢印ボタン)がそろっている。さらに直上の事業カードと同じ「番号 + 英語ラベル」の型を繰り返しているので量産感が出る。3 枚が完全に同型・同文字量で、固有の情報(数字・固有名詞)がないのも「どの会社にも貼れる文」に見える一因。</p></div>
@@ -87,6 +99,17 @@ a{color:inherit;text-decoration:none}
 
 <section class="variant vA" id="vA"><div class="inner">
   <div class="vh"><span class="tag">#A おすすめ · 編集リスト</span><h2>箱をやめて、目次のような 3 行にする</h2><p>日本のコーポレートサイトの「募集職種一覧」の型。英語ラベル・大きな日本語見出し・説明・テキストリンクを横一列に置く。角丸も丸矢印も番号もなし。行全体がリンクで、ホバーで見出しが青くなる。横幅を自然に使い切るので密度の問題も消え、直上の写真カードとの対比で「切り替わった」感じが出る。矢印は下の応募ボタンの 1 つだけになる。</p></div>
+  <span class="sec-label">Guide</span><h2 class="sec-h2">採用案内</h2>
+  <div class="list">
+    <a class="row" href="#"><span class="en">NEW GRADUATE</span><h3>新卒採用</h3><p>これから社会に出る学生の方。経験や知識は問わず、ITへの興味と学ぶ意欲があればスタートできます。</p><span class="lnk">募集要項を見る</span></a>
+    <a class="row" href="#"><span class="en">EXPERIENCED</span><h3>中途採用</h3><p>IT業界で実務経験をお持ちの方。開発に限らず、インフラ・運用・サポートなどの経験も活かせます。</p><span class="lnk">募集要項を見る</span></a>
+    <a class="row" href="#"><span class="en">CAREER CHANGE</span><h3>未経験採用</h3><p>IT業界未経験からエンジニアを目指す方。ITの基礎から始め、適性に合わせて進む分野を決めていきます。</p><span class="lnk">募集要項を見る</span></a>
+  </div>
+  <div class="cta"><a class="btn" href="#">応募フォームへ<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+
+<section class="variant vA2" id="vA2"><div class="inner">
+  <div class="vh"><span class="tag">#A2 採用(draft5 に実装)· A のホバー違い</span><h2>A と同じ構成で、ホバーは行の背景が薄グレーになりリンクだけ青</h2><p>見出しが青くなるのを避けた版。行に乗せると背景がわずかに沈み、「募集要項を見る」だけが青くなる。青の面積が小さいので落ち着き、押せる場所も伝わる。#A と行き来してホバーを比べる。</p></div>
   <span class="sec-label">Guide</span><h2 class="sec-h2">採用案内</h2>
   <div class="list">
     <a class="row" href="#"><span class="en">NEW GRADUATE</span><h3>新卒採用</h3><p>これから社会に出る学生の方。経験や知識は問わず、ITへの興味と学ぶ意欲があればスタートできます。</p><span class="lnk">募集要項を見る</span></a>

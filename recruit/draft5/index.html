@@ -278,17 +278,18 @@ img.emoji {
 
 /* 5 採用案内 */
 #skym-recruit .rc-positions{background:#fff}
-/* 採用案内カード(draft5): 番号+英語ラベル → 見出し → 対象1文+具体1文 → 下端に「くわしく見る」行。写真は置かず、下の空白を読める行で埋める */
-#skym-recruit .rc-pos .rc-card{background:var(--light);border-color:var(--line);min-height:0;padding:28px 28px 0}
-#skym-recruit .rc-pos .rc-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:16px}
-#skym-recruit .rc-pos .rc-num{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.12em;line-height:1.4}
-#skym-recruit .rc-pos .rc-card small{margin:0;opacity:1;color:var(--muted);letter-spacing:.18em;text-align:right}
-#skym-recruit .rc-pos .rc-card h3{margin-bottom:12px!important}
-#skym-recruit .rc-pos .rc-card p{flex:1 1 auto;font-size:15px!important;line-height:1.85!important;color:#374151;margin:0 0 26px!important}
-#skym-recruit .rc-pos .rc-more{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding:16px 0 18px;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--navy);line-height:1.4}
-#skym-recruit .rc-pos .rc-arrow{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:background .2s}
-#skym-recruit .rc-pos .rc-card:hover .rc-arrow{background:var(--blue)}
-#skym-recruit .rc-pos .rc-card:hover{border-color:var(--navy)}
+/* 採用案内(draft5・A 案): 箱・番号・丸矢印をやめ、英語ラベル/見出し/説明/テキストリンクの 3 行(編集リスト)。ホバーは行の背景が薄グレーになりリンクだけ青(見出しは青くしない) */
+#skym-recruit .rc-guide{border-top:1px solid var(--navy)}
+#skym-recruit .rc-row{position:relative;isolation:isolate;display:grid;grid-template-columns:150px 260px 1fr auto;gap:32px;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--line)}
+#skym-recruit .rc-row:last-child{border-bottom:1px solid var(--navy)}
+/* ホバーの薄グレーだけ左右 16px はみ出させる(罫線は見出し幅に揃えたまま) */
+#skym-recruit .rc-row::before{content:"";position:absolute;inset:0 -16px;border-radius:4px;background:transparent;transition:background .2s;z-index:-1}
+#skym-recruit .rc-row:hover::before{background:var(--light)}
+#skym-recruit .rc-row:hover .rc-lnk{color:var(--blue);border-color:var(--blue)}
+#skym-recruit .rc-row .rc-en{font-size:12px!important;font-weight:700;letter-spacing:.16em;color:var(--muted);line-height:1.4!important}
+#skym-recruit .rc-row h3{font-size:28px!important;letter-spacing:.02em!important;line-height:1.3!important;margin:0!important}
+#skym-recruit .rc-row p{font-size:15px!important;line-height:1.9!important;color:#374151;margin:0!important}
+#skym-recruit .rc-row .rc-lnk{font-size:13px;font-weight:800;white-space:nowrap;border-bottom:2px solid var(--navy);padding-bottom:4px;line-height:1.4;justify-self:end;transition:color .2s,border-color .2s}
 #skym-recruit .rc-cta{margin-top:48px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 #skym-recruit .rc-btn{display:inline-flex;align-items:center;gap:16px;background:var(--navy);color:#fff!important;border-radius:999px;padding:20px 34px;font-weight:800;letter-spacing:.06em;font-size:15px;line-height:1;border:2px solid var(--navy);transition:background .2s,border-color .2s}
 #skym-recruit .rc-btn:hover{background:var(--blue);border-color:var(--blue)}
@@ -318,6 +319,9 @@ img.emoji {
   #skym-recruit .rc-hero,#skym-recruit .rc-closing{background-attachment:fixed}
 }
 @media(max-width:900px){
+  #skym-recruit .rc-row{grid-template-columns:1fr;gap:8px;padding:26px 0}
+  #skym-recruit .rc-row::before{inset:0 -12px}
+  #skym-recruit .rc-row .rc-lnk{justify-self:start;margin-top:8px}
   #skym-recruit section{padding:72px 0}
   #skym-recruit .rc-grid2{grid-template-columns:1fr;gap:32px}
   #skym-recruit .rc-cards,.skym-business .bz-cards,#skym-recruit .rc-people{grid-template-columns:1fr 1fr}
@@ -402,10 +406,10 @@ img.emoji {
       <span class="rc-label">Guide</span>
       <h2>採用案内</h2>
     </div>
-    <div class="rc-cards rc-pos">
-      <a class="rc-card" href="https://skym.co.jp/graduate-pre"><div class="rc-top"><span class="rc-num">01</span><small>NEW GRADUATE</small></div><h3>新卒採用</h3><p>これから社会に出る学生の方。経験や知識は問わず、ITへの興味と学ぶ意欲があればスタートできます。</p><span class="rc-more">くわしく見る<span class="rc-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
-      <a class="rc-card" href="https://skym.co.jp/recruit/career"><div class="rc-top"><span class="rc-num">02</span><small>EXPERIENCED</small></div><h3>中途採用</h3><p>IT業界で実務経験をお持ちの方。開発に限らず、インフラ・運用・サポートなどの経験も活かせます。</p><span class="rc-more">くわしく見る<span class="rc-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
-      <a class="rc-card" href="https://skym.co.jp/recruit/newbie"><div class="rc-top"><span class="rc-num">03</span><small>CAREER CHANGE</small></div><h3>未経験採用</h3><p>IT業界未経験からエンジニアを目指す方。ITの基礎から始め、適性に合わせて進む分野を決めていきます。</p><span class="rc-more">くわしく見る<span class="rc-arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span></a>
+    <div class="rc-guide">
+      <a class="rc-row" href="https://skym.co.jp/graduate-pre"><span class="rc-en">NEW GRADUATE</span><h3>新卒採用</h3><p>これから社会に出る学生の方。経験や知識は問わず、ITへの興味と学ぶ意欲があればスタートできます。</p><span class="rc-lnk">募集要項を見る</span></a>
+      <a class="rc-row" href="https://skym.co.jp/recruit/career"><span class="rc-en">EXPERIENCED</span><h3>中途採用</h3><p>IT業界で実務経験をお持ちの方。開発に限らず、インフラ・運用・サポートなどの経験も活かせます。</p><span class="rc-lnk">募集要項を見る</span></a>
+      <a class="rc-row" href="https://skym.co.jp/recruit/newbie"><span class="rc-en">CAREER CHANGE</span><h3>未経験採用</h3><p>IT業界未経験からエンジニアを目指す方。ITの基礎から始め、適性に合わせて進む分野を決めていきます。</p><span class="rc-lnk">募集要項を見る</span></a>
     </div>
     <div class="rc-cta">
       <a class="rc-btn" href="https://skym.co.jp/recruit/form">応募フォームへ<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
