@@ -30,6 +30,7 @@
 - 共有用に固定 URL が欲しいとき(節目)は凍結する: `cp -r top/draft1 top/v01` → `versions.js` の該当ページに `{ id: 'v01', date: '…', note: 'draft1 の YYYY-MM-DD 時点' }` を足す → commit → push
 - 案を作るとき(生 HTML + 独自 CSS 方式): `<page>/draftN/block.html` に **WP に貼る本文そのもの**(`<style>` + HTML。ルート要素に `data-row-class="…"` で VC 行に付けるクラスを書く)を書き、`python3 tools/build-draft.py <page> draftN` で current の骨格(ヘッダー/フッター)に差し込んだ `index.html` を生成する。current を直接コピーして本文だけ書き換えてもよい
 - `versions.js` に `{ id: 'draft1', date: '', note: '案1: 何を狙った案か' }` を足す
+- 複数ページで同じ `<style>` を使うとき(採用の個別ページ `career` / `graduate-pre` / `newbie` の `#skym-rsub`)は、CSS を 1 つの block.html(`career/draft1`)で直し、`python3 tools/sync-style.py career/draft1 graduate-pre/draft1 …` で他ページに配ってから各ページを build-draft.py で再生成する
 - 写真がまだ無い場所は `.rc-ph` のような**撮影指示付きプレースホルダー**(ラベルに被写体と比率)を置き、写真が来たら `<img>` に置き換える
 - 何を変えた版かの詳細は `skym-hp-wp/doc/作業記録/` に書く(versions.js の note は一行の要約)
 
@@ -71,4 +72,4 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 2. `versions.js` の `pages` にページ(id・name・live・versions: current)を足す
 3. ローカルで表示確認(`preview.html?a=<page>/current/&b=<本物の URL>&w=390`)→ commit → push
 
-作成済み: `top`(2026-09-01、手作業。上の加工を先に手で行ったもの)/ `service`(事業内容、ID 6170、2026-09-04)/ `recruit`(採用情報、ID 6177、2026-09-04)。URL は末尾スラッシュ無し(`/service/` は `/service` へ 301)
+作成済み: `top`(2026-09-01、手作業。上の加工を先に手で行ったもの)/ `service`(事業内容、ID 6170、2026-09-04)/ `recruit`(採用情報、ID 6177、2026-09-04)/ `career`(中途採用、ID 7807)・`newbie`(未経験採用、ID 8464)・`graduate-pre`(新卒採用、ID 8577)(いずれも 2026-09-07)。URL は末尾スラッシュ無し(`/service/` は `/service` へ 301)
