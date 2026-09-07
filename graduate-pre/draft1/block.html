@@ -1,0 +1,309 @@
+<!-- skym recruit sub-page template (graduate-pre draft1 = 未経験ITエンジニア採用) / data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。
+     style ブロックは career/draft1/block.html が正。python3 tools/sync-style.py career/draft1 graduate-pre/draft1 でコピーする -->
+<div id="skym-rsub" class="rs-entry" data-row-class="rs-wrap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="rs-wrap") */
+.l-section.rs-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.rs-wrap .g-cols,.l-section.rs-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-rsub{
+  --blue:#02A0E9;--navy:#111827;--lime:#D9FF55;
+  --light:#F6F8FA;--line:#DDE3E8;--muted:#5B6472;--body:#1F2937;--ph-line:#9CA3AF;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;
+}
+#skym-rsub *,#skym-rsub *:before,#skym-rsub *:after{box-sizing:border-box}
+#skym-rsub h2,#skym-rsub h3,#skym-rsub h4{
+  font-family:inherit!important;font-weight:900!important;line-height:1.25!important;letter-spacing:-.01em!important;
+  color:inherit!important;margin:0 0 .5em!important;padding:0!important;text-transform:none!important;
+}
+#skym-rsub h2{font-size:clamp(28px,3.4vw,44px)!important}
+#skym-rsub h3{font-size:clamp(18px,1.6vw,22px)!important;line-height:1.35!important}
+#skym-rsub h4{font-size:15px!important;line-height:1.4!important}
+/* テーマが span/b の太さを上書きするので親から継承させる */
+#skym-rsub h2 span,#skym-rsub h3 span,#skym-rsub p span,#skym-rsub li span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-rsub p{margin:0 0 1.1em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-rsub p:last-child{margin-bottom:0!important}
+#skym-rsub ul{list-style:none!important;margin:0!important;padding:0!important}
+#skym-rsub li{margin:0!important;padding:0!important;list-style:none!important;line-height:inherit}
+#skym-rsub a{color:inherit;text-decoration:none!important}
+#skym-rsub .rs-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-rsub section{padding:96px 0;margin:0;background:#fff}
+#skym-rsub section.rs-alt{background:var(--light)}
+#skym-rsub .rs-label{display:block;font-size:12px!important;font-weight:800!important;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 18px!important;line-height:1.4!important}
+#skym-rsub .rs-label.ja{letter-spacing:.14em;font-size:13px!important}
+#skym-rsub .rs-head{margin-bottom:48px;max-width:780px}
+#skym-rsub .rs-head h2{margin-bottom:0!important}
+#skym-rsub .rs-head .rs-lead{margin-top:20px!important}
+#skym-rsub .rs-grid2{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+/* 右カラムの先頭行を左の h2 の上端に揃える(ラベル 12px×1.4 + 余白 18px ≒ 35px) */
+#skym-rsub .rs-copy{padding-top:38px}
+#skym-rsub .rs-lead{font-size:clamp(17px,1.5vw,20px)!important;font-weight:800!important;line-height:1.75!important}
+#skym-rsub .rs-lead.rs-hang{text-indent:-.5em}
+#skym-rsub .rs-body{color:var(--body)}
+#skym-rsub .rs-note{font-size:13px!important;color:var(--muted);line-height:1.7!important}
+#skym-rsub .rs-lnk{display:inline-block;font-size:13px;font-weight:800;border-bottom:2px solid var(--navy);padding-bottom:4px;line-height:1.4;transition:color .2s,border-color .2s}
+#skym-rsub .rs-lnk:hover{color:var(--blue);border-color:var(--blue)}
+#skym-rsub .rs-lnk svg{vertical-align:-3px;margin-left:6px}
+#skym-rsub .rs-jump{margin-top:28px}
+
+/* キャリア(番号 → 英語名 → 説明)。箱・アイコンを使わず、上罫線だけで区切る */
+#skym-rsub .rs-tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 40px}
+#skym-rsub .rs-track{border-top:2px solid var(--navy);padding-top:20px}
+#skym-rsub .rs-num{display:block;font-size:12px!important;font-weight:800;color:var(--blue);letter-spacing:.14em;line-height:1.4!important}
+#skym-rsub .rs-track h3{margin:8px 0 10px!important;letter-spacing:.01em!important}
+#skym-rsub .rs-track p{font-size:15px!important;line-height:1.85!important;color:var(--body)}
+#skym-rsub p.rs-foot{margin-top:40px!important;max-width:780px}
+
+/* 未経験からのスタート(4 ステップ) */
+#skym-rsub .rs-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+#skym-rsub .rs-step{background:#fff;border:2px solid var(--line);border-radius:20px;padding:28px 26px 30px}
+#skym-rsub .rs-step .rs-big{display:block;font-size:34px;font-weight:900;color:var(--blue);line-height:1;letter-spacing:.02em}
+#skym-rsub .rs-step h3{font-size:19px!important;margin:16px 0 10px!important}
+#skym-rsub .rs-step p{font-size:14px!important;line-height:1.85!important;color:var(--body)}
+
+/* キーワードのチップ(スキルアップ支援・キャリア領域) */
+#skym-rsub .rs-chips{display:flex;flex-wrap:wrap;gap:10px}
+#skym-rsub .rs-chips span{display:inline-block;border:2px solid var(--navy);border-radius:999px;padding:10px 20px;font-weight:700;font-size:15px;line-height:1.4;background:#fff}
+#skym-rsub .rs-chips.sm span{border-width:1.5px;padding:7px 14px;font-size:13px}
+#skym-rsub .rs-chips + .rs-lead{margin-top:32px!important}
+
+/* 仕事内容の右パネル(募集職種) */
+#skym-rsub .rs-panel{background:#fff;border:2px solid var(--navy);border-radius:20px;padding:30px 30px 32px}
+#skym-rsub .rs-panel .rs-label{margin-bottom:8px!important}
+#skym-rsub .rs-panel .rs-job{display:block;font-size:clamp(22px,2vw,26px);font-weight:900;line-height:1.3;letter-spacing:-.01em;margin-bottom:22px}
+#skym-rsub .rs-panel .rs-chips{margin-bottom:16px}
+#skym-rsub .rs-arrows li{padding-left:1.1em!important;position:relative;font-weight:700;color:var(--body);font-size:15px}
+#skym-rsub .rs-arrows li::before{content:"";position:absolute;left:0;top:.8em;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+#skym-rsub .rs-arrows{margin:0 0 1.1em!important}
+
+/* 募集要項(調べる部分。見出し列 + 内容列の表) */
+#skym-rsub .rs-table{border-top:2px solid var(--navy)}
+#skym-rsub .rs-row{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--line)}
+#skym-rsub .rs-row:last-child{border-bottom:2px solid var(--navy)}
+#skym-rsub .rs-th{font-weight:800;font-size:16px;line-height:1.7;padding-top:1px}
+#skym-rsub .rs-td{font-size:15px;line-height:1.9;color:var(--body)}
+#skym-rsub .rs-td p{margin-bottom:.6em!important}
+#skym-rsub .rs-td .rs-big{display:block;font-size:22px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:6px;letter-spacing:.01em}
+#skym-rsub .rs-td .rs-note{margin-top:.4em!important}
+/* 横並びの箇条書き(休日・福利厚生など):「／」区切りで 1〜2 行に収める */
+#skym-rsub .rs-inline{display:flex;flex-wrap:wrap;margin-bottom:.4em!important}
+#skym-rsub .rs-inline li{white-space:nowrap}
+#skym-rsub .rs-inline li::after{content:"／";color:var(--ph-line);margin:0 .45em}
+#skym-rsub .rs-inline li:last-child::after{content:none}
+/* 縦の箇条書き(歓迎する方など): 青い点 */
+#skym-rsub .rs-dots li{position:relative;padding-left:1.2em!important;font-size:15px;line-height:1.75;color:var(--body);margin-bottom:8px!important}
+#skym-rsub .rs-dots li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+
+/* 選考フロー(横 5 ステップ、山形の矢印でつなぐ) */
+#skym-rsub .rs-flow{display:grid;grid-template-columns:repeat(5,auto);border-top:2px solid var(--navy);border-bottom:2px solid var(--navy)}
+#skym-rsub .rs-flow li{position:relative;padding:32px 20px 32px 0!important}
+#skym-rsub .rs-flow li + li{padding-left:40px!important}
+#skym-rsub .rs-flow li + li::before{content:"";position:absolute;left:6px;top:50%;width:12px;height:12px;border-right:2px solid var(--ph-line);border-bottom:2px solid var(--ph-line);transform:translateY(-50%) rotate(-45deg)}
+#skym-rsub .rs-flow h3{font-size:clamp(15px,1.3vw,18px)!important;letter-spacing:.02em!important;margin:8px 0 4px!important}
+#skym-rsub .rs-flow small{display:block;font-size:14px;font-weight:600;color:var(--body);line-height:1.5}
+#skym-rsub .rs-flow-note{margin-top:24px}
+
+/* 応募ボタン(採用トップと同じ) */
+#skym-rsub .rs-btn{display:inline-flex;align-items:center;gap:16px;background:var(--navy);color:#fff!important;border-radius:999px;padding:20px 34px;font-weight:800;letter-spacing:.06em;font-size:15px;line-height:1;border:2px solid var(--navy);transition:background .2s,border-color .2s}
+#skym-rsub .rs-btn:hover{background:var(--blue);border-color:var(--blue)}
+#skym-rsub .rs-btn.lime{background:var(--lime);color:var(--navy)!important}
+#skym-rsub .rs-btn.lime:hover{background:var(--navy);border-color:var(--navy);color:#fff!important}
+
+/* 締め(採用トップと同じ濃紺写真帯。画像はヒーローと共用) */
+#skym-rsub .rs-closing{position:relative;color:#fff;overflow:hidden;padding:120px 0;
+  background:linear-gradient(rgba(17,24,39,.72),rgba(17,24,39,.72)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
+#skym-rsub .rs-closing h2{color:#fff!important;max-width:none;font-size:clamp(28px,3.6vw,46px)!important;margin-bottom:0!important}
+#skym-rsub .rs-closing .rs-msg{max-width:820px;margin:20px 0 36px!important;font-size:clamp(16px,1.5vw,19px)!important;font-weight:700!important;line-height:1.85!important;color:rgba(255,255,255,.92)}
+@media(min-width:901px){
+  #skym-rsub .rs-closing{background-attachment:fixed}
+}
+@media(max-width:900px){
+  #skym-rsub section{padding:72px 0}
+  #skym-rsub .rs-grid2{grid-template-columns:1fr;gap:36px}
+  #skym-rsub .rs-copy{padding-top:0}
+  #skym-rsub .rs-tracks{grid-template-columns:1fr 1fr;gap:32px 28px}
+  #skym-rsub .rs-steps{grid-template-columns:1fr 1fr}
+  #skym-rsub .rs-row{grid-template-columns:1fr;gap:6px;padding:22px 0}
+  #skym-rsub .rs-flow{grid-template-columns:1fr;border-bottom:0}
+  #skym-rsub .rs-flow li{padding:18px 0 18px 36px!important;border-bottom:1px solid var(--line)}
+  #skym-rsub .rs-flow li + li{padding-left:36px!important}
+  #skym-rsub .rs-flow li::before{content:"";position:absolute;left:4px;top:26px;width:12px;height:12px;border-right:2px solid var(--ph-line);border-bottom:2px solid var(--ph-line);transform:rotate(-45deg)}
+  #skym-rsub .rs-flow li:first-child::before{content:none}
+  #skym-rsub .rs-flow li:first-child{padding-left:0!important}
+  #skym-rsub .rs-flow li:last-child{border-bottom:2px solid var(--navy)}
+}
+@media(max-width:600px){
+  #skym-rsub .rs-tracks,#skym-rsub .rs-steps{grid-template-columns:1fr}
+  #skym-rsub .rs-inline{display:block}
+  #skym-rsub .rs-inline li{white-space:normal;display:inline}
+  #skym-rsub .rs-chips span{font-size:14px;padding:8px 16px}
+  #skym-rsub .rs-closing{padding:88px 0}
+}
+</style>
+
+<!-- 1. リード -->
+<section class="rs-intro" id="rs-intro">
+  <div class="rs-inner rs-grid2">
+    <div>
+      <span class="rs-label ja">未経験ITエンジニア採用</span>
+      <h2>ITの仕事を、<br>ここから始める。</h2>
+    </div>
+    <div class="rs-copy">
+      <p class="rs-lead">経験や知識がなくても、ITへの興味と学ぶ意欲があればスタートできます。</p>
+      <p class="rs-body">SKYMでは、システム開発・インフラ・ITサポート・社内IT支援など、さまざまなITプロジェクトに携わっています。</p>
+      <p class="rs-body">入社後は、これまでの経験や希望、適性を確認しながら、一人ひとりに合ったキャリアを一緒に考えていきます。</p>
+      <div class="rs-jump"><a class="rs-lnk" href="#rs-req">募集要項を見る<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 仕事内容 + 募集職種 -->
+<section class="rs-job rs-alt" id="rs-job">
+  <div class="rs-inner rs-grid2">
+    <div>
+      <span class="rs-label">Job</span>
+      <h2>仕事内容</h2>
+      <p class="rs-body">企業のシステム開発やITインフラの構築・運用、ITサポートなどのプロジェクトに参加していただきます。未経験の方は、現在のスキルや適性に合わせて、比較的取り組みやすい業務からスタートします。</p>
+      <p class="rs-body">経験を積んだ後は、より専門的な分野へのステップアップも可能です。</p>
+      <ul class="rs-arrows">
+        <li>ITサポート → インフラエンジニア</li>
+        <li>テスト・運用 → システム開発</li>
+        <li>運用 → クラウド・設計構築</li>
+      </ul>
+      <p class="rs-body">またSKYMでは、従来のIT業務だけでなく、AI活用、業務改善、自社サービスなど、新しい分野にも取り組んでいます。</p>
+    </div>
+    <div class="rs-copy">
+      <div class="rs-panel">
+        <span class="rs-label">Position</span>
+        <span class="rs-job">ITエンジニア／ITサポート</span>
+        <span class="rs-label">主なキャリア領域</span>
+        <div class="rs-chips sm"><span>システムエンジニア</span><span>プログラマー</span><span>インフラエンジニア</span><span>クラウドエンジニア</span><span>ネットワーク・サーバーエンジニア</span><span>ITサポート・ヘルプデスク</span><span>社内SE・情報システム支援</span><span>AI・DX関連業務</span></div>
+        <p class="rs-note">※入社時点ですべての知識や経験を持っている必要はありません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 未経験からのスタート -->
+<section class="rs-start" id="rs-start">
+  <div class="rs-inner">
+    <div class="rs-head">
+      <span class="rs-label">Step</span>
+      <h2>未経験からのスタート</h2>
+    </div>
+    <div class="rs-steps">
+      <div class="rs-step"><span class="rs-big">01</span><h3>ITの基礎を身につける</h3><p>PC、ネットワーク、サーバー、システム、セキュリティなど、IT業務に必要な基礎知識を身につけます。</p></div>
+      <div class="rs-step"><span class="rs-big">02</span><h3>実務を経験する</h3><p>本人のスキルや適性を確認しながら、実際のプロジェクトで経験を積んでいきます。</p></div>
+      <div class="rs-step"><span class="rs-big">03</span><h3>得意分野を見つける</h3><p>開発、インフラ、クラウド、ITサポートなど、実際の仕事を経験しながら自分に合った分野を見つけていきます。</p></div>
+      <div class="rs-step"><span class="rs-big">04</span><h3>専門性を高める</h3><p>より高度な技術や上位工程、プロジェクトリーダーなど、次のキャリアを目指します。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. キャリア -->
+<section class="rs-career rs-alt" id="rs-career">
+  <div class="rs-inner">
+    <div class="rs-head">
+      <span class="rs-label">Career</span>
+      <h2>キャリアについて</h2>
+      <p class="rs-lead">キャリアの正解は、一つではありません。</p>
+    </div>
+    <div class="rs-tracks">
+      <div class="rs-track"><span class="rs-num">01</span><h3>ENGINEER</h3><p>技術力を高め、専門性の高いエンジニアへ。</p></div>
+      <div class="rs-track"><span class="rs-num">02</span><h3>INFRA / CLOUD</h3><p>サーバー・ネットワークからクラウド、設計・構築へ。</p></div>
+      <div class="rs-track"><span class="rs-num">03</span><h3>MANAGEMENT</h3><p>チームリーダー、プロジェクトリーダー、マネジメントへ。</p></div>
+      <div class="rs-track"><span class="rs-num">04</span><h3>AI / DX</h3><p>AIやITを活用した業務改善、新しいサービス開発へ。</p></div>
+      <div class="rs-track"><span class="rs-num">05</span><h3>NEW BUSINESS</h3><p>自社サービスや新規事業の企画・運営へ。</p></div>
+    </div>
+    <p class="rs-body rs-foot">本人の希望と適性を確認しながら、一緒にキャリアを考えていきます。</p>
+  </div>
+</section>
+
+<!-- 5. スキルアップ支援 -->
+<section class="rs-skill" id="rs-skill">
+  <div class="rs-inner rs-grid2">
+    <div>
+      <span class="rs-label">Skill up</span>
+      <h2>スキルアップ支援</h2>
+      <p class="rs-body">IT業界は、一度覚えれば終わりという仕事ではありません。新しい技術やサービスが次々と生まれるからこそ、継続して学ぶことが重要です。</p>
+      <p class="rs-body">SKYMでは、次のような取り組みを通じて、一人ひとりの成長を支援します。</p>
+    </div>
+    <div class="rs-copy">
+      <div class="rs-chips"><span>資格取得</span><span>技術学習</span><span>AI活用</span><span>キャリア面談</span><span>実務経験</span></div>
+      <p class="rs-lead">資格を取得することだけを目的にするのではなく、「仕事で使えるスキルを増やすこと」を大切にしています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 募集要項 -->
+<section class="rs-req rs-alt" id="rs-req">
+  <div class="rs-inner">
+    <div class="rs-head">
+      <span class="rs-label">Requirements</span>
+      <h2>募集要項</h2>
+    </div>
+    <div class="rs-table">
+      <div class="rs-row"><div class="rs-th">雇用形態</div><div class="rs-td"><p>正社員</p><p>試用期間：6か月</p><p class="rs-note">※試用期間中の給与・待遇については変更なし</p></div></div>
+      <div class="rs-row"><div class="rs-th">勤務地</div><div class="rs-td"><p>本社または東京都・神奈川県・千葉県・埼玉県を中心としたプロジェクト先</p><p>プロジェクトによりリモートワークとなる場合があります。勤務地については、本人の希望・経験・適性・プロジェクト内容などを考慮して決定します。</p></div></div>
+      <div class="rs-row"><div class="rs-th">勤務時間</div><div class="rs-td"><span class="rs-big">9:00〜18:00</span><p>実働8時間／休憩1時間</p><p class="rs-note">※プロジェクトにより勤務時間が異なる場合があります。</p></div></div>
+      <div class="rs-row"><div class="rs-th">給与</div><div class="rs-td"><span class="rs-big">月給 24万円〜</span><p>経験・能力・前職給与等を考慮し、当社規定により決定します。</p><p>未経験からスタートした場合も、経験・スキル・担当業務の広がりに応じて給与アップを目指せる評価制度を設けています。</p></div></div>
+      <div class="rs-row"><div class="rs-th">昇給・賞与</div><div class="rs-td"><ul class="rs-inline"><li>昇給：年1回</li><li>賞与：年1回</li></ul><p class="rs-note">※会社業績・本人評価等によります。</p></div></div>
+      <div class="rs-row"><div class="rs-th">休日・休暇</div><div class="rs-td"><ul class="rs-inline"><li>完全週休2日制</li><li>土日祝日</li><li>年末年始休暇</li><li>夏季休暇</li><li>年次有給休暇</li><li>慶弔休暇</li><li>産前産後休暇</li><li>育児休暇</li></ul><p class="rs-note">※プロジェクトにより一部異なる場合があります。</p></div></div>
+      <div class="rs-row"><div class="rs-th">福利厚生・制度</div><div class="rs-td"><ul class="rs-inline"><li>各種社会保険完備</li><li>交通費支給</li><li>時間外勤務手当</li><li>資格取得支援</li><li>資格手当</li><li>書籍・学習支援</li><li>定期健康診断</li><li>キャリア面談</li><li>社内研修</li><li>リモートワーク制度</li><li>その他各種社内制度</li></ul><p class="rs-note">※各制度には当社規定があります。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. 応募資格 -->
+<section class="rs-qual" id="rs-qual">
+  <div class="rs-inner rs-grid2">
+    <div>
+      <span class="rs-label">Qualifications</span>
+      <h2>応募資格</h2>
+      <p class="rs-lead">経験不問／IT業界未経験歓迎</p>
+      <p class="rs-body">学歴やIT経験だけではなく、人柄や仕事への姿勢も重視して採用します。</p>
+    </div>
+    <div class="rs-copy">
+      <h3>こんな方を歓迎します</h3>
+      <ul class="rs-dots">
+        <li>IT業界に興味がある方</li>
+        <li>新しいことを学ぶ意欲がある方</li>
+        <li>分からないことを自分で調べられる方</li>
+        <li>周囲とコミュニケーションを取りながら仕事ができる方</li>
+        <li>継続して努力できる方</li>
+        <li>将来、専門的なスキルを身につけたい方</li>
+        <li>AIや新しい技術に興味がある方</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 選考フロー -->
+<section class="rs-flow-sec rs-alt" id="rs-flow">
+  <div class="rs-inner">
+    <div class="rs-head">
+      <span class="rs-label">Flow</span>
+      <h2>選考フロー</h2>
+    </div>
+    <ul class="rs-flow">
+      <li><span class="rs-num">01</span><h3>ENTRY</h3><small>エントリー</small></li>
+      <li><span class="rs-num">02</span><h3>INTERVIEW</h3><small>面接</small></li>
+      <li><span class="rs-num">03</span><h3>FINAL INTERVIEW</h3><small>最終面接</small></li>
+      <li><span class="rs-num">04</span><h3>OFFER</h3><small>内定</small></li>
+      <li><span class="rs-num">05</span><h3>JOIN US</h3><small>入社</small></li>
+    </ul>
+    <p class="rs-note rs-flow-note">※選考内容や回数は応募状況等により変更となる場合があります。</p>
+  </div>
+</section>
+
+<!-- 9. 締め -->
+<section class="rs-closing" id="rs-closing">
+  <div class="rs-inner">
+    <h2>最初から、<br>エンジニアである必要はありません。</h2>
+    <p class="rs-msg">IT業界に入る前は、誰もが未経験です。大切なのは、今何ができるかだけではなく、これから何ができるようになりたいか。ITを学び、仕事を経験し、自分の強みをつくる。そして将来は、技術だけではなく、AIや新しいサービスにも挑戦できる人へ。<br>あなたの「やってみたい」を、仕事に変えていきませんか。</p>
+    <a class="rs-btn lime" href="https://skym.co.jp/recruit/form">応募フォームへ<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+</div>
