@@ -17,6 +17,19 @@ new = (f'<!-- MOCK:CONTENT START ({draft}: 本文 = block.html。WP では [vc_r
        f'{block}\n</div></div></div></section>\n<!-- MOCK:CONTENT END -->')
 out = cur[:a] + new + cur[b:]
 out = re.sub(r'\[snapshot [0-9-]+\]', f'[{draft}]', out, count=1)
+# block.html のルートに data-page-title / data-page-subtitle があれば、テーマ生成のタイトル帯(h1・サブタイトル・パンくず末尾)と <title> の該当語を差し替える
+# (WP 側ではページタイトルと Zephyr のタイトル帯サブタイトルを変える想定。メニューのラベルは別途)
+pt = re.search(r'data-page-title="([^"]+)"', block); ps = re.search(r'data-page-subtitle="([^"]+)"', block)
+if pt:
+    ta = out.index('class="l-titlebar '); tb_ = out.index('<div class="l-main">', ta); tb = out[ta:tb_]
+    h1 = re.search(r'<h1>(.*?)</h1>', tb); old_title = h1.group(1)
+    tb = tb.replace(f'<h1>{old_title}</h1>', f'<h1>{pt.group(1)}</h1>', 1)
+    tb = tb.replace(f'<span class="g-breadcrumbs-item">{old_title}<', f'<span class="g-breadcrumbs-item">{pt.group(1)}<', 1)
+    if ps:
+        tb, n = re.subn(r'(</h1>\s*<p>)(.*?)(</p>)', lambda m: m.group(1) + ps.group(1) + m.group(3), tb, count=1); assert n == 1, 'subtitle <p> not found'
+    out = out[:ta] + tb + out[tb_:]
+    out = out.replace(f'<title>{old_title} |', f'<title>{pt.group(1)} |', 1)
+    print(f'タイトル帯: 「{old_title}」→「{pt.group(1)}」' + (f' / サブタイトル「{ps.group(1)}」' if ps else ''))
 out = out.replace('-->\n<html', f'  {draft}: 本文を {page}/{draft}/block.html に差し替えた改修案(tools/build-draft.py で生成。current 側の変更は再生成で追従)\n-->\n<html', 1)
 pathlib.Path(page, draft, 'index.html').write_text(out, encoding='utf-8')
 print(f'{page}/{draft}/index.html: {len(out)} 文字(block {len(block)} 文字, 行クラス "{wrap_class}")')
