@@ -17,7 +17,7 @@ new = (f'<!-- MOCK:CONTENT START ({draft}: 本文 = block.html。WP では [vc_r
        f'{block}\n</div></div></div></section>\n<!-- MOCK:CONTENT END -->')
 out = cur[:a] + new + cur[b:]
 out = re.sub(r'\[snapshot [0-9-]+\]', f'[{draft}]', out, count=1)
-# block.html のルートに data-page-title / data-page-subtitle があれば、テーマ生成のタイトル帯(h1・サブタイトル・パンくず末尾)と <title> の該当語を差し替える
+# block.html のルートに data-page-title / data-page-subtitle / data-page-parent="親タイトル|親URL" があれば、テーマ生成のタイトル帯(h1・サブタイトル・パンくず末尾)と <title> の該当語を差し替える
 # (WP 側ではページタイトルと Zephyr のタイトル帯サブタイトルを変える想定。メニューのラベルは別途)
 pt = re.search(r'data-page-title="([^"]+)"', block); ps = re.search(r'data-page-subtitle="([^"]+)"', block)
 if pt:
@@ -27,6 +27,11 @@ if pt:
     tb = tb.replace(f'<span class="g-breadcrumbs-item">{old_title}<', f'<span class="g-breadcrumbs-item">{pt.group(1)}<', 1)
     if ps:
         tb, n = re.subn(r'(</h1>\s*<p>)(.*?)(</p>)', lambda m: m.group(1) + ps.group(1) + m.group(3), tb, count=1); assert n == 1, 'subtitle <p> not found'
+    pp = re.search(r'data-page-parent="([^"|]+)\|([^"]+)"', block)
+    if pp:
+        last = tb.rindex('<span class="g-breadcrumbs-item">')
+        tb = tb[:last] + f'<span typeof="v:Breadcrumb"><a class="g-breadcrumbs-item" rel="v:url" property="v:title" href="{pp.group(2)}">{pp.group(1)}</a></span> <span class="g-breadcrumbs-separator"></span> ' + tb[last:]
+        print(f'パンくず: 親「{pp.group(1)}」({pp.group(2)})を挿入')
     out = out[:ta] + tb + out[tb_:]
     out = out.replace(f'<title>{old_title} |', f'<title>{pt.group(1)} |', 1)
     print(f'タイトル帯: 「{old_title}」→「{pt.group(1)}」' + (f' / サブタイトル「{ps.group(1)}」' if ps else ''))
