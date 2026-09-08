@@ -1,0 +1,151 @@
+<!-- skym service draft2 (採用トップ draft7 の事業カード 6 枚をこちらへ移した案。生 HTML + 独自 CSS。.skym-business = 採用ページと共有していた部品で、以後はこちらが正) / data-row-class は build-draft.py が VC 行(el_class)に付けるクラス -->
+<div id="skym-service" data-row-class="sv-wrap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="sv-wrap") */
+.l-section.sv-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.sv-wrap .g-cols,.l-section.sv-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-service{
+  --blue:#02A0E9;--navy:#111827;--light:#F6F8FA;--line:#DDE3E8;--muted:#5B6472;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;
+}
+#skym-service *,#skym-service *:before,#skym-service *:after{box-sizing:border-box}
+#skym-service h2,#skym-service h3{
+  font-family:inherit!important;font-weight:900!important;line-height:1.3!important;letter-spacing:-.01em!important;
+  color:inherit!important;margin:0 0 .5em!important;padding:0!important;text-transform:none!important;
+}
+#skym-service h2{font-size:clamp(26px,3.4vw,42px)!important}
+#skym-service h3{font-size:clamp(20px,1.9vw,26px)!important}
+/* テーマが span/b の太さを上書きするので親から継承させる */
+#skym-service h2 span,#skym-service h3 span,#skym-service p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-service p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-service p:last-child{margin-bottom:0!important}
+#skym-service a{color:inherit;text-decoration:none!important}
+#skym-service img{border:0;box-shadow:none}
+#skym-service .sv-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-service section{padding:96px 0;margin:0}
+#skym-service .sv-label{display:block;font-size:12px!important;font-weight:800!important;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 18px!important;line-height:1.4!important}
+#skym-service .sv-grid2{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+/* 右カラムの先頭行を左の h2 の上端に揃える(ラベル 12px×1.4 + 余白 18px ≒ 35px) */
+#skym-service .sv-copy{padding-top:38px}
+#skym-service .sv-btn{display:inline-flex;align-items:center;gap:14px;background:var(--navy);color:#fff!important;border-radius:999px;padding:17px 30px;font-weight:800;letter-spacing:.06em;font-size:15px;line-height:1;border:2px solid var(--navy);transition:background .2s,border-color .2s,color .2s}
+#skym-service .sv-btn:hover{background:var(--blue);border-color:var(--blue)}
+#skym-service .sv-btn.light{background:#fff;color:var(--navy)!important;border-color:#fff}
+#skym-service .sv-btn.light:hover{background:var(--blue);border-color:var(--blue);color:#fff!important}
+
+/* 1 リード */
+#skym-service .sv-lead{background:#fff}
+#skym-service .sv-lead h2 span{color:var(--blue)}
+
+/* 2 事業内容(.skym-business = 採用トップ draft7 から移した共有部品。#skym-service に依存しない書き方) */
+#skym-service .sv-business{background:var(--light)}
+#skym-service .sv-head{max-width:780px;margin-bottom:48px}
+#skym-service .sv-head p{color:var(--muted)}
+.skym-business .bz-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;max-width:none}
+.skym-business .bz-head>div{max-width:780px;flex:1 1 auto}
+.skym-business .bz-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skym-business .bz-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(17,24,39,.06),0 8px 24px rgba(17,24,39,.06);display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.skym-business .bz-card:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(17,24,39,.08),0 16px 36px rgba(17,24,39,.1)}
+/* 写真入りカード(画像は本番 uploads へ移し絶対 URL に差し替える) */
+.skym-business .bz-ph{aspect-ratio:3/2;background:#E5E7EB;overflow:hidden}
+.skym-business .bz-ph img{width:100%;height:100%;object-fit:cover;display:block}
+/* カード本文: 番号 → 英語名(見出し) → 日本語キャッチ 1 行 → 説明 1〜2 行(取引先向けに採用ページ版から追加) */
+.skym-business .bz-body{padding:20px 24px 26px;flex:1;display:flex;flex-direction:column}
+.skym-business .bz-num{display:block;font-size:12px;font-weight:800;color:#02A0E9;letter-spacing:.12em;line-height:1.4;margin-bottom:8px}
+.skym-business .bz-card h3.bz-en{font-family:inherit!important;font-size:clamp(17px,1.55vw,20px)!important;font-weight:900!important;line-height:1.25!important;letter-spacing:.01em!important;color:#111827!important;margin:0 0 8px!important}
+.skym-business .bz-card .bz-catch{font-size:15px!important;line-height:1.7!important;font-weight:700!important;color:#1F2937!important;margin:0!important}
+.skym-business .bz-card .bz-catch:last-child{flex:1}
+.skym-business .bz-card .bz-desc{font-size:14px!important;line-height:1.85!important;font-weight:400!important;color:#4B5563!important;margin:12px 0 0!important;flex:1}
+
+/* 主力事業 SES(事業カードの下に罫線で区切って続ける補足。写真は事業カード側に集約) */
+#skym-service .sv-main{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;margin-top:72px;padding-top:56px;border-top:1px solid var(--line)}
+#skym-service .sv-main h3{margin:0!important}
+#skym-service .sv-main p{font-size:15px!important;line-height:1.95!important;color:#374151}
+#skym-service .sv-main .sv-btn{margin-top:28px}
+
+/* 3 お問い合わせ・パートナー募集 */
+#skym-service .sv-cta{background:#fff}
+#skym-service .sv-cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#skym-service .sv-cta-box{background:#fff;border:2px solid var(--navy);border-radius:24px;padding:40px 38px 38px;display:flex;flex-direction:column}
+#skym-service .sv-cta-box p{font-size:15px!important;line-height:1.85!important;color:#374151}
+#skym-service .sv-cta-box .sv-btn{margin-top:28px;align-self:flex-start}
+#skym-service .sv-cta-box.navy{background:var(--navy);border-color:var(--navy);color:#fff}
+#skym-service .sv-cta-box.navy h3{color:#fff!important}
+#skym-service .sv-cta-box.navy p{color:rgba(255,255,255,.88)}
+
+@media(max-width:900px){
+  #skym-service section{padding:72px 0}
+  #skym-service .sv-grid2,#skym-service .sv-cta-grid{grid-template-columns:1fr;gap:32px}
+  #skym-service .sv-main{grid-template-columns:1fr;gap:20px;margin-top:56px;padding-top:44px}
+  #skym-service .sv-copy{padding-top:0}
+  .skym-business .bz-cards{grid-template-columns:1fr 1fr}
+  .skym-business .bz-head{flex-direction:column;align-items:flex-start}
+  #skym-service .sv-cta-box{padding:32px 28px 30px}
+}
+@media(max-width:600px){
+  .skym-business .bz-cards{grid-template-columns:1fr}
+}
+</style>
+
+<!-- 1. リード -->
+<section class="sv-lead">
+  <div class="sv-inner sv-grid2">
+    <div>
+      <span class="sv-label">Business</span>
+      <h2>ITを軸に、<br><span>支える仕事と、<br>つくる仕事を。</span></h2>
+    </div>
+    <div class="sv-copy">
+      <p>株式会社スカイムは、企業のシステム開発・インフラ運用を支えるITサービスを軸に、AIの活用支援、自社ECサイトの運営・商品企画、イベントの企画・運営まで、幅広く事業を行っています。</p>
+      <p>技術者を派遣してお客様の現場を支えるだけでなく、自分たちでサービスや商品をつくり、運営する。その両方を持っていることが私たちの特長です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 事業内容(.skym-business = 採用ページと共有する部品)+ 主力事業 SES の補足 -->
+<section class="sv-business skym-business" id="sv-business">
+  <div class="sv-inner">
+    <div class="sv-head bz-head">
+      <div>
+        <span class="sv-label">Our Business</span>
+        <h2>事業内容</h2>
+      </div>
+    </div>
+    <div class="bz-cards">
+      <div class="bz-card"><div class="bz-ph"><img src="card1-ses.jpg" alt=""></div><div class="bz-body"><span class="bz-num">01</span><h3 class="bz-en">IT SOLUTION</h3><p class="bz-catch">企業の当たり前を、ITで支える。</p><p class="bz-desc">システムの開発から、インフラの構築・運用まで。お客様の現場で、必要なスキルを持つエンジニアが業務を支援します。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><img src="card2-ai.jpg" alt=""></div><div class="bz-body"><span class="bz-num">02</span><h3 class="bz-en">AI &amp; DIGITAL</h3><p class="bz-catch">AIを、仕事で使える仕組みへ。</p><p class="bz-desc">業務のどこにAIを組み込めるかを一緒に考え、日々の仕事で使える形にしていきます。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><img src="card3-ec.jpg" alt=""></div><div class="bz-body"><span class="bz-num">03</span><h3 class="bz-en">EC &amp; PRODUCT</h3><p class="bz-catch">売るだけで終わらせない。売り方からつくる。</p><p class="bz-desc">自社ECサイトの運営と商品企画。仕入れから販売、発信までを自分たちで手がけています。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><img src="card4-event.jpg" alt=""></div><div class="bz-body"><span class="bz-num">04</span><h3 class="bz-en">EVENT &amp; ENTERTAINMENT</h3><p class="bz-catch">リアルな楽しさに、ITを掛け合わせる。</p><p class="bz-desc">イベントの企画・運営。人が集まる場をつくり、当日の運営の仕組みまで含めて組み立てます。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><img src="card5-edu.jpg" alt=""></div><div class="bz-body"><span class="bz-num">05</span><h3 class="bz-en">EDUCATION</h3><p class="bz-catch">学ぶだけでなく、「できる」に変える。</p><p class="bz-desc">ITの基礎から実務で使えるレベルまで。エンジニア育成で培ったカリキュラムをもとに、学びを仕事につなげます。</p></div></div>
+      <div class="bz-card"><div class="bz-ph"><img src="card6-sakura.jpg" alt=""></div><div class="bz-body"><span class="bz-num">06</span><h3 class="bz-en">SAKURA＋</h3><p class="bz-catch">挑戦する人の、最初の「＋」になる。</p><p class="bz-desc">新しいことに挑戦する人を後押しするプロジェクト。現在、構想を進めています。</p></div></div>
+    </div>
+    <div class="sv-main">
+      <div>
+        <span class="sv-label">Main Business</span>
+        <h3>システムエンジニアリングサービス</h3>
+      </div>
+      <div>
+        <p>私たちスカイムはWEBエンジニアからインフラエンジニアまで実績のあるITエンジニアを提供致します。お客様のニーズに合ったスキルを持ったエンジニアを、必要な時に、必要な場所に常駐させて、お客様の開発支援を行います。システムの設計・構築・運用まで幅広く対応いたします。</p>
+        <a class="sv-btn" href="https://skym.co.jp/service/ses">詳しくはこちら<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. お問い合わせ・パートナー募集(draft1 の 2 ボックスを横並びに) -->
+<section class="sv-cta">
+  <div class="sv-inner sv-cta-grid">
+    <div class="sv-cta-box">
+      <h3>お問い合わせ</h3>
+      <p>人材派遣のご相談や、その他のお問い合わせをお待ちしております。</p>
+      <a class="sv-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="sv-cta-box navy">
+      <h3>パートナー募集</h3>
+      <p>SES事業において御協業いただけるビジネスパートナー企業様を募集しております。</p>
+      <a class="sv-btn light" href="https://skym.co.jp/partnership">募集フォームへ<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+</div>
