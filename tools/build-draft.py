@@ -35,6 +35,13 @@ if pt:
     out = out[:ta] + tb + out[tb_:]
     out = out.replace(f'<title>{old_title} |', f'<title>{pt.group(1)} |', 1)
     print(f'タイトル帯: 「{old_title}」→「{pt.group(1)}」' + (f' / サブタイトル「{ps.group(1)}」' if ps else ''))
+# block.html のルートに data-page-titlebar="<画像 URL>" があれば、テーマ生成のタイトル帯の背景画像(.l-titlebar-img の background-image)を差し替える
+# (WP 側ではページ編集画面の Zephyr タイトル帯設定で背景画像を変える想定。URL は index.html からの相対でも絶対でも可)
+ptb = re.search(r'data-page-titlebar="([^"]+)"', block)
+if ptb:
+    out, n = re.subn(r'(class="l-titlebar-img" style="background-image: url\()[^)]*(\))', lambda m: m.group(1) + ptb.group(1) + m.group(2), out, count=1)
+    assert n == 1, 'titlebar img not found'
+    print(f'タイトル帯の背景画像: {ptb.group(1)}')
 out = out.replace('-->\n<html', f'  {draft}: 本文を {page}/{draft}/block.html に差し替えた改修案(tools/build-draft.py で生成。current 側の変更は再生成で追従)\n-->\n<html', 1)
 pathlib.Path(page, draft, 'index.html').write_text(out, encoding='utf-8')
 print(f'{page}/{draft}/index.html: {len(out)} 文字(block {len(block)} 文字, 行クラス "{wrap_class}")')
