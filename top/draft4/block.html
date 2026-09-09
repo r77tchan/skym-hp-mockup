@@ -1,0 +1,246 @@
+<!-- skym top draft4 (draft3(確定版)+ ヒーロー直下に「お知らせ」の帯を追加。それ以外は draft3 のまま)
+     お知らせの帯: 見出し「お知らせ / News」(左)+ 日付と題名の 3 行(右)。写真は使わない(日付と題名の一覧に写真は要らず、直下の About の写真と競うため)。
+     項目は仮(本番ページの公開日から作ったもの。実際に載せる項目はユーザーから受け取る)。「お知らせ一覧」へのリンクは、一覧ページ(/infomation = WP の投稿ページ)を使う案 B のときだけ足す(下の HTML にコメントで置いてある)。
+     WP 実装の 2 案: A = このまま生 HTML の静的リスト(項目追加はトップの本文を編集)/ B = WP の投稿を使い [us_blog layout="compact" items="3"] で最新 3 件を自動表示(この CSS を .w-blog.layout_compact に当て直す)。
+     data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。data-keep-tail="1" = current の最後の行(テーマの青いパートナー募集の帯 = us_cta)をそのまま残す。
+     画像: hero-clouds.jpg(ChatGPT 生成の雲海)/ about-engineer.jpg(ChatGPT 生成、中途タイトル帯の未採用候補を流用)/ card1〜6(事業内容 draft2 のカード写真を流用)。WP 実装時は uploads に上げて絶対 URL に差し替える -->
+<div id="skym-top" data-row-class="tp-wrap" data-keep-tail="1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="tp-wrap")。
+   トップはヘッダーが透過・固定で、テーマが最初の行に padding-top(50px)を付けるのでそれも外す(ヒーローの写真がヘッダーの下まで広がる) */
+.l-section.tp-wrap{padding:0!important}
+.l-section.tp-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.tp-wrap .g-cols,.l-section.tp-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-top{
+  --blue:#02A0E9;--navy:#111827;--lime:#D9FF55;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-top *,#skym-top *:before,#skym-top *:after{box-sizing:border-box}
+/* 見出しは細め・1 色・字間ゆるめ(現行サイトの細い見出しに寄せる。太字と色替えはやめる) */
+#skym-top h1,#skym-top h2,#skym-top h3{
+  font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
+  color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
+}
+#skym-top h2{font-size:clamp(24px,2.6vw,32px)!important}
+#skym-top h1 span,#skym-top h2 span,#skym-top h3 span,#skym-top p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-top p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-top p:last-child{margin-bottom:0!important}
+#skym-top a{color:inherit;text-decoration:none!important}
+#skym-top img{border:0;box-shadow:none;margin:0}
+#skym-top ul{list-style:none!important;margin:0!important;padding:0!important}
+#skym-top li{margin:0!important;padding:0!important;list-style:none!important}
+#skym-top .tp-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-top section{padding:110px 0;margin:0}
+/* 見出しの下の英字(現行サイトの「日本語見出し + 英語の副題」の型) */
+#skym-top .tp-sub{display:block;font-size:12px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+/* 細い枠線のボタン(黒い丸ボタンはやめる) */
+#skym-top .tp-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-top .tp-btn:hover{background:var(--navy);color:#fff!important}
+#skym-top .tp-btn svg{transition:transform .2s}
+#skym-top .tp-btn:hover svg{transform:translateX(3px)}
+#skym-top .tp-btn.white{border-color:rgba(255,255,255,.85);color:#fff!important}
+#skym-top .tp-btn.white:hover{background:#fff;border-color:#fff;color:var(--navy)!important}
+
+/* 1 ヒーロー: 生成した雲海写真(hero-clouds.jpg)。文字は現行に近い細い書体を中央に。オーバーレイは薄め */
+#skym-top .tp-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 0 120px;color:#fff;overflow:hidden;
+  background:linear-gradient(rgba(17,24,39,.3),rgba(17,24,39,.3)),url("hero-clouds.jpg") center/cover no-repeat,var(--navy)}
+#skym-top .tp-hero h1{font-size:clamp(32px,4.2vw,54px)!important;font-weight:300!important;letter-spacing:.16em!important;line-height:1.3!important;color:#fff!important;margin:0 0 20px!important;text-indent:.16em}
+#skym-top .tp-hero .tp-en{display:block;font-size:clamp(13px,1.4vw,18px);font-weight:300;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.92);line-height:1.5;text-indent:.32em}
+#skym-top .tp-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);color:#fff!important;opacity:.85;line-height:0}
+
+/* 1.5 お知らせ: 薄グレーの細い帯。左に見出し(お知らせ / News)、右に 日付 + 題名 の 3 行(会社概要の表と同じ罫線の型)。写真なし。項目は仮 */
+#skym-top .tp-news{background:var(--light);padding:64px 0}
+#skym-top .tp-news .tp-inner{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+#skym-top .tp-news .tp-head{margin:0}
+#skym-top .tp-news-list{margin:0!important;padding:0!important;border-top:1px solid var(--navy)}
+#skym-top .tp-news-list li{border-bottom:1px solid var(--line)}
+#skym-top .tp-news-list a{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;padding:18px 0;color:var(--navy)!important;transition:color .2s}
+#skym-top .tp-news-list a:hover{color:var(--blue)!important}
+#skym-top .tp-news-list time{font-size:13px;letter-spacing:.06em;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.9}
+#skym-top .tp-news-list span{font-size:15px;line-height:1.9;font-weight:400}
+#skym-top .tp-news .tp-links{margin-top:24px}
+
+/* 2 会社の一言: 写真(左)+ 文章(右)。見出しは 1 色 */
+#skym-top .tp-about{background:#fff}
+#skym-top .tp-about .tp-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+#skym-top .tp-photo{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+#skym-top .tp-about p{font-size:15px!important;line-height:2!important;color:var(--body);margin-top:0!important}
+#skym-top .tp-about h2{margin-bottom:28px!important}
+#skym-top .tp-about .tp-sub{margin:10px 0 28px}
+#skym-top .tp-more{margin-top:36px}
+
+/* 3 事業 6 つ: 写真タイル(英語名 + 日本語キャッチを写真の上に) */
+#skym-top .tp-business{background:#fff;padding-top:0}
+#skym-top .tp-head{margin-bottom:40px}
+#skym-top .tp-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+#skym-top .tp-tile{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-top .tp-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+#skym-top .tp-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,24,39,.05) 35%,rgba(17,24,39,.8) 100%)}
+#skym-top .tp-tile:hover img{transform:scale(1.04)}
+#skym-top .tp-tile-t{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px 24px;color:#fff}
+#skym-top .tp-tile-t b{display:block;font-family:inherit!important;font-size:16px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
+#skym-top .tp-tile-t span{display:block;font-size:13px;font-weight:400;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
+#skym-top .tp-business .tp-more{margin-top:40px}
+
+/* 4 会社概要: 見出し行の下に 表(左)+ モノクロの地図(右)。値は本番の会社概要ページ(/company/summary)から。地図は API キー不要の通常埋め込み(iframe)。色はそのまま(モノクロ + ホバーで色 は「微妙」とのことでやめた) */
+#skym-top .tp-company{background:var(--light)}
+#skym-top .tp-company .tp-head{margin-bottom:40px}
+#skym-top .tp-company-grid{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:stretch}
+#skym-top .tp-map{display:flex;flex-direction:column}
+#skym-top .tp-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px}
+#skym-top .tp-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;letter-spacing:.06em;line-height:1.4;border-bottom:1px solid var(--navy);padding-bottom:4px;transition:color .2s,border-color .2s}
+#skym-top .tp-links a:hover{color:var(--blue);border-color:var(--blue)}
+#skym-top .tp-table{margin:0;border-top:1px solid var(--navy)}
+#skym-top .tp-table div{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:17px 0;border-bottom:1px solid var(--line)}
+#skym-top .tp-table dt{font-size:14px;font-weight:500;letter-spacing:.06em;color:var(--muted);line-height:1.9;margin:0;padding:0}
+#skym-top .tp-table dd{font-size:15px;line-height:1.9;color:var(--body);margin:0;padding:0}
+#skym-top .tp-table dd small{display:block;font-size:13px;color:var(--muted);line-height:1.8}
+#skym-top .tp-table dd a{border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
+#skym-top .tp-table dd a:hover{color:var(--blue);border-color:var(--blue)}
+#skym-top .tp-table dd .tp-tel{font-size:18px;letter-spacing:.04em}
+#skym-top .tp-table dd .tp-tel-l{display:inline-block;width:2.6em;font-size:12px;letter-spacing:.1em;color:var(--muted)}
+#skym-top .tp-table dd small+small{margin-top:6px}
+#skym-top .tp-map iframe{display:block;width:100%;flex:1;min-height:320px;border:0;margin:0;background:#E5E7EB}
+#skym-top .tp-map-note{margin:16px 0 0!important;font-size:13px!important;line-height:1.9!important;color:var(--muted)}
+#skym-top .tp-map-note span{display:inline-block;margin-right:1em}
+
+
+/* 5 採用(draft3: draft2 の細い調子に揃える。写真と文言は採用トップと同じ) */
+#skym-top .tp-recruit{position:relative;color:#fff;overflow:hidden;padding:120px 0;
+  background:linear-gradient(rgba(17,24,39,.72),rgba(17,24,39,.72)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
+#skym-top .tp-recruit h2{color:#fff!important;max-width:920px;font-size:clamp(28px,3.4vw,44px)!important;font-weight:300!important;letter-spacing:.1em!important;line-height:1.4!important;margin-bottom:0!important}
+#skym-top .tp-recruit .tp-sub{color:rgba(255,255,255,.8)}
+/* 先頭のカギ括弧をぶら下げて左端を揃える */
+#skym-top .tp-recruit .tp-msg-lead{margin:30px 0 12px!important;font-size:clamp(20px,2vw,26px)!important;font-weight:500!important;letter-spacing:.06em;line-height:1.6!important;color:#fff;text-indent:-.5em}
+#skym-top .tp-recruit .tp-msg{margin:0 0 40px!important;font-size:16px!important;font-weight:400!important;line-height:2!important;color:rgba(255,255,255,.92);text-indent:-.5em}
+
+/* ヒーローと採用帯の背景はゆっくりスクロール(WP では行背景の Ultimate パララックスで付ける。モックは PC のみ fixed で近似) */
+@media(min-width:901px){
+  #skym-top .tp-hero,#skym-top .tp-recruit{background-attachment:fixed}
+}
+@media(max-width:900px){
+  #skym-top section{padding:80px 0}
+  #skym-top .tp-hero{min-height:0;padding:170px 0 120px}
+  #skym-top .tp-scroll{display:none}
+  #skym-top .tp-news{padding:56px 0}
+  #skym-top .tp-news .tp-inner{grid-template-columns:1fr;gap:28px}
+  #skym-top .tp-about .tp-inner{grid-template-columns:1fr;gap:36px}
+  #skym-top .tp-company-grid{grid-template-columns:1fr;gap:36px}
+  #skym-top .tp-table div{grid-template-columns:110px 1fr;gap:16px;padding:14px 0}
+  #skym-top .tp-map iframe{flex:none;aspect-ratio:16/10;min-height:0}
+  #skym-top .tp-tiles{grid-template-columns:1fr 1fr;gap:8px}
+  #skym-top .tp-recruit{padding:88px 0}
+}
+@media(max-width:600px){
+  #skym-top .tp-news-list a{grid-template-columns:1fr;gap:2px;padding:14px 0}
+  #skym-top .tp-tiles{grid-template-columns:1fr}
+  #skym-top .tp-tile{aspect-ratio:16/9}
+}
+</style>
+
+<!-- 1. ヒーロー(一言は現行のまま。写真は生成した雲海) -->
+<section class="tp-hero" id="tp-top">
+  <div class="tp-inner">
+    <h1>自分らしく</h1>
+    <span class="tp-en">Work in my own way</span>
+  </div>
+  <a class="tp-scroll" href="#tp-news" aria-label="下へ"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+<!-- 1.5 お知らせ(draft4 で追加。項目は仮: 本番の各ページの公開日から作った 3 件。実際の項目・件数・リンク先はユーザーから受け取る。日付の表記は 2026.08.25 の形) -->
+<section class="tp-news" id="tp-news">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <h2>お知らせ</h2>
+      <span class="tp-sub">News</span>
+    </div>
+    <div>
+      <ul class="tp-news-list">
+        <li><a href="https://skym.co.jp/certification"><time datetime="2026-08-25">2026.08.25</time><span>資格一覧ページを公開しました</span></a></li>
+        <li><a href="https://skym.co.jp/dx-policy"><time datetime="2026-06-16">2026.06.16</time><span>DX推進方針を公開しました</span></a></li>
+        <li><a href="https://skym.co.jp/%e6%9c%89%e6%96%99%e8%81%b7%e6%a5%ad%e7%b4%b9%e4%bb%8b%e4%ba%8b%e6%a5%ad%e3%80%80%e6%89%8b%e6%95%b0%e6%96%99%e8%a1%a8"><time datetime="2026-03-08">2026.03.08</time><span>有料職業紹介事業についてのページを公開しました</span></a></li>
+      </ul>
+      <!-- 案 B(WP の投稿を使う)のときは一覧ページへのリンクを足す:
+      <div class="tp-links"><a href="https://skym.co.jp/infomation">お知らせ一覧<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- 2. 会社の一言(写真 + 事業内容 draft2 のリード) -->
+<section class="tp-about" id="tp-about">
+  <div class="tp-inner">
+    <img class="tp-photo" src="about-engineer.jpg" alt="">
+    <div>
+      <h2>ITを軸に、<br>支える仕事と、つくる仕事を。</h2>
+      <span class="tp-sub">About SKYM</span>
+      <p>株式会社SKYMは、企業のシステム開発・インフラ運用を支えるITサービスを軸に、AIの活用支援、自社ECサイトの運営・商品企画、イベントの企画・運営まで、幅広く事業を行っています。</p>
+      <p>技術者を派遣してお客様の現場を支えるだけでなく、自分たちでサービスや商品をつくり、運営する。その両方を持っていることが私たちの特長です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 事業 6 つ(写真タイル。英語名・日本語キャッチ・写真は事業カードと同じ) -->
+<section class="tp-business" id="tp-business">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <h2>事業内容</h2>
+      <span class="tp-sub">Our Business</span>
+    </div>
+    <div class="tp-tiles">
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card1-ses.jpg" alt=""><div class="tp-tile-t"><b>IT SOLUTION</b><span>企業の当たり前を、ITで支える。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card2-ai.jpg" alt=""><div class="tp-tile-t"><b>AI &amp; DIGITAL</b><span>AIを、仕事で使える仕組みへ。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card3-ec.jpg" alt=""><div class="tp-tile-t"><b>EC &amp; PRODUCT</b><span>売るだけで終わらせない。売り方からつくる。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card4-event.jpg" alt=""><div class="tp-tile-t"><b>EVENT &amp; ENTERTAINMENT</b><span>リアルな楽しさに、ITを掛け合わせる。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card5-edu.jpg" alt=""><div class="tp-tile-t"><b>EDUCATION</b><span>学ぶだけでなく、「できる」に変える。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card6-sakura.jpg" alt=""><div class="tp-tile-t"><b>SAKURA＋</b><span>挑戦する人の、最初の「＋」になる。</span></div></a>
+    </div>
+    <div class="tp-more"><a class="tp-btn" href="https://skym.co.jp/service">事業内容を見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 4. 会社概要(値は /company/summary から。トップは取引先向けに 6 行に絞る: 社名 / 所在地 / 代表者 / 設立 / 許認可 / お問い合わせ(電話・FAX + フォーム。FAX は番号が電話と違うので載せる)。資本金・従業員数・メール・事業内容は会社概要ページに任せる。地図は通常の埋め込み iframe = API キー不要。池袋駅の徒歩 15 分は、不動産サイトの 12 分を社の公称(東池袋 9 分・大塚 11 分 = 不動産サイトより 3 分控えめ)に揃えた値) -->
+<section class="tp-company" id="tp-company">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <h2>会社概要</h2>
+      <span class="tp-sub">Company</span>
+    </div>
+    <div class="tp-company-grid">
+      <div>
+        <dl class="tp-table">
+          <div><dt>社名</dt><dd>株式会社SKYM<small>SKYM, Inc.</small></dd></div>
+          <div><dt>所在地</dt><dd>〒170-0013　東京都豊島区東池袋2-38-23 SAMビル5B</dd></div>
+          <div><dt>代表者</dt><dd>代表取締役社長　渡邉 浩一</dd></div>
+          <div><dt>設立</dt><dd>2013年7月</dd></div>
+          <div><dt>許認可</dt><dd>労働者派遣事業許可番号　派13-309914<small>有料職業紹介事業許可番号　13-ユ-319236<br>プライバシーマーク認定番号　第10824350号</small></dd></div>
+          <div><dt>お問い合わせ</dt><dd><span class="tp-tel-l">TEL</span><a class="tp-tel" href="tel:0353092175">03-5309-2175</a><small><span class="tp-tel-l">FAX</span>03-5309-2368</small><small><a href="https://skym.co.jp/contact">お問い合わせフォーム</a>からもご連絡いただけます。</small></dd></div>
+        </dl>
+        <div class="tp-links">
+          <a href="https://skym.co.jp/company/summary">会社概要を見る<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://skym.co.jp/company/accessmap">アクセスマップ<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="tp-map">
+        <iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B2-38-23%20SAM%E3%83%93%E3%83%AB&amp;z=16&amp;hl=ja&amp;output=embed" title="株式会社SKYM 本社の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <p class="tp-map-note"><span>有楽町線 東池袋駅 徒歩9分</span><span>JR 大塚駅 徒歩11分</span><span>各線 池袋駅 徒歩15分</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 採用(draft3: 細い見出し + 白い枠線ボタン。写真は採用トップと同じ。見出しは他の節と同じ名詞「採用情報」(問いかけの見出しはトップでは唐突、とのレビュー)。本文は採用トップの MESSAGE 節の文言「『やってみたい』を、入社動機に。」+ 2 行。「入社動機」で採用の話だと分かるので募集の一文は置かない) -->
+<section class="tp-recruit" id="tp-recruit">
+  <div class="tp-inner">
+    <h2>採用情報</h2>
+    <span class="tp-sub">Recruit</span>
+    <p class="tp-msg-lead">「やってみたい」を、入社動機に。</p>
+    <p class="tp-msg">「こんなのあったら面白い」を、ガチに形にする。<br>SKYMで、仕事を動かせる人になろう。</p>
+    <a class="tp-btn white" href="https://skym.co.jp/recruit">採用情報を見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+<!-- 6. パートナー募集 = current の青い帯(テーマの us_cta 行)をそのまま残す(data-keep-tail="1"。WP では既存の行を消さない) -->
+</div>
