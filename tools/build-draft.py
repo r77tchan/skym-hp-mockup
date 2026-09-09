@@ -12,9 +12,18 @@ block = pathlib.Path(page, draft, 'block.html').read_text(encoding='utf-8')
 wrap_class = re.search(r'data-row-class="([^"]+)"', block)
 wrap_class = wrap_class.group(1) if wrap_class else ''
 a = cur.index('<!-- MOCK:CONTENT START'); b = cur.index('<!-- MOCK:CONTENT END -->') + len('<!-- MOCK:CONTENT END -->')
+# block.html のルートに data-keep-tail="N" があれば、current の本文の末尾 N 行(<section class="l-section …)をそのまま後ろに残す
+# (例: トップの青いパートナー募集の帯 = テーマの us_cta 行。WP では既存の行を消さずに、その上の行だけ差し替える想定)
+kt = re.search(r'data-keep-tail="(\d+)"', block)
+tail = ''
+if kt:
+    c = cur[a:b]; i = len(c)
+    for _ in range(int(kt.group(1))): i = c.rindex('<section class="l-section', 0, i)
+    tail = c[i:].rstrip() + '\n'
+    print(f'current の末尾 {kt.group(1)} 行をそのまま残す({len(tail)} 文字)')
 new = (f'<!-- MOCK:CONTENT START ({draft}: 本文 = block.html。WP では [vc_row columns_type="none" width="full" el_class="{wrap_class}"] の中に生 HTML として貼る。ヘッダー/フッターはテーマ生成) -->\n'
        f'<section class="l-section wpb_row height_auto width_full vc_row-fluid {wrap_class}"><div class="l-section-h g-html i-cf"><div class="g-cols offset_none"><div class=" full-width">\n'
-       f'{block}\n</div></div></div></section>\n<!-- MOCK:CONTENT END -->')
+       f'{block}\n</div></div></div></section>\n{tail}<!-- MOCK:CONTENT END -->')
 out = cur[:a] + new + cur[b:]
 out = re.sub(r'\[snapshot [0-9-]+\]', f'[{draft}]', out, count=1)
 # block.html のルートに data-page-title / data-page-subtitle / data-page-parent="親タイトル|親URL" があれば、テーマ生成のタイトル帯(h1・サブタイトル・パンくず末尾)と <title> の該当語を差し替える

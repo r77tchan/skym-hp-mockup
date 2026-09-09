@@ -1,0 +1,149 @@
+<!-- skym top draft2 (draft1 のレビュー反映: 「安っぽい」= 太い黒文字・色替えだけの見出し・写真のない面・黒い丸ボタン → 細い書体、写真を各面に、見出しは 1 色、ボタンは細い枠線。構成は draft1 と同じ振り分け型)
+     data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。data-keep-tail="1" = current の最後の行(テーマの青いパートナー募集の帯 = us_cta)をそのまま残す。
+     画像: hero-clouds.jpg(ChatGPT 生成の雲海)/ about-engineer.jpg(ChatGPT 生成、中途タイトル帯の未採用候補を流用)/ card1〜6(事業内容 draft2 のカード写真を流用)。WP 実装時は uploads に上げて絶対 URL に差し替える -->
+<div id="skym-top" data-row-class="tp-wrap" data-keep-tail="1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="tp-wrap")。
+   トップはヘッダーが透過・固定で、テーマが最初の行に padding-top(50px)を付けるのでそれも外す(ヒーローの写真がヘッダーの下まで広がる) */
+.l-section.tp-wrap{padding:0!important}
+.l-section.tp-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.tp-wrap .g-cols,.l-section.tp-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-top{
+  --blue:#02A0E9;--navy:#111827;--lime:#D9FF55;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-top *,#skym-top *:before,#skym-top *:after{box-sizing:border-box}
+/* 見出しは細め・1 色・字間ゆるめ(現行サイトの細い見出しに寄せる。太字と色替えはやめる) */
+#skym-top h1,#skym-top h2,#skym-top h3{
+  font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
+  color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
+}
+#skym-top h2{font-size:clamp(24px,2.6vw,32px)!important}
+#skym-top h1 span,#skym-top h2 span,#skym-top h3 span,#skym-top p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-top p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-top p:last-child{margin-bottom:0!important}
+#skym-top a{color:inherit;text-decoration:none!important}
+#skym-top img{border:0;box-shadow:none;margin:0}
+#skym-top ul{list-style:none!important;margin:0!important;padding:0!important}
+#skym-top li{margin:0!important;padding:0!important;list-style:none!important}
+#skym-top .tp-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-top section{padding:110px 0;margin:0}
+/* 見出しの下の英字(現行サイトの「日本語見出し + 英語の副題」の型) */
+#skym-top .tp-sub{display:block;font-size:12px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+/* 細い枠線のボタン(黒い丸ボタンはやめる) */
+#skym-top .tp-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-top .tp-btn:hover{background:var(--navy);color:#fff!important}
+#skym-top .tp-btn svg{transition:transform .2s}
+#skym-top .tp-btn:hover svg{transform:translateX(3px)}
+#skym-top .tp-btn.lime{background:var(--lime);border-color:var(--lime);color:var(--navy)!important;border-radius:999px;padding:18px 32px;font-weight:700;letter-spacing:.06em;font-size:15px}
+#skym-top .tp-btn.lime:hover{background:#fff;border-color:#fff}
+
+/* 1 ヒーロー: 生成した雲海写真(hero-clouds.jpg)。文字は現行に近い細い書体を中央に。オーバーレイは薄め */
+#skym-top .tp-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 0 120px;color:#fff;overflow:hidden;
+  background:linear-gradient(rgba(17,24,39,.3),rgba(17,24,39,.3)),url("hero-clouds.jpg") center/cover no-repeat,var(--navy)}
+#skym-top .tp-hero h1{font-size:clamp(32px,4.2vw,54px)!important;font-weight:300!important;letter-spacing:.16em!important;line-height:1.3!important;color:#fff!important;margin:0 0 20px!important;text-indent:.16em}
+#skym-top .tp-hero .tp-en{display:block;font-size:clamp(13px,1.4vw,18px);font-weight:300;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.92);line-height:1.5;text-indent:.32em}
+#skym-top .tp-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);color:#fff!important;opacity:.85;line-height:0}
+
+/* 2 会社の一言: 写真(左)+ 文章(右)。見出しは 1 色 */
+#skym-top .tp-about{background:#fff}
+#skym-top .tp-about .tp-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+#skym-top .tp-photo{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+#skym-top .tp-about p{font-size:15px!important;line-height:2!important;color:var(--body);margin-top:0!important}
+#skym-top .tp-about h2{margin-bottom:28px!important}
+#skym-top .tp-about .tp-sub{margin:10px 0 28px}
+#skym-top .tp-more{margin-top:36px}
+
+/* 3 事業 6 つ: 写真タイル(英語名 + 日本語キャッチを写真の上に) */
+#skym-top .tp-business{background:#fff;padding-top:0}
+#skym-top .tp-head{margin-bottom:40px}
+#skym-top .tp-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+#skym-top .tp-tile{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-top .tp-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+#skym-top .tp-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,24,39,.05) 35%,rgba(17,24,39,.8) 100%)}
+#skym-top .tp-tile:hover img{transform:scale(1.04)}
+#skym-top .tp-tile-t{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px 24px;color:#fff}
+#skym-top .tp-tile-t b{display:block;font-family:inherit!important;font-size:16px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
+#skym-top .tp-tile-t span{display:block;font-size:13px;font-weight:400;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
+#skym-top .tp-business .tp-more{margin-top:40px}
+
+/* 4 採用(draft1 のまま: 採用トップと同じ写真帯・同じ文言・ライムのボタン) */
+#skym-top .tp-recruit{position:relative;color:#fff;overflow:hidden;padding:120px 0;
+  background:linear-gradient(rgba(17,24,39,.72),rgba(17,24,39,.72)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
+#skym-top .tp-recruit .tp-label{display:block;font-size:12px!important;font-weight:800!important;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);margin:0 0 18px!important;line-height:1.4!important}
+#skym-top .tp-recruit h2{color:#fff!important;max-width:920px;font-size:clamp(32px,4.4vw,56px)!important;font-weight:900!important;letter-spacing:-.01em!important;line-height:1.25!important;margin-bottom:0!important}
+#skym-top .tp-recruit .tp-msg{margin:20px 0 36px!important;font-size:clamp(16px,1.6vw,20px)!important;font-weight:700!important;line-height:1.8!important;color:rgba(255,255,255,.92)}
+
+/* ヒーローと採用帯の背景はゆっくりスクロール(WP では行背景の Ultimate パララックスで付ける。モックは PC のみ fixed で近似) */
+@media(min-width:901px){
+  #skym-top .tp-hero,#skym-top .tp-recruit{background-attachment:fixed}
+}
+@media(max-width:900px){
+  #skym-top section{padding:80px 0}
+  #skym-top .tp-hero{min-height:0;padding:170px 0 120px}
+  #skym-top .tp-scroll{display:none}
+  #skym-top .tp-about .tp-inner{grid-template-columns:1fr;gap:36px}
+  #skym-top .tp-tiles{grid-template-columns:1fr 1fr;gap:8px}
+  #skym-top .tp-recruit{padding:88px 0}
+}
+@media(max-width:600px){
+  #skym-top .tp-tiles{grid-template-columns:1fr}
+  #skym-top .tp-tile{aspect-ratio:16/9}
+}
+</style>
+
+<!-- 1. ヒーロー(一言は現行のまま。写真は生成した雲海) -->
+<section class="tp-hero" id="tp-top">
+  <div class="tp-inner">
+    <h1>自分らしく</h1>
+    <span class="tp-en">Work in my own way</span>
+  </div>
+  <a class="tp-scroll" href="#tp-about" aria-label="下へ"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+<!-- 2. 会社の一言(写真 + 事業内容 draft2 のリード) -->
+<section class="tp-about" id="tp-about">
+  <div class="tp-inner">
+    <img class="tp-photo" src="about-engineer.jpg" alt="">
+    <div>
+      <h2>ITを軸に、<br>支える仕事と、つくる仕事を。</h2>
+      <span class="tp-sub">About SKYM</span>
+      <p>株式会社SKYMは、企業のシステム開発・インフラ運用を支えるITサービスを軸に、AIの活用支援、自社ECサイトの運営・商品企画、イベントの企画・運営まで、幅広く事業を行っています。</p>
+      <p>技術者を派遣してお客様の現場を支えるだけでなく、自分たちでサービスや商品をつくり、運営する。その両方を持っていることが私たちの特長です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 事業 6 つ(写真タイル。英語名・日本語キャッチ・写真は事業カードと同じ) -->
+<section class="tp-business" id="tp-business">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <h2>事業内容</h2>
+      <span class="tp-sub">Our Business</span>
+    </div>
+    <div class="tp-tiles">
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card1-ses.jpg" alt=""><div class="tp-tile-t"><b>IT SOLUTION</b><span>企業の当たり前を、ITで支える。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card2-ai.jpg" alt=""><div class="tp-tile-t"><b>AI &amp; DIGITAL</b><span>AIを、仕事で使える仕組みへ。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card3-ec.jpg" alt=""><div class="tp-tile-t"><b>EC &amp; PRODUCT</b><span>売るだけで終わらせない。売り方からつくる。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card4-event.jpg" alt=""><div class="tp-tile-t"><b>EVENT &amp; ENTERTAINMENT</b><span>リアルな楽しさに、ITを掛け合わせる。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card5-edu.jpg" alt=""><div class="tp-tile-t"><b>EDUCATION</b><span>学ぶだけでなく、「できる」に変える。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service"><img src="card6-sakura.jpg" alt=""><div class="tp-tile-t"><b>SAKURA＋</b><span>挑戦する人の、最初の「＋」になる。</span></div></a>
+    </div>
+    <div class="tp-more"><a class="tp-btn" href="https://skym.co.jp/service">事業内容を見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 4. 採用(draft1 のまま) -->
+<section class="tp-recruit" id="tp-recruit">
+  <div class="tp-inner">
+    <span class="tp-label">Recruit</span>
+    <h2>何をやってみたいですか？</h2>
+    <p class="tp-msg">好きなこと、やってみたいこと。最初のきっかけは、それでいい。<br>その「やってみたい」に、ITやAIという武器を加えていく。</p>
+    <a class="tp-btn lime" href="https://skym.co.jp/recruit">採用情報を見る<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+<!-- 5. パートナー募集 = current の青い帯(テーマの us_cta 行)をそのまま残す(data-keep-tail="1"。WP では既存の行を消さない) -->
+</div>
