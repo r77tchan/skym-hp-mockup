@@ -31,6 +31,8 @@
 - 案を作るとき(生 HTML + 独自 CSS 方式): `<page>/draftN/block.html` に **WP に貼る本文そのもの**(`<style>` + HTML。ルート要素に `data-row-class="…"` で VC 行に付けるクラスを書く)を書き、`python3 tools/build-draft.py <page> draftN` で current の骨格(ヘッダー/フッター)に差し込んだ `index.html` を生成する。current を直接コピーして本文だけ書き換えてもよい
 - `versions.js` に `{ id: 'draft1', date: '', note: '案1: 何を狙った案か' }` を足す
 - WP 側でページタイトルを変える予定の案は、block.html のルート要素に `data-page-title="新卒・未経験採用" data-page-subtitle="New Graduate / Entry Level"` を書くと、build-draft.py がテーマ生成のタイトル帯(h1・サブタイトル・パンくず末尾)と `<title>` の該当語を差し替える。`data-page-parent="採用情報|https://skym.co.jp/recruit"` でパンくずに親階層を挿入(WP で親ページを付ける予定の表示合わせ。例: graduate-pre/draft2)。ヘッダー・フッターは触らないルールの唯一の例外
+- 同じくルート要素に `data-page-titlebar="tb-newbie.jpg"` を書くと、テーマ生成のタイトル帯の背景画像を差し替える(WP ではページ編集画面の Zephyr タイトル帯設定で変える想定。URL は index.html からの相対でも絶対でも可)。`data-keep-tail="1"` を書くと、current の本文の末尾 1 行(`<section class="l-section …`。例: トップの青いパートナー募集の帯 = テーマの us_cta 行)をそのまま後ろに残す(WP では既存の行を消さず、その上の行だけ差し替える想定)
+- 見た目の型は `top/draft3` が基準(細い書体・1 色の見出し + 英字の副題・写真タイル・細い枠線のボタン・テーマの青い帯。詳細は skym-hp-wp/AGENTS.md「現在の決定事項」)。新しい案はこの型に合わせる
 - 複数ページで同じ `<style>` を使うとき(採用の個別ページ `career` / `graduate-pre` / `newbie` の `#skym-rsub`)は、CSS を 1 つの block.html(`career/draft1`)で直し、`python3 tools/sync-style.py career/draft1 graduate-pre/draft1 …` で他ページに配ってから各ページを build-draft.py で再生成する
 - 写真がまだ無い場所は `.rc-ph` のような**撮影指示付きプレースホルダー**(ラベルに被写体と比率)を置き、写真が来たら `<img>` に置き換える
 - 何を変えた版かの詳細は `skym-hp-wp/doc/作業記録/` に書く(versions.js の note は一行の要約)
