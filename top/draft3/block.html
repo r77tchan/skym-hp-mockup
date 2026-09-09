@@ -98,7 +98,9 @@
   background:linear-gradient(rgba(17,24,39,.72),rgba(17,24,39,.72)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
 #skym-top .tp-recruit h2{color:#fff!important;max-width:920px;font-size:clamp(28px,3.4vw,44px)!important;font-weight:300!important;letter-spacing:.1em!important;line-height:1.4!important;margin-bottom:0!important}
 #skym-top .tp-recruit .tp-sub{color:rgba(255,255,255,.8)}
-#skym-top .tp-recruit .tp-msg{margin:28px 0 40px!important;font-size:16px!important;font-weight:400!important;line-height:2!important;color:rgba(255,255,255,.92)}
+#skym-top .tp-recruit .tp-msg-lead{margin:30px 0 12px!important;font-size:clamp(18px,1.8vw,22px)!important;font-weight:500!important;letter-spacing:.06em;line-height:1.6!important;color:#fff}
+#skym-top .tp-recruit .tp-msg{margin:0 0 18px!important;font-size:16px!important;font-weight:400!important;line-height:2!important;color:rgba(255,255,255,.92)}
+#skym-top .tp-recruit .tp-msg-note{margin:0 0 40px!important;font-size:14px!important;line-height:1.9!important;color:rgba(255,255,255,.78)}
 
 /* ヒーローと採用帯の背景はゆっくりスクロール(WP では行背景の Ultimate パララックスで付ける。モックは PC のみ fixed で近似) */
 @media(min-width:901px){
@@ -192,12 +194,14 @@
   </div>
 </section>
 
-<!-- 5. 採用(draft3: 細い見出し + 白い枠線ボタン。写真は採用トップと同じ。見出しは他の節と同じ名詞「採用情報」(問いかけの見出しはトップでは唐突、とのレビュー)。本文は募集の一文 + 採用トップのメッセージ 2 行) -->
+<!-- 5. 採用(draft3: 細い見出し + 白い枠線ボタン。写真は採用トップと同じ。見出しは他の節と同じ名詞「採用情報」(問いかけの見出しはトップでは唐突、とのレビュー)。本文は 問い「何をやってみたいですか？」→ 採用トップのメッセージ 2 行 → 募集の一文(小さめ) の順) -->
 <section class="tp-recruit" id="tp-recruit">
   <div class="tp-inner">
     <h2>採用情報</h2>
     <span class="tp-sub">Recruit</span>
-    <p class="tp-msg">新卒・未経験・中途、いずれも募集しています。<br>好きなこと、やってみたいこと。最初のきっかけは、それでいい。<br>その「やってみたい」に、ITやAIという武器を加えていく。</p>
+    <p class="tp-msg-lead">何をやってみたいですか？</p>
+    <p class="tp-msg">好きなこと、やってみたいこと。最初のきっかけは、それでいい。<br>その「やってみたい」に、ITやAIという武器を加えていく。</p>
+    <p class="tp-msg-note">新卒・未経験・中途、いずれも募集しています。</p>
     <a class="tp-btn white" href="https://skym.co.jp/recruit">採用情報を見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
