@@ -1,4 +1,4 @@
-<!-- skym top draft3 (draft2 + ① 事業内容の下に会社概要ブロック(本番の会社概要ページ ID 6187 の値 + モノクロの Google マップ埋め込み)② 採用帯を draft2 の細い調子に揃える(細い見出し・白い枠線ボタン。ライムはやめる)。それ以外は draft2 のまま)
+<!-- skym top draft3 (draft2 + ① 事業内容の下に会社概要ブロック(本番の会社概要ページ ID 6187 の値から取引先向けに絞った 6 行 + Google マップ埋め込み)② 採用帯を draft2 の細い調子に揃える(細い見出し・白い枠線ボタン。ライムはやめる)。それ以外は draft2 のまま)
      data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。data-keep-tail="1" = current の最後の行(テーマの青いパートナー募集の帯 = us_cta)をそのまま残す。
      画像: hero-clouds.jpg(ChatGPT 生成の雲海)/ about-engineer.jpg(ChatGPT 生成、中途タイトル帯の未採用候補を流用)/ card1〜6(事業内容 draft2 のカード写真を流用)。WP 実装時は uploads に上げて絶対 URL に差し替える -->
 <div id="skym-top" data-row-class="tp-wrap" data-keep-tail="1">
@@ -70,7 +70,7 @@
 #skym-top .tp-tile-t span{display:block;font-size:13px;font-weight:400;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
 #skym-top .tp-business .tp-more{margin-top:40px}
 
-/* 4 会社概要: 見出し行の下に 表(左)+ モノクロの地図(右)。値は本番の会社概要ページ(/company/summary)から。地図は API キー不要の通常埋め込み(iframe)を grayscale で落ち着かせ、ホバーで色に戻す */
+/* 4 会社概要: 見出し行の下に 表(左)+ モノクロの地図(右)。値は本番の会社概要ページ(/company/summary)から。地図は API キー不要の通常埋め込み(iframe)。色はそのまま(モノクロ + ホバーで色 は「微妙」とのことでやめた) */
 #skym-top .tp-company{background:var(--light)}
 #skym-top .tp-company .tp-head{margin-bottom:40px}
 #skym-top .tp-company-grid{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:stretch}
@@ -83,8 +83,10 @@
 #skym-top .tp-table dt{font-size:14px;font-weight:500;letter-spacing:.06em;color:var(--muted);line-height:1.9;margin:0;padding:0}
 #skym-top .tp-table dd{font-size:15px;line-height:1.9;color:var(--body);margin:0;padding:0}
 #skym-top .tp-table dd small{display:block;font-size:13px;color:var(--muted);line-height:1.8}
-#skym-top .tp-map iframe{display:block;width:100%;flex:1;min-height:320px;border:0;margin:0;background:#E5E7EB;filter:grayscale(1) contrast(1.02);transition:filter .35s}
-#skym-top .tp-map:hover iframe{filter:none}
+#skym-top .tp-table dd a{border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
+#skym-top .tp-table dd a:hover{color:var(--blue);border-color:var(--blue)}
+#skym-top .tp-table dd .tp-tel{font-size:18px;letter-spacing:.04em}
+#skym-top .tp-map iframe{display:block;width:100%;flex:1;min-height:320px;border:0;margin:0;background:#E5E7EB}
 #skym-top .tp-map-note{margin:16px 0 0!important;font-size:13px!important;line-height:1.9!important;color:var(--muted)}
 #skym-top .tp-map-note span{display:inline-block;margin-right:1em}
 
@@ -158,7 +160,7 @@
   </div>
 </section>
 
-<!-- 4. 会社概要(値は /company/summary から。事業内容の行は上のタイルと重複するので入れない。地図は通常の埋め込み iframe = API キー不要) -->
+<!-- 4. 会社概要(値は /company/summary から。トップは取引先向けに 6 行に絞る: 社名 / 所在地 / 代表者 / 設立 / 許認可 / お問い合わせ(電話 + フォーム)。資本金・従業員数・FAX・メール・事業内容は会社概要ページに任せる。地図は通常の埋め込み iframe = API キー不要。池袋駅の徒歩 12 分は不動産サイト(オフィスナビ・ホームズ等)の記載。社の公称ではない) -->
 <section class="tp-company" id="tp-company">
   <div class="tp-inner">
     <div class="tp-head">
@@ -169,12 +171,11 @@
       <div>
         <dl class="tp-table">
           <div><dt>社名</dt><dd>株式会社SKYM<small>SKYM, Inc.</small></dd></div>
-          <div><dt>設立</dt><dd>2013年7月26日</dd></div>
-          <div><dt>代表者</dt><dd>代表取締役社長　渡邉 浩一</dd></div>
           <div><dt>所在地</dt><dd>〒170-0013　東京都豊島区東池袋2-38-23 SAMビル5B</dd></div>
-          <div><dt>資本金</dt><dd>1,000万円</dd></div>
-          <div><dt>従業員数</dt><dd>30名</dd></div>
-          <div><dt>許認可</dt><dd>労働者派遣事業許可番号　派13-309914<small>有料職業紹介許可届出番号　13-ユ-319236 ／ プライバシーマーク認定番号　第10824350号</small></dd></div>
+          <div><dt>代表者</dt><dd>代表取締役社長　渡邉 浩一</dd></div>
+          <div><dt>設立</dt><dd>2013年7月</dd></div>
+          <div><dt>許認可</dt><dd>労働者派遣事業許可番号　派13-309914<small>有料職業紹介事業許可番号　13-ユ-319236<br>プライバシーマーク認定番号　第10824350号</small></dd></div>
+          <div><dt>お問い合わせ</dt><dd><a class="tp-tel" href="tel:0353092175">03-5309-2175</a><small><a href="https://skym.co.jp/contact">お問い合わせフォーム</a>からもご連絡いただけます。</small></dd></div>
         </dl>
         <div class="tp-links">
           <a href="https://skym.co.jp/company/summary">会社概要を見る<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -183,7 +184,7 @@
       </div>
       <div class="tp-map">
         <iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B2-38-23%20SAM%E3%83%93%E3%83%AB&amp;z=16&amp;hl=ja&amp;output=embed" title="株式会社SKYM 本社の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        <p class="tp-map-note"><span>有楽町線 東池袋駅 徒歩9分</span><span>JR 大塚駅 徒歩11分</span></p>
+        <p class="tp-map-note"><span>有楽町線 東池袋駅 徒歩9分</span><span>JR 大塚駅 徒歩11分</span><span>JR 池袋駅 徒歩12分</span></p>
       </div>
     </div>
   </div>
