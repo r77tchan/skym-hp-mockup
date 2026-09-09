@@ -172,7 +172,7 @@ img.emoji {
 
 			<!-- MOCK:CONTENT START (draft3: 本文 = block.html。WP では [vc_row columns_type="none" width="full" el_class="tp-wrap"] の中に生 HTML として貼る。ヘッダー/フッターはテーマ生成) -->
 <section class="l-section wpb_row height_auto width_full vc_row-fluid tp-wrap"><div class="l-section-h g-html i-cf"><div class="g-cols offset_none"><div class=" full-width">
-<!-- skym top draft3 (draft2 + ① 事業内容の下に会社概要ブロック(本番の会社概要ページ ID 6187 の値)② 採用帯を draft2 の細い調子に揃える(細い見出し・白い枠線ボタン。ライムはやめる)。それ以外は draft2 のまま)
+<!-- skym top draft3 (draft2 + ① 事業内容の下に会社概要ブロック(本番の会社概要ページ ID 6187 の値 + モノクロの Google マップ埋め込み)② 採用帯を draft2 の細い調子に揃える(細い見出し・白い枠線ボタン。ライムはやめる)。それ以外は draft2 のまま)
      data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。data-keep-tail="1" = current の最後の行(テーマの青いパートナー募集の帯 = us_cta)をそのまま残す。
      画像: hero-clouds.jpg(ChatGPT 生成の雲海)/ about-engineer.jpg(ChatGPT 生成、中途タイトル帯の未採用候補を流用)/ card1〜6(事業内容 draft2 のカード写真を流用)。WP 実装時は uploads に上げて絶対 URL に差し替える -->
 <div id="skym-top" data-row-class="tp-wrap" data-keep-tail="1">
@@ -244,17 +244,24 @@ img.emoji {
 #skym-top .tp-tile-t span{display:block;font-size:13px;font-weight:400;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
 #skym-top .tp-business .tp-more{margin-top:40px}
 
-/* 4 会社概要: 見出し(左)+ 表(右)。値は本番の会社概要ページ(/company/summary)から */
+/* 4 会社概要: 見出し行の下に 表(左)+ モノクロの地図(右)。値は本番の会社概要ページ(/company/summary)から。地図は API キー不要の通常埋め込み(iframe)を grayscale で落ち着かせ、ホバーで色に戻す */
 #skym-top .tp-company{background:var(--light)}
-#skym-top .tp-company .tp-inner{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
-#skym-top .tp-company .tp-links{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px 28px}
-#skym-top .tp-company .tp-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;letter-spacing:.06em;line-height:1.4;border-bottom:1px solid var(--navy);padding-bottom:4px;transition:color .2s,border-color .2s}
-#skym-top .tp-company .tp-links a:hover{color:var(--blue);border-color:var(--blue)}
+#skym-top .tp-company .tp-head{margin-bottom:40px}
+#skym-top .tp-company-grid{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:stretch}
+#skym-top .tp-map{display:flex;flex-direction:column}
+#skym-top .tp-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px}
+#skym-top .tp-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;letter-spacing:.06em;line-height:1.4;border-bottom:1px solid var(--navy);padding-bottom:4px;transition:color .2s,border-color .2s}
+#skym-top .tp-links a:hover{color:var(--blue);border-color:var(--blue)}
 #skym-top .tp-table{margin:0;border-top:1px solid var(--navy)}
-#skym-top .tp-table div{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+#skym-top .tp-table div{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:17px 0;border-bottom:1px solid var(--line)}
 #skym-top .tp-table dt{font-size:14px;font-weight:500;letter-spacing:.06em;color:var(--muted);line-height:1.9;margin:0;padding:0}
 #skym-top .tp-table dd{font-size:15px;line-height:1.9;color:var(--body);margin:0;padding:0}
 #skym-top .tp-table dd small{display:block;font-size:13px;color:var(--muted);line-height:1.8}
+#skym-top .tp-map iframe{display:block;width:100%;flex:1;min-height:320px;border:0;margin:0;background:#E5E7EB;filter:grayscale(1) contrast(1.02);transition:filter .35s}
+#skym-top .tp-map:hover iframe{filter:none}
+#skym-top .tp-map-note{margin:16px 0 0!important;font-size:13px!important;line-height:1.9!important;color:var(--muted)}
+#skym-top .tp-map-note span{display:inline-block;margin-right:1em}
+
 
 /* 5 採用(draft3: draft2 の細い調子に揃える。写真と文言は採用トップと同じ) */
 #skym-top .tp-recruit{position:relative;color:#fff;overflow:hidden;padding:120px 0;
@@ -272,8 +279,9 @@ img.emoji {
   #skym-top .tp-hero{min-height:0;padding:170px 0 120px}
   #skym-top .tp-scroll{display:none}
   #skym-top .tp-about .tp-inner{grid-template-columns:1fr;gap:36px}
-  #skym-top .tp-company .tp-inner{grid-template-columns:1fr;gap:36px}
-  #skym-top .tp-table div{grid-template-columns:120px 1fr;gap:16px;padding:14px 0}
+  #skym-top .tp-company-grid{grid-template-columns:1fr;gap:36px}
+  #skym-top .tp-table div{grid-template-columns:110px 1fr;gap:16px;padding:14px 0}
+  #skym-top .tp-map iframe{flex:none;aspect-ratio:16/10;min-height:0}
   #skym-top .tp-tiles{grid-template-columns:1fr 1fr;gap:8px}
   #skym-top .tp-recruit{padding:88px 0}
 }
@@ -324,26 +332,34 @@ img.emoji {
   </div>
 </section>
 
-<!-- 4. 会社概要(値は /company/summary から。事業内容の行は上のタイルと重複するので入れない) -->
+<!-- 4. 会社概要(値は /company/summary から。事業内容の行は上のタイルと重複するので入れない。地図は通常の埋め込み iframe = API キー不要) -->
 <section class="tp-company" id="tp-company">
   <div class="tp-inner">
-    <div>
+    <div class="tp-head">
       <h2>会社概要</h2>
       <span class="tp-sub">Company</span>
-      <div class="tp-links">
-        <a href="https://skym.co.jp/company/summary">会社概要を見る<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="https://skym.co.jp/company/accessmap">アクセスマップ<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="tp-company-grid">
+      <div>
+        <dl class="tp-table">
+          <div><dt>社名</dt><dd>株式会社SKYM<small>SKYM, Inc.</small></dd></div>
+          <div><dt>設立</dt><dd>2013年7月26日</dd></div>
+          <div><dt>代表者</dt><dd>代表取締役社長　渡邉 浩一</dd></div>
+          <div><dt>所在地</dt><dd>〒170-0013　東京都豊島区東池袋2-38-23 SAMビル5B</dd></div>
+          <div><dt>資本金</dt><dd>1,000万円</dd></div>
+          <div><dt>従業員数</dt><dd>30名</dd></div>
+          <div><dt>許認可</dt><dd>労働者派遣事業許可番号　派13-309914<small>有料職業紹介許可届出番号　13-ユ-319236 ／ プライバシーマーク認定番号　第10824350号</small></dd></div>
+        </dl>
+        <div class="tp-links">
+          <a href="https://skym.co.jp/company/summary">会社概要を見る<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://skym.co.jp/company/accessmap">アクセスマップ<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="tp-map">
+        <iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B2-38-23%20SAM%E3%83%93%E3%83%AB&amp;z=16&amp;hl=ja&amp;output=embed" title="株式会社SKYM 本社の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <p class="tp-map-note"><span>有楽町線 東池袋駅 徒歩9分</span><span>JR 大塚駅 徒歩11分</span></p>
       </div>
     </div>
-    <dl class="tp-table">
-      <div><dt>社名</dt><dd>株式会社SKYM<small>SKYM, Inc.</small></dd></div>
-      <div><dt>設立</dt><dd>2013年7月26日</dd></div>
-      <div><dt>代表者</dt><dd>代表取締役社長　渡邉 浩一</dd></div>
-      <div><dt>所在地</dt><dd>〒170-0013　東京都豊島区東池袋2-38-23 SAMビル5B</dd></div>
-      <div><dt>資本金</dt><dd>1,000万円</dd></div>
-      <div><dt>従業員数</dt><dd>30名</dd></div>
-      <div><dt>許認可</dt><dd>労働者派遣事業許可番号　派13-309914<small>有料職業紹介許可届出番号　13-ユ-319236 ／ プライバシーマーク認定番号　第10824350号</small></dd></div>
-    </dl>
   </div>
 </section>
 
