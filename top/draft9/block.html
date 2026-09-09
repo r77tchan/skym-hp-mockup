@@ -1,5 +1,5 @@
-<!-- skym top draft6 (draft4(採用版。2026-09-09 セッション 5 のユーザー指示)+ ヒーローと「会社の一言」の写真を ChatGPT の生成画像(セット 1)に差し替えた版。それ以外は draft4 のまま。draft6〜9 = セット 1〜4 の比較用)
-     写真: hero-tokyo-morning.jpg = セット 1-A「東京の朝の空(高層階から。左端にスカイツリー、右端にクレーン)」(1536×1024・JPEG q80。中央に文字が乗り、上に濃紺 30% のオーバーレイ)/ about-window-typing.jpg = セット 1-B「窓辺の机でタイピングする手元(同じ東京の朝)」(1200×800・JPEG q80。2 カラムの左、幅 570px 前後)。プロンプトは skym-hp-wp/doc/作業記録/15.md「セッション 5」。
+<!-- skym top draft9 (draft4(採用版。2026-09-09 セッション 5 のユーザー指示)+ ヒーローと「会社の一言」の写真を ChatGPT の生成画像(セット 4)に差し替えた版。それ以外は draft4 のまま。draft6〜9 = セット 1〜4 の比較用)
+     写真: hero-office.jpg = セット 4-A「誰もいない朝のオフィス(中央の通路の先に大きな窓)」(1536×1024・JPEG q80。中央に文字が乗り、上に濃紺 30% のオーバーレイ)/ about-code.jpg = セット 4-B「机の手元(ノート PC とコードの映るモニター)」(1200×800・JPEG q80。2 カラムの左、幅 570px 前後)。プロンプトは skym-hp-wp/doc/作業記録/15.md「セッション 5」。
      お知らせの帯: 見出し「お知らせ / News」(左)+ 日付と題名の 3 行(右)。写真は使わない。項目 3 件は承認済み(2026-09-09)。案 A(生 HTML の静的リスト。トップだけ、一覧ページなし)。項目を足すときは <ul class="tp-news-list"> を編集し、最新 3 件だけ残す。
      data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。data-keep-tail="1" = current の最後の行(テーマの青いパートナー募集の帯 = us_cta)をそのまま残す。
      画像: card1〜6(事業内容 draft2 のカード写真を流用)。WP 実装時は uploads に上げて絶対 URL に差し替える -->
@@ -43,9 +43,9 @@
 #skym-top .tp-btn.white{border-color:rgba(255,255,255,.85);color:#fff!important}
 #skym-top .tp-btn.white:hover{background:#fff;border-color:#fff;color:var(--navy)!important}
 
-/* 1 ヒーロー: 生成写真 hero-tokyo-morning.jpg(セット 1-A)。文字は現行に近い細い書体を中央に。オーバーレイは薄め */
+/* 1 ヒーロー: 生成写真 hero-office.jpg(セット 4-A)。文字は現行に近い細い書体を中央に。オーバーレイは薄め */
 #skym-top .tp-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 0 120px;color:#fff;overflow:hidden;
-  background:linear-gradient(rgba(17,24,39,.3),rgba(17,24,39,.3)),url("hero-tokyo-morning.jpg") center/cover no-repeat,var(--navy)}
+  background:linear-gradient(rgba(17,24,39,.3),rgba(17,24,39,.3)),url("hero-office.jpg") center/cover no-repeat,var(--navy)}
 #skym-top .tp-hero h1{font-size:clamp(32px,4.2vw,54px)!important;font-weight:300!important;letter-spacing:.16em!important;line-height:1.3!important;color:#fff!important;margin:0 0 20px!important;text-indent:.16em}
 #skym-top .tp-hero .tp-en{display:block;font-size:clamp(13px,1.4vw,18px);font-weight:300;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.92);line-height:1.5;text-indent:.32em}
 #skym-top .tp-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);color:#fff!important;opacity:.85;line-height:0}
@@ -172,7 +172,7 @@
 <!-- 2. 会社の一言(写真 + 事業内容 draft2 のリード) -->
 <section class="tp-about" id="tp-about">
   <div class="tp-inner">
-    <img class="tp-photo" src="about-window-typing.jpg" alt="">
+    <img class="tp-photo" src="about-code.jpg" alt="">
     <div>
       <h2>ITを軸に、<br>支える仕事と、つくる仕事を。</h2>
       <span class="tp-sub">About SKYM</span>
