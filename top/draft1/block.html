@@ -1,0 +1,169 @@
+<!-- skym top draft1 (トップページの改修案 1: 振り分け型。ヒーロー → 会社の一言 → 事業 6 つのコンパクト版 → 採用 → お問い合わせ / パートナー募集) / data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。
+     部品と色は採用トップ(recruit/draft8)・事業内容(service/draft2)から流用。文言は ヒーロー = 現行のまま / 会社の一言 = 事業内容 draft2 のリード / 事業 6 行 = 事業カードの英語名 + 日本語キャッチ / 採用 = 採用トップのメッセージ(新しく書いた文はない) -->
+<div id="skym-top" data-row-class="tp-wrap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="tp-wrap")。
+   トップはヘッダーが透過・固定で、テーマが最初の行に padding-top(50px)を付けるのでそれも外す(ヒーローの写真がヘッダーの下まで広がる) */
+.l-section.tp-wrap{padding:0!important}
+.l-section.tp-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.tp-wrap .g-cols,.l-section.tp-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-top{
+  --blue:#02A0E9;--navy:#111827;--lime:#D9FF55;--light:#F6F8FA;--line:#DDE3E8;--muted:#5B6472;
+  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-top *,#skym-top *:before,#skym-top *:after{box-sizing:border-box}
+#skym-top h1,#skym-top h2,#skym-top h3{
+  font-family:inherit!important;font-weight:900!important;line-height:1.3!important;letter-spacing:-.01em!important;
+  color:inherit!important;margin:0 0 .5em!important;padding:0!important;text-transform:none!important;
+}
+#skym-top h2{font-size:clamp(26px,3.4vw,42px)!important}
+#skym-top h3{font-size:clamp(17px,1.55vw,20px)!important}
+/* テーマが span の太さを上書きするので親から継承させる */
+#skym-top h1 span,#skym-top h2 span,#skym-top h3 span,#skym-top p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-top p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-top p:last-child{margin-bottom:0!important}
+#skym-top a{color:inherit;text-decoration:none!important}
+#skym-top ul{list-style:none!important;margin:0!important;padding:0!important}
+#skym-top li{margin:0!important;padding:0!important;list-style:none!important}
+#skym-top .tp-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-top section{padding:96px 0;margin:0}
+#skym-top .tp-label{display:block;font-size:12px!important;font-weight:800!important;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 18px!important;line-height:1.4!important}
+#skym-top .tp-grid2{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+/* 右カラムの先頭行を左の h2 の上端に揃える(ラベル 12px×1.4 + 余白 18px ≒ 35px) */
+#skym-top .tp-copy{padding-top:38px}
+#skym-top .tp-btn{display:inline-flex;align-items:center;gap:14px;background:var(--navy);color:#fff!important;border-radius:999px;padding:17px 30px;font-weight:800;letter-spacing:.06em;font-size:15px;line-height:1;border:2px solid var(--navy);transition:background .2s,border-color .2s,color .2s}
+#skym-top .tp-btn:hover{background:var(--blue);border-color:var(--blue)}
+#skym-top .tp-btn.light{background:#fff;color:var(--navy)!important;border-color:#fff}
+#skym-top .tp-btn.light:hover{background:var(--blue);border-color:var(--blue);color:#fff!important}
+#skym-top .tp-btn.lime{background:var(--lime);color:var(--navy)!important;border-color:var(--lime)}
+#skym-top .tp-btn.lime:hover{background:#fff;border-color:#fff;color:var(--navy)!important}
+
+/* 1 ヒーロー: 現行の雲海写真(top-image.jpg)+ 現行の一言。水玉パターンは外し、暗めのオーバーレイだけ。ヘッダーが透過なので上端まで写真 */
+#skym-top .tp-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 0 120px;color:#fff;overflow:hidden;
+  background:linear-gradient(rgba(17,24,39,.42),rgba(17,24,39,.42)),url("https://skym.co.jp/wp20150417/wp-content/uploads/top-image.jpg") center/cover no-repeat,var(--navy)}
+#skym-top .tp-hero h1{font-size:clamp(44px,7vw,84px)!important;font-weight:700!important;letter-spacing:.08em!important;line-height:1.2!important;color:#fff!important;margin:0 0 22px!important}
+#skym-top .tp-hero .tp-en{display:block;font-size:13px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.9);line-height:1.5}
+#skym-top .tp-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);color:#fff!important;opacity:.85;line-height:0}
+
+/* 2 会社の一言(事業内容 draft2 のリードを流用) */
+#skym-top .tp-about{background:#fff}
+#skym-top .tp-about h2 span{color:var(--blue)}
+
+/* 3 事業 6 つ(写真なしのコンパクト版: 番号・英語名・日本語キャッチの 3 行、上罫線で区切る。写真カードは事業内容ページに任せる) */
+#skym-top .tp-business{background:var(--light)}
+#skym-top .tp-head{max-width:780px;margin-bottom:44px}
+#skym-top .tp-list{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 40px}
+#skym-top .tp-item{border-top:2px solid var(--navy);padding-top:18px}
+#skym-top .tp-num{display:block;font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.12em;line-height:1.4;margin-bottom:10px}
+#skym-top .tp-item h3{letter-spacing:.01em!important;margin:0 0 6px!important}
+#skym-top .tp-item p{font-size:15px!important;line-height:1.7!important;font-weight:700!important;color:#1F2937}
+#skym-top .tp-more{margin-top:52px}
+
+/* 4 採用(採用トップの締めと同じ写真帯・同じ文言。トップで一番目立つ導線) */
+#skym-top .tp-recruit{position:relative;color:#fff;overflow:hidden;padding:120px 0;
+  background:linear-gradient(rgba(17,24,39,.72),rgba(17,24,39,.72)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
+#skym-top .tp-recruit .tp-label{color:var(--lime)}
+#skym-top .tp-recruit h2{color:#fff!important;max-width:920px;font-size:clamp(32px,4.4vw,56px)!important;margin-bottom:0!important}
+#skym-top .tp-recruit .tp-msg{margin:20px 0 36px!important;font-size:clamp(16px,1.6vw,20px)!important;font-weight:700!important;line-height:1.8!important;color:rgba(255,255,255,.92)}
+
+/* 5 お問い合わせ・パートナー募集(事業内容 draft2 と同じ 2 ボックス) */
+#skym-top .tp-cta{background:#fff}
+#skym-top .tp-cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+#skym-top .tp-cta-box{background:#fff;border:2px solid var(--navy);border-radius:24px;padding:40px 38px 38px;display:flex;flex-direction:column}
+#skym-top .tp-cta-box h3{font-size:clamp(20px,1.9vw,26px)!important}
+#skym-top .tp-cta-box p{font-size:15px!important;line-height:1.85!important;color:#374151}
+#skym-top .tp-cta-box .tp-btn{margin-top:28px;align-self:flex-start}
+#skym-top .tp-cta-box.navy{background:var(--navy);border-color:var(--navy);color:#fff}
+#skym-top .tp-cta-box.navy h3{color:#fff!important}
+#skym-top .tp-cta-box.navy p{color:rgba(255,255,255,.88)}
+
+/* ヒーローと採用帯の背景はゆっくりスクロール(WP では行背景の Ultimate パララックスで付ける。モックは PC のみ fixed で近似) */
+@media(min-width:901px){
+  #skym-top .tp-hero,#skym-top .tp-recruit{background-attachment:fixed}
+}
+@media(max-width:900px){
+  #skym-top section{padding:72px 0}
+  #skym-top .tp-hero{min-height:0;padding:170px 0 120px}
+  #skym-top .tp-scroll{display:none}
+  #skym-top .tp-grid2,#skym-top .tp-cta-grid{grid-template-columns:1fr;gap:32px}
+  #skym-top .tp-copy{padding-top:0}
+  #skym-top .tp-list{grid-template-columns:1fr 1fr;gap:28px 32px}
+  #skym-top .tp-cta-box{padding:32px 28px 30px}
+  #skym-top .tp-recruit{padding:88px 0}
+}
+@media(max-width:600px){
+  #skym-top .tp-list{grid-template-columns:1fr}
+}
+</style>
+
+<!-- 1. ヒーロー(写真・一言とも現行のまま) -->
+<section class="tp-hero" id="tp-top">
+  <div class="tp-inner">
+    <h1>自分らしく</h1>
+    <span class="tp-en">Work in my own way</span>
+  </div>
+  <a class="tp-scroll" href="#tp-about" aria-label="下へ"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+<!-- 2. 会社の一言(事業内容 draft2 のリードを流用) -->
+<section class="tp-about" id="tp-about">
+  <div class="tp-inner tp-grid2">
+    <div>
+      <span class="tp-label">About</span>
+      <h2>ITを軸に、<br><span>支える仕事と、<br>つくる仕事を。</span></h2>
+    </div>
+    <div class="tp-copy">
+      <p>株式会社SKYMは、企業のシステム開発・インフラ運用を支えるITサービスを軸に、AIの活用支援、自社ECサイトの運営・商品企画、イベントの企画・運営まで、幅広く事業を行っています。</p>
+      <p>技術者を派遣してお客様の現場を支えるだけでなく、自分たちでサービスや商品をつくり、運営する。その両方を持っていることが私たちの特長です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 事業 6 つ(コンパクト版。英語名・日本語キャッチは事業カードと同じ) -->
+<section class="tp-business" id="tp-business">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <span class="tp-label">Our Business</span>
+      <h2>事業内容</h2>
+    </div>
+    <ul class="tp-list">
+      <li class="tp-item"><span class="tp-num">01</span><h3>IT SOLUTION</h3><p>企業の当たり前を、ITで支える。</p></li>
+      <li class="tp-item"><span class="tp-num">02</span><h3>AI &amp; DIGITAL</h3><p>AIを、仕事で使える仕組みへ。</p></li>
+      <li class="tp-item"><span class="tp-num">03</span><h3>EC &amp; PRODUCT</h3><p>売るだけで終わらせない。売り方からつくる。</p></li>
+      <li class="tp-item"><span class="tp-num">04</span><h3>EVENT &amp; ENTERTAINMENT</h3><p>リアルな楽しさに、ITを掛け合わせる。</p></li>
+      <li class="tp-item"><span class="tp-num">05</span><h3>EDUCATION</h3><p>学ぶだけでなく、「できる」に変える。</p></li>
+      <li class="tp-item"><span class="tp-num">06</span><h3>SAKURA＋</h3><p>挑戦する人の、最初の「＋」になる。</p></li>
+    </ul>
+    <div class="tp-more"><a class="tp-btn" href="https://skym.co.jp/service">事業内容を見る<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 4. 採用(採用トップのヒーロー・メッセージと同じ文言) -->
+<section class="tp-recruit" id="tp-recruit">
+  <div class="tp-inner">
+    <span class="tp-label">Recruit</span>
+    <h2>何をやってみたいですか？</h2>
+    <p class="tp-msg">好きなこと、やってみたいこと。最初のきっかけは、それでいい。<br>その「やってみたい」に、ITやAIという武器を加えていく。</p>
+    <a class="tp-btn lime" href="https://skym.co.jp/recruit">採用情報を見る<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- 5. お問い合わせ・パートナー募集(事業内容 draft2 と同じ) -->
+<section class="tp-cta" id="tp-cta">
+  <div class="tp-inner tp-cta-grid">
+    <div class="tp-cta-box">
+      <h3>お問い合わせ</h3>
+      <p>人材派遣のご相談や、その他のお問い合わせをお待ちしております。</p>
+      <a class="tp-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="tp-cta-box navy">
+      <h3>パートナー募集</h3>
+      <p>SES事業において御協業いただけるビジネスパートナー企業様を募集しております。</p>
+      <a class="tp-btn light" href="https://skym.co.jp/partnership">募集フォームへ<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+</div>
