@@ -58,6 +58,14 @@ window.MOCK = {
       ],
     },
     {
+      id: 'ec-product',
+      name: '事業内容 03 EC & PRODUCT(新規ページ。WP 未作成、URL は /service/ec-product の予定。骨格は ses/current を借用)',
+      live: 'https://skym.co.jp/service/ec-product',
+      versions: [
+        { id: 'draft1', date: '', note: '案1: it-solution/draft1 と同じテンプレート(#skym-svsub)。タイトル帯(一覧のカードと同じ WP 既存の机の俯瞰 + EC & PRODUCT / 自社ECサイト運営・商品企画)→ リード → 取り組んでいること 3 つ(オンラインストア SKYMSHOP の運営(ショップへのボタン)/ オリジナル商品の企画・製作 / 新しい売り方をつくる)→ 取り扱い(表)→ その他の事業 → お問い合わせ → 青い帯。文言は実際のショップ(skymtackle.base.shop / shop.skym.co.jp)の記載とユーザー情報から。写真: ルアーと釣り場は Unsplash、アパレルはショップ自身の商品写真' },
+      ],
+    },
+    {
       id: 'recruit',
       name: '採用情報',
       live: 'https://skym.co.jp/recruit',
