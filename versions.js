@@ -34,6 +34,22 @@ window.MOCK = {
       ],
     },
     {
+      id: 'ses',
+      name: 'システムエンジニアリングサービス(既存サブページ /service/ses。事業内容の個別ページの骨格用に取得。WP 実装時は非公開化 + /service/it-solution へ 301 の想定)',
+      live: 'https://skym.co.jp/service/ses',
+      versions: [
+        { id: 'current', date: '2026-09-14', note: '現状再現(ID 6181。タイトル帯あり。2015 年頃の内容: 技術力 × 人間力 / WEB エンジニア / 業務系開発 / インフラエンジニア / 主たる技術支援先の一覧)' },
+      ],
+    },
+    {
+      id: 'it-solution',
+      name: '事業内容 01 IT SOLUTION(新規ページ。WP 未作成、URL は /service/it-solution の予定。骨格は ses/current を借用)',
+      live: 'https://skym.co.jp/service/it-solution',
+      versions: [
+        { id: 'draft1', date: '', note: '案1: 事業内容の個別ページ共通テンプレート(#skym-svsub、トップ draft3 / 事業内容 draft6 の型)。タイトル帯(生成写真 + IT SOLUTION / システム開発・インフラ運用支援)→ リード(01 + キャッチ + 説明)→ 提供するサービス 3 つ(写真 + 文章を左右交互: SES / 受託システム開発 / インフラ設計・構築・運用)→ 対応領域(表)→ その他の事業(タイル 5)→ お問い合わせ → 青いパートナー募集の帯。文言は既存の ses / order-made-system / infra から流用(差し替え前提)、写真は codex CLI の生成画像' },
+      ],
+    },
+    {
       id: 'recruit',
       name: '採用情報',
       live: 'https://skym.co.jp/recruit',

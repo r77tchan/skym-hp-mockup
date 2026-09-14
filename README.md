@@ -31,6 +31,7 @@
 - 案を作るとき(生 HTML + 独自 CSS 方式): `<page>/draftN/block.html` に **WP に貼る本文そのもの**(`<style>` + HTML。ルート要素に `data-row-class="…"` で VC 行に付けるクラスを書く)を書き、`python3 tools/build-draft.py <page> draftN` で current の骨格(ヘッダー/フッター)に差し込んだ `index.html` を生成する。current を直接コピーして本文だけ書き換えてもよい
 - `versions.js` に `{ id: 'draft1', date: '', note: '案1: 何を狙った案か' }` を足す
 - WP 側でページタイトルを変える予定の案は、block.html のルート要素に `data-page-title="新卒・未経験採用" data-page-subtitle="New Graduate / Entry Level"` を書くと、build-draft.py がテーマ生成のタイトル帯(h1・サブタイトル・パンくず末尾)と `<title>` の該当語を差し替える。`data-page-parent="採用情報|https://skym.co.jp/recruit"` でパンくずに親階層を挿入(WP で親ページを付ける予定の表示合わせ。例: graduate-pre/draft2)。ヘッダー・フッターは触らないルールの唯一の例外
+- **WP にまだ無い新規ページ**のモックは、ルート要素に `data-base-page="ses"` を書くと自ページの current ではなく `ses/current/index.html` を骨格に使う(例: 事業内容の個別ページ `it-solution/draft1` は既存サブページ /service/ses の骨格 = タイトル帯 + パンくず「ホーム › 事業内容 › …」を借り、`data-page-title` / `data-page-subtitle` で題名を差し替える)。借りる側の current は先に `tools/make-current.py` で作る。versions.js にはその新規ページを `versions: [draft1 …]`(current なし)、`live` は予定 URL で登録する
 - 同じくルート要素に `data-page-titlebar="tb-newbie.jpg"` を書くと、テーマ生成のタイトル帯の背景画像を差し替える(WP ではページ編集画面の Zephyr タイトル帯設定で変える想定。URL は index.html からの相対でも絶対でも可)。`data-keep-tail="1"` を書くと、current の本文の末尾 1 行(`<section class="l-section …`。例: トップの青いパートナー募集の帯 = テーマの us_cta 行)をそのまま後ろに残す(WP では既存の行を消さず、その上の行だけ差し替える想定)
 - 見た目の型は `top/draft3` が基準(細い書体・1 色の見出し + 英字の副題・写真タイル・細い枠線のボタン・テーマの青い帯。詳細は skym-hp-wp/AGENTS.md「現在の決定事項」)。新しい案はこの型に合わせる
 - 複数ページで同じ `<style>` を使うとき(採用の個別ページ `career` / `graduate-pre` / `newbie` の `#skym-rsub`)は、CSS を 1 つの block.html(`career/draft1`)で直し、`python3 tools/sync-style.py career/draft1 graduate-pre/draft1 …` で他ページに配ってから各ページを build-draft.py で再生成する
@@ -75,4 +76,4 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 2. `versions.js` の `pages` にページ(id・name・live・versions: current)を足す
 3. ローカルで表示確認(`preview.html?a=<page>/current/&b=<本物の URL>&w=390`)→ commit → push
 
-作成済み: `top`(2026-09-01、手作業。上の加工を先に手で行ったもの)/ `service`(事業内容、ID 6170、2026-09-04)/ `recruit`(採用情報、ID 6177、2026-09-04)/ `career`(中途採用、ID 7807)・`newbie`(未経験採用、ID 8464)・`graduate-pre`(新卒採用、ID 8577)(いずれも 2026-09-07)。URL は末尾スラッシュ無し(`/service/` は `/service` へ 301)
+作成済み: `top`(2026-09-01、手作業。上の加工を先に手で行ったもの)/ `service`(事業内容、ID 6170、2026-09-04)/ `recruit`(採用情報、ID 6177、2026-09-04)/ `career`(中途採用、ID 7807)・`newbie`(未経験採用、ID 8464)・`graduate-pre`(新卒採用、ID 8577)(いずれも 2026-09-07)/ `ses`(システムエンジニアリングサービス、ID 6181、2026-09-14。事業内容の個別ページ `it-solution` 等の骨格用)。URL は末尾スラッシュ無し(`/service/` は `/service` へ 301)

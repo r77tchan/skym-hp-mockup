@@ -4,11 +4,16 @@
 使い方: python3 tools/build-draft.py recruit draft1
 current の MOCK:CONTENT START〜END を、block.html を Zephyr/VC の全幅行(width_full, columns_type=none)で包んだものに置き換える。
 WP 側では [vc_row columns_type="none" width="full" el_class="<block 冒頭の rc-wrap 等>"] の中に block.html をそのまま貼る想定。
+block.html のルートに data-base-page="ses" があれば、自ページの current ではなく ses/current/index.html を骨格に使う
+(WP にまだ無い新規ページのモック用。例: 事業内容の個別ページ it-solution は既存サブページ /service/ses の骨格 = タイトル帯 + パンくず「ホーム › 事業内容 › …」を借り、data-page-title で題名を差し替える)。
 """
 import pathlib, re, sys
 page, draft = sys.argv[1], sys.argv[2]
-cur = pathlib.Path(page, 'current', 'index.html').read_text(encoding='utf-8')
 block = pathlib.Path(page, draft, 'block.html').read_text(encoding='utf-8')
+base = re.search(r'data-base-page="([^"]+)"', block)
+base_page = base.group(1) if base else page
+cur = pathlib.Path(base_page, 'current', 'index.html').read_text(encoding='utf-8')
+if base: print(f'骨格: {base_page}/current/index.html(新規ページのため別ページの current を借用)')
 wrap_class = re.search(r'data-row-class="([^"]+)"', block)
 wrap_class = wrap_class.group(1) if wrap_class else ''
 a = cur.index('<!-- MOCK:CONTENT START'); b = cur.index('<!-- MOCK:CONTENT END -->') + len('<!-- MOCK:CONTENT END -->')
@@ -51,6 +56,6 @@ if ptb:
     out, n = re.subn(r'(class="l-titlebar-img" style="background-image: url\()[^)]*(\))', lambda m: m.group(1) + ptb.group(1) + m.group(2), out, count=1)
     assert n == 1, 'titlebar img not found'
     print(f'タイトル帯の背景画像: {ptb.group(1)}')
-out = out.replace('-->\n<html', f'  {draft}: 本文を {page}/{draft}/block.html に差し替えた改修案(tools/build-draft.py で生成。current 側の変更は再生成で追従)\n-->\n<html', 1)
+out = out.replace('-->\n<html', f'  {draft}: 本文を {page}/{draft}/block.html に差し替えた改修案(tools/build-draft.py で生成。current 側の変更は再生成で追従)' + (f'。骨格は {base_page}/current(WP に無い新規ページのため借用)' if base else '') + '\n-->\n<html', 1)
 pathlib.Path(page, draft, 'index.html').write_text(out, encoding='utf-8')
 print(f'{page}/{draft}/index.html: {len(out)} 文字(block {len(block)} 文字, 行クラス "{wrap_class}")')
