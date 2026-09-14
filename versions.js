@@ -50,6 +50,14 @@ window.MOCK = {
       ],
     },
     {
+      id: 'ai-digital',
+      name: '事業内容 02 AI & DIGITAL(新規ページ。WP 未作成、URL は /service/ai-digital の予定。骨格は ses/current を借用)',
+      live: 'https://skym.co.jp/service/ai-digital',
+      versions: [
+        { id: 'draft1', date: '', note: '案1: it-solution/draft1 と同じテンプレート(#skym-svsub)。タイトル帯(一覧のカードと同じ WP 既存の UI 画像 + AI & DIGITAL / AI活用・DX支援)→ リード → 取り組んでいること 3 つ(AI活用支援 / AIエージェント・ツールの開発 / 自社サービスでの実践)→ こんなご相談から(表)→ その他の事業 → お問い合わせ → 青い帯。文言は「抽象的でよい」方針の仮の文(カードの説明・採用メッセージ・中途素材から流用)。本文写真は Unsplash' },
+      ],
+    },
+    {
       id: 'recruit',
       name: '採用情報',
       live: 'https://skym.co.jp/recruit',
