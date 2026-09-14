@@ -173,7 +173,7 @@ img.emoji {
 <section class="l-section wpb_row height_auto width_full vc_row-fluid ss-wrap"><div class="l-section-h g-html i-cf"><div class="g-cols offset_none"><div class=" full-width">
 <!-- skym it-solution draft1 (事業内容の個別ページ 01 IT SOLUTION。共通テンプレート #skym-svsub = トップ draft3 / 事業内容 draft6 の型: 細い書体・1 色の見出し + 英字の副題・写真 + 文章の 2 カラム・枠線ボタン・青い帯)
      構成: リード(番号 + キャッチ + 説明)→ 提供するサービス 3 つ(写真 + 文章を左右交互: SES / 受託開発 / インフラ)→ 対応領域(表)→ その他の事業(タイル 5)→ お問い合わせ → パートナー募集の青い帯
-     文言は既存の /service/ses・/service/order-made-system・/service/infra から流用(2015 年頃の記載を含む。差し替え前提)。写真は WP 既存のストック写真(ユーザー判断 2026-09-14: AI 感が出るので AI 生成はなるべく使わない): タイトル帯 = 現行 SES ページと同じ ses-e1433056571651.jpg(一覧のカード card1 と同じ写真。歯車の上でも白文字が読めるようオーバーレイを 0.4 → 0.55)、本文 = www_1920(SES)/ service-top2(受託開発)/ shutterstock_103110092(インフラ。現行インフラページのタイトル帯と同じ)。codex で生成した 4 枚は TMP-gen-*.jpg としてローカルに保管(未採用・未コミット)。その他の事業のタイルは service/draft6 の card2〜6 を参照
+     文言は既存の /service/ses・/service/order-made-system・/service/infra から流用(2015 年頃の記載を含む。差し替え前提)。写真は WP 既存のストック写真(ユーザー判断 2026-09-14: AI 感が出るので AI 生成はなるべく使わない): タイトル帯 = 現行 SES ページと同じ ses-e1433056571651.jpg(一覧のカード card1 と同じ写真。歯車の上でも白文字が読めるようオーバーレイを 0.4 → 0.55)、本文 3 枚は Unsplash の無料写真(Unsplash License: 商用可・帰属表示不要。2026-09-14 ユーザー「ヒーローだけは 2015 のまま、他はお任せ」で Claude が選定): sv1-ses = https://unsplash.com/photos/6Dv3pe-JnSg(コードのモニターとノート PC を打つ手元)/ sv2-dev = https://unsplash.com/photos/v9FQR4tbIq8(ワイヤーフレームを描く手)/ sv3-infra = https://unsplash.com/photos/40XgDxBfYXM(パッチパネルと青い LAN ケーブル)。いずれも 900px 幅 JPEG q80。WP 実装時は 3 枚を uploads へ上げて絶対 URL に。WP 既存の www_1920 / service-top2 / shutterstock_103110092 は「限界がある」として不採用、codex 生成 4 枚は TMP-gen-*.jpg にローカル保管(未採用・未コミット)。その他の事業のタイルは service/draft6 の card2〜6 を参照
      data-base-page="ses": WP にまだ無い新規ページなので、既存サブページ /service/ses の骨格(タイトル帯 + パンくず「ホーム › 事業内容 › …」)を借り、data-page-title で題名を差し替える
      WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ it-solution、タイトル「IT SOLUTION」、Zephyr サブタイトル「システム開発・インフラ運用支援」、タイトル帯の背景 = 既存の ses-e1433056571651.jpg でアップロード不要、オーバーレイ #111111 55%)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る。パートナー募集の帯はテーマの us_cta 行で -->
 <div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="IT SOLUTION" data-page-subtitle="システム開発・インフラ運用支援" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/ses-e1433056571651.jpg" data-page-overlay="0.55">
@@ -293,7 +293,7 @@ img.emoji {
   </div>
 </section>
 
-<!-- 2. 提供するサービス 3 つ(写真 + 文章を左右交互。写真は WP 既存のストック写真の絶対 URL = 本番でもそのまま使える。文言は /service/ses・/service/order-made-system・/service/infra から) -->
+<!-- 2. 提供するサービス 3 つ(写真 + 文章を左右交互。写真は Unsplash の 3 枚(出典はファイル冒頭のコメント)。文言は /service/ses・/service/order-made-system・/service/infra から) -->
 <section class="ss-services" id="ss-services">
   <div class="ss-inner">
     <div class="ss-head">
@@ -302,7 +302,7 @@ img.emoji {
     </div>
 
     <article class="ss-row">
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/www_1920.jpg" alt=""></figure>
+      <figure><img src="sv1-ses.jpg" alt=""></figure>
       <div>
         <span class="ss-num">01</span>
         <h3>システムエンジニアリングサービス</h3>
@@ -313,7 +313,7 @@ img.emoji {
     </article>
 
     <article class="ss-row ss-row-rev">
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/service-top2.jpg" alt=""></figure>
+      <figure><img src="sv2-dev.jpg" alt=""></figure>
       <div>
         <span class="ss-num">02</span>
         <h3>受託システム開発</h3>
@@ -324,7 +324,7 @@ img.emoji {
     </article>
 
     <article class="ss-row">
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/shutterstock_103110092.jpg" alt=""></figure>
+      <figure><img src="sv3-infra.jpg" alt=""></figure>
       <div>
         <span class="ss-num">03</span>
         <h3>インフラ設計・構築・運用</h3>
