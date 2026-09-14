@@ -56,6 +56,13 @@ if ptb:
     out, n = re.subn(r'(class="l-titlebar-img" style="background-image: url\()[^)]*(\))', lambda m: m.group(1) + ptb.group(1) + m.group(2), out, count=1)
     assert n == 1, 'titlebar img not found'
     print(f'タイトル帯の背景画像: {ptb.group(1)}')
+# block.html のルートに data-page-overlay="0.55" があれば、テーマ生成のタイトル帯の黒オーバーレイの不透明度(.l-titlebar-overlay の opacity)を差し替える
+# (WP 側ではページ編集画面の Zephyr タイトル帯設定で変える想定。写真が賑やかで白文字が負けるときに 0.4 → 0.55 など)
+pov = re.search(r'data-page-overlay="([0-9.]+)"', block)
+if pov:
+    out, n = re.subn(r'(class="l-titlebar-overlay" style="background-color:#[0-9a-fA-F]{3,6};opacity:)[0-9.]+(")', lambda m: m.group(1) + pov.group(1) + m.group(2), out, count=1)
+    assert n == 1, 'titlebar overlay not found'
+    print(f'タイトル帯のオーバーレイ: {pov.group(1)}')
 out = out.replace('-->\n<html', f'  {draft}: 本文を {page}/{draft}/block.html に差し替えた改修案(tools/build-draft.py で生成。current 側の変更は再生成で追従)' + (f'。骨格は {base_page}/current(WP に無い新規ページのため借用)' if base else '') + '\n-->\n<html', 1)
 pathlib.Path(page, draft, 'index.html').write_text(out, encoding='utf-8')
 print(f'{page}/{draft}/index.html: {len(out)} 文字(block {len(block)} 文字, 行クラス "{wrap_class}")')
