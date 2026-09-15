@@ -20,7 +20,8 @@
   <a href="./">一覧</a>
   <span>幅:</span><span id="widths"></span>
   <span style="margin-left:16px">表示:</span><span id="modes"></span>
-  <span style="margin-left:auto;color:#888">?a=top/v01/&amp;b=top/current/&amp;w=390 で指定(b は省略可、URL も可。&amp;h=6000 で全景)</span>
+  <span style="margin-left:16px">フォント:</span><span id="fonts"></span><span id="fontsb"></span>
+  <span style="margin-left:auto;color:#888">?a=top/v01/&amp;b=top/current/&amp;w=390 で指定(b は省略可、URL も可。&amp;h=6000 で全景。&amp;f=zen-new でフォント差し替え、&amp;fb= は右側)</span>
 </header>
 <main id="main"></main>
 <script src="versions.js"></script>
@@ -30,6 +31,26 @@
   const a = q.get('a') || 'top/current/';
   const b = q.get('b') || null;
   const h = parseInt(q.get('h') || '0', 10); // h を指定すると iframe をその高さで固定し、ページ全体をスクロールして全景を見る
+  // フォント差し替え(2026-09-15): f=<key> で左(a)、fb=<key> で右(b。省略時は f と同じ)のページ全体の書体を差し替える。
+  // 本番の子テーマ style.css の「* { font-family: 'mdfonticon', -apple-system, … !important }」と同じ形の * ルールを iframe の head 末尾に足して後勝ちさせる
+  // (= 本番で子テーマのその 1 行を書き換えたときの見え方。ヘッダー・フッター・タイトル帯・本文すべてに効く)。同一オリジンの iframe だけ(本物の URL には効かない)
+  const FONTS = {
+    'current':     { label: '現状(OS の書体)', css: null, family: null },
+    'zen-new':     { label: 'Zen Kaku Gothic New', css: 'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap', family: '"Zen Kaku Gothic New"' },
+    'zen-antique': { label: 'Zen Kaku Gothic Antique', css: 'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap', family: '"Zen Kaku Gothic Antique"' },
+    'noto':        { label: 'Noto Sans JP', css: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap', family: '"Noto Sans JP"' },
+  };
+  const f = FONTS[q.get('f')] ? q.get('f') : 'current';
+  const fb = FONTS[q.get('fb')] ? q.get('fb') : f;
+  const applyFont = (iframe, key) => {
+    const ft = FONTS[key]; if (!ft || !ft.family) return;
+    let d; try { d = iframe.contentDocument; } catch (e) { return; }
+    if (!d || !d.head || d.getElementById('mock-font')) return;
+    const l = d.createElement('link'); l.rel = 'stylesheet'; l.href = ft.css; d.head.appendChild(l);
+    const st = d.createElement('style'); st.id = 'mock-font';
+    st.textContent = `* { font-family: ${ft.family}, 'mdfonticon', -apple-system, 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', 'メイリオ', meiryo, sans-serif !important; }`;
+    d.head.appendChild(st);
+  };
   const pageId = a.split('/')[0];
   const page = (window.MOCK.pages.find(p => p.id === pageId)) || window.MOCK.pages[0];
   const widths = [375, 390, 430, 768, 1024, 1280, 1440];
@@ -44,9 +65,14 @@
     const p = new URLSearchParams(location.search); p.set('a', m.a); m.b ? p.set('b', m.b) : p.delete('b');
     return `<a class="${(m.a===a && (m.b||null)===(b||null))?'on':''}" href="?${p}">${n}</a>`;
   }).join('');
-  const pane = (src) => `<div class="pane"><div class="cap" style="max-width:${w}px">${src} @ ${w}px</div><iframe src="${src}" width="${w}"${h ? ` style="height:${h}px"` : ''}></iframe></div>`;
+  const fontLinks = (k, cur) => Object.entries(FONTS).map(([key, ft]) => `<a class="${key===cur?'on':''}" href="${setQ(k, key==='current' ? null : key)}">${ft.label}</a>`).join('');
+  document.getElementById('fonts').innerHTML = fontLinks('f', f);
+  document.getElementById('fontsb').innerHTML = b ? `<span style="margin-left:8px">右:</span>${fontLinks('fb', fb)}` : '';
+  const pane = (src, id, key) => `<div class="pane"><div class="cap" style="max-width:${w}px">${src} @ ${w}px${key!=='current' ? ` / ${FONTS[key].label}` : ''}</div><iframe id="${id}" src="${src}" width="${w}"${h ? ` style="height:${h}px"` : ''}></iframe></div>`;
   if (h) { document.getElementById('main').style.height = 'auto'; document.getElementById('main').style.overflow = 'visible'; }
-  document.getElementById('main').innerHTML = pane(a) + (b ? pane(b) : '');
+  document.getElementById('main').innerHTML = pane(a, 'pa', f) + (b ? pane(b, 'pb', fb) : '');
+  document.getElementById('pa').addEventListener('load', () => applyFont(document.getElementById('pa'), f));
+  if (b) document.getElementById('pb').addEventListener('load', () => applyFont(document.getElementById('pb'), fb));
 </script>
 </body>
 </html>

@@ -50,6 +50,7 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 - 現状: http://127.0.0.1:8765/top/current/
 - 幅指定・比較: http://127.0.0.1:8765/preview.html?a=top/draft1/&b=top/current/&w=390 (ヘッダーで幅・表示を切替。`b` には URL も指定可)
 - 全景(スマホ幅の縦長スクロール確認): `preview.html?a=recruit/draft1/&w=390&h=7200`(`h` = iframe の高さ px。ページ側をスクロールして見る。ブラウザ MCP は iframe 内をスクロールできないため)
+- 書体の差し替え: `preview.html?a=top/draft10/&w=1280&f=zen-new`(`f` = `zen-new` / `zen-antique` / `noto`、省略 = 現状。`b` 側は `fb`)。同一オリジンの iframe の head 末尾に Google Fonts の `<link>` と `* { font-family: … !important }` を足すだけなので、どの版・current にも効く(本物の URL には効かない)。サイト全体の書体を変えたときの見え方の確認用(2026-09-15)
 
 公開側も同じパス(`https://r77tchan.github.io/skym-hp-mockup/` 以下)。
 
