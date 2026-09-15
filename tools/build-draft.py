@@ -4,6 +4,7 @@
 使い方: python3 tools/build-draft.py recruit draft1
 current の MOCK:CONTENT START〜END を、block.html を Zephyr/VC の全幅行(width_full, columns_type=none)で包んだものに置き換える。
 WP 側では [vc_row columns_type="none" width="full" el_class="<block 冒頭の rc-wrap 等>"] の中に block.html をそのまま貼る想定。
+tools/mock-links.json があれば、生成後にモック内リンクへの置換とメニューの差し替えを行う(index.html だけ。詳細はファイル末尾のコメント)。
 block.html のルートに data-base-page="ses" があれば、自ページの current ではなく ses/current/index.html を骨格に使う
 (WP にまだ無い新規ページのモック用。例: 事業内容の個別ページ it-solution は既存サブページ /service/ses の骨格 = タイトル帯 + パンくず「ホーム › 事業内容 › …」を借り、data-page-title で題名を差し替える)。
 """
@@ -64,5 +65,34 @@ if pov:
     assert n == 1, 'titlebar overlay not found'
     print(f'タイトル帯のオーバーレイ: {pov.group(1)}')
 out = out.replace('-->\n<html', f'  {draft}: 本文を {page}/{draft}/block.html に差し替えた改修案(tools/build-draft.py で生成。current 側の変更は再生成で追従)' + (f'。骨格は {base_page}/current(WP に無い新規ページのため借用)' if base else '') + '\n-->\n<html', 1)
+# tools/mock-links.json があれば、モックが存在するページへの本番リンク(ヘッダー・フッター・パンくず・本文)を Pages 上のモックに向ける
+# (2026-09-15 ユーザー依頼。index.html だけの加工で、WP に貼る block.html は本番 URL のまま。メニューの中身も WP 実装後の想定に差し替える:
+#  ヘッダーとフッターの「事業内容」= 新しい 6 事業、ヘッダーの「採用情報」= 新卒・未経験 / 中途(未経験の項目は統合)。無いページは本番 URL のまま)
+import json
+lm_path = pathlib.Path('tools', 'mock-links.json')
+if lm_path.exists():
+    lm = json.loads(lm_path.read_text(encoding='utf-8'))
+    a_ = out.index('<!-- MOCK:CONTENT START'); b_ = out.index('<!-- MOCK:CONTENT END')
+    head, body_, foot = out[:a_], out[a_:b_], out[b_:]
+    # ヘッダー: 事業内容ドロップダウン
+    items = ''.join(f'<li class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_2"><a class="w-nav-anchor level_2" href="../../{pth}/"><span class="w-nav-title">{lab}</span><span class="w-nav-arrow"></span></a></li>' for lab, pth in lm['service_menu'])
+    head, n1 = re.subn(r'(<span class="w-nav-title">事業内容</span><span class="w-nav-arrow"></span></a>\s*<ul class="w-nav-list level_2">).*?(</ul>)', lambda m: m.group(1) + items + m.group(2), head, count=1, flags=re.S)
+    # ヘッダー: 採用情報ドロップダウン(新卒 / 中途 / 未経験 の 3 項目を recruit_menu に。応募フォーム等は残す)
+    ritems = ''.join(f'<li class="menu-item menu-item-type-post_type menu-item-object-page w-nav-item level_2"><a class="w-nav-anchor level_2" href="../../{pth}/"><span class="w-nav-title">{lab}</span><span class="w-nav-arrow"></span></a></li>' for lab, pth in lm['recruit_menu'])
+    def _rec(m):
+        inner = re.sub(r'<li[^>]*>\s*<a[^>]+href="https?://skym\.co\.jp/(?:graduate-pre|recruit/career|recruit/newbie)"[^>]*>.*?</li>\s*', '', m.group(2), flags=re.S)
+        return m.group(1) + ritems + inner + m.group(3)
+    head, n2 = re.subn(r'(<span class="w-nav-title">採用情報</span><span class="w-nav-arrow"></span></a>\s*<ul class="w-nav-list level_2">)(.*?)(</ul>)', _rec, head, count=1, flags=re.S)
+    # フッター: 事業内容の列(nav_menu ウィジェット。SES / 受託・委託開発 / デザイン… → 6 事業)
+    fitems = ''.join(f'<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="../../{pth}/">{lab}</a></li> ' for lab, pth in lm['service_menu'])
+    foot, n3 = re.subn(r'(<ul id="menu-[^"]*" class="menu">)(?:(?!</ul>).)*?href="https?://skym\.co\.jp/service/ses"(?:(?!</ul>).)*?(</ul>)', lambda m: m.group(1) + fitems + m.group(2), foot, count=1, flags=re.S)
+    # 残りの本番リンク(ヘッダー・フッター・パンくず・本文)をモックへ
+    def _map(m):
+        pth = (m.group(1) or '').strip('/'); anc = m.group(2) or ''
+        return f'href="../../{lm["links"][pth]}/{anc}"' if pth in lm['links'] else m.group(0)
+    pat = re.compile(r'href="https?://skym\.co\.jp(/[^"#]*)?(#[^"]*)?"')
+    head, c1 = pat.subn(_map, head); body_, c2 = pat.subn(_map, body_); foot, c3 = pat.subn(_map, foot)
+    out = head + body_ + foot
+    print(f'モック内リンク: ヘッダー事業内容メニュー {n1} / 採用情報メニュー {n2} / フッター事業内容 {n3} / 本番→モック置換 ヘッダー {c1}・本文 {c2}・フッター {c3}')
 pathlib.Path(page, draft, 'index.html').write_text(out, encoding='utf-8')
 print(f'{page}/{draft}/index.html: {len(out)} 文字(block {len(block)} 文字, 行クラス "{wrap_class}")')
