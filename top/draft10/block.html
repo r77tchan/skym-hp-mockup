@@ -5,8 +5,8 @@
      WP 実装の 2 案: A = このまま生 HTML の静的リスト(項目追加はトップの本文を編集)/ B = WP の投稿を使い [us_blog layout="compact" items="3"] で最新 3 件を自動表示(この CSS を .w-blog.layout_compact に当て直す)。
      data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。data-keep-tail="1" = current の最後の行(テーマの青いパートナー募集の帯 = us_cta)をそのまま残す。
      画像: hero-clouds.jpg(ChatGPT 生成の雲海)/ about-engineer.jpg(ChatGPT 生成、中途タイトル帯の未採用候補を流用)/ card1〜6(事業内容 draft2 のカード写真を流用)。WP 実装時は uploads に上げて絶対 URL に差し替える -->
+<!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
 <div id="skym-top" data-row-class="tp-wrap" data-keep-tail="1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="tp-wrap")。
    トップはヘッダーが透過・固定で、テーマが最初の行に padding-top(50px)を付けるのでそれも外す(ヒーローの写真がヘッダーの下まで広がる) */
@@ -16,10 +16,12 @@
 
 #skym-top{
   --blue:#02A0E9;--navy:#111827;--lime:#D9FF55;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
-  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
   font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
 }
 #skym-top *,#skym-top *:before,#skym-top *:after{box-sizing:border-box}
+#skym-top *{font-weight:inherit!important} /* 子テーマの * {font-weight:300!important} を外してルートの 400 を継承させる。個別の太さは !important で指定(下のルールはすべて付けてある) */
 /* 見出しは細め・1 色・字間ゆるめ(現行サイトの細い見出しに寄せる。太字と色替えはやめる) */
 #skym-top h1,#skym-top h2,#skym-top h3{
   font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
@@ -36,9 +38,9 @@
 #skym-top .tp-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
 #skym-top section{padding:110px 0;margin:0}
 /* 見出しの下の英字(現行サイトの「日本語見出し + 英語の副題」の型) */
-#skym-top .tp-sub{display:block;font-size:12px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+#skym-top .tp-sub{display:block;font-size:12px;font-weight:400!important;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
 /* 細い枠線のボタン(黒い丸ボタンはやめる) */
-#skym-top .tp-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-top .tp-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500!important;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
 #skym-top .tp-btn:hover{background:var(--navy);color:#fff!important}
 #skym-top .tp-btn svg{transition:transform .2s}
 #skym-top .tp-btn:hover svg{transform:translateX(3px)}
@@ -49,7 +51,7 @@
 #skym-top .tp-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 0 120px;color:#fff;overflow:hidden;
   background:linear-gradient(rgba(17,24,39,.3),rgba(17,24,39,.3)),url("hero-clouds.jpg") center/cover no-repeat,var(--navy)}
 #skym-top .tp-hero h1{font-size:clamp(32px,4.2vw,54px)!important;font-weight:300!important;letter-spacing:.16em!important;line-height:1.3!important;color:#fff!important;margin:0 0 20px!important;text-indent:.16em}
-#skym-top .tp-hero .tp-en{display:block;font-size:clamp(13px,1.4vw,18px);font-weight:300;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.92);line-height:1.5;text-indent:.32em}
+#skym-top .tp-hero .tp-en{display:block;font-size:clamp(13px,1.4vw,18px);font-weight:300!important;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.92);line-height:1.5;text-indent:.32em}
 #skym-top .tp-scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);color:#fff!important;opacity:.85;line-height:0}
 
 /* 1.5 お知らせ: 薄グレーの細い帯。左に見出し(お知らせ / News)、右に 日付 + 題名 の 3 行(会社概要の表と同じ罫線の型)。写真なし。項目は仮 */
@@ -61,7 +63,7 @@
 #skym-top .tp-news-list a{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;padding:18px 0;color:var(--navy)!important;transition:color .2s}
 #skym-top .tp-news-list a:hover{color:var(--blue)!important}
 #skym-top .tp-news-list time{font-size:13px;letter-spacing:.06em;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.9}
-#skym-top .tp-news-list span{font-size:15px;line-height:1.9;font-weight:400}
+#skym-top .tp-news-list span{font-size:15px;line-height:1.9;font-weight:400!important}
 #skym-top .tp-news .tp-links{margin-top:24px}
 
 /* 2 会社の一言: 写真(左)+ 文章(右)。見出しは 1 色 */
@@ -83,7 +85,7 @@
 #skym-top .tp-tile:hover img{transform:scale(1.04)}
 #skym-top .tp-tile-t{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px 24px;color:#fff}
 #skym-top .tp-tile-t b{display:block;font-family:inherit!important;font-size:16px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
-#skym-top .tp-tile-t span{display:block;font-size:13px;font-weight:400;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
+#skym-top .tp-tile-t span{display:block;font-size:13px;font-weight:400!important;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
 #skym-top .tp-business .tp-more{margin-top:40px}
 
 /* 4 会社概要: 見出し行の下に 表(左)+ モノクロの地図(右)。値は本番の会社概要ページ(/company/summary)から。地図は API キー不要の通常埋め込み(iframe)。色はそのまま(モノクロ + ホバーで色 は「微妙」とのことでやめた) */
@@ -92,11 +94,11 @@
 #skym-top .tp-company-grid{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:stretch}
 #skym-top .tp-map{display:flex;flex-direction:column}
 #skym-top .tp-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px}
-#skym-top .tp-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;letter-spacing:.06em;line-height:1.4;border-bottom:1px solid var(--navy);padding-bottom:4px;transition:color .2s,border-color .2s}
+#skym-top .tp-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500!important;letter-spacing:.06em;line-height:1.4;border-bottom:1px solid var(--navy);padding-bottom:4px;transition:color .2s,border-color .2s}
 #skym-top .tp-links a:hover{color:var(--blue);border-color:var(--blue)}
 #skym-top .tp-table{margin:0;border-top:1px solid var(--navy)}
 #skym-top .tp-table div{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:17px 0;border-bottom:1px solid var(--line)}
-#skym-top .tp-table dt{font-size:14px;font-weight:500;letter-spacing:.06em;color:var(--muted);line-height:1.9;margin:0;padding:0}
+#skym-top .tp-table dt{font-size:14px;font-weight:500!important;letter-spacing:.06em;color:var(--muted);line-height:1.9;margin:0;padding:0}
 #skym-top .tp-table dd{font-size:15px;line-height:1.9;color:var(--body);margin:0;padding:0}
 #skym-top .tp-table dd small{display:block;font-size:13px;color:var(--muted);line-height:1.8}
 #skym-top .tp-table dd a{border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}

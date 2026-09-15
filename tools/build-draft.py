@@ -8,7 +8,7 @@ tools/mock-links.json があれば、生成後にモック内リンクへの置�
 block.html のルートに data-base-page="ses" があれば、自ページの current ではなく ses/current/index.html を骨格に使う
 (WP にまだ無い新規ページのモック用。例: 事業内容の個別ページ it-solution は既存サブページ /service/ses の骨格 = タイトル帯 + パンくず「ホーム › 事業内容 › …」を借り、data-page-title で題名を差し替える)。
 """
-import pathlib, re, sys
+import json, pathlib, re, sys
 page, draft = sys.argv[1], sys.argv[2]
 block = pathlib.Path(page, draft, 'block.html').read_text(encoding='utf-8')
 base = re.search(r'data-base-page="([^"]+)"', block)
@@ -94,5 +94,19 @@ if lm_path.exists():
     head, c1 = pat.subn(_map, head); body_, c2 = pat.subn(_map, body_); foot, c3 = pat.subn(_map, foot)
     out = head + body_ + foot
     print(f'モック内リンク: ヘッダー事業内容メニュー {n1} / 採用情報メニュー {n2} / フッター事業内容 {n3} / 本番→モック置換 ヘッダー {c1}・本文 {c2}・フッター {c3}')
+# tools/site.json の font があれば、head の末尾(子テーマ style.css の後)に Google Fonts の <link> と、子テーマと同じ形の * ルールを差し込んでサイト全体の書体を差し替える
+# (2026-09-15 ユーザー決定: サイト全体を Zen Kaku Gothic New に統一。本番では子テーマ style.css の * ルールの font-family を書き換え、head の旧 Noto の <link> を差し替える想定。
+#  font-weight は子テーマの * { font-weight: 300 !important } のまま。index.html だけの加工で block.html は触らない。preview.html の ?f= はこの後に足されるので上書きできる)
+site_path = pathlib.Path('tools', 'site.json')
+if site_path.exists():
+    site = json.loads(site_path.read_text(encoding='utf-8'))
+    ft = site.get('font')
+    if ft:
+        assert out.count('</head>') == 1, '</head> が 1 つでない'
+        inj = (f'<!-- MOCK:SITE-FONT {ft["label"]}(tools/site.json。本番では子テーマ style.css の * ルールの font-family と head の旧 Noto の link を差し替える想定) -->\n'
+               f'<link rel="stylesheet" href="{ft["css"]}">\n'
+               f"<style id=\"mock-site-font\">* {{ font-family: {ft['family']}, 'mdfonticon', -apple-system, 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', '游ゴシック Medium', 'メイリオ', meiryo, sans-serif !important; }}</style>\n")
+        out = out.replace('</head>', inj + '</head>', 1)
+        print(f'サイト共通の書体: {ft["label"]}(head に link と * ルールを差し込み)')
 pathlib.Path(page, draft, 'index.html').write_text(out, encoding='utf-8')
 print(f'{page}/{draft}/index.html: {len(out)} 文字(block {len(block)} 文字, 行クラス "{wrap_class}")')

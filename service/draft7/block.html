@@ -1,8 +1,8 @@
 <!-- skym service draft7 (2026-09-14: draft6 の複製。事業カードの文言を「何をしているか」が分かる形に = タイルの 1 行と説明文を、今日確認した実態(受託開発 / AI エージェント開発 / SKYMSHOP と刺繍キャップ / トラウトカップ / 代表の講習 / トラウトアングラーのサポート募集)に合わせて書き直し。個別ページができた 4 事業のタイルはリンクに(モック内)。ユーザー「お任せ・新しいドラフトで」。以下は draft6 の説明)
      draft6 (トップ draft3 の型に合わせた事業内容トップ: 細い書体・1 色の見出し + 英字の副題・写真タイル・枠線ボタン・青いパートナー募集の帯。構成と文言は draft2 と同じ: リード → 事業 6 つ(タイル + 説明文)→ お問い合わせ → パートナー募集)
      data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。タイル写真 card1〜6 は draft2 と同じ(WP 実装時に uploads へ) -->
+<!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
 <div id="skym-service" data-row-class="sv-wrap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="sv-wrap") */
 .l-section.sv-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -10,10 +10,12 @@
 
 #skym-service{
   --blue:#02A0E9;--navy:#111827;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
-  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
   font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
 }
 #skym-service *,#skym-service *:before,#skym-service *:after{box-sizing:border-box}
+#skym-service *{font-weight:inherit!important} /* 子テーマの * {font-weight:300!important} を外してルートの 400 を継承させる。個別の太さは !important で指定(下のルールはすべて付けてある) */
 #skym-service h2,#skym-service h3{
   font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
   color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
@@ -26,9 +28,9 @@
 #skym-service img{border:0;box-shadow:none;margin:0}
 #skym-service .sv-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
 #skym-service section{padding:110px 0;margin:0}
-#skym-service .sv-sub{display:block;font-size:12px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+#skym-service .sv-sub{display:block;font-size:12px;font-weight:400!important;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
 #skym-service .sv-head{margin-bottom:40px}
-#skym-service .sv-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-service .sv-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500!important;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
 #skym-service .sv-btn:hover{background:var(--navy);color:#fff!important}
 #skym-service .sv-btn svg{transition:transform .2s}
 #skym-service .sv-btn:hover svg{transform:translateX(3px)}
@@ -50,8 +52,8 @@
 #skym-service .sv-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,24,39,.05) 35%,rgba(17,24,39,.8) 100%)}
 #skym-service .sv-tile-t{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px 24px;color:#fff}
 #skym-service .sv-tile-t b{display:block;font-family:inherit!important;font-size:16px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
-#skym-service .sv-tile-t span{display:block;font-size:13px;font-weight:400;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
-#skym-service .sv-num{display:block;font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--muted);margin:16px 0 6px;line-height:1.4}
+#skym-service .sv-tile-t span{display:block;font-size:13px;font-weight:400!important;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
+#skym-service .sv-num{display:block;font-size:12px;font-weight:500!important;letter-spacing:.14em;color:var(--muted);margin:16px 0 6px;line-height:1.4}
 #skym-service .sv-desc{font-size:14px!important;line-height:1.9!important;color:var(--body)}
 
 /* 3 お問い合わせ: 見出し(左)+ 文章・電話・ボタン(右) */

@@ -1,0 +1,9 @@
+{
+  "_comment": "サイト共通の設定。build-draft.py が index.html(モック)を生成するときだけ使う。font = サイト全体の書体(2026-09-15 ユーザー決定: Google Fonts の Zen Kaku Gothic New に統一)。head の末尾(子テーマ style.css の後)に css の <link> と、子テーマと同じ形の * { font-family: <family>, 'mdfonticon', -apple-system, … !important } を差し込む = 本番で子テーマ style.css の * ルールの font-family を書き換え、head の旧 Noto の <link> を差し替えたときの見え方。font-weight は子テーマの * { font-weight: 300 !important } のまま(既存ページの太さは変えない。ドラフトは block.html 側で自分の太さを !important で指定する)。block.html(WP に貼る本文)は書き換えない",
+  "font": {
+    "key": "zen-new",
+    "label": "Zen Kaku Gothic New",
+    "family": "\"Zen Kaku Gothic New\"",
+    "css": "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
+  }
+}

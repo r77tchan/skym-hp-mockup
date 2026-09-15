@@ -1,8 +1,8 @@
 <!-- skym recruit sub-page template v5 = v4 の構成・文言のまま、トップ draft3 の型に揃えた (graduate-pre draft5 = 新卒・未経験採用) / data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。
      style ブロックは career/draft5/block.html が正。python3 tools/sync-style.py career/draft5 graduate-pre/draft5 でコピーする。
      data-page-titlebar = タイトル帯の背景画像(tb-newbie.jpg = ChatGPT で生成した窓辺の後ろ姿。WP 実装時に uploads へ上げてページのタイトル帯設定で差し替える) -->
+<!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
 <div id="skym-rsub" class="rs-entry" data-row-class="rs-wrap" data-page-title="新卒・未経験採用" data-page-subtitle="New Graduate / Entry Level" data-page-parent="採用情報|https://skym.co.jp/recruit" data-page-titlebar="tb-newbie.jpg">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="rs-wrap") */
 .l-section.rs-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -12,10 +12,12 @@
 #skym-rsub{
   --blue:#02A0E9;--navy:#111827;--line:#DDE3E8;--rule:#C9D1D9;--muted:#5B6472;--body:#1F2937;
   --light:#F6F8FA;
-  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
   font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
 }
 #skym-rsub *,#skym-rsub *:before,#skym-rsub *:after{box-sizing:border-box}
+#skym-rsub *{font-weight:inherit!important} /* 子テーマの * {font-weight:300!important} を外してルートの 400 を継承させる。個別の太さは !important で指定(下のルールはすべて付けてある) */
 #skym-rsub h2,#skym-rsub h3{
   font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
   color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
@@ -33,7 +35,7 @@
 /* 区切りは罫線ではなく背景の交互(白 / 薄グレー)で付ける。章の変わり目だけ全幅の青帯 .rs-band(draft4: 応募ボタン付き。導線は青帯と締めの 2 か所) */
 #skym-rsub .rs-alt{background:var(--light)!important}
 #skym-rsub .rs-intro{padding:88px 0 76px}
-#skym-rsub .rs-kicker{display:block;font-size:13px;font-weight:400;letter-spacing:.08em;color:var(--muted);margin-bottom:16px;line-height:1.5}
+#skym-rsub .rs-kicker{display:block;font-size:13px;font-weight:400!important;letter-spacing:.08em;color:var(--muted);margin-bottom:16px;line-height:1.5}
 #skym-rsub .rs-intro h2{font-size:clamp(26px,2.8vw,34px)!important;font-weight:400!important;letter-spacing:.06em!important;line-height:1.4!important;margin-bottom:0!important}
 #skym-rsub .rs-grid2{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
 #skym-rsub .rs-copy{padding-top:6px}
@@ -51,7 +53,7 @@
 /* 未経験からのスタート: 番号付きの 2 列(番号はここだけ) */
 #skym-rsub .rs-steps{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px}
 #skym-rsub .rs-step{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
-#skym-rsub .rs-step .rs-n{font-size:14px;font-weight:500;color:var(--muted);line-height:1.9;letter-spacing:.12em}
+#skym-rsub .rs-step .rs-n{font-size:14px;font-weight:500!important;color:var(--muted);line-height:1.9;letter-spacing:.12em}
 #skym-rsub .rs-step h3{margin-bottom:6px!important}
 #skym-rsub .rs-step p{font-size:15px!important;line-height:1.85!important}
 
@@ -69,10 +71,10 @@
 #skym-rsub .rs-table{border-top:1px solid var(--navy)}
 #skym-rsub .rs-row{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
 #skym-rsub .rs-row:last-child{border-bottom:1px solid var(--navy)}
-#skym-rsub .rs-th{font-weight:500;font-size:14px;letter-spacing:.06em;color:var(--muted);line-height:1.9}
+#skym-rsub .rs-th{font-weight:500!important;font-size:14px;letter-spacing:.06em;color:var(--muted);line-height:1.9}
 #skym-rsub .rs-td{font-size:15px;line-height:1.9;color:var(--body)}
 #skym-rsub .rs-td p{margin-bottom:.5em!important}
-#skym-rsub .rs-td .rs-big{display:block;font-size:18px;font-weight:500;color:var(--navy);letter-spacing:.02em;line-height:1.6;margin-bottom:2px}
+#skym-rsub .rs-td .rs-big{display:block;font-size:18px;font-weight:500!important;color:var(--navy);letter-spacing:.02em;line-height:1.6;margin-bottom:2px}
 #skym-rsub .rs-td .rs-note{margin-top:.3em!important}
 /* 募集要項の中の並列項目はチップ(「／」の羅列だと読みにくいため) */
 #skym-rsub .rs-chips{display:flex!important;flex-wrap:wrap;gap:8px;margin:4px 0 0!important}
@@ -90,8 +92,8 @@
 /* 選考フロー: 1 行の「→」つなぎ(スマホは縦) */
 #skym-rsub .rs-flow{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 0;margin-bottom:16px!important}
 #skym-rsub .rs-flow li{display:flex;align-items:flex-start}
-#skym-rsub .rs-flow li+li::before{content:"→";color:var(--rule);margin:0 16px;font-weight:400;line-height:1.5}
-#skym-rsub .rs-flow b{display:block;font-size:16px;font-weight:500;letter-spacing:.04em;line-height:1.5;font-family:inherit!important}
+#skym-rsub .rs-flow li+li::before{content:"→";color:var(--rule);margin:0 16px;font-weight:400!important;line-height:1.5}
+#skym-rsub .rs-flow b{display:block;font-size:16px;font-weight:500!important;letter-spacing:.04em;line-height:1.5;font-family:inherit!important}
 #skym-rsub .rs-flow small{display:block;font-size:11px;color:var(--muted);letter-spacing:.06em;line-height:1.4;margin-top:2px}
 
 /* 章の変わり目: 全幅の青帯(採用トップの AI×HUMAN と同じ色)。読み物パート → 条件パートの 1 か所だけ */
@@ -111,7 +113,7 @@
 #skym-rsub .rs-closing .rs-btn{border-color:rgba(255,255,255,.85);color:#fff!important}
 #skym-rsub .rs-closing .rs-btn:hover{background:#fff;border-color:#fff;color:var(--navy)!important}
 /* 細い枠線のボタン(トップと同じ) */
-#skym-rsub .rs-btn{display:inline-flex;align-items:center;gap:14px;background:transparent;color:var(--navy)!important;border-radius:2px;padding:15px 30px;font-weight:500;letter-spacing:.1em;font-size:14px;line-height:1;border:1px solid var(--navy);transition:background .2s,border-color .2s,color .2s}
+#skym-rsub .rs-btn{display:inline-flex;align-items:center;gap:14px;background:transparent;color:var(--navy)!important;border-radius:2px;padding:15px 30px;font-weight:500!important;letter-spacing:.1em;font-size:14px;line-height:1;border:1px solid var(--navy);transition:background .2s,border-color .2s,color .2s}
 #skym-rsub .rs-btn:hover{background:var(--navy);color:#fff!important}
 #skym-rsub .rs-btn svg{transition:transform .2s}
 #skym-rsub .rs-btn:hover svg{transform:translateX(3px)}
