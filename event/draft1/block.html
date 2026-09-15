@@ -1,9 +1,10 @@
-<!-- skym education draft1 (事業内容の個別ページ 05 EDUCATION。共通テンプレート #skym-svsub = it-solution/draft1 と同じ CSS(正は it-solution 側。tools/sync-style.py で配る)
-     実態(2026-09-14 ユーザー情報): 「年に数回、社長が外で講習のようなものを開いている。それだけ」。SORAJUKU(IT スクール)は終了しているので触れない。→ ページは短く正直に: リード → 取り組んでいること 2 つ(講習・セミナーの開催 / 講師・研修のご相談(**依頼を受け付けているかは要確認**))→ 開催について(表)→ その他の事業 → お問い合わせ → 青い帯
-     文言は事業カードのキャッチ「学ぶだけでなく、「できる」に変える。」とユーザー情報から。テーマ・形式は不明なので「その回ごとに決める」と書き、断定しない
-     写真: タイトル帯 = 一覧のカード card5 と同じ WP 既存の service-top3.jpg(オーバーレイ 0.55)。本文 2 枚は Unsplash(Unsplash License): sv1-seminar = https://unsplash.com/photos/1-aA2Fadydc(撮影 Quilia。小さな会場のセミナー、参加者の後ろ姿と話す人)/ sv2-request = https://unsplash.com/photos/Hb6uWq0i4MI(撮影 The Climate Reality Project。講習中にノートを取る手元)。900px 幅 JPEG q80
-     data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ education、タイトル「EDUCATION」、Zephyr サブタイトル「講習・セミナー」)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る -->
-<div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EDUCATION" data-page-subtitle="講習・セミナー" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/service-top3.jpg" data-page-overlay="0.55">
+<!-- skym event draft1 (事業内容の個別ページ 04 EVENT & ENTERTAINMENT。共通テンプレート #skym-svsub = it-solution/draft1 と同じ CSS(正は it-solution 側。tools/sync-style.py で配る)
+     出どころ(2026-09-15): ユーザー提示の大会サイト https://skym0407.xsrv.jp/tournament/ (SKYMSHOP 釣り大会 2026 = エリアトラウト年間シリーズ 全 5 戦。第 1 戦 = 9/12 プレオープン大会 @ アングラーズベース赤城山、参加費 7,500 円、定員 40 名(満員)。第 2〜5 戦 = オープントーナメント(日程調整中)。参加の流れ Entry → Confirm → Match → Points。「AI によるスマート運営」= QR 受付 / 釣り座の自動抽選 / ライブスコア / メール・LINE の自動連絡。主催 SKYMSHOP(株式会社SKYM))+ 事業カードのキャッチ・説明文
+     構成: リード → 取り組んでいること 3 つ(SKYMSHOP 釣り大会の開催(大会サイトへのボタン)/ AI によるスマート運営 / イベントの企画・運営(**依頼を受けるかは要確認**))→ 大会概要(表)→ その他の事業 → お問い合わせ → 青い帯
+     日程・参加費など時期で変わる情報は大会サイトに任せ、ここでは年間シリーズの仕組みだけ書く。**大会サイトの URL(skym0407.xsrv.jp)は仮ドメインの可能性 → 本番反映前に確認**
+     写真: タイトル帯 = 一覧のカード card4 と同じ WP 既存の enjoy_1920.jpg(オーバーレイ 0.55)。本文 3 枚は Unsplash(Unsplash License): sv1-series = https://unsplash.com/photos/6xpD1s4tymA(撮影 Vitalii Khodzinskyi。池で釣りをする 2 人)/ sv2-smart = https://unsplash.com/photos/QuZThQoxwm4(屋外で QR コードを表示したスマホを持つ手元)/ sv3-planning = https://unsplash.com/photos/MJbz1VIjGXs(撮影 Laura Kessler。夕方の桟橋に集まる人たちの後ろ姿)。900px 幅 JPEG q80。大会サイトのヒーロー画像(文字入りバナー)は使わない
+     data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ event、タイトル「EVENT & ENTERTAINMENT」、Zephyr サブタイトル「イベントの企画・運営」)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る -->
+<div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EVENT &amp; ENTERTAINMENT" data-page-subtitle="イベントの企画・運営" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/enjoy_1920.jpg" data-page-overlay="0.55">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
@@ -111,17 +112,17 @@
 }
 </style>
 
-<!-- 1. リード(事業カードのキャッチ + 実態に合わせた説明) -->
+<!-- 1. リード(事業カードのキャッチ + 説明。2 段落目は大会サイトの「AI によるスマート運営」の考えを会社の言葉に) -->
 <section class="ss-lead" id="ss-lead">
   <div class="ss-inner">
-    <h2>学ぶだけでなく、<br class="ss-br-sp">「できる」に変える。</h2>
-    <span class="ss-sub">Education</span>
-    <p>代表が講師となり、年に数回、社外で講習を開いています。</p>
-    <p>ITの現場で培ってきた知識と経験を、聞いて終わりにせず、仕事で「できる」に変えてもらうための場です。テーマや形式は、その回ごとに参加する方に合わせて決めています。</p>
+    <h2>リアルな楽しさに、<br class="ss-br-sp">ITを掛け合わせる。</h2>
+    <span class="ss-sub">Event &amp; Entertainment</span>
+    <p>釣り大会などのイベントを企画・運営しています。人が集まる場をつくり、集客から当日の運営の仕組みまで、自分たちで組み立てます。</p>
+    <p>イベントの楽しさは、当日だけで決まりません。申し込み、受付、抽選、結果の発表、次回の案内。そのひとつひとつにITの仕組みを組み合わせることで、待ち時間を減らし、参加する人も運営する人も楽しめる場をつくっています。</p>
   </div>
 </section>
 
-<!-- 2. 取り組んでいること 2 つ(写真 + 文章を左右交互) -->
+<!-- 2. 取り組んでいること 3 つ(写真 + 文章を左右交互) -->
 <section class="ss-services" id="ss-services">
   <div class="ss-inner">
     <div class="ss-head">
@@ -130,48 +131,62 @@
     </div>
 
     <article class="ss-row">
-      <!-- 写真: Unsplash 1-aA2Fadydc(小さな会場のセミナー) -->
-      <figure><img src="sv1-seminar.jpg" alt=""></figure>
+      <!-- 写真: Unsplash 6xpD1s4tymA(池で釣りをする 2 人) -->
+      <figure><img src="sv1-series.jpg" alt=""></figure>
       <div>
         <span class="ss-num">01</span>
-        <h3>講習・セミナーの開催</h3>
-        <span class="ss-sub">Seminars</span>
-        <p>年に数回、社外の会場で講習を開いています。ITやAIの活用、システム開発やインフラの現場で得てきたことなど、テーマはその回ごとに設定します。</p>
-        <p>開催のご案内は、本サイトのお知らせやSNSでお伝えします。</p>
+        <h3>「SKYMSHOP 釣り大会」の開催</h3>
+        <span class="ss-sub">Trout Tournament Series</span>
+        <p>釣具ショップ SKYMSHOP が主催する、エリアトラウトの年間シリーズです。各戦の順位がポイントになり、シリーズの合計で年間チャンピオンが決まります。2026年は全5戦。第1戦のプレオープン大会を9月に開催し、以降のオープントーナメントも順次開催していきます。</p>
+        <p>エントリーは大会サイトから。年間エントリーで全戦にまとめて申し込むこともできます。</p>
+        <a class="ss-btn" href="https://skym0407.xsrv.jp/tournament/" target="_blank" rel="noopener">大会サイトを見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </article>
 
     <article class="ss-row ss-row-rev">
-      <!-- 写真: Unsplash Hb6uWq0i4MI(ノートを取る手元) -->
-      <figure><img src="sv2-request.jpg" alt=""></figure>
+      <!-- 写真: Unsplash QuZThQoxwm4(屋外で QR コードを表示したスマホを持つ手元) -->
+      <figure><img src="sv2-smart.jpg" alt=""></figure>
       <div>
         <span class="ss-num">02</span>
-        <h3>講習・研修のご相談</h3>
-        <span class="ss-sub">Requests</span>
-        <p>企業や団体からの講習・研修のご依頼についても、ご相談を承ります。内容・時間・人数に合わせて、無理のない形をご提案します。</p>
-        <p>まずはお問い合わせフォームから、目的と時期をお知らせください。</p>
+        <h3>AIによるスマート運営</h3>
+        <span class="ss-sub">Smart Operation</span>
+        <p>受付から表彰までをシステム化しました。申し込むとQRコード付きの受付証が発行され、当日は画面を見せるだけで受付が終わります。受付が済んだ人だけを対象に、組と釣り座を自動で抽選。前半と後半で全員の条件が揃うように計算します。</p>
+        <p>釣果を入力すると会場のスコアボードにその場で反映され、いま何位かを見ながら後半を戦えます。釣り座の決定、開催前のリマインド、荒天中止の連絡は、メールとLINEで自動で届きます。</p>
+      </div>
+    </article>
+
+    <article class="ss-row">
+      <!-- 写真: Unsplash MJbz1VIjGXs(夕方の桟橋に集まる人たちの後ろ姿) -->
+      <figure><img src="sv3-planning.jpg" alt=""></figure>
+      <div>
+        <span class="ss-num">03</span>
+        <h3>イベントの企画・運営</h3>
+        <span class="ss-sub">Event Planning</span>
+        <p>人が集まる場を、企画から当日の運営まで組み立てます。釣り大会のために組み上げた受付・抽選・集計の仕組みは、ほかのイベントにもそのまま使えます。</p>
+        <p>イベントの企画・運営や、運営を楽にする仕組みづくりについてのご相談も承ります。</p>
       </div>
     </article>
   </div>
 </section>
 
-<!-- 3. 開催について(表。実態のとおり簡潔に) -->
+<!-- 3. 大会概要(表。時期で変わる日程・参加費は書かず、大会サイトへ) -->
 <section class="ss-scope" id="ss-scope">
   <div class="ss-inner">
     <div class="ss-head">
-      <h2>開催について</h2>
+      <h2>大会概要</h2>
       <span class="ss-sub">Overview</span>
     </div>
     <dl class="ss-table">
-      <div><dt>頻度</dt><dd>年に数回</dd></div>
-      <div><dt>講師</dt><dd>株式会社SKYM 代表</dd></div>
-      <div><dt>形式・会場</dt><dd>社外の会場での講習。テーマ・形式はその回ごとに決定</dd></div>
-      <div><dt>ご案内</dt><dd>本サイトのお知らせ ／ SNS ／ お問い合わせフォーム</dd></div>
+      <div><dt>大会名</dt><dd>SKYMSHOP 釣り大会(エリアトラウト 年間シリーズ)</dd></div>
+      <div><dt>主催</dt><dd>SKYMSHOP(株式会社SKYM)</dd></div>
+      <div><dt>形式</dt><dd>年間5戦。各戦の順位をポイント化し、合計で年間チャンピオンを決定</dd></div>
+      <div><dt>運営</dt><dd>QRコード受付 ／ 釣り座の自動抽選 ／ ライブスコア ／ メール・LINEでの自動連絡</dd></div>
+      <div><dt>エントリー</dt><dd><a href="https://skym0407.xsrv.jp/tournament/" target="_blank" rel="noopener" style="text-decoration:underline!important">大会サイト</a>のフォームから(年間エントリー可)。日程・会場・参加費は大会サイトでご案内します</dd></div>
     </dl>
   </div>
 </section>
 
-<!-- 4. その他の事業(事業内容 draft6 のタイル。写真は service/draft6 の card1〜4・6 を参照) -->
+<!-- 4. その他の事業(タイルは service/draft7 の写真と 1 行。各個別ページのモックへリンク) -->
 <section class="ss-others" id="ss-others">
   <div class="ss-inner">
     <div class="ss-head">
@@ -182,7 +197,7 @@
       <a class="ss-tile" href="../../it-solution/draft1/"><img src="../../service/draft7/card1-ses.jpg" alt=""><span><b>IT SOLUTION</b><small>SESを軸に、受託開発とインフラ構築・運用まで。</small></span></a>
       <a class="ss-tile" href="../../ai-digital/draft1/"><img src="../../service/draft7/card2-ai.jpg" alt=""><span><b>AI &amp; DIGITAL</b><small>AI活用支援と、AIエージェント・ツールの開発。</small></span></a>
       <a class="ss-tile" href="../../ec-product/draft1/"><img src="../../service/draft7/card3-ec.jpg" alt=""><span><b>EC &amp; PRODUCT</b><small>釣具のオンラインストアと、オリジナル商品の企画。</small></span></a>
-      <a class="ss-tile" href="../../event/draft1/"><img src="../../service/draft7/card4-event.jpg" alt=""><span><b>EVENT &amp; ENTERTAINMENT</b><small>釣り大会などのイベントの企画・運営。</small></span></a>
+      <a class="ss-tile" href="../../education/draft1/"><img src="../../service/draft7/card5-edu.jpg" alt=""><span><b>EDUCATION</b><small>代表が年に数回、社外で開く講習。</small></span></a>
       <a class="ss-tile" href="../../sakura/draft1/"><img src="../../service/draft7/card6-sakura.jpg" alt=""><span><b>SAKURA＋</b><small>挑戦する人を応援するプロジェクト。</small></span></a>
     </div>
     <p class="ss-center"><a class="ss-btn" href="../../service/draft7/">事業内容トップへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
@@ -197,7 +212,7 @@
       <span class="ss-sub">Contact</span>
     </div>
     <div>
-      <p>講習・研修のご相談や、その他のお問い合わせをお待ちしております。</p>
+      <p>イベントの企画・運営に関するご相談や、その他のお問い合わせをお待ちしております。</p>
       <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
       <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
