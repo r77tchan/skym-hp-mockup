@@ -55,7 +55,7 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 
 ## 編集ルール(モック → WP に戻せる書き方に限る)
 
-- ヘッダー・フッター(`l-header`, `l-footer`)はテーマが生成する部分なので触らない(WP に戻せない)
+- ヘッダー・フッター(`l-header`, `l-footer`)はテーマが生成する部分なので触らない(WP に戻せない)。**例外: モック内リンク**(2026-09-15)— `tools/mock-links.json` に「本番 URL のパス → モックのパス」を書いておくと、`build-draft.py` が index.html を生成するときにヘッダー・フッター・パンくず・本文の該当リンクを `../../<page>/<版>/` に置き換え、ヘッダーとフッターの「事業内容」メニューを `service_menu`(6 事業)、ヘッダーの「採用情報」を `recruit_menu` に差し替える。block.html(WP に貼る本文)は本番 URL のまま。版を進めたら json を更新して、モックを持つページ(top / service / recruit / career / graduate-pre / 個別 6 件)を再 build する。登録の無いページ(会社情報・働き方・お問い合わせ等)は本番へのリンクのまま
 - 本文は `<!-- MOCK:CONTENT START -->` 〜 `<!-- MOCK:CONTENT END -->` の内側だけを編集する
 - 本文は VC で再現できる書き方に留める: 行 = `<section class="l-section ...">`、中身は既存部品の HTML(w-btn, w-iconbox, uvc-heading など)か素の HTML(`vc_column_text` に直書きする前提)
 - 新規画像はここに置かず、本番 uploads にアップロードしてから絶対 URL で参照する(モック段階は仮画像可)
