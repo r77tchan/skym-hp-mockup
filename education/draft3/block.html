@@ -1,0 +1,373 @@
+<!-- skym education draft3 (事業内容の個別ページ 05 EDUCATION = SORAJUKU。**draft2 の複製で、本文の写真 3 枚(01 学び場 / 02 講習 / 03 社員も学ぶ)を参考 HTML の生成画像(sorajyuku-about / session / together、顔あり)に差し替えた比較用の版**(2026-09-16 ユーザー「ドラフト 3 として、画像 3 つを元のやつに差し替えた版を」)。draft2 = Unsplash の実写 3 枚。以下は draft2 のコメント: 共通テンプレート #skym-svsub(CSS の正は it-solution/draft1。先頭の <style> は sync-style.py で配られる共通分、2 つ目の <style> はこのページ固有(sync は先頭の 1 ブロックだけを置き換えるので残る))
+     出どころ(2026-09-16): ユーザー提示の参考 HTML ~/Downloads/sorajyuku-site/sorajyuku.html(SORAJYUKU ページの単独 HTML。ヒーロー / About / メニュー 8 枚 / 使い方 4 ステップ / 開催について / 特別講習・イベント / 社員もここで学ぶ / 予約 CTA)の文言をほぼ流用。ユーザー確認(同日): 綴りは **SORAJUKU**、事務所を開放してやる、場所 = 会社・18:00〜・無料・予約制は本当、予約フォーム = お問い合わせフォーム(https://skym.co.jp/contact)、メニュー 8 項目と「社員もここで学ぶ」は書いてよい
+     参考 HTML から変えたこと: 紺ベタのボタンは枠線ボタンに / AI 生成の顔入り写真のうち About・講習・社員の 3 枚は使わず Unsplash の実写に。**ヒーローの写真 hero.jpg は参考の生成画像(顔あり)をそのまま使う(ユーザー指示 2026-09-16「画像は同じでいい」= 顔なし規則の例外)**。**メニュー 8 枚のカード(角丸・アイコン・参考の生成画像 menu-*.jpg)は参考のまま**(ユーザー指示 2026-09-16。最初は項目リストにしたが「画像がなくて寂しい、元に寄せたい」) / 「ご案内: 本サイト・SNS」「SNS 等でお知らせ」は削除(お知らせで案内すると書かない = 2026-09-16 決定)/ 「開催カレンダー・予約ページ」は無いので書かない / 予約は「お問い合わせフォームから希望の日と「やりたいこと」を送る」に
+     構成: ヒーロー(参考と同じ 2 カラム = 左に Education / SORAJUKU ソラジュク / 学びたいときに、ふらっと。/ 3 行の説明 / アイコン付きの 事前予約制・18:00〜・完全無料 / 予約ボタン、右に写真 hero.jpg + 写真上の「聞いて、やってみて、できるが、ふえる。」。2026-09-16 ユーザー指示で項目リスト型のリードから変更)→ SORAJUKU について 3 つ(01 IT のことを気軽に聞ける場所 / 02 特別講習・イベント = 今までの EDUCATION の実態「代表が年に数回の講習」をここに収める / 03 SKYM の社員もここで学ぶ)→ 今日、何する？(8 項目の 2 列リスト)→ 使い方(4 ステップ)→ 開催について(表 7 行 + 「SORAJUKU を予約する」ボタン → お問い合わせフォーム)→ その他の事業 → お問い合わせ(共通文)→ 青い帯
+     写真: タイトル帯 = draft1 と同じ WP 既存 service-top3.jpg(一覧のカードと同じ)。本文 3 枚は Unsplash 無料: sv1-space = https://unsplash.com/photos/PnJ99wKe-o0(夕方のカフェ風の空間で学ぶ人たち、後ろから)/ sv2-seminar = https://unsplash.com/photos/yCs7YTwEw2w(小さな部屋の講習、プロジェクター)/ sv3-together = https://unsplash.com/photos/9jnDarH6gxA(2 台のノート PC を上から、2 人で学ぶ)。撮影者は作業記録 24。900px JPEG q80
+     WP 実装時: draft1 と同じ(親 = 事業内容 ID 6170、スラッグ education、タイトル「EDUCATION」、Zephyr サブタイトル「SORAJUKU(ソラジュク)」)。旧 SORAJUKU 配下 5 ページ(CCNA / LPIC / Ruby Silver / メンタルトレーニング / 思考力)は非公開化 + /service/education へ 301 の想定 -->
+<div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EDUCATION" data-page-subtitle="SORAJUKU(ソラジュク)" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/service-top3.jpg" data-page-overlay="0.55">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
+.l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.ss-wrap .g-cols,.l-section.ss-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-svsub{
+  --blue:#02A0E9;--navy:#111827;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
+  font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-svsub *,#skym-svsub *:before,#skym-svsub *:after{box-sizing:border-box}
+#skym-svsub *{font-weight:inherit!important} /* 子テーマの * {font-weight:300!important} を外してルートの 400 を継承させる。個別の太さは !important で指定(下のルールはすべて付けてある) */
+#skym-svsub h2,#skym-svsub h3{
+  font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
+  color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
+}
+#skym-svsub h2{font-size:clamp(24px,2.6vw,32px)!important}
+#skym-svsub h3{font-size:clamp(20px,2vw,24px)!important}
+#skym-svsub h2 span,#skym-svsub h3 span,#skym-svsub p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-svsub p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-svsub p:last-child{margin-bottom:0!important}
+#skym-svsub a{color:inherit;text-decoration:none!important}
+#skym-svsub img{border:0;box-shadow:none;margin:0}
+#skym-svsub figure{margin:0}
+#skym-svsub .ss-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-svsub section{padding:110px 0;margin:0}
+#skym-svsub .ss-sub{display:block;font-size:12px;font-weight:400!important;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+#skym-svsub .ss-num{display:block;font-size:12px;font-weight:500!important;letter-spacing:.14em;color:var(--muted);line-height:1.4;margin:0 0 14px}
+#skym-svsub .ss-head{margin-bottom:48px}
+#skym-svsub .ss-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500!important;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-svsub .ss-btn:hover{background:var(--navy);color:#fff!important}
+#skym-svsub .ss-btn svg{transition:transform .2s}
+#skym-svsub .ss-btn:hover svg{transform:translateX(3px)}
+
+/* 1 リード: タイトル帯(写真)の直下なので写真は置かず、1 カラムの文章(事業内容 draft6 と同じ) */
+#skym-svsub .ss-lead{background:#fff}
+#skym-svsub .ss-lead .ss-inner{max-width:820px}
+#skym-svsub .ss-lead .ss-sub{margin-bottom:32px}
+#skym-svsub .ss-lead p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-br-sp{display:none}
+
+/* 2 提供するサービス: 写真 + 文章の 2 カラムを左右交互に(トップの「会社の一言」と同じ型) */
+#skym-svsub .ss-services{background:var(--light)}
+#skym-svsub .ss-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#skym-svsub .ss-row + .ss-row{margin-top:88px}
+#skym-svsub .ss-row figure{aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-svsub .ss-row figure img{width:100%;height:100%;object-fit:cover;display:block}
+#skym-svsub .ss-row-rev figure{order:2}
+#skym-svsub .ss-row .ss-sub{margin:10px 0 24px}
+#skym-svsub .ss-row p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-row .ss-btn{margin-top:22px;font-size:13px;padding:13px 24px}
+
+/* 3 対応領域: 項目名(小さくグレー)+ 値 の表(トップの会社概要・採用の募集要項と同じ型) */
+#skym-svsub .ss-scope{background:#fff}
+#skym-svsub .ss-scope .ss-inner{max-width:900px}
+#skym-svsub .ss-table{margin:0;border-top:1px solid var(--line)}
+#skym-svsub .ss-table > div{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+#skym-svsub .ss-table dt{font-size:13px;font-weight:500!important;letter-spacing:.08em;color:var(--muted);margin:0;padding-top:3px;line-height:1.7}
+#skym-svsub .ss-table dd{margin:0;font-size:15px;line-height:1.9;color:var(--body)}
+
+/* 4 その他の事業: 事業内容 draft6 と同じ写真タイル(小)。本番では各事業ページへリンク */
+#skym-svsub .ss-others{background:var(--light)}
+#skym-svsub .ss-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+#skym-svsub .ss-tile{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-svsub .ss-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+#skym-svsub .ss-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,24,39,.05) 35%,rgba(17,24,39,.8) 100%)}
+#skym-svsub .ss-tile span{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px;color:#fff}
+#skym-svsub .ss-tile b{display:block;font-family:inherit!important;font-size:13px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
+#skym-svsub .ss-tile small{display:block;font-size:11px;font-weight:400!important;line-height:1.5;margin-top:4px;color:rgba(255,255,255,.88)}
+#skym-svsub .ss-tile:hover img{transform:scale(1.04)}
+#skym-svsub .ss-center{text-align:center;margin-top:48px!important}
+
+/* 5 お問い合わせ: 見出し(左)+ 文章・電話・ボタン(右)(事業内容 draft6 と同じ) */
+#skym-svsub .ss-contact{background:#fff}
+#skym-svsub .ss-contact .ss-inner{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+#skym-svsub .ss-contact p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-tel{display:block;margin:22px 0 28px;font-size:14px;color:var(--muted);letter-spacing:.06em}
+#skym-svsub .ss-tel a{font-size:22px;color:var(--navy);letter-spacing:.04em;margin-left:.6em}
+#skym-svsub .ss-tel small{display:block;font-size:13px;margin-top:6px}
+
+/* 6 パートナー募集: 現行サイトの青い帯(テーマの us_cta 行)と同じ見え方。WP 実装時はテーマの行をそのまま使う */
+#skym-svsub .ss-partner{background:#00A0E9;color:#fff;padding:64px 0}
+#skym-svsub .ss-partner .ss-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+#skym-svsub .ss-partner h2{color:#fff!important;font-size:clamp(26px,2.8vw,34px)!important;font-weight:300!important;margin-bottom:10px!important}
+#skym-svsub .ss-partner p{color:#fff;font-size:15px!important;line-height:1.9!important}
+#skym-svsub .ss-partner .ss-btn{flex:none;background:#F2F4F5;border-color:#F2F4F5;color:var(--navy)!important;padding:18px 32px;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+#skym-svsub .ss-partner .ss-btn:hover{background:#fff;border-color:#fff}
+
+@media(max-width:900px){
+  #skym-svsub section{padding:80px 0}
+  #skym-svsub .ss-row{grid-template-columns:1fr;gap:28px}
+  #skym-svsub .ss-row-rev figure{order:0}
+  #skym-svsub .ss-row + .ss-row{margin-top:64px}
+  #skym-svsub .ss-table > div{grid-template-columns:1fr;gap:6px;padding:16px 0}
+  #skym-svsub .ss-tiles{grid-template-columns:repeat(3,1fr)}
+  #skym-svsub .ss-contact .ss-inner{grid-template-columns:1fr;gap:28px}
+  #skym-svsub .ss-partner{padding:48px 0}
+}
+@media(max-width:600px){
+  #skym-svsub .ss-br-sp{display:inline}
+  #skym-svsub .ss-tiles{grid-template-columns:1fr 1fr;gap:12px}
+  #skym-svsub .ss-tile small{display:none}
+  #skym-svsub .ss-partner .ss-inner{flex-direction:column;align-items:flex-start;gap:24px}
+}
+</style>
+
+<style>
+/* education/draft2 固有(共通 <style> の後ろに置く。sync-style.py は先頭の <style> だけを置き換えるので残る。ID ルールの !important に勝つよう、要素には !important を付ける) */
+#skym-svsub .ss-hero{padding:0;display:grid;align-items:stretch;background:#fff;grid-template-columns:max(20px,calc((100% - 1160px) / 2)) calc(min(1160px,100% - 40px) * .4) minmax(0,1fr)}
+#skym-svsub .ss-hero-text{grid-column:2;padding:clamp(56px,6vw,88px) clamp(28px,3.4vw,56px) clamp(56px,6vw,88px) 0;display:flex;flex-direction:column;justify-content:center}
+#skym-svsub .ss-hero-en{margin:0 0 14px}
+#skym-svsub .ss-logo{font-size:clamp(36px,4.6vw,62px)!important;font-weight:500!important;letter-spacing:.06em!important;line-height:1.1!important;margin:0!important;white-space:nowrap}
+#skym-svsub .ss-logo-ja{display:block;font-size:13px!important;font-weight:400!important;letter-spacing:.3em!important;color:var(--muted)!important;line-height:1.6!important;margin:10px 0 0}
+#skym-svsub .ss-catch{font-size:clamp(21px,2.1vw,27px)!important;font-weight:500!important;letter-spacing:.04em;line-height:1.7!important;margin:28px 0 24px!important;color:var(--navy)}
+#skym-svsub .ss-hero-lead{font-size:15px!important;line-height:2!important;color:var(--body);margin:0 0 14px!important}
+#skym-svsub .ss-facts{display:flex;flex-wrap:wrap;gap:14px 28px;margin:32px 0 0!important;padding:0;list-style:none}
+#skym-svsub .ss-facts li{display:flex;align-items:center;gap:10px;margin:0!important;padding:0!important;font-size:14px!important;line-height:1.5!important;color:var(--navy)}
+#skym-svsub .ss-facts svg{display:block;flex:none;width:22px;height:22px;color:var(--navy);stroke-width:2.2}
+#skym-svsub .ss-hero-cta{margin:36px 0 0!important}
+#skym-svsub .ss-hero-photo{position:relative;overflow:hidden;background:var(--navy);min-height:clamp(380px,46vw,600px);margin:0}
+#skym-svsub .ss-hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+#skym-svsub .ss-hero-photo figcaption{position:absolute;inset:auto 0 0 0;padding:clamp(24px,3vw,44px);background:linear-gradient(180deg,rgba(17,24,39,0) 0%,rgba(17,24,39,.3) 45%,rgba(17,24,39,.72) 100%);color:#fff;font-size:clamp(15px,1.5vw,19px);line-height:1.85;letter-spacing:.08em;text-align:right;text-shadow:0 1px 12px rgba(17,24,39,.5)}
+#skym-svsub .ss-br-pc{display:inline}
+#skym-svsub .ss-menu{background:#fff}
+#skym-svsub .ss-menu .ss-head p{margin:20px 0 0!important;font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+#skym-svsub .ss-card{display:flex;flex-direction:column;height:100%;margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(17,24,39,.04)}
+#skym-svsub .ss-card-photo{aspect-ratio:16/9;overflow:hidden;background:var(--light)}
+#skym-svsub .ss-card-photo img{width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;transition:transform .7s ease}
+#skym-svsub .ss-card:hover .ss-card-photo img{transform:scale(1.04)}
+#skym-svsub .ss-card-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:9px}
+#skym-svsub .ss-card-t{display:flex;align-items:center;gap:10px}
+#skym-svsub .ss-card-t svg{display:block;flex:none;width:22px;height:22px;color:var(--blue);stroke-width:2.6}
+#skym-svsub .ss-card h3{font-size:16px!important;line-height:1.5!important;letter-spacing:.03em!important;margin:0!important}
+#skym-svsub .ss-card p{font-size:13.5px!important;line-height:1.85!important;color:var(--body);margin:0!important}
+#skym-svsub .ss-steps{background:var(--light)}
+#skym-svsub .ss-steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:56px}
+#skym-svsub .ss-steps li{position:relative;margin:0!important;padding:0!important;line-height:inherit}
+#skym-svsub .ss-steps li:not(:last-child)::after{content:"";position:absolute;top:22px;right:-34px;width:10px;height:10px;border-top:1px solid var(--line);border-right:1px solid var(--line);transform:rotate(45deg)}
+#skym-svsub .ss-step-icon{display:block;margin-bottom:22px;color:var(--navy)}
+#skym-svsub .ss-step-icon svg{display:block;width:44px;height:44px;stroke-width:1.9}
+#skym-svsub .ss-steps h3{font-size:18px!important;margin:0 0 10px!important}
+#skym-svsub .ss-steps p{font-size:14px!important;line-height:1.9!important;color:var(--body)}
+#skym-svsub .ss-scope .ss-btn{margin-top:40px}
+@media(max-width:900px){#skym-svsub .ss-hero{grid-template-columns:1fr}#skym-svsub .ss-hero-text{grid-column:1;padding:72px 20px 56px;max-width:660px;margin:0 auto;width:100%}#skym-svsub .ss-hero-photo{min-height:0;aspect-ratio:16/10}#skym-svsub .ss-br-pc{display:none}#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:44px 32px}#skym-svsub .ss-steps li:not(:last-child)::after{display:none}#skym-svsub .ss-cards{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:600px){#skym-svsub .ss-hero-text{padding:56px 20px 48px}#skym-svsub .ss-logo{font-size:clamp(32px,10vw,44px)!important;letter-spacing:.04em!important}#skym-svsub .ss-hero-photo{aspect-ratio:4/3}#skym-svsub .ss-hero-photo figcaption{font-size:14px;letter-spacing:.06em;padding:20px}#skym-svsub .ss-facts{gap:10px 18px}#skym-svsub .ss-facts li{font-size:13px!important}#skym-svsub .ss-facts svg{width:19px;height:19px}#skym-svsub .ss-hero-cta .ss-btn{width:100%;justify-content:center;padding:16px 20px}#skym-svsub .ss-steps ol{grid-template-columns:1fr;gap:32px}#skym-svsub .ss-step-icon svg{width:38px;height:38px}#skym-svsub .ss-card-body{padding:16px 15px 20px;gap:7px}#skym-svsub .ss-card-t{flex-direction:column;align-items:flex-start;gap:9px}#skym-svsub .ss-card-t svg{width:19px;height:19px}#skym-svsub .ss-card h3{font-size:14.5px!important}#skym-svsub .ss-card p{font-size:12.5px!important;line-height:1.8!important}}
+</style>
+
+<!-- 1. ヒーロー(参考 HTML と同じ構成 = 左に文章、右に写真 + 写真上の一言。2026-09-16 ユーザー「「学びたいときにふらっと」も元に寄せたい。画像は同じでいい。左にテキスト、右に画像」。写真 hero.jpg = 参考の sorajyuku-hero.webp(AI 生成・顔あり)を JPEG に。ユーザー指示による例外) -->
+<section class="ss-hero" id="ss-lead">
+  <div class="ss-hero-text">
+    <span class="ss-sub ss-hero-en">Education</span>
+    <h2 class="ss-logo">SORAJUKU<span class="ss-logo-ja">ソラジュク</span></h2>
+    <p class="ss-catch">学びたいときに、ふらっと。</p>
+    <p class="ss-hero-lead">SKYMが事務所を開放してひらく、<br class="ss-br-pc">ITのことを聞ける無料の学び場。</p>
+    <p class="ss-hero-lead">学生でも、主婦・主夫でも、会社員でも、異業種でも。<br class="ss-br-pc">所属も、経験も、年齢も関係ありません。</p>
+    <p class="ss-hero-lead">分からないことがあったら、<br class="ss-br-pc">気軽に聞きに来てください。</p>
+    <ul class="ss-facts">
+      <li><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="14" width="44" height="40" rx="5"/> <path d="M20 8v12M44 8v12M10 25h44"/> <path d="M20 34h6M32 34h6M44 34h2M20 44h6M32 44h6"/> </svg>事前予約制</li>
+      <li><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="32" cy="32" r="22"/> <path d="M32 19v14l10 6"/> </svg>18:00〜</li>
+      <li><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="32" cy="32" r="22"/> <path d="M23 19l9 13 9-13M24 32h16M24 39h16M32 32v13"/> </svg>完全無料</li>
+    </ul>
+    <p class="ss-hero-cta"><a class="ss-btn" href="https://skym.co.jp/contact">SORAJUKUを予約する<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+  <figure class="ss-hero-photo">
+    <img src="hero.jpg" alt="">
+    <figcaption>聞いて、<br>やってみて、<br>できるが、ふえる。</figcaption>
+  </figure>
+</section>
+
+<!-- 2. SORAJUKU について 3 つ(写真 + 文章を左右交互) -->
+<section class="ss-services" id="ss-services">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>SORAJUKUについて</h2>
+      <span class="ss-sub">About</span>
+    </div>
+
+    <article class="ss-row">
+      <!-- 写真: sv1-space.jpg = 参考の sorajyuku-about(机のノート PC とノート、生成画像) -->
+      <figure><img src="sv1-space.jpg" alt=""></figure>
+      <div>
+        <span class="ss-num">01</span>
+        <h3>ITのことを、気軽に聞ける場所。</h3>
+        <span class="ss-sub">Learning Space</span>
+        <p>学校のように、全員が同じ授業を受ける場所ではありません。自分の目的に合わせて、勉強したり、質問したり、作業したり。ITのことを気軽に聞ける「カフェ」のような場所です。</p>
+        <p>「ちょっと分からない」。それくらいからで、大丈夫です。</p>
+      </div>
+    </article>
+
+    <article class="ss-row ss-row-rev">
+      <!-- 写真: sv2-seminar.jpg = 参考の sorajyuku-session(講師とスクリーン、生成画像・顔あり) -->
+      <figure><img src="sv2-seminar.jpg" alt=""></figure>
+      <div>
+        <span class="ss-num">02</span>
+        <h3>特別講習・イベント</h3>
+        <span class="ss-sub">Seminars &amp; Events</span>
+        <p>通常のSORAJUKUとは別に、年に数回、テーマを決めた講習・イベントを開いています。AI、IT、仕事、キャリア、Webなど、テーマはその回ごとに決めます。</p>
+        <p>講師は代表やSKYMのスタッフ。テーマによっては、社外の方を招くこともあります。会場はSKYMの事務所、または社外の会場です。</p>
+      </div>
+    </article>
+
+    <article class="ss-row">
+      <!-- 写真: sv3-together.jpg = 参考の sorajyuku-together(ノート PC を囲む 4 人、生成画像・顔あり) -->
+      <figure><img src="sv3-together.jpg" alt=""></figure>
+      <div>
+        <span class="ss-num">03</span>
+        <h3>SKYMの社員も、ここで学びます。</h3>
+        <span class="ss-sub">Learn Together</span>
+        <p>SORAJUKUは、社外の方だけの場所ではありません。SKYMの新人研修、技術の学習、資格の取得、自主学習にも使っています。学生がプログラミングを勉強している横で、SKYMの社員がネットワークを勉強している。Excelを聞きに来た人の横で、エンジニアが新しい技術を調べている。</p>
+        <p>いろいろな人が集まり、一緒に学べる場所を目指しています。教える人も、学ぶ人。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 3. 今日、何する？(メニュー 8 枚。最初は 2 列の項目リストにしたが、2026-09-16 ユーザー「画像がなくて寂しい。元に寄せたい。画像もアイコンも同じで」→ 参考 HTML のカード(画像 + アイコン + 題 + 一言)をそのまま。画像 8 枚は参考の webp を JPEG に変換(WP 5.5 は webp を受け付けない)。ホバーだけサイトの型(画像ズーム)に) -->
+<section class="ss-menu" id="ss-menu">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>今日、何する？</h2>
+      <span class="ss-sub">Menu</span>
+      <p>やりたいことに合わせて、自由に学べます。</p>
+    </div>
+    <div class="ss-cards">
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-ai.jpg" alt="ノートPCで生成AIのチャット画面を開いているところ"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="14" y="16" width="36" height="32" rx="7"/> <path d="M25 12V8M39 12V8M10 27H6M10 38H6M54 27h4M54 38h4"/> <circle cx="26" cy="31" r="2"/><circle cx="38" cy="31" r="2"/> <path d="M25 39c4 3 10 3 14 0"/> </svg><h3>AIを触ってみる</h3></div>
+          <p>ChatGPTなど生成AIを実際に使ってみよう。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-office.jpg" alt="Excelで表とグラフを作成している画面"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="12" width="44" height="40" rx="4"/> <path d="M10 22h44M24 22v30"/> <path d="M30 30h16M30 38h16M30 46h10"/> <path d="M15 29h4M15 36h4M15 43h4"/> </svg><h3>PC・Excelを聞く</h3></div>
+          <p>Excel・Word・PC操作など、仕事で困っていることを相談。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-web.jpg" alt="ノートPCに表示されたWebサイトの制作画面"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="8" y="11" width="48" height="42" rx="5"/> <path d="M8 21h48"/> <circle cx="15" cy="16" r="1"/><circle cx="20" cy="16" r="1"/><circle cx="25" cy="16" r="1"/> <rect x="15" y="29" width="14" height="15" rx="2"/> <path d="M35 30h13M35 37h13M35 44h8"/> </svg><h3>Webを作ってみる</h3></div>
+          <p>WordPressやHTML/CSSでホームページ制作。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-code.jpg" alt="エディタに表示されたプログラムのソースコード"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <path d="M25 20L13 32l12 12M39 20l12 12-12 12M36 14L28 50"/> </svg><h3>プログラミング</h3></div>
+          <p>HTML・CSS・JavaScript・PHPなど、興味のあるところから。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-it.jpg" alt="クラウドとネットワークをイメージした図"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="18" cy="22" r="6"/><circle cx="46" cy="22" r="6"/><circle cx="32" cy="46" r="6"/> <path d="M23 25l6 14M41 25l-6 14M24 22h16"/> </svg><h3>ITについて聞く</h3></div>
+          <p>SE・インフラ・クラウド・IT業界のことなど何でも相談。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-license.jpg" alt="ITパスポート・基本情報技術者・AWSの資格参考書"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <path d="M16 10h25a7 7 0 0 1 7 7v37H23a7 7 0 0 0-7 7z"/> <path d="M16 10v44a7 7 0 0 1 7-7h25"/> <path d="M26 23h13M26 31h13"/> <path d="M30 39l4 4 8-9"/> </svg><h3>資格を勉強する</h3></div>
+          <p>ITパスポート・基本情報・AWSなどの資格学習。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-freework.jpg" alt="窓際の机に置かれたノートPCとコーヒー"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="13" width="44" height="30" rx="3"/> <path d="M6 50h52M24 50l2-7h12l2 7"/> <path d="M18 21h28"/> </svg><h3>自分の作業をする</h3></div>
+          <p>持参したPCで自由に勉強・制作。質問だけでもOK。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-undecided.jpg" alt="青空に立つ、いくつもの方向を指した道しるべ"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <path d="M32 52V12"/> <path d="M32 17h15l6 6-6 6H32"/> <path d="M32 31H17l-6 6 6 6h15"/> </svg><h3>まだ決まっていない</h3></div>
+          <p>何を勉強すればいいか分からない人も、一緒に考えます。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 使い方(4 ステップ。最初はアイコンを外して番号だけにしたが、2026-09-16 ユーザー「ここも元みたいにアイコンを使用したい」→ 参考 HTML の線画アイコン 4 つ(SVG インライン)と、ステップ間の山形の区切りを戻した) -->
+<section class="ss-steps" id="ss-steps">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>SORAJUKUの使い方</h2>
+      <span class="ss-sub">How to Use</span>
+    </div>
+    <ol>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="14" width="44" height="40" rx="5"/> <path d="M20 8v12M44 8v12M10 25h44"/> <path d="M21 39l6 6 14-15"/> </svg></span><span class="ss-num">01</span><h3>予約する</h3><p>お問い合わせフォームから、希望の日と「やりたいこと」を送ってください。</p></li>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="32" cy="32" r="22"/> <path d="M32 19v14l10 6"/> <path d="M12 12l6 6M52 12l-6 6"/> </svg></span><span class="ss-num">02</span><h3>18時以降に来る</h3><p>予約した時間を目安に、SKYMの事務所へ。</p></li>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="14" width="44" height="30" rx="3"/> <path d="M6 51h52"/> <path d="M25 23l-6 6 6 6M39 23l6 6-6 6M36 20l-8 18"/> </svg></span><span class="ss-num">03</span><h3>好きなことをする</h3><p>勉強、質問、制作、作業。自由に使ってください。</p></li>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="14" y="9" width="27" height="46" rx="3"/> <path d="M41 19h9v26h-9M29 32h1"/> <path d="M46 32h12M53 26l6 6-6 6"/> </svg></span><span class="ss-num">04</span><h3>好きなタイミングで帰る</h3><p>30分でも、1時間でも、2時間でも。自分のペースで大丈夫です。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 5. 開催について(表 + 予約ボタン = お問い合わせフォーム。「ご案内」の行と「開催カレンダー」は書かない) -->
+<section class="ss-scope" id="ss-scope">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>開催について</h2>
+      <span class="ss-sub">Overview</span>
+    </div>
+    <dl class="ss-table">
+      <div><dt>場所</dt><dd>株式会社SKYM 事務所(東京都豊島区東池袋2-38-23 SAMビル5B)</dd></div>
+      <div><dt>時間</dt><dd>18:00〜</dd></div>
+      <div><dt>料金</dt><dd>完全無料</dd></div>
+      <div><dt>利用方法</dt><dd>事前予約制。お問い合わせフォームから、希望の日と「やりたいこと」をお知らせください</dd></div>
+      <div><dt>対象</dt><dd>学生・主婦／主夫・会社員・異業種・IT未経験の方など、どなたでも</dd></div>
+      <div><dt>内容</dt><dd>AI ／ PC・Excel ／ Web制作 ／ プログラミング ／ 資格学習 ／ 自由作業 など</dd></div>
+      <div><dt>サポート</dt><dd>SKYMのスタッフ・エンジニア</dd></div>
+    </dl>
+    <a class="ss-btn" href="https://skym.co.jp/contact">SORAJUKUを予約する<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- 4. その他の事業(事業内容 draft6 のタイル。写真は service/draft6 の card1〜4・6 を参照) -->
+<section class="ss-others" id="ss-others">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>その他の事業</h2>
+      <span class="ss-sub">Our Business</span>
+    </div>
+    <div class="ss-tiles">
+      <a class="ss-tile" href="../../it-solution/draft1/"><img src="../../service/draft7/card1-ses.jpg" alt=""><span><b>IT SOLUTION</b><small>SESを軸に、受託開発とインフラ構築・運用まで。</small></span></a>
+      <a class="ss-tile" href="../../ai-digital/draft1/"><img src="../../service/draft7/card2-ai.jpg" alt=""><span><b>AI &amp; DIGITAL</b><small>AI活用支援と、AIエージェント・ツールの開発。</small></span></a>
+      <a class="ss-tile" href="../../ec-product/draft2/"><img src="../../service/draft7/card3-ec.jpg" alt=""><span><b>EC &amp; PRODUCT</b><small>自社オンラインストアと、オリジナル商品の企画。</small></span></a>
+      <a class="ss-tile" href="../../event/draft2/"><img src="../../service/draft7/card4-event.jpg" alt=""><span><b>EVENT &amp; ENTERTAINMENT</b><small>フリーマーケットや体験会などの企画・運営。</small></span></a>
+      <a class="ss-tile" href="../../sakura/draft8/"><img src="../../service/draft7/card6-sakura.jpg" alt=""><span><b>SAKURA＋</b><small>挑戦する人を応援するプロジェクト。</small></span></a>
+    </div>
+    <p class="ss-center"><a class="ss-btn" href="../../service/draft7/">事業内容トップへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+<!-- 5. お問い合わせ(事業内容 draft6 と同じ部品) -->
+<section class="ss-contact" id="ss-contact">
+  <div class="ss-inner">
+    <div>
+      <h2>お問い合わせ</h2>
+      <span class="ss-sub">Contact</span>
+    </div>
+    <div>
+      <p>各事業に関するご相談、その他のお問い合わせをお待ちしております。</p>
+      <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
+      <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. パートナー募集(現行の青い帯と同じ文言・見え方。WP ではテーマの us_cta 行) -->
+<section class="ss-partner" id="ss-partner">
+  <div class="ss-inner">
+    <div>
+      <h2>パートナー募集</h2>
+      <p>ＳＥＳ事業において御協業いただけるビジネスパートナー企業様を募集しております。</p>
+    </div>
+    <a class="ss-btn" href="https://skym.co.jp/partnership">募集フォームへ</a>
+  </div>
+</section>
+</div>
