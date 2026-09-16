@@ -171,7 +171,8 @@ img.emoji {
      文言は事業カードのキャッチ「学ぶだけでなく、「できる」に変える。」とユーザー情報から。テーマ・形式は不明なので「その回ごとに決める」と書き、断定しない
      写真: タイトル帯 = 一覧のカード card5 と同じ WP 既存の service-top3.jpg(オーバーレイ 0.55)。本文 2 枚は Unsplash(Unsplash License): sv1-seminar = https://unsplash.com/photos/1-aA2Fadydc(撮影 Quilia。小さな会場のセミナー、参加者の後ろ姿と話す人)/ sv2-request = https://unsplash.com/photos/Hb6uWq0i4MI(撮影 The Climate Reality Project。講習中にノートを取る手元)。900px 幅 JPEG q80
      data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ education、タイトル「EDUCATION」、Zephyr サブタイトル「講習・セミナー」)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る 
-     2026-09-16: 01 末尾の「開催のご案内は、本サイトのお知らせやSNSでお伝えします。」と表の「ご案内」行(本サイトのお知らせ ／ SNS ／ お問い合わせフォーム)を削除(ユーザー「お知らせに書く予定はない」→「削除で」)。表は 頻度 / 講師 / 形式・会場 の 3 行に -->
+     2026-09-16: 01 末尾の「開催のご案内は、本サイトのお知らせやSNSでお伝えします。」と表の「ご案内」行(本サイトのお知らせ ／ SNS ／ お問い合わせフォーム)を削除(ユーザー「お知らせに書く予定はない」→「削除で」)。表は 頻度 / 講師 / 形式・会場 の 3 行に 
+     2026-09-16: お問い合わせの文を全ページ共通の「各事業に関するご相談、その他のお問い合わせをお待ちしております。」に統一(ユーザー: ページごとに変えるとその相談を受ける約束に読める。旧文「講習・研修のご相談や、その他のお問い合わせをお待ちしております。」) -->
 <!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
 <div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EDUCATION" data-page-subtitle="講習・セミナー" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/service-top3.jpg" data-page-overlay="0.55">
 <style>
@@ -365,7 +366,7 @@ img.emoji {
       <span class="ss-sub">Contact</span>
     </div>
     <div>
-      <p>講習・研修のご相談や、その他のお問い合わせをお待ちしております。</p>
+      <p>各事業に関するご相談、その他のお問い合わせをお待ちしております。</p>
       <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
       <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>

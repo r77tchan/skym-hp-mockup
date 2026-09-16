@@ -174,7 +174,8 @@ img.emoji {
      文言の出どころ: ユーザー情報(2026-09-14: 釣具店 https://skymtackle.base.shop/ を運営、https://shop.skym.co.jp/ へ移行予定。「SKYMSHOP」刺繍のキャップや T シャツなどのアパレルを企画・製作して販売)+ 実際のショップの記載(SKYMSHOP / FISHING TACKLE STORE、トラウト中心、スプーン・プラグ・放流・ロッド＆リール、中古買取・委託販売(手数料 25%・委託期間 90 日・出品料 0 円)、アウトレットルアー、オリジナルカラー販売、SKYM トラウトカップ 2026(バナー表記。大会サイトの正式名は「SKYMSHOP 釣り大会 2026」)、LINE 相談)+ 移行先の記載(実店舗を持たないネット販売・税込表示・送料 185 円〜)+ 事業カードの説明文 + 採用メッセージ(AI を組み込んだアドバイザー型の仕組み、新しい売り方を仕掛ける)
      ショップへのリンクは現行の BASE(https://skymtackle.base.shop/)。移行後は https://shop.skym.co.jp/ に差し替える(移行先は 2026-09-14 時点「リニューアル準備中」)
      写真: タイトル帯 = 一覧のカード card3 と同じ WP 既存の shutterstock_316593017.jpg(オーバーレイ 0.55)。本文 3 枚: sv1-shop = Unsplash https://unsplash.com/photos/viq9Ztqi3Vc(撮影 Anne Nygård。木の上に並べたスプーンルアー)/ sv2-apparel = ショップ自身の商品写真「SKYMSHOP オリジナルキャップ」(https://skymtackle.base.shop/ の商品画像。白背景の刺繍キャップを 3:2 の白キャンバスに中央配置)/ sv3-sell = Unsplash https://unsplash.com/photos/nULZ_Ck-EwY(撮影 Vitalii Khodzinskyi。池で釣りをする人たちの後ろ姿)。900px 幅 JPEG。WP 実装時は本文写真を uploads へ
-     data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ ec-product、タイトル「EC & PRODUCT」、Zephyr サブタイトル「自社ECサイト運営・商品企画」)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る -->
+     data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ ec-product、タイトル「EC & PRODUCT」、Zephyr サブタイトル「自社ECサイト運営・商品企画」)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る 
+     2026-09-16: お問い合わせの文を全ページ共通の「各事業に関するご相談、その他のお問い合わせをお待ちしております。」に統一(ユーザー: ページごとに変えるとその相談を受ける約束に読める。旧文「ECサイトや商品に関するご相談、その他のお問い合わせをお待ちしております。」) -->
 <!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
 <div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EC &amp; PRODUCT" data-page-subtitle="自社ECサイト運営・商品企画" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/shutterstock_316593017.jpg" data-page-overlay="0.55">
 <style>
@@ -368,7 +369,7 @@ img.emoji {
       <span class="ss-sub">Contact</span>
     </div>
     <div>
-      <p>ECサイトや商品に関するご相談、その他のお問い合わせをお待ちしております。</p>
+      <p>各事業に関するご相談、その他のお問い合わせをお待ちしております。</p>
       <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
       <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
