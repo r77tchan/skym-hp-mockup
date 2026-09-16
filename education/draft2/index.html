@@ -168,7 +168,7 @@ img.emoji {
 <section class="l-section wpb_row height_auto width_full vc_row-fluid ss-wrap"><div class="l-section-h g-html i-cf"><div class="g-cols offset_none"><div class=" full-width">
 <!-- skym education draft2 (事業内容の個別ページ 05 EDUCATION = SORAJUKU。共通テンプレート #skym-svsub(CSS の正は it-solution/draft1。先頭の <style> は sync-style.py で配られる共通分、2 つ目の <style> はこのページ固有(sync は先頭の 1 ブロックだけを置き換えるので残る))
      出どころ(2026-09-16): ユーザー提示の参考 HTML ~/Downloads/sorajyuku-site/sorajyuku.html(SORAJYUKU ページの単独 HTML。ヒーロー / About / メニュー 8 枚 / 使い方 4 ステップ / 開催について / 特別講習・イベント / 社員もここで学ぶ / 予約 CTA)の文言をほぼ流用。ユーザー確認(同日): 綴りは **SORAJUKU**、事務所を開放してやる、場所 = 会社・18:00〜・無料・予約制は本当、予約フォーム = お問い合わせフォーム(https://skym.co.jp/contact)、メニュー 8 項目と「社員もここで学ぶ」は書いてよい
-     参考 HTML から変えたこと: 角丸カード・アイコン・紺ベタのボタンは使わない(モックの型 = 写真 + 文章の 2 カラム、項目リスト、枠線ボタン)/ AI 生成の顔入り写真 12 枚は使わず Unsplash の実写 3 枚に / 「ご案内: 本サイト・SNS」「SNS 等でお知らせ」は削除(お知らせで案内すると書かない = 2026-09-16 決定)/ 「開催カレンダー・予約ページ」は無いので書かない / 予約は「お問い合わせフォームから希望の日と「やりたいこと」を送る」に
+     参考 HTML から変えたこと: 紺ベタのボタンは枠線ボタンに / AI 生成の顔入り写真 4 枚(ヒーロー・About・講習・社員)は使わず Unsplash の実写 3 枚に。**メニュー 8 枚のカード(角丸・アイコン・参考の生成画像 menu-*.jpg)は参考のまま**(ユーザー指示 2026-09-16。最初は項目リストにしたが「画像がなくて寂しい、元に寄せたい」) / 「ご案内: 本サイト・SNS」「SNS 等でお知らせ」は削除(お知らせで案内すると書かない = 2026-09-16 決定)/ 「開催カレンダー・予約ページ」は無いので書かない / 予約は「お問い合わせフォームから希望の日と「やりたいこと」を送る」に
      構成: リード(学びたいときに、ふらっと。+ 事務所を開放 ／ 18:00〜 ／ 完全無料 ／ 事前予約制)→ SORAJUKU について 3 つ(01 IT のことを気軽に聞ける場所 / 02 特別講習・イベント = 今までの EDUCATION の実態「代表が年に数回の講習」をここに収める / 03 SKYM の社員もここで学ぶ)→ 今日、何する？(8 項目の 2 列リスト)→ 使い方(4 ステップ)→ 開催について(表 7 行 + 「SORAJUKU を予約する」ボタン → お問い合わせフォーム)→ その他の事業 → お問い合わせ(共通文)→ 青い帯
      写真: タイトル帯 = draft1 と同じ WP 既存 service-top3.jpg(一覧のカードと同じ)。本文 3 枚は Unsplash 無料: sv1-space = https://unsplash.com/photos/PnJ99wKe-o0(夕方のカフェ風の空間で学ぶ人たち、後ろから)/ sv2-seminar = https://unsplash.com/photos/yCs7YTwEw2w(小さな部屋の講習、プロジェクター)/ sv3-together = https://unsplash.com/photos/9jnDarH6gxA(2 台のノート PC を上から、2 人で学ぶ)。撮影者は作業記録 24。900px JPEG q80
      WP 実装時: draft1 と同じ(親 = 事業内容 ID 6170、スラッグ education、タイトル「EDUCATION」、Zephyr サブタイトル「SORAJUKU(ソラジュク)」)。旧 SORAJUKU 配下 5 ページ(CCNA / LPIC / Ruby Silver / メンタルトレーニング / 思考力)は非公開化 + /service/education へ 301 の想定 -->
@@ -287,18 +287,24 @@ img.emoji {
 #skym-svsub .ss-facts li + li::before{content:"／";color:var(--muted);margin-right:22px}
 #skym-svsub .ss-menu{background:#fff}
 #skym-svsub .ss-menu .ss-head p{margin:20px 0 0!important;font-size:15px!important;line-height:2!important;color:var(--body)}
-#skym-svsub .ss-menu-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;border-top:1px solid var(--line)}
-#skym-svsub .ss-menu-list li{margin:0!important;padding:22px 0!important;border-bottom:1px solid var(--line);line-height:inherit}
-#skym-svsub .ss-menu-list b{display:block;font-family:inherit!important;font-size:16px!important;font-weight:500!important;letter-spacing:.04em;line-height:1.5!important;color:var(--navy)!important;margin-bottom:6px}
-#skym-svsub .ss-menu-list span{display:block;font-size:14px!important;line-height:1.8!important;color:var(--body)}
+#skym-svsub .ss-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+#skym-svsub .ss-card{display:flex;flex-direction:column;height:100%;margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(17,24,39,.04)}
+#skym-svsub .ss-card-photo{aspect-ratio:16/9;overflow:hidden;background:var(--light)}
+#skym-svsub .ss-card-photo img{width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;transition:transform .7s ease}
+#skym-svsub .ss-card:hover .ss-card-photo img{transform:scale(1.04)}
+#skym-svsub .ss-card-body{padding:20px 20px 24px;display:flex;flex-direction:column;gap:9px}
+#skym-svsub .ss-card-t{display:flex;align-items:center;gap:10px}
+#skym-svsub .ss-card-t svg{display:block;flex:none;width:22px;height:22px;color:var(--blue);stroke-width:2.6}
+#skym-svsub .ss-card h3{font-size:16px!important;line-height:1.5!important;letter-spacing:.03em!important;margin:0!important}
+#skym-svsub .ss-card p{font-size:13.5px!important;line-height:1.85!important;color:var(--body);margin:0!important}
 #skym-svsub .ss-steps{background:var(--light)}
 #skym-svsub .ss-steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
 #skym-svsub .ss-steps li{margin:0!important;padding:0!important;line-height:inherit}
 #skym-svsub .ss-steps h3{font-size:18px!important;margin:0 0 10px!important}
 #skym-svsub .ss-steps p{font-size:14px!important;line-height:1.9!important;color:var(--body)}
 #skym-svsub .ss-scope .ss-btn{margin-top:40px}
-@media(max-width:900px){#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:28px}#skym-svsub .ss-menu-list{grid-template-columns:1fr}}
-@media(max-width:600px){#skym-svsub .ss-steps ol{grid-template-columns:1fr}}
+@media(max-width:900px){#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:28px}#skym-svsub .ss-cards{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:600px){#skym-svsub .ss-steps ol{grid-template-columns:1fr}#skym-svsub .ss-card-body{padding:16px 15px 20px;gap:7px}#skym-svsub .ss-card-t{flex-direction:column;align-items:flex-start;gap:9px}#skym-svsub .ss-card-t svg{width:19px;height:19px}#skym-svsub .ss-card h3{font-size:14.5px!important}#skym-svsub .ss-card p{font-size:12.5px!important;line-height:1.8!important}}
 </style>
 
 <!-- 1. リード(参考 HTML のヒーロー文 + 4 つの事実) -->
@@ -357,7 +363,7 @@ img.emoji {
   </div>
 </section>
 
-<!-- 3. 今日、何する？(メニュー 8 項目。参考 HTML の角丸カードは 2 列の項目リストに) -->
+<!-- 3. 今日、何する？(メニュー 8 枚。最初は 2 列の項目リストにしたが、2026-09-16 ユーザー「画像がなくて寂しい。元に寄せたい。画像もアイコンも同じで」→ 参考 HTML のカード(画像 + アイコン + 題 + 一言)をそのまま。画像 8 枚は参考の webp を JPEG に変換(WP 5.5 は webp を受け付けない)。ホバーだけサイトの型(画像ズーム)に) -->
 <section class="ss-menu" id="ss-menu">
   <div class="ss-inner">
     <div class="ss-head">
@@ -365,16 +371,64 @@ img.emoji {
       <span class="ss-sub">Menu</span>
       <p>やりたいことに合わせて、自由に学べます。</p>
     </div>
-    <ul class="ss-menu-list">
-      <li><b>AIを触ってみる</b><span>ChatGPTなどの生成AIを、実際に使ってみる。</span></li>
-      <li><b>PC・Excelを聞く</b><span>Excel・Word・PCの操作など、仕事で困っていることを相談する。</span></li>
-      <li><b>Webをつくってみる</b><span>WordPressやHTML／CSSで、ホームページをつくる。</span></li>
-      <li><b>プログラミング</b><span>HTML・CSS・JavaScript・PHPなど、興味のあるところから。</span></li>
-      <li><b>ITについて聞く</b><span>SE・インフラ・クラウド・IT業界のことなど、何でも。</span></li>
-      <li><b>資格を勉強する</b><span>ITパスポート・基本情報・AWSなど、資格の学習。</span></li>
-      <li><b>自分の作業をする</b><span>持参したPCで自由に勉強・制作。質問だけでもOK。</span></li>
-      <li><b>まだ決まっていない</b><span>何を勉強すればいいか分からない人も、一緒に考えます。</span></li>
-    </ul>
+    <div class="ss-cards">
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-ai.jpg" alt="ノートPCで生成AIのチャット画面を開いているところ"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="14" y="16" width="36" height="32" rx="7"/> <path d="M25 12V8M39 12V8M10 27H6M10 38H6M54 27h4M54 38h4"/> <circle cx="26" cy="31" r="2"/><circle cx="38" cy="31" r="2"/> <path d="M25 39c4 3 10 3 14 0"/> </svg><h3>AIを触ってみる</h3></div>
+          <p>ChatGPTなど生成AIを実際に使ってみよう。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-office.jpg" alt="Excelで表とグラフを作成している画面"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="12" width="44" height="40" rx="4"/> <path d="M10 22h44M24 22v30"/> <path d="M30 30h16M30 38h16M30 46h10"/> <path d="M15 29h4M15 36h4M15 43h4"/> </svg><h3>PC・Excelを聞く</h3></div>
+          <p>Excel・Word・PC操作など、仕事で困っていることを相談。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-web.jpg" alt="ノートPCに表示されたWebサイトの制作画面"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="8" y="11" width="48" height="42" rx="5"/> <path d="M8 21h48"/> <circle cx="15" cy="16" r="1"/><circle cx="20" cy="16" r="1"/><circle cx="25" cy="16" r="1"/> <rect x="15" y="29" width="14" height="15" rx="2"/> <path d="M35 30h13M35 37h13M35 44h8"/> </svg><h3>Webを作ってみる</h3></div>
+          <p>WordPressやHTML/CSSでホームページ制作。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-code.jpg" alt="エディタに表示されたプログラムのソースコード"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <path d="M25 20L13 32l12 12M39 20l12 12-12 12M36 14L28 50"/> </svg><h3>プログラミング</h3></div>
+          <p>HTML・CSS・JavaScript・PHPなど、興味のあるところから。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-it.jpg" alt="クラウドとネットワークをイメージした図"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="18" cy="22" r="6"/><circle cx="46" cy="22" r="6"/><circle cx="32" cy="46" r="6"/> <path d="M23 25l6 14M41 25l-6 14M24 22h16"/> </svg><h3>ITについて聞く</h3></div>
+          <p>SE・インフラ・クラウド・IT業界のことなど何でも相談。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-license.jpg" alt="ITパスポート・基本情報技術者・AWSの資格参考書"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <path d="M16 10h25a7 7 0 0 1 7 7v37H23a7 7 0 0 0-7 7z"/> <path d="M16 10v44a7 7 0 0 1 7-7h25"/> <path d="M26 23h13M26 31h13"/> <path d="M30 39l4 4 8-9"/> </svg><h3>資格を勉強する</h3></div>
+          <p>ITパスポート・基本情報・AWSなどの資格学習。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-freework.jpg" alt="窓際の机に置かれたノートPCとコーヒー"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="13" width="44" height="30" rx="3"/> <path d="M6 50h52M24 50l2-7h12l2 7"/> <path d="M18 21h28"/> </svg><h3>自分の作業をする</h3></div>
+          <p>持参したPCで自由に勉強・制作。質問だけでもOK。</p>
+        </div>
+      </article>
+      <article class="ss-card">
+        <div class="ss-card-photo"><img src="menu-undecided.jpg" alt="青空に立つ、いくつもの方向を指した道しるべ"></div>
+        <div class="ss-card-body">
+          <div class="ss-card-t"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <path d="M32 52V12"/> <path d="M32 17h15l6 6-6 6H32"/> <path d="M32 31H17l-6 6 6 6h15"/> </svg><h3>まだ決まっていない</h3></div>
+          <p>何を勉強すればいいか分からない人も、一緒に考えます。</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
