@@ -1,0 +1,292 @@
+<!-- skym education draft2 (事業内容の個別ページ 05 EDUCATION = SORAJUKU。共通テンプレート #skym-svsub(CSS の正は it-solution/draft1。先頭の <style> は sync-style.py で配られる共通分、2 つ目の <style> はこのページ固有(sync は先頭の 1 ブロックだけを置き換えるので残る))
+     出どころ(2026-09-16): ユーザー提示の参考 HTML ~/Downloads/sorajyuku-site/sorajyuku.html(SORAJYUKU ページの単独 HTML。ヒーロー / About / メニュー 8 枚 / 使い方 4 ステップ / 開催について / 特別講習・イベント / 社員もここで学ぶ / 予約 CTA)の文言をほぼ流用。ユーザー確認(同日): 綴りは **SORAJUKU**、事務所を開放してやる、場所 = 会社・18:00〜・無料・予約制は本当、予約フォーム = お問い合わせフォーム(https://skym.co.jp/contact)、メニュー 8 項目と「社員もここで学ぶ」は書いてよい
+     参考 HTML から変えたこと: 角丸カード・アイコン・紺ベタのボタンは使わない(モックの型 = 写真 + 文章の 2 カラム、項目リスト、枠線ボタン)/ AI 生成の顔入り写真 12 枚は使わず Unsplash の実写 3 枚に / 「ご案内: 本サイト・SNS」「SNS 等でお知らせ」は削除(お知らせで案内すると書かない = 2026-09-16 決定)/ 「開催カレンダー・予約ページ」は無いので書かない / 予約は「お問い合わせフォームから希望の日と「やりたいこと」を送る」に
+     構成: リード(学びたいときに、ふらっと。+ 事務所を開放 ／ 18:00〜 ／ 完全無料 ／ 事前予約制)→ SORAJUKU について 3 つ(01 IT のことを気軽に聞ける場所 / 02 特別講習・イベント = 今までの EDUCATION の実態「代表が年に数回の講習」をここに収める / 03 SKYM の社員もここで学ぶ)→ 今日、何する？(8 項目の 2 列リスト)→ 使い方(4 ステップ)→ 開催について(表 7 行 + 「SORAJUKU を予約する」ボタン → お問い合わせフォーム)→ その他の事業 → お問い合わせ(共通文)→ 青い帯
+     写真: タイトル帯 = draft1 と同じ WP 既存 service-top3.jpg(一覧のカードと同じ)。本文 3 枚は Unsplash 無料: sv1-space = https://unsplash.com/photos/PnJ99wKe-o0(夕方のカフェ風の空間で学ぶ人たち、後ろから)/ sv2-seminar = https://unsplash.com/photos/yCs7YTwEw2w(小さな部屋の講習、プロジェクター)/ sv3-together = https://unsplash.com/photos/9jnDarH6gxA(2 台のノート PC を上から、2 人で学ぶ)。撮影者は作業記録 24。900px JPEG q80
+     WP 実装時: draft1 と同じ(親 = 事業内容 ID 6170、スラッグ education、タイトル「EDUCATION」、Zephyr サブタイトル「SORAJUKU(ソラジュク)」)。旧 SORAJUKU 配下 5 ページ(CCNA / LPIC / Ruby Silver / メンタルトレーニング / 思考力)は非公開化 + /service/education へ 301 の想定 -->
+<div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EDUCATION" data-page-subtitle="SORAJUKU(ソラジュク)" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/service-top3.jpg" data-page-overlay="0.55">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
+.l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.ss-wrap .g-cols,.l-section.ss-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-svsub{
+  --blue:#02A0E9;--navy:#111827;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
+  font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-svsub *,#skym-svsub *:before,#skym-svsub *:after{box-sizing:border-box}
+#skym-svsub *{font-weight:inherit!important} /* 子テーマの * {font-weight:300!important} を外してルートの 400 を継承させる。個別の太さは !important で指定(下のルールはすべて付けてある) */
+#skym-svsub h2,#skym-svsub h3{
+  font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
+  color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
+}
+#skym-svsub h2{font-size:clamp(24px,2.6vw,32px)!important}
+#skym-svsub h3{font-size:clamp(20px,2vw,24px)!important}
+#skym-svsub h2 span,#skym-svsub h3 span,#skym-svsub p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-svsub p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-svsub p:last-child{margin-bottom:0!important}
+#skym-svsub a{color:inherit;text-decoration:none!important}
+#skym-svsub img{border:0;box-shadow:none;margin:0}
+#skym-svsub figure{margin:0}
+#skym-svsub .ss-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-svsub section{padding:110px 0;margin:0}
+#skym-svsub .ss-sub{display:block;font-size:12px;font-weight:400!important;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+#skym-svsub .ss-num{display:block;font-size:12px;font-weight:500!important;letter-spacing:.14em;color:var(--muted);line-height:1.4;margin:0 0 14px}
+#skym-svsub .ss-head{margin-bottom:48px}
+#skym-svsub .ss-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500!important;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-svsub .ss-btn:hover{background:var(--navy);color:#fff!important}
+#skym-svsub .ss-btn svg{transition:transform .2s}
+#skym-svsub .ss-btn:hover svg{transform:translateX(3px)}
+
+/* 1 リード: タイトル帯(写真)の直下なので写真は置かず、1 カラムの文章(事業内容 draft6 と同じ) */
+#skym-svsub .ss-lead{background:#fff}
+#skym-svsub .ss-lead .ss-inner{max-width:820px}
+#skym-svsub .ss-lead .ss-sub{margin-bottom:32px}
+#skym-svsub .ss-lead p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-br-sp{display:none}
+
+/* 2 提供するサービス: 写真 + 文章の 2 カラムを左右交互に(トップの「会社の一言」と同じ型) */
+#skym-svsub .ss-services{background:var(--light)}
+#skym-svsub .ss-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#skym-svsub .ss-row + .ss-row{margin-top:88px}
+#skym-svsub .ss-row figure{aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-svsub .ss-row figure img{width:100%;height:100%;object-fit:cover;display:block}
+#skym-svsub .ss-row-rev figure{order:2}
+#skym-svsub .ss-row .ss-sub{margin:10px 0 24px}
+#skym-svsub .ss-row p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-row .ss-btn{margin-top:22px;font-size:13px;padding:13px 24px}
+
+/* 3 対応領域: 項目名(小さくグレー)+ 値 の表(トップの会社概要・採用の募集要項と同じ型) */
+#skym-svsub .ss-scope{background:#fff}
+#skym-svsub .ss-scope .ss-inner{max-width:900px}
+#skym-svsub .ss-table{margin:0;border-top:1px solid var(--line)}
+#skym-svsub .ss-table > div{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+#skym-svsub .ss-table dt{font-size:13px;font-weight:500!important;letter-spacing:.08em;color:var(--muted);margin:0;padding-top:3px;line-height:1.7}
+#skym-svsub .ss-table dd{margin:0;font-size:15px;line-height:1.9;color:var(--body)}
+
+/* 4 その他の事業: 事業内容 draft6 と同じ写真タイル(小)。本番では各事業ページへリンク */
+#skym-svsub .ss-others{background:var(--light)}
+#skym-svsub .ss-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+#skym-svsub .ss-tile{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-svsub .ss-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+#skym-svsub .ss-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,24,39,.05) 35%,rgba(17,24,39,.8) 100%)}
+#skym-svsub .ss-tile span{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px;color:#fff}
+#skym-svsub .ss-tile b{display:block;font-family:inherit!important;font-size:13px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
+#skym-svsub .ss-tile small{display:block;font-size:11px;font-weight:400!important;line-height:1.5;margin-top:4px;color:rgba(255,255,255,.88)}
+#skym-svsub .ss-tile:hover img{transform:scale(1.04)}
+#skym-svsub .ss-center{text-align:center;margin-top:48px!important}
+
+/* 5 お問い合わせ: 見出し(左)+ 文章・電話・ボタン(右)(事業内容 draft6 と同じ) */
+#skym-svsub .ss-contact{background:#fff}
+#skym-svsub .ss-contact .ss-inner{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+#skym-svsub .ss-contact p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-tel{display:block;margin:22px 0 28px;font-size:14px;color:var(--muted);letter-spacing:.06em}
+#skym-svsub .ss-tel a{font-size:22px;color:var(--navy);letter-spacing:.04em;margin-left:.6em}
+#skym-svsub .ss-tel small{display:block;font-size:13px;margin-top:6px}
+
+/* 6 パートナー募集: 現行サイトの青い帯(テーマの us_cta 行)と同じ見え方。WP 実装時はテーマの行をそのまま使う */
+#skym-svsub .ss-partner{background:#00A0E9;color:#fff;padding:64px 0}
+#skym-svsub .ss-partner .ss-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+#skym-svsub .ss-partner h2{color:#fff!important;font-size:clamp(26px,2.8vw,34px)!important;font-weight:300!important;margin-bottom:10px!important}
+#skym-svsub .ss-partner p{color:#fff;font-size:15px!important;line-height:1.9!important}
+#skym-svsub .ss-partner .ss-btn{flex:none;background:#F2F4F5;border-color:#F2F4F5;color:var(--navy)!important;padding:18px 32px;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+#skym-svsub .ss-partner .ss-btn:hover{background:#fff;border-color:#fff}
+
+@media(max-width:900px){
+  #skym-svsub section{padding:80px 0}
+  #skym-svsub .ss-row{grid-template-columns:1fr;gap:28px}
+  #skym-svsub .ss-row-rev figure{order:0}
+  #skym-svsub .ss-row + .ss-row{margin-top:64px}
+  #skym-svsub .ss-table > div{grid-template-columns:1fr;gap:6px;padding:16px 0}
+  #skym-svsub .ss-tiles{grid-template-columns:repeat(3,1fr)}
+  #skym-svsub .ss-contact .ss-inner{grid-template-columns:1fr;gap:28px}
+  #skym-svsub .ss-partner{padding:48px 0}
+}
+@media(max-width:600px){
+  #skym-svsub .ss-br-sp{display:inline}
+  #skym-svsub .ss-tiles{grid-template-columns:1fr 1fr;gap:12px}
+  #skym-svsub .ss-tile small{display:none}
+  #skym-svsub .ss-partner .ss-inner{flex-direction:column;align-items:flex-start;gap:24px}
+}
+</style>
+
+<style>
+/* education/draft2 固有(共通 <style> の後ろに置く。sync-style.py は先頭の <style> だけを置き換えるので残る。ID ルールの !important に勝つよう、要素には !important を付ける) */
+#skym-svsub .ss-facts{display:flex;flex-wrap:wrap;gap:8px 0;margin:28px 0 0!important;padding:0;list-style:none}
+#skym-svsub .ss-facts li{margin:0!important;padding:0 22px 0 0!important;font-size:14px!important;letter-spacing:.06em;line-height:1.6!important;color:var(--navy)}
+#skym-svsub .ss-facts li + li::before{content:"／";color:var(--muted);margin-right:22px}
+#skym-svsub .ss-menu{background:#fff}
+#skym-svsub .ss-menu .ss-head p{margin:20px 0 0!important;font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-menu-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;border-top:1px solid var(--line)}
+#skym-svsub .ss-menu-list li{margin:0!important;padding:22px 0!important;border-bottom:1px solid var(--line);line-height:inherit}
+#skym-svsub .ss-menu-list b{display:block;font-family:inherit!important;font-size:16px!important;font-weight:500!important;letter-spacing:.04em;line-height:1.5!important;color:var(--navy)!important;margin-bottom:6px}
+#skym-svsub .ss-menu-list span{display:block;font-size:14px!important;line-height:1.8!important;color:var(--body)}
+#skym-svsub .ss-steps{background:var(--light)}
+#skym-svsub .ss-steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+#skym-svsub .ss-steps li{margin:0!important;padding:0!important;line-height:inherit}
+#skym-svsub .ss-steps h3{font-size:18px!important;margin:0 0 10px!important}
+#skym-svsub .ss-steps p{font-size:14px!important;line-height:1.9!important;color:var(--body)}
+#skym-svsub .ss-scope .ss-btn{margin-top:40px}
+@media(max-width:900px){#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:28px}#skym-svsub .ss-menu-list{grid-template-columns:1fr}}
+@media(max-width:600px){#skym-svsub .ss-steps ol{grid-template-columns:1fr}}
+</style>
+
+<!-- 1. リード(参考 HTML のヒーロー文 + 4 つの事実) -->
+<section class="ss-lead" id="ss-lead">
+  <div class="ss-inner">
+    <h2>学びたいときに、<br class="ss-br-sp">ふらっと。</h2>
+    <span class="ss-sub">SORAJUKU</span>
+    <p>SORAJUKU(ソラジュク)は、SKYMが事務所を開放してひらく、無料のITの学び場です。学生でも、主婦・主夫でも、会社員でも、異業種でも。所属も、経験も、年齢も関係ありません。分からないことがあったら、気軽に聞きに来てください。</p>
+    <ul class="ss-facts"><li>事務所を開放</li><li>18:00〜</li><li>完全無料</li><li>事前予約制</li></ul>
+  </div>
+</section>
+
+<!-- 2. SORAJUKU について 3 つ(写真 + 文章を左右交互) -->
+<section class="ss-services" id="ss-services">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>SORAJUKUについて</h2>
+      <span class="ss-sub">About</span>
+    </div>
+
+    <article class="ss-row">
+      <!-- 写真: sv1-space.jpg(夕方のカフェ風の空間で学ぶ人たち。Unsplash) -->
+      <figure><img src="sv1-space.jpg" alt=""></figure>
+      <div>
+        <span class="ss-num">01</span>
+        <h3>ITのことを、気軽に聞ける場所。</h3>
+        <span class="ss-sub">Learning Space</span>
+        <p>学校のように、全員が同じ授業を受ける場所ではありません。自分の目的に合わせて、勉強したり、質問したり、作業したり。ITのことを気軽に聞ける「カフェ」のような場所です。</p>
+        <p>聞いて、やってみて、できるが、ふえる。「ちょっと分からない」、それくらいからで大丈夫です。</p>
+      </div>
+    </article>
+
+    <article class="ss-row ss-row-rev">
+      <!-- 写真: sv2-seminar.jpg(小さな部屋の講習。Unsplash) -->
+      <figure><img src="sv2-seminar.jpg" alt=""></figure>
+      <div>
+        <span class="ss-num">02</span>
+        <h3>特別講習・イベント</h3>
+        <span class="ss-sub">Seminars &amp; Events</span>
+        <p>通常のSORAJUKUとは別に、年に数回、テーマを決めた講習・イベントを開いています。AI、IT、仕事、キャリア、Webなど、テーマはその回ごとに決めます。</p>
+        <p>講師は代表やSKYMのスタッフ。テーマによっては、社外の方を招くこともあります。会場はSKYMの事務所、または社外の会場です。</p>
+      </div>
+    </article>
+
+    <article class="ss-row">
+      <!-- 写真: sv3-together.jpg(2 台のノート PC を上から。Unsplash) -->
+      <figure><img src="sv3-together.jpg" alt=""></figure>
+      <div>
+        <span class="ss-num">03</span>
+        <h3>SKYMの社員も、ここで学びます。</h3>
+        <span class="ss-sub">Learn Together</span>
+        <p>SORAJUKUは、社外の方だけの場所ではありません。SKYMの新人研修、技術の学習、資格の取得、自主学習にも使っています。学生がプログラミングを勉強している横で、SKYMの社員がネットワークを勉強している。Excelを聞きに来た人の横で、エンジニアが新しい技術を調べている。</p>
+        <p>いろいろな人が集まり、一緒に学べる場所を目指しています。教える人も、学ぶ人。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 3. 今日、何する？(メニュー 8 項目。参考 HTML の角丸カードは 2 列の項目リストに) -->
+<section class="ss-menu" id="ss-menu">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>今日、何する？</h2>
+      <span class="ss-sub">Menu</span>
+      <p>やりたいことに合わせて、自由に学べます。</p>
+    </div>
+    <ul class="ss-menu-list">
+      <li><b>AIを触ってみる</b><span>ChatGPTなどの生成AIを、実際に使ってみる。</span></li>
+      <li><b>PC・Excelを聞く</b><span>Excel・Word・PCの操作など、仕事で困っていることを相談する。</span></li>
+      <li><b>Webをつくってみる</b><span>WordPressやHTML／CSSで、ホームページをつくる。</span></li>
+      <li><b>プログラミング</b><span>HTML・CSS・JavaScript・PHPなど、興味のあるところから。</span></li>
+      <li><b>ITについて聞く</b><span>SE・インフラ・クラウド・IT業界のことなど、何でも。</span></li>
+      <li><b>資格を勉強する</b><span>ITパスポート・基本情報・AWSなど、資格の学習。</span></li>
+      <li><b>自分の作業をする</b><span>持参したPCで自由に勉強・制作。質問だけでもOK。</span></li>
+      <li><b>まだ決まっていない</b><span>何を勉強すればいいか分からない人も、一緒に考えます。</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. 使い方(4 ステップ。参考 HTML のアイコンは番号に) -->
+<section class="ss-steps" id="ss-steps">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>SORAJUKUの使い方</h2>
+      <span class="ss-sub">How to Use</span>
+    </div>
+    <ol>
+      <li><span class="ss-num">01</span><h3>予約する</h3><p>お問い合わせフォームから、希望の日と「やりたいこと」を送ってください。</p></li>
+      <li><span class="ss-num">02</span><h3>18時以降に来る</h3><p>予約した時間を目安に、SKYMの事務所へ。</p></li>
+      <li><span class="ss-num">03</span><h3>好きなことをする</h3><p>勉強、質問、制作、作業。自由に使ってください。</p></li>
+      <li><span class="ss-num">04</span><h3>好きなタイミングで帰る</h3><p>30分でも、1時間でも、2時間でも。自分のペースで大丈夫です。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 5. 開催について(表 + 予約ボタン = お問い合わせフォーム。「ご案内」の行と「開催カレンダー」は書かない) -->
+<section class="ss-scope" id="ss-scope">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>開催について</h2>
+      <span class="ss-sub">Overview</span>
+    </div>
+    <dl class="ss-table">
+      <div><dt>場所</dt><dd>株式会社SKYM 事務所(東京都豊島区東池袋2-38-23 SAMビル5B)</dd></div>
+      <div><dt>時間</dt><dd>18:00〜</dd></div>
+      <div><dt>料金</dt><dd>完全無料</dd></div>
+      <div><dt>利用方法</dt><dd>事前予約制。お問い合わせフォームから、希望の日と「やりたいこと」をお知らせください</dd></div>
+      <div><dt>対象</dt><dd>学生・主婦／主夫・会社員・異業種・IT未経験の方など、どなたでも</dd></div>
+      <div><dt>内容</dt><dd>AI ／ PC・Excel ／ Web制作 ／ プログラミング ／ 資格学習 ／ 自由作業 など</dd></div>
+      <div><dt>サポート</dt><dd>SKYMのスタッフ・エンジニア</dd></div>
+    </dl>
+    <a class="ss-btn" href="https://skym.co.jp/contact">SORAJUKUを予約する<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- 4. その他の事業(事業内容 draft6 のタイル。写真は service/draft6 の card1〜4・6 を参照) -->
+<section class="ss-others" id="ss-others">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>その他の事業</h2>
+      <span class="ss-sub">Our Business</span>
+    </div>
+    <div class="ss-tiles">
+      <a class="ss-tile" href="../../it-solution/draft1/"><img src="../../service/draft7/card1-ses.jpg" alt=""><span><b>IT SOLUTION</b><small>SESを軸に、受託開発とインフラ構築・運用まで。</small></span></a>
+      <a class="ss-tile" href="../../ai-digital/draft1/"><img src="../../service/draft7/card2-ai.jpg" alt=""><span><b>AI &amp; DIGITAL</b><small>AI活用支援と、AIエージェント・ツールの開発。</small></span></a>
+      <a class="ss-tile" href="../../ec-product/draft2/"><img src="../../service/draft7/card3-ec.jpg" alt=""><span><b>EC &amp; PRODUCT</b><small>自社オンラインストアと、オリジナル商品の企画。</small></span></a>
+      <a class="ss-tile" href="../../event/draft2/"><img src="../../service/draft7/card4-event.jpg" alt=""><span><b>EVENT &amp; ENTERTAINMENT</b><small>フリーマーケットや体験会などの企画・運営。</small></span></a>
+      <a class="ss-tile" href="../../sakura/draft8/"><img src="../../service/draft7/card6-sakura.jpg" alt=""><span><b>SAKURA＋</b><small>挑戦する人を応援するプロジェクト。</small></span></a>
+    </div>
+    <p class="ss-center"><a class="ss-btn" href="../../service/draft7/">事業内容トップへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+<!-- 5. お問い合わせ(事業内容 draft6 と同じ部品) -->
+<section class="ss-contact" id="ss-contact">
+  <div class="ss-inner">
+    <div>
+      <h2>お問い合わせ</h2>
+      <span class="ss-sub">Contact</span>
+    </div>
+    <div>
+      <p>各事業に関するご相談、その他のお問い合わせをお待ちしております。</p>
+      <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
+      <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. パートナー募集(現行の青い帯と同じ文言・見え方。WP ではテーマの us_cta 行) -->
+<section class="ss-partner" id="ss-partner">
+  <div class="ss-inner">
+    <div>
+      <h2>パートナー募集</h2>
+      <p>ＳＥＳ事業において御協業いただけるビジネスパートナー企業様を募集しております。</p>
+    </div>
+    <a class="ss-btn" href="https://skym.co.jp/partnership">募集フォームへ</a>
+  </div>
+</section>
+</div>
