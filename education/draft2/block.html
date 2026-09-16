@@ -1,7 +1,7 @@
 <!-- skym education draft2 (事業内容の個別ページ 05 EDUCATION = SORAJUKU。共通テンプレート #skym-svsub(CSS の正は it-solution/draft1。先頭の <style> は sync-style.py で配られる共通分、2 つ目の <style> はこのページ固有(sync は先頭の 1 ブロックだけを置き換えるので残る))
      出どころ(2026-09-16): ユーザー提示の参考 HTML ~/Downloads/sorajyuku-site/sorajyuku.html(SORAJYUKU ページの単独 HTML。ヒーロー / About / メニュー 8 枚 / 使い方 4 ステップ / 開催について / 特別講習・イベント / 社員もここで学ぶ / 予約 CTA)の文言をほぼ流用。ユーザー確認(同日): 綴りは **SORAJUKU**、事務所を開放してやる、場所 = 会社・18:00〜・無料・予約制は本当、予約フォーム = お問い合わせフォーム(https://skym.co.jp/contact)、メニュー 8 項目と「社員もここで学ぶ」は書いてよい
-     参考 HTML から変えたこと: 紺ベタのボタンは枠線ボタンに / AI 生成の顔入り写真 4 枚(ヒーロー・About・講習・社員)は使わず Unsplash の実写 3 枚に。**メニュー 8 枚のカード(角丸・アイコン・参考の生成画像 menu-*.jpg)は参考のまま**(ユーザー指示 2026-09-16。最初は項目リストにしたが「画像がなくて寂しい、元に寄せたい」) / 「ご案内: 本サイト・SNS」「SNS 等でお知らせ」は削除(お知らせで案内すると書かない = 2026-09-16 決定)/ 「開催カレンダー・予約ページ」は無いので書かない / 予約は「お問い合わせフォームから希望の日と「やりたいこと」を送る」に
-     構成: リード(学びたいときに、ふらっと。+ 事務所を開放 ／ 18:00〜 ／ 完全無料 ／ 事前予約制)→ SORAJUKU について 3 つ(01 IT のことを気軽に聞ける場所 / 02 特別講習・イベント = 今までの EDUCATION の実態「代表が年に数回の講習」をここに収める / 03 SKYM の社員もここで学ぶ)→ 今日、何する？(8 項目の 2 列リスト)→ 使い方(4 ステップ)→ 開催について(表 7 行 + 「SORAJUKU を予約する」ボタン → お問い合わせフォーム)→ その他の事業 → お問い合わせ(共通文)→ 青い帯
+     参考 HTML から変えたこと: 紺ベタのボタンは枠線ボタンに / AI 生成の顔入り写真のうち About・講習・社員の 3 枚は使わず Unsplash の実写に。**ヒーローの写真 hero.jpg は参考の生成画像(顔あり)をそのまま使う(ユーザー指示 2026-09-16「画像は同じでいい」= 顔なし規則の例外)**。**メニュー 8 枚のカード(角丸・アイコン・参考の生成画像 menu-*.jpg)は参考のまま**(ユーザー指示 2026-09-16。最初は項目リストにしたが「画像がなくて寂しい、元に寄せたい」) / 「ご案内: 本サイト・SNS」「SNS 等でお知らせ」は削除(お知らせで案内すると書かない = 2026-09-16 決定)/ 「開催カレンダー・予約ページ」は無いので書かない / 予約は「お問い合わせフォームから希望の日と「やりたいこと」を送る」に
+     構成: ヒーロー(参考と同じ 2 カラム = 左に Education / SORAJUKU ソラジュク / 学びたいときに、ふらっと。/ 3 行の説明 / アイコン付きの 事前予約制・18:00〜・完全無料 / 予約ボタン、右に写真 hero.jpg + 写真上の「聞いて、やってみて、できるが、ふえる。」。2026-09-16 ユーザー指示で項目リスト型のリードから変更)→ SORAJUKU について 3 つ(01 IT のことを気軽に聞ける場所 / 02 特別講習・イベント = 今までの EDUCATION の実態「代表が年に数回の講習」をここに収める / 03 SKYM の社員もここで学ぶ)→ 今日、何する？(8 項目の 2 列リスト)→ 使い方(4 ステップ)→ 開催について(表 7 行 + 「SORAJUKU を予約する」ボタン → お問い合わせフォーム)→ その他の事業 → お問い合わせ(共通文)→ 青い帯
      写真: タイトル帯 = draft1 と同じ WP 既存 service-top3.jpg(一覧のカードと同じ)。本文 3 枚は Unsplash 無料: sv1-space = https://unsplash.com/photos/PnJ99wKe-o0(夕方のカフェ風の空間で学ぶ人たち、後ろから)/ sv2-seminar = https://unsplash.com/photos/yCs7YTwEw2w(小さな部屋の講習、プロジェクター)/ sv3-together = https://unsplash.com/photos/9jnDarH6gxA(2 台のノート PC を上から、2 人で学ぶ)。撮影者は作業記録 24。900px JPEG q80
      WP 実装時: draft1 と同じ(親 = 事業内容 ID 6170、スラッグ education、タイトル「EDUCATION」、Zephyr サブタイトル「SORAJUKU(ソラジュク)」)。旧 SORAJUKU 配下 5 ページ(CCNA / LPIC / Ruby Silver / メンタルトレーニング / 思考力)は非公開化 + /service/education へ 301 の想定 -->
 <div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EDUCATION" data-page-subtitle="SORAJUKU(ソラジュク)" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/service-top3.jpg" data-page-overlay="0.55">
@@ -114,9 +114,21 @@
 
 <style>
 /* education/draft2 固有(共通 <style> の後ろに置く。sync-style.py は先頭の <style> だけを置き換えるので残る。ID ルールの !important に勝つよう、要素には !important を付ける) */
-#skym-svsub .ss-facts{display:flex;flex-wrap:wrap;gap:8px 0;margin:28px 0 0!important;padding:0;list-style:none}
-#skym-svsub .ss-facts li{margin:0!important;padding:0 22px 0 0!important;font-size:14px!important;letter-spacing:.06em;line-height:1.6!important;color:var(--navy)}
-#skym-svsub .ss-facts li + li::before{content:"／";color:var(--muted);margin-right:22px}
+#skym-svsub .ss-hero{padding:0;display:grid;align-items:stretch;background:#fff;grid-template-columns:max(20px,calc((100% - 1160px) / 2)) calc(min(1160px,100% - 40px) * .4) minmax(0,1fr)}
+#skym-svsub .ss-hero-text{grid-column:2;padding:clamp(56px,6vw,88px) clamp(28px,3.4vw,56px) clamp(56px,6vw,88px) 0;display:flex;flex-direction:column;justify-content:center}
+#skym-svsub .ss-hero-en{margin:0 0 14px}
+#skym-svsub .ss-logo{font-size:clamp(36px,4.6vw,62px)!important;font-weight:500!important;letter-spacing:.06em!important;line-height:1.1!important;margin:0!important;white-space:nowrap}
+#skym-svsub .ss-logo-ja{display:block;font-size:13px!important;font-weight:400!important;letter-spacing:.3em!important;color:var(--muted)!important;line-height:1.6!important;margin:10px 0 0}
+#skym-svsub .ss-catch{font-size:clamp(21px,2.1vw,27px)!important;font-weight:500!important;letter-spacing:.04em;line-height:1.7!important;margin:28px 0 24px!important;color:var(--navy)}
+#skym-svsub .ss-hero-lead{font-size:15px!important;line-height:2!important;color:var(--body);margin:0 0 14px!important}
+#skym-svsub .ss-facts{display:flex;flex-wrap:wrap;gap:14px 28px;margin:32px 0 0!important;padding:0;list-style:none}
+#skym-svsub .ss-facts li{display:flex;align-items:center;gap:10px;margin:0!important;padding:0!important;font-size:14px!important;line-height:1.5!important;color:var(--navy)}
+#skym-svsub .ss-facts svg{display:block;flex:none;width:22px;height:22px;color:var(--navy);stroke-width:2.2}
+#skym-svsub .ss-hero-cta{margin:36px 0 0!important}
+#skym-svsub .ss-hero-photo{position:relative;overflow:hidden;background:var(--navy);min-height:clamp(380px,46vw,600px);margin:0}
+#skym-svsub .ss-hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+#skym-svsub .ss-hero-photo figcaption{position:absolute;inset:auto 0 0 0;padding:clamp(24px,3vw,44px);background:linear-gradient(180deg,rgba(17,24,39,0) 0%,rgba(17,24,39,.3) 45%,rgba(17,24,39,.72) 100%);color:#fff;font-size:clamp(15px,1.5vw,19px);line-height:1.85;letter-spacing:.08em;text-align:right;text-shadow:0 1px 12px rgba(17,24,39,.5)}
+#skym-svsub .ss-br-pc{display:inline}
 #skym-svsub .ss-menu{background:#fff}
 #skym-svsub .ss-menu .ss-head p{margin:20px 0 0!important;font-size:15px!important;line-height:2!important;color:var(--body)}
 #skym-svsub .ss-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -138,18 +150,30 @@
 #skym-svsub .ss-steps h3{font-size:18px!important;margin:0 0 10px!important}
 #skym-svsub .ss-steps p{font-size:14px!important;line-height:1.9!important;color:var(--body)}
 #skym-svsub .ss-scope .ss-btn{margin-top:40px}
-@media(max-width:900px){#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:44px 32px}#skym-svsub .ss-steps li:not(:last-child)::after{display:none}#skym-svsub .ss-cards{grid-template-columns:repeat(2,1fr);gap:16px}}
-@media(max-width:600px){#skym-svsub .ss-steps ol{grid-template-columns:1fr;gap:32px}#skym-svsub .ss-step-icon svg{width:38px;height:38px}#skym-svsub .ss-card-body{padding:16px 15px 20px;gap:7px}#skym-svsub .ss-card-t{flex-direction:column;align-items:flex-start;gap:9px}#skym-svsub .ss-card-t svg{width:19px;height:19px}#skym-svsub .ss-card h3{font-size:14.5px!important}#skym-svsub .ss-card p{font-size:12.5px!important;line-height:1.8!important}}
+@media(max-width:900px){#skym-svsub .ss-hero{grid-template-columns:1fr}#skym-svsub .ss-hero-text{grid-column:1;padding:72px 20px 56px;max-width:660px;margin:0 auto;width:100%}#skym-svsub .ss-hero-photo{min-height:0;aspect-ratio:16/10}#skym-svsub .ss-br-pc{display:none}#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:44px 32px}#skym-svsub .ss-steps li:not(:last-child)::after{display:none}#skym-svsub .ss-cards{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:600px){#skym-svsub .ss-hero-text{padding:56px 20px 48px}#skym-svsub .ss-logo{font-size:clamp(32px,10vw,44px)!important;letter-spacing:.04em!important}#skym-svsub .ss-hero-photo{aspect-ratio:4/3}#skym-svsub .ss-hero-photo figcaption{font-size:14px;letter-spacing:.06em;padding:20px}#skym-svsub .ss-facts{gap:10px 18px}#skym-svsub .ss-facts li{font-size:13px!important}#skym-svsub .ss-facts svg{width:19px;height:19px}#skym-svsub .ss-hero-cta .ss-btn{width:100%;justify-content:center;padding:16px 20px}#skym-svsub .ss-steps ol{grid-template-columns:1fr;gap:32px}#skym-svsub .ss-step-icon svg{width:38px;height:38px}#skym-svsub .ss-card-body{padding:16px 15px 20px;gap:7px}#skym-svsub .ss-card-t{flex-direction:column;align-items:flex-start;gap:9px}#skym-svsub .ss-card-t svg{width:19px;height:19px}#skym-svsub .ss-card h3{font-size:14.5px!important}#skym-svsub .ss-card p{font-size:12.5px!important;line-height:1.8!important}}
 </style>
 
-<!-- 1. リード(参考 HTML のヒーロー文 + 4 つの事実) -->
-<section class="ss-lead" id="ss-lead">
-  <div class="ss-inner">
-    <h2>学びたいときに、<br class="ss-br-sp">ふらっと。</h2>
-    <span class="ss-sub">SORAJUKU</span>
-    <p>SORAJUKU(ソラジュク)は、SKYMが事務所を開放してひらく、無料のITの学び場です。学生でも、主婦・主夫でも、会社員でも、異業種でも。所属も、経験も、年齢も関係ありません。分からないことがあったら、気軽に聞きに来てください。</p>
-    <ul class="ss-facts"><li>事務所を開放</li><li>18:00〜</li><li>完全無料</li><li>事前予約制</li></ul>
+<!-- 1. ヒーロー(参考 HTML と同じ構成 = 左に文章、右に写真 + 写真上の一言。2026-09-16 ユーザー「「学びたいときにふらっと」も元に寄せたい。画像は同じでいい。左にテキスト、右に画像」。写真 hero.jpg = 参考の sorajyuku-hero.webp(AI 生成・顔あり)を JPEG に。ユーザー指示による例外) -->
+<section class="ss-hero" id="ss-lead">
+  <div class="ss-hero-text">
+    <span class="ss-sub ss-hero-en">Education</span>
+    <h2 class="ss-logo">SORAJUKU<span class="ss-logo-ja">ソラジュク</span></h2>
+    <p class="ss-catch">学びたいときに、ふらっと。</p>
+    <p class="ss-hero-lead">SKYMが事務所を開放してひらく、<br class="ss-br-pc">ITのことを聞ける無料の学び場。</p>
+    <p class="ss-hero-lead">学生でも、主婦・主夫でも、会社員でも、異業種でも。<br class="ss-br-pc">所属も、経験も、年齢も関係ありません。</p>
+    <p class="ss-hero-lead">分からないことがあったら、<br class="ss-br-pc">気軽に聞きに来てください。</p>
+    <ul class="ss-facts">
+      <li><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="14" width="44" height="40" rx="5"/> <path d="M20 8v12M44 8v12M10 25h44"/> <path d="M20 34h6M32 34h6M44 34h2M20 44h6M32 44h6"/> </svg>事前予約制</li>
+      <li><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="32" cy="32" r="22"/> <path d="M32 19v14l10 6"/> </svg>18:00〜</li>
+      <li><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="32" cy="32" r="22"/> <path d="M23 19l9 13 9-13M24 32h16M24 39h16M32 32v13"/> </svg>完全無料</li>
+    </ul>
+    <p class="ss-hero-cta"><a class="ss-btn" href="https://skym.co.jp/contact">SORAJUKUを予約する<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
   </div>
+  <figure class="ss-hero-photo">
+    <img src="hero.jpg" alt="">
+    <figcaption>聞いて、<br>やってみて、<br>できるが、ふえる。</figcaption>
+  </figure>
 </section>
 
 <!-- 2. SORAJUKU について 3 つ(写真 + 文章を左右交互) -->
@@ -168,7 +192,7 @@
         <h3>ITのことを、気軽に聞ける場所。</h3>
         <span class="ss-sub">Learning Space</span>
         <p>学校のように、全員が同じ授業を受ける場所ではありません。自分の目的に合わせて、勉強したり、質問したり、作業したり。ITのことを気軽に聞ける「カフェ」のような場所です。</p>
-        <p>聞いて、やってみて、できるが、ふえる。「ちょっと分からない」、それくらいからで大丈夫です。</p>
+        <p>「ちょっと分からない」。それくらいからで、大丈夫です。</p>
       </div>
     </article>
 
