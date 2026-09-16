@@ -1,11 +1,15 @@
-<!-- skym ec-product draft1 (事業内容の個別ページ 03 EC & PRODUCT。共通テンプレート #skym-svsub = it-solution/draft1 と同じ CSS(正は it-solution 側。tools/sync-style.py で配る)
-     構成: リード(キャッチ + 説明)→ 取り組んでいること 3 つ(写真 + 文章を左右交互: オンラインストア SKYMSHOP / オリジナル商品の企画・製作 / 新しい売り方をつくる)→ 取り扱い(表)→ その他の事業(タイル 5)→ お問い合わせ → パートナー募集の青い帯
-     文言の出どころ: ユーザー情報(2026-09-14: 釣具店 https://skymtackle.base.shop/ を運営、https://shop.skym.co.jp/ へ移行予定。「SKYMSHOP」刺繍のキャップや T シャツなどのアパレルを企画・製作して販売)+ 実際のショップの記載(SKYMSHOP / FISHING TACKLE STORE、トラウト中心、スプーン・プラグ・放流・ロッド＆リール、中古買取・委託販売(手数料 25%・委託期間 90 日・出品料 0 円)、アウトレットルアー、オリジナルカラー販売、SKYM トラウトカップ 2026(バナー表記。大会サイトの正式名は「SKYMSHOP 釣り大会 2026」)、LINE 相談)+ 移行先の記載(実店舗を持たないネット販売・税込表示・送料 185 円〜)+ 事業カードの説明文 + 採用メッセージ(AI を組み込んだアドバイザー型の仕組み、新しい売り方を仕掛ける)
-     ショップへのリンクは現行の BASE(https://skymtackle.base.shop/)。移行後は https://shop.skym.co.jp/ に差し替える(移行先は 2026-09-14 時点「リニューアル準備中」)
-     写真: タイトル帯 = 一覧のカード card3 と同じ WP 既存の shutterstock_316593017.jpg(オーバーレイ 0.55)。本文 3 枚: sv1-shop = Unsplash https://unsplash.com/photos/viq9Ztqi3Vc(撮影 Anne Nygård。木の上に並べたスプーンルアー)/ sv2-apparel = ショップ自身の商品写真「SKYMSHOP オリジナルキャップ」(https://skymtackle.base.shop/ の商品画像。白背景の刺繍キャップを 3:2 の白キャンバスに中央配置)/ sv3-sell = Unsplash https://unsplash.com/photos/nULZ_Ck-EwY(撮影 Vitalii Khodzinskyi。池で釣りをする人たちの後ろ姿)。900px 幅 JPEG。WP 実装時は本文写真を uploads へ
-     data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ ec-product、タイトル「EC & PRODUCT」、Zephyr サブタイトル「自社ECサイト運営・商品企画」)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る -->
+<!-- skym event draft2 (事業内容の個別ページ 04 EVENT & ENTERTAINMENT。draft1 の複製で、**釣りを減らして 5 つのイベントを足した版**(2026-09-16 ユーザー依頼: 釣りを減らし、アウトドア商品フリーマーケット / イベントアプリ制作 / ドローン体験イベント / 小学生向けプログラミング・モノづくり体験 / 音楽セッションイベント を追加。具体は未定なので抽象的に。釣りは「なんとなく大会を主催している」程度に残し、大会名・ショップ名・大会サイトのリンクは載せない)
+     構成(draft2): リード(人が集まる場を企画・運営 + イベントの例 + IT の仕組みの段落は draft1 のまま)→ 取り組んでいること 3 つ(01 イベントの企画・運営(フリーマーケット・音楽セッション・年間シリーズの大会)/ 02 体験する・つくるイベント(ドローン体験・小学生向けプログラミング・モノづくり体験)/ 03 イベントを支える仕組みづくり(イベントアプリの制作。draft1 の「AI によるスマート運営」を釣り固有の語(釣り座・釣果)を外して一般化))→ 企画しているイベント(表 6 行。draft1 の「大会概要」= 大会名・主催・エントリーの表は削除)→ その他の事業 → お問い合わせ → 青い帯
+     釣りの記述はリードの「年間シリーズで開催している釣りの大会」、01 の「年間シリーズの大会」、表の「釣りの大会」の 3 か所だけ。固有名詞・URL なし
+     写真: タイトル帯 = draft1 と同じ WP 既存 enjoy_1920.jpg。本文: sv3-planning(桟橋に集まる人たち、Unsplash MJbz1VIjGXs)を 01 に、sv2-smart(QR コードのスマホ、Unsplash QuZThQoxwm4)を 03 に流用、02 は新規 sv2-workshop.jpg(下記 2026-09-16 追記)。sv1-series(釣りをする 2 人)は使わない
+     以下は draft1 のコメント: 事業内容の個別ページ 04 EVENT & ENTERTAINMENT。共通テンプレート #skym-svsub = it-solution/draft1 と同じ CSS(正は it-solution 側。tools/sync-style.py で配る)
+     出どころ(2026-09-15): ユーザー提示の大会サイト https://skym0407.xsrv.jp/tournament/ (SKYMSHOP 釣り大会 2026 = エリアトラウト年間シリーズ 全 5 戦。第 1 戦 = 9/12 プレオープン大会 @ アングラーズベース赤城山、参加費 7,500 円、定員 40 名(満員)。第 2〜5 戦 = オープントーナメント(日程調整中)。参加の流れ Entry → Confirm → Match → Points。「AI によるスマート運営」= QR 受付 / 釣り座の自動抽選 / ライブスコア / メール・LINE の自動連絡。主催 SKYMSHOP(株式会社SKYM))+ 事業カードのキャッチ・説明文
+     構成: リード → 取り組んでいること 3 つ(SKYMSHOP 釣り大会の開催(大会サイトへのボタン)/ AI によるスマート運営 / イベントの企画・運営(**依頼を受けるかは要確認**))→ 大会概要(表)→ その他の事業 → お問い合わせ → 青い帯
+     日程・参加費など時期で変わる情報は大会サイトに任せ、ここでは年間シリーズの仕組みだけ書く。**大会サイトの URL(skym0407.xsrv.jp)は仮ドメインの可能性 → 本番反映前に確認**
+     写真: タイトル帯 = 一覧のカード card4 と同じ WP 既存の enjoy_1920.jpg(オーバーレイ 0.55)。本文 3 枚は Unsplash(Unsplash License): sv1-series = https://unsplash.com/photos/6xpD1s4tymA(撮影 Vitalii Khodzinskyi。池で釣りをする 2 人)/ sv2-smart = https://unsplash.com/photos/QuZThQoxwm4(屋外で QR コードを表示したスマホを持つ手元)/ sv3-planning = https://unsplash.com/photos/MJbz1VIjGXs(撮影 Laura Kessler。夕方の桟橋に集まる人たちの後ろ姿)。900px 幅 JPEG q80。大会サイトのヒーロー画像(文字入りバナー)は使わない
+     data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ event、タイトル「EVENT & ENTERTAINMENT」、Zephyr サブタイトル「イベントの企画・運営」)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る -->
 <!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
-<div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EC &amp; PRODUCT" data-page-subtitle="自社ECサイト運営・商品企画" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/shutterstock_316593017.jpg" data-page-overlay="0.55">
+<div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="EVENT &amp; ENTERTAINMENT" data-page-subtitle="イベントの企画・運営" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/enjoy_1920.jpg" data-page-overlay="0.55">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
 .l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -113,13 +117,13 @@
 }
 </style>
 
-<!-- 1. リード(事業カードのキャッチ + 説明。2 段落目は採用メッセージの EC の段落を会社の言葉に直したもの) -->
+<!-- 1. リード(事業カードのキャッチ + 説明。2 段落目 = IT の仕組みの考え(draft1 のまま)) -->
 <section class="ss-lead" id="ss-lead">
   <div class="ss-inner">
-    <h2>売るだけで終わらせない。<br class="ss-br-sp">売り方からつくる。</h2>
-    <span class="ss-sub">EC &amp; Product</span>
-    <p>自社ECサイトの運営と商品企画。仕入れから販売、発信までを自分たちで手がけています。</p>
-    <p>ただ商品を仕入れて並べるだけのECサイトにはしない。「今、何が売れているか」「どんな商品が品薄か」「これから何が求められるか」を読みながら、品揃えも売り方も、自分たちで考えてつくっていきます。アパレルなどのオリジナル商品も、自分たちで企画し、デザインし、販売する。ECサイトを運営するだけではなく、新しい「売り方」そのものを仕掛けていくことが、この事業の役割です。</p>
+    <h2>リアルな楽しさに、<br class="ss-br-sp">ITを掛け合わせる。</h2>
+    <span class="ss-sub">Event &amp; Entertainment</span>
+    <p>人が集まる場を、自分たちで企画し、運営しています。アウトドア用品のフリーマーケット、ドローンの体験会、音楽セッション、小学生向けのプログラミング・モノづくり体験、そして年間シリーズで開催している釣りの大会。ジャンルにこだわらず、自分たちが楽しいと思えることを形にしていきます。</p>
+    <p>イベントの楽しさは、当日だけで決まりません。申し込み、受付、抽選、結果の発表、次回の案内。そのひとつひとつにITの仕組みを組み合わせることで、待ち時間を減らし、参加する人も運営する人も楽しめる場をつくっています。</p>
   </div>
 </section>
 
@@ -132,61 +136,63 @@
     </div>
 
     <article class="ss-row">
-      <!-- 写真: Unsplash viq9Ztqi3Vc(スプーンルアー) -->
-      <figure><img src="sv1-shop.jpg" alt=""></figure>
+      <!-- 写真: Unsplash MJbz1VIjGXs(夕方の桟橋に集まる人たちの後ろ姿。draft1 の 03 から) -->
+      <figure><img src="sv3-planning.jpg" alt=""></figure>
       <div>
         <span class="ss-num">01</span>
-        <h3>オンラインストア「SKYMSHOP」の運営</h3>
-        <span class="ss-sub">Online Store</span>
-        <p>トラウトを中心に、フィールドを愛するアングラーへ確かな道具を届けるフィッシングタックルのオンラインストアです。スプーン・プラグ・ロッド＆リールなどの新品に加えて、アウトレットルアーや、限定カラー・希少モデルも取り扱っています。実店舗を持たないネット販売で、全国へお届けします。</p>
-        <p>仕入れから撮影、値付け、発送、SNSでの発信まで、すべて自分たちで行っています。</p>
-        <a class="ss-btn" href="https://skymtackle.base.shop/" target="_blank" rel="noopener">SKYMSHOP を見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <h3>イベントの企画・運営</h3>
+        <span class="ss-sub">Event Planning</span>
+        <p>人が集まる場を、企画から当日の運営まで自分たちで組み立てます。アウトドア用品を持ち寄って売り買いするフリーマーケット、楽器や歌を持ち寄って一緒に演奏する音楽セッション、年間シリーズで順位を競う大会。規模や形はさまざまですが、「自分たちが参加したいと思える場か」を軸に企画しています。</p>
+        <p>開催の内容や時期は、決まり次第お知らせでご案内します。</p>
       </div>
     </article>
 
     <article class="ss-row ss-row-rev">
-      <!-- 写真: ショップの商品写真「SKYMSHOP オリジナルキャップ」 -->
-      <figure><img src="sv2-apparel.jpg" alt=""></figure>
+      <!-- 写真: sv2-workshop.jpg(体験・ワークショップ。Unsplash、出どころは先頭コメント) -->
+      <figure><img src="sv2-workshop.jpg" alt=""></figure>
       <div>
         <span class="ss-num">02</span>
-        <h3>オリジナル商品の企画・製作</h3>
-        <span class="ss-sub">Original Products</span>
-        <p>「SKYMSHOP」の刺繍を入れたキャップやTシャツなどのアパレルを、自分たちで企画・デザインし、製作を依頼して販売しています。ルアーのオリジナルカラーなど、釣具でも「ここにしかない」商品づくりに取り組んでいます。</p>
-        <p>売れるものを仕入れるだけでなく、欲しいものを自分たちでつくる。その両方を持っていることが、このストアの特長です。</p>
+        <h3>体験する・つくるイベント</h3>
+        <span class="ss-sub">Experience &amp; Workshop</span>
+        <p>見るだけでなく、手を動かして体験する場もつくっています。ドローンの操縦や空撮を気軽に試せる体験会。小学生がプログラミングやモノづくりに触れ、自分の手で動くものをつくるワークショップ。</p>
+        <p>ITの会社として日々使っている技術を、はじめて触れる人が楽しめる形に組み替えて届けます。</p>
       </div>
     </article>
 
     <article class="ss-row">
-      <!-- 写真: Unsplash nULZ_Ck-EwY(池で釣りをする人たち) -->
-      <figure><img src="sv3-sell.jpg" alt=""></figure>
+      <!-- 写真: Unsplash QuZThQoxwm4(屋外で QR コードを表示したスマホを持つ手元。draft1 の 02 から) -->
+      <figure><img src="sv2-smart.jpg" alt=""></figure>
       <div>
         <span class="ss-num">03</span>
-        <h3>新しい売り方をつくる</h3>
-        <span class="ss-sub">New Ways to Sell</span>
-        <p>使わなくなったタックルを買い取る「中古買取」、お客様の代わりに当店が販売する「委託販売」、エリアトラウトの年間シリーズ「SKYMSHOP 釣り大会」の開催など、商品を売るだけにとどまらない取り組みを進めています。</p>
-        <p>LINEでの相談窓口、SNSでの発信、AIを組み込んだ提案の仕組みまで。買う人と店との距離を縮める工夫を重ねています。</p>
+        <h3>イベントを支える仕組みづくり</h3>
+        <span class="ss-sub">Event Apps</span>
+        <p>申し込み、QRコードでの受付、組み分けの自動抽選、その場で更新されるライブスコア、リマインドや中止連絡の自動配信。自分たちのイベントで必要になった仕組みを、自分たちでアプリにしてきました。</p>
+        <p>受付の列や集計の待ち時間をなくし、運営する人が参加者と向き合える時間を増やす。そのためのイベントアプリの制作にも取り組んでいます。</p>
       </div>
     </article>
   </div>
 </section>
 
-<!-- 3. 取り扱い(表。内容はショップの記載から) -->
+<!-- 3. 企画しているイベント(表。具体は未定なので内容の一言だけ、時期・場所・固有名詞は書かない) -->
 <section class="ss-scope" id="ss-scope">
   <div class="ss-inner">
     <div class="ss-head">
-      <h2>取り扱い</h2>
-      <span class="ss-sub">Lineup</span>
+      <h2>企画しているイベント</h2>
+      <span class="ss-sub">Events</span>
     </div>
     <dl class="ss-table">
-      <div><dt>新品</dt><dd>スプーン ／ プラグ ／ 放流用ルアー ／ ロッド＆リール ／ その他小物</dd></div>
-      <div><dt>中古・委託</dt><dd>中古買取 ／ 委託販売(手数料25%・委託期間90日・出品料0円)</dd></div>
-      <div><dt>オリジナル</dt><dd>刺繍キャップ ／ Tシャツ ／ オリジナルカラーのルアー</dd></div>
-      <div><dt>ストア</dt><dd><a href="https://skymtackle.base.shop/" target="_blank" rel="noopener" style="text-decoration:underline!important">SKYMSHOP ― FISHING TACKLE STORE</a>(実店舗を持たないネット販売・表示価格はすべて税込)</dd></div>
+      <div><dt>アウトドア商品フリーマーケット</dt><dd>アウトドア用品を持ち寄って売り買いする、屋外の市</dd></div>
+      <div><dt>ドローン体験イベント</dt><dd>操縦や空撮を気軽に体験できる会</dd></div>
+      <div><dt>プログラミング・モノづくり体験</dt><dd>小学生向けに、手を動かしてつくるワークショップ</dd></div>
+      <div><dt>音楽セッションイベント</dt><dd>楽器や歌を持ち寄って、一緒に演奏する場</dd></div>
+      <div><dt>釣りの大会</dt><dd>年間シリーズとして開催している競技会</dd></div>
+      <div><dt>イベントアプリ制作</dt><dd>申し込み・受付・抽選・集計・連絡までを一つにした、イベント運営のためのアプリ</dd></div>
     </dl>
+    <p style="margin-top:24px!important;font-size:13px!important;line-height:1.8!important;color:var(--muted)">内容や時期は決まり次第、お知らせでご案内します。</p>
   </div>
 </section>
 
-<!-- 4. その他の事業(事業内容 draft6 のタイル。写真は service/draft6 の card1・2・4〜6 を参照) -->
+<!-- 4. その他の事業(タイルは service/draft7 の写真と 1 行。各個別ページのモックへリンク) -->
 <section class="ss-others" id="ss-others">
   <div class="ss-inner">
     <div class="ss-head">
@@ -196,7 +202,7 @@
     <div class="ss-tiles">
       <a class="ss-tile" href="../../it-solution/draft1/"><img src="../../service/draft7/card1-ses.jpg" alt=""><span><b>IT SOLUTION</b><small>SESを軸に、受託開発とインフラ構築・運用まで。</small></span></a>
       <a class="ss-tile" href="../../ai-digital/draft1/"><img src="../../service/draft7/card2-ai.jpg" alt=""><span><b>AI &amp; DIGITAL</b><small>AI活用支援と、AIエージェント・ツールの開発。</small></span></a>
-      <a class="ss-tile" href="../../event/draft1/"><img src="../../service/draft7/card4-event.jpg" alt=""><span><b>EVENT &amp; ENTERTAINMENT</b><small>釣り大会などのイベントの企画・運営。</small></span></a>
+      <a class="ss-tile" href="../../ec-product/draft1/"><img src="../../service/draft7/card3-ec.jpg" alt=""><span><b>EC &amp; PRODUCT</b><small>釣具のオンラインストアと、オリジナル商品の企画。</small></span></a>
       <a class="ss-tile" href="../../education/draft1/"><img src="../../service/draft7/card5-edu.jpg" alt=""><span><b>EDUCATION</b><small>代表が年に数回、社外で開く講習。</small></span></a>
       <a class="ss-tile" href="../../sakura/draft8/"><img src="../../service/draft7/card6-sakura.jpg" alt=""><span><b>SAKURA＋</b><small>挑戦する人を応援するプロジェクト。</small></span></a>
     </div>
@@ -212,7 +218,7 @@
       <span class="ss-sub">Contact</span>
     </div>
     <div>
-      <p>ECサイトや商品に関するご相談、その他のお問い合わせをお待ちしております。</p>
+      <p>イベントの企画・運営に関するご相談や、その他のお問い合わせをお待ちしております。</p>
       <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
       <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
