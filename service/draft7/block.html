@@ -3,7 +3,8 @@
      data-row-class は build-draft.py が VC 行(el_class)に付けるクラス。タイル写真 card1〜6 は draft2 と同じ(WP 実装時に uploads へ) 
      2026-09-16: SAKURA＋ の説明文から釣り(SKYMSHOP がトラウトアングラーをサポート)と紹介業の表現(企業・メディア・団体へつなぐ)を外し、sakura/draft2 の 5 つの役割(向き合う・支える・後押しする・伝える・育てる)に沿った文に(ユーザー「釣りを消したい、内容はお任せ」。作業記録 24)。タイルのリンク先を sakura/draft2 に 
      2026-09-16(同日): EVENT カードの 1 行「釣り大会などのイベントの企画・運営。」→「フリーマーケットや体験会などの企画・運営。」(トップ・個別ページの「その他の事業」タイルも同じ 1 行に)、説明文を event/draft2 の内容(フリーマーケット・体験会・音楽セッション、受付〜集計の仕組み)に。釣り大会・SKYMSHOP・釣り座の語を外した(ユーザー「事業内容トップも修正して」)。EVENT のタイルのリンク先を event/draft2 に 
-     2026-09-16(同日): EC カードの 1 行「釣具のオンラインストアと、オリジナル商品の企画。」→「自社オンラインストアと、オリジナル商品の企画。」(共通タイルも同じ)、説明文を ec-product/draft2 の内容(釣り・SKYMSHOP なし)に。EC のタイルのリンク先を ec-product/draft2 に(ユーザー GO) -->
+     2026-09-16(同日): EC カードの 1 行「釣具のオンラインストアと、オリジナル商品の企画。」→「自社オンラインストアと、オリジナル商品の企画。」(共通タイルも同じ)、説明文を ec-product/draft2 の内容(釣り・SKYMSHOP なし)に。EC のタイルのリンク先を ec-product/draft2 に(ユーザー GO) 
+     2026-09-16: お問い合わせの文を全ページ共通の「各事業に関するご相談、その他のお問い合わせをお待ちしております。」に統一(ユーザー: ページごとに変えるとその相談を受ける約束に読める。旧文「人材派遣のご相談や、その他のお問い合わせをお待ちしております。」) -->
 <!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
 <div id="skym-service" data-row-class="sv-wrap">
 <style>
@@ -125,7 +126,7 @@
       <span class="sv-sub">Contact</span>
     </div>
     <div>
-      <p>人材派遣のご相談や、その他のお問い合わせをお待ちしております。</p>
+      <p>各事業に関するご相談、その他のお問い合わせをお待ちしております。</p>
       <span class="sv-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
       <a class="sv-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>

@@ -2,7 +2,8 @@
      構成: リード(番号 + キャッチ + 説明)→ 提供するサービス 3 つ(写真 + 文章を左右交互: SES / 受託開発 / インフラ)→ 対応領域(表)→ その他の事業(タイル 5)→ お問い合わせ → パートナー募集の青い帯
      文言は既存の /service/ses・/service/order-made-system・/service/infra から流用(2015 年頃の記載を含む。差し替え前提)。写真は WP 既存のストック写真(ユーザー判断 2026-09-14: AI 感が出るので AI 生成はなるべく使わない): タイトル帯 = 現行 SES ページと同じ ses-e1433056571651.jpg(一覧のカード card1 と同じ写真。歯車の上でも白文字が読めるようオーバーレイを 0.4 → 0.55)、本文 3 枚は Unsplash の無料写真(Unsplash License: 商用可・帰属表示不要。2026-09-14 ユーザー「ヒーローだけは 2015 のまま、他はお任せ」で Claude が選定): sv1-ses = https://unsplash.com/photos/6Dv3pe-JnSg(コードのモニターとノート PC を打つ手元)/ sv2-dev = https://unsplash.com/photos/v9FQR4tbIq8(ワイヤーフレームを描く手)/ sv3-infra = https://unsplash.com/photos/40XgDxBfYXM(パッチパネルと青い LAN ケーブル)。いずれも 900px 幅 JPEG q80。WP 実装時は 3 枚を uploads へ上げて絶対 URL に。WP 既存の www_1920 / service-top2 / shutterstock_103110092 は「限界がある」として不採用、codex 生成 4 枚は TMP-gen-*.jpg にローカル保管(未採用・未コミット)。その他の事業のタイルは service/draft6 の card2〜6 を参照
      data-base-page="ses": WP にまだ無い新規ページなので、既存サブページ /service/ses の骨格(タイトル帯 + パンくず「ホーム › 事業内容 › …」)を借り、data-page-title で題名を差し替える
-     WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ it-solution、タイトル「IT SOLUTION」、Zephyr サブタイトル「システム開発・インフラ運用支援」、タイトル帯の背景 = 既存の ses-e1433056571651.jpg でアップロード不要、オーバーレイ #111111 55%)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る。パートナー募集の帯はテーマの us_cta 行で -->
+     WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ it-solution、タイトル「IT SOLUTION」、Zephyr サブタイトル「システム開発・インフラ運用支援」、タイトル帯の背景 = 既存の ses-e1433056571651.jpg でアップロード不要、オーバーレイ #111111 55%)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る。パートナー募集の帯はテーマの us_cta 行で 
+     2026-09-16: お問い合わせの文を全ページ共通の「各事業に関するご相談、その他のお問い合わせをお待ちしております。」に統一(ユーザー: ページごとに変えるとその相談を受ける約束に読める。旧文「人材派遣やシステム開発のご相談、その他のお問い合わせをお待ちしております。」) -->
 <!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
 <div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="IT SOLUTION" data-page-subtitle="システム開発・インフラ運用支援" data-page-titlebar="https://skym.co.jp/wp20150417/wp-content/uploads/ses-e1433056571651.jpg" data-page-overlay="0.55">
 <style>
@@ -208,7 +209,7 @@
       <span class="ss-sub">Contact</span>
     </div>
     <div>
-      <p>人材派遣やシステム開発のご相談、その他のお問い合わせをお待ちしております。</p>
+      <p>各事業に関するご相談、その他のお問い合わせをお待ちしております。</p>
       <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
       <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
