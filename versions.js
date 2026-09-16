@@ -89,6 +89,7 @@ window.MOCK = {
       live: 'https://skym.co.jp/service/sakura',
       versions: [
         { id: 'draft1', date: '', note: '案1: it-solution/draft1 と同じテンプレート。ショップのプロジェクト紹介「sakura+ TROUT ANGLER supported by SKYMSHOP」の文言をほぼそのまま。リード → 取り組んでいること 2 つ(挑戦する人に、きっかけを。(詳細・エントリー方法へのボタン)/ PROJECT 01 TROUT ANGLER)→ sakura+ ができること(表: 見つける・つなぐ・支える・伝える・育てる)→ その他の事業 → お問い合わせ → 青い帯。タイトル帯とカード = Unsplash の桜の実写(生成画像から置き換え)、本文 = WP 既存の山頂の 2 人 + Unsplash の手の上のトラウト' },
+        { id: 'draft2', date: '', note: '案2: draft1 の複製。釣りの記述を消して抽象化した版(2026-09-16 ユーザー依頼「釣りを少し控えめに」)。リード文の「そして釣り」「第1弾として、釣具ショップ SKYMSHOP がトラウトアングラーをサポート」を削除、取り組んでいることの 02 PROJECT 01 TROUT ANGLER を削除して 1 つだけに(番号なし)。「その他の事業」タイルの EC・EVENT の一言(釣具・釣り大会)は共通文言のため未変更、エントリーのボタンの先はショップのブログのまま' },
       ],
     },
     {
