@@ -298,13 +298,16 @@ img.emoji {
 #skym-svsub .ss-card h3{font-size:16px!important;line-height:1.5!important;letter-spacing:.03em!important;margin:0!important}
 #skym-svsub .ss-card p{font-size:13.5px!important;line-height:1.85!important;color:var(--body);margin:0!important}
 #skym-svsub .ss-steps{background:var(--light)}
-#skym-svsub .ss-steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
-#skym-svsub .ss-steps li{margin:0!important;padding:0!important;line-height:inherit}
+#skym-svsub .ss-steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:56px}
+#skym-svsub .ss-steps li{position:relative;margin:0!important;padding:0!important;line-height:inherit}
+#skym-svsub .ss-steps li:not(:last-child)::after{content:"";position:absolute;top:22px;right:-34px;width:10px;height:10px;border-top:1px solid var(--line);border-right:1px solid var(--line);transform:rotate(45deg)}
+#skym-svsub .ss-step-icon{display:block;margin-bottom:22px;color:var(--navy)}
+#skym-svsub .ss-step-icon svg{display:block;width:44px;height:44px;stroke-width:1.9}
 #skym-svsub .ss-steps h3{font-size:18px!important;margin:0 0 10px!important}
 #skym-svsub .ss-steps p{font-size:14px!important;line-height:1.9!important;color:var(--body)}
 #skym-svsub .ss-scope .ss-btn{margin-top:40px}
-@media(max-width:900px){#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:28px}#skym-svsub .ss-cards{grid-template-columns:repeat(2,1fr);gap:16px}}
-@media(max-width:600px){#skym-svsub .ss-steps ol{grid-template-columns:1fr}#skym-svsub .ss-card-body{padding:16px 15px 20px;gap:7px}#skym-svsub .ss-card-t{flex-direction:column;align-items:flex-start;gap:9px}#skym-svsub .ss-card-t svg{width:19px;height:19px}#skym-svsub .ss-card h3{font-size:14.5px!important}#skym-svsub .ss-card p{font-size:12.5px!important;line-height:1.8!important}}
+@media(max-width:900px){#skym-svsub .ss-steps ol{grid-template-columns:1fr 1fr;gap:44px 32px}#skym-svsub .ss-steps li:not(:last-child)::after{display:none}#skym-svsub .ss-cards{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(max-width:600px){#skym-svsub .ss-steps ol{grid-template-columns:1fr;gap:32px}#skym-svsub .ss-step-icon svg{width:38px;height:38px}#skym-svsub .ss-card-body{padding:16px 15px 20px;gap:7px}#skym-svsub .ss-card-t{flex-direction:column;align-items:flex-start;gap:9px}#skym-svsub .ss-card-t svg{width:19px;height:19px}#skym-svsub .ss-card h3{font-size:14.5px!important}#skym-svsub .ss-card p{font-size:12.5px!important;line-height:1.8!important}}
 </style>
 
 <!-- 1. リード(参考 HTML のヒーロー文 + 4 つの事実) -->
@@ -432,7 +435,7 @@ img.emoji {
   </div>
 </section>
 
-<!-- 4. 使い方(4 ステップ。参考 HTML のアイコンは番号に) -->
+<!-- 4. 使い方(4 ステップ。最初はアイコンを外して番号だけにしたが、2026-09-16 ユーザー「ここも元みたいにアイコンを使用したい」→ 参考 HTML の線画アイコン 4 つ(SVG インライン)と、ステップ間の山形の区切りを戻した) -->
 <section class="ss-steps" id="ss-steps">
   <div class="ss-inner">
     <div class="ss-head">
@@ -440,10 +443,10 @@ img.emoji {
       <span class="ss-sub">How to Use</span>
     </div>
     <ol>
-      <li><span class="ss-num">01</span><h3>予約する</h3><p>お問い合わせフォームから、希望の日と「やりたいこと」を送ってください。</p></li>
-      <li><span class="ss-num">02</span><h3>18時以降に来る</h3><p>予約した時間を目安に、SKYMの事務所へ。</p></li>
-      <li><span class="ss-num">03</span><h3>好きなことをする</h3><p>勉強、質問、制作、作業。自由に使ってください。</p></li>
-      <li><span class="ss-num">04</span><h3>好きなタイミングで帰る</h3><p>30分でも、1時間でも、2時間でも。自分のペースで大丈夫です。</p></li>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="14" width="44" height="40" rx="5"/> <path d="M20 8v12M44 8v12M10 25h44"/> <path d="M21 39l6 6 14-15"/> </svg></span><span class="ss-num">01</span><h3>予約する</h3><p>お問い合わせフォームから、希望の日と「やりたいこと」を送ってください。</p></li>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="32" cy="32" r="22"/> <path d="M32 19v14l10 6"/> <path d="M12 12l6 6M52 12l-6 6"/> </svg></span><span class="ss-num">02</span><h3>18時以降に来る</h3><p>予約した時間を目安に、SKYMの事務所へ。</p></li>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="10" y="14" width="44" height="30" rx="3"/> <path d="M6 51h52"/> <path d="M25 23l-6 6 6 6M39 23l6 6-6 6M36 20l-8 18"/> </svg></span><span class="ss-num">03</span><h3>好きなことをする</h3><p>勉強、質問、制作、作業。自由に使ってください。</p></li>
+      <li><span class="ss-step-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"> <rect x="14" y="9" width="27" height="46" rx="3"/> <path d="M41 19h9v26h-9M29 32h1"/> <path d="M46 32h12M53 26l6 6-6 6"/> </svg></span><span class="ss-num">04</span><h3>好きなタイミングで帰る</h3><p>30分でも、1時間でも、2時間でも。自分のペースで大丈夫です。</p></li>
     </ol>
   </div>
 </section>
