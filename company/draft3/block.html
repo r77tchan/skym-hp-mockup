@@ -1,0 +1,239 @@
+<!-- skym company draft3 (会社情報トップ /company、ID 6159 の改修案 3。2026-09-17 ユーザー「draft2 をベースに、SKYMとは の画像は draft1 のもの(左脳・右脳のイラスト)。企業理念・あいさつ・他も current に寄せて。完全に同じにはせず、ちょっと整える程度」)
+     current の骨格(各面とも 中央揃えの h2 + 英字副題(About Us / Greeting / Bonds / Policy / Origin of a name)):
+       SKYMとは = 薄グレー、画像(左)| h3 + 文章(右)の 2 分割 / あいさつ = 白、全幅の文章 + 右寄せ斜体の署名 + Buzip バナー / キズナ = 薄グレー、中央揃えの h3 + 全幅の文章 ×2 + 署名 /
+       企業理念 = 黒板 RESPECT YOURSELF の写真(respect-yourself.jpg)+ 黒 50% のオーバーレイ、白文字、中央揃えの h3・h6 + 文章 + 署名 / 社名の由来 = 薄グレー、縦ロゴ(左)| h3 + 文章 + 署名(右)の 2 分割
+       行はすべて全画面(height_full)で内容を上下中央に置く
+     draft3 = その骨格に新しい文言を入れ、整えた版: 行の高さは全画面ではなく固定の余白 / 見出しは細字のまま少し小さく、英字副題は current と同じ小さなグレー(大文字化・字間なし)/ 文章の幅は 880px に制限(current は全幅)/ 署名は斜体をやめて右寄せのまま / 面の順は draft2 のまま(SKYMとは → 名前 → 企業理念 → あいさつ → 働く環境。current の順 SKYMとは → あいさつ → キズナ → 企業理念 → 由来 にも並べ替え可)
+     各面:
+       1 SKYMとは(薄グレー)= current と同じ 2 分割、画像は current のイラスト logical-creative.jpg(draft1 と同じ)
+       2 名前に込めた想い(白)= current の 社名の由来 と同じ 2 分割。左の縦ロゴの位置に S K Y M の 4 文字(SOUZOU × KODO × YOUR × MIRAI)、右に h3「SKYMという名前に込めた想い。」+ 文章。h2 は current の「社名の由来 / Origin of a name」を残した(ユーザーの見出し行は h3 に。h2 にする場合は差し替え)
+       3 企業理念(黒板の写真 + 黒 50%)= current と同じ。h2「企業理念 / Policy」(英字は current のまま。Philosophy にもできる)、h3「想像を、創造へ。」、文章は中央揃え(短い行が多いので)、h6 の位置に「想像する。創造する。行動する。そして、自分らしい未来へ。」、署名
+       4 あいさつ(白)= current と同じ全幅の文章型。h3「『やってみたい』から、未来をつくる。」を中央に足し、(想像＋創造)× IT は current の h6 と同じ中央揃えの 1 行。Buzip バナーは削除、写真なし
+       5 働く環境(薄グレー)= current の キズナ と同じ型(中央揃えの h3 + 文章)。5 項目は罫線区切りの行(番号 + 英字 + 日本語 | 内容)。draft2 のサムネイルは付けていない(戻せる)
+     写真: 新規なし(current の logical-creative.jpg と respect-yourself.jpg を WP の URL で参照)。draft2 の流用写真は使わない
+     文言はユーザー提示のまま(draft1・2 と同じ)。SORAJYUKU → ソラすく、S K Y M の日本語の添え書きと 5 項目の日本語ラベルは Claude が付けたもの(外せる)
+     WP 実装時: 固定ページ「会社情報」ID 6159 の本文(VC の 5 行)を [vc_row columns_type="none" width="full" el_class="cp-wrap"] 1 行に差し替えて貼る想定 -->
+<div id="skym-company" data-row-class="cp-wrap">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="cp-wrap") */
+.l-section.cp-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.cp-wrap .g-cols,.l-section.cp-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-company{
+  --blue:#02A0E9;--navy:#111827;--light:#F3F4F6;--line:#DDE3E8;--muted:#7B8290;--body:#374151;
+  font-weight:400!important; /* 子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-company *,#skym-company *:before,#skym-company *:after{box-sizing:border-box}
+#skym-company *{font-weight:inherit!important}
+#skym-company h2,#skym-company h3{
+  font-family:inherit!important;line-height:1.5!important;letter-spacing:.04em!important;
+  color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;text-align:center;
+}
+#skym-company h2{font-size:clamp(28px,3.2vw,40px)!important;font-weight:300!important;letter-spacing:.06em!important}
+#skym-company h3{font-size:clamp(22px,2.4vw,30px)!important;font-weight:400!important;line-height:1.6!important}
+#skym-company h2 span,#skym-company h3 span,#skym-company p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-company p{margin:0 0 1.3em!important;font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-company p:last-child{margin-bottom:0!important}
+#skym-company a{color:inherit;text-decoration:none!important}
+#skym-company img{border:0;box-shadow:none;margin:0}
+#skym-company figure{margin:0}
+#skym-company ol,#skym-company ul{margin:0;padding:0;list-style:none}
+#skym-company li{margin:0!important;padding:0!important;line-height:inherit}
+#skym-company .cp-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-company .cp-narrow{width:min(880px,calc(100% - 40px));margin:0 auto}
+#skym-company section{padding:100px 0;margin:0;position:relative}
+#skym-company .cp-pc{display:inline}
+#skym-company .cp-sp{display:none}
+
+/* 面の見出し: current と同じ 中央揃えの h2 + 小さなグレーの英字(大文字化・字間なし) */
+#skym-company .cp-head{text-align:center;margin-bottom:64px}
+#skym-company .cp-sub{display:block;font-size:14px;font-weight:400!important;letter-spacing:.04em;color:var(--muted);margin:10px 0 0;line-height:1.5}
+#skym-company .cp-catch{margin:0 0 32px!important}
+#skym-company .cp-em{font-size:17px!important;font-weight:500!important;line-height:1.9!important;letter-spacing:.04em!important;color:var(--navy)}
+#skym-company .cp-quotes{color:var(--navy);font-weight:500!important}
+
+/* 署名: current の右寄せ(斜体はやめる) */
+#skym-company .cp-sign{text-align:right;margin-top:36px!important;font-size:15px!important;letter-spacing:.1em!important;color:var(--navy)}
+#skym-company .cp-sign small{font-size:13px!important;margin-right:14px;color:var(--muted)}
+
+/* 2 分割(current の one-half ×2): 画像 | 文章 */
+#skym-company .cp-halves{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#skym-company .cp-halves h3{text-align:left;margin-bottom:22px!important}
+#skym-company .cp-halves figure img{width:100%;height:auto;display:block}
+
+/* 1 SKYMとは(薄グレー): イラスト | h3 + 文章 */
+#skym-company .cp-about{background:var(--light)}
+
+/* 2 名前に込めた想い(白): S K Y M の 4 文字 | h3 + 文章(current の 社名の由来 の縦ロゴの位置に 4 文字) */
+#skym-company .cp-name{background:#fff}
+#skym-company .cp-letters{display:flex;justify-content:center;align-items:flex-start;gap:clamp(6px,1.2vw,14px);padding:24px 0}
+#skym-company .cp-letter{display:flex;flex-direction:column;align-items:center;min-width:clamp(56px,6.4vw,84px)}
+#skym-company .cp-letter b{font-family:inherit!important;font-size:clamp(56px,6.6vw,84px)!important;font-weight:300!important;line-height:1!important;letter-spacing:0!important;color:var(--navy)!important}
+#skym-company .cp-letter span{display:block;margin-top:14px;font-size:clamp(9px,.85vw,11px);font-weight:500!important;letter-spacing:.24em;color:var(--blue);line-height:1.4;padding-left:.24em}
+#skym-company .cp-letter small{display:block;margin-top:6px;font-size:11px;letter-spacing:.06em;color:var(--muted);line-height:1.4;font-weight:400!important}
+#skym-company .cp-letters i{font-style:normal;font-size:clamp(14px,1.6vw,20px);line-height:1;color:var(--muted);padding-top:clamp(20px,2.4vw,32px);font-weight:300!important}
+#skym-company .cp-name .cp-big{font-size:clamp(18px,1.9vw,23px)!important;font-weight:500!important;line-height:1.8!important;letter-spacing:.06em!important;color:var(--navy);margin:0 0 20px!important}
+
+/* 3 企業理念(黒板の写真 + 黒 50%、白文字、中央揃え): current と同じ */
+#skym-company .cp-policy{background:#111 url(https://skym.co.jp/wp20150417/wp-content/uploads/respect-yourself.jpg) center/cover no-repeat;color:#fff;padding:120px 0}
+#skym-company .cp-policy:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5)}
+#skym-company .cp-policy .cp-narrow{position:relative;text-align:center}
+#skym-company .cp-policy h2,#skym-company .cp-policy h3,#skym-company .cp-policy .cp-em,#skym-company .cp-policy .cp-quotes,#skym-company .cp-policy .cp-sign{color:#fff!important}
+#skym-company .cp-policy .cp-sub{color:rgba(255,255,255,.75)}
+#skym-company .cp-policy .cp-sign small{color:rgba(255,255,255,.7)}
+#skym-company .cp-policy p{color:rgba(255,255,255,.92)}
+#skym-company .cp-policy .cp-xl{font-size:clamp(28px,3.4vw,42px)!important;margin-bottom:36px!important}
+#skym-company .cp-policy .cp-mid{font-size:clamp(20px,2.1vw,26px)!important;margin:48px 0 28px!important}
+
+/* 4 あいさつ(白): current と同じ全幅の文章型(幅だけ 880 に)。(想像＋創造)× IT は中央揃えの 1 行 */
+#skym-company .cp-greeting{background:#fff}
+#skym-company .cp-formula{margin:40px 0;text-align:center;font-size:clamp(22px,2.4vw,30px);font-weight:400!important;letter-spacing:.1em;line-height:1.5;color:var(--navy)}
+#skym-company .cp-formula span{color:var(--blue)}
+
+/* 5 働く環境(薄グレー): current の キズナ と同じ型 + 5 項目の行 */
+#skym-company .cp-env{background:var(--light)}
+#skym-company .cp-env .cp-lines{color:var(--navy);font-weight:500!important;line-height:2.2!important}
+#skym-company .cp-list{margin:56px auto 0!important;border-top:1px solid var(--line)}
+#skym-company .cp-list li{display:grid!important;grid-template-columns:320px 1fr;gap:24px;align-items:start;padding:22px 0!important;border-bottom:1px solid var(--line)}
+#skym-company .cp-list .cp-en{display:inline-flex;align-items:baseline;gap:14px;font-size:20px;font-weight:500!important;letter-spacing:.12em;color:var(--navy);line-height:1.3}
+#skym-company .cp-list .cp-en i{font-style:normal;font-size:12px;letter-spacing:.12em;color:var(--blue);font-weight:500!important}
+#skym-company .cp-list .cp-ja{display:block;font-size:13px;letter-spacing:.08em;color:var(--muted);margin:4px 0 0;line-height:1.6}
+#skym-company .cp-list .cp-desc{font-size:15px;line-height:1.9;color:var(--body);padding-top:2px}
+
+@media(max-width:900px){
+  #skym-company section{padding:80px 0}
+  #skym-company .cp-head{margin-bottom:44px}
+  #skym-company .cp-halves{grid-template-columns:1fr;gap:36px}
+  #skym-company .cp-halves figure{max-width:560px;margin:0 auto}
+  #skym-company .cp-halves h3{text-align:center}
+  #skym-company .cp-letters{padding:8px 0}
+  #skym-company .cp-list li{grid-template-columns:1fr;gap:6px;padding:18px 0!important}
+}
+@media(max-width:600px){
+  #skym-company section{padding:64px 0}
+  #skym-company .cp-pc{display:none}
+  #skym-company .cp-sp{display:inline}
+  #skym-company p{font-size:14.5px!important;line-height:2!important}
+  #skym-company .cp-policy p{text-align:left}
+  #skym-company .cp-policy p.cp-quotes,#skym-company .cp-policy p.cp-em,#skym-company .cp-policy p.cp-sign{text-align:center}
+  #skym-company .cp-policy p.cp-sign{text-align:right}
+  #skym-company .cp-letters{gap:6px}
+  #skym-company .cp-letter{min-width:0;flex:1}
+  #skym-company .cp-letter b{font-size:50px!important}
+  #skym-company .cp-letter span{font-size:9px;letter-spacing:.18em;margin-top:12px;padding-left:.18em}
+  #skym-company .cp-letter small{font-size:10.5px;letter-spacing:.02em}
+  #skym-company .cp-letters i{font-size:15px;padding-top:18px}
+  #skym-company .cp-policy{padding:88px 0}
+  #skym-company .cp-formula{margin:32px 0}
+  #skym-company .cp-list .cp-en{font-size:18px}
+}
+</style>
+
+<!-- 1. SKYMとは(current と同じ 2 分割。文言・イラストは現行のまま) -->
+<section class="cp-about" id="cp-about">
+  <div class="cp-inner">
+    <div class="cp-head">
+      <h2>SKYMとは</h2>
+      <span class="cp-sub">About Us</span>
+    </div>
+    <div class="cp-halves">
+      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/logical-creative.jpg" width="842" height="550" alt=""></figure>
+      <div>
+        <h3>どうせ仕事するなら</h3>
+        <p>株式会社スカイムは2013年にインターネットビジネスに付随するサービスを主業として立ち上げた会社です。どんな会社かを一言で言うと、『 ( Logical × Creative ) + Vibrant 』そんな会社です。</p>
+        <p>整理された論理的思考にクリエイテイブな創造性を掛け合わせることによって今まででなかったアイデア・課題解決など質の高いビジネスを提供している会社です。</p>
+        <p>固定概念にとらわれず、どうせ仕事するなら楽しく、生きるなら満足のいく生き方を。そんなナチュラルな社風のもと、そんなメンバが集まった会社です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 社名の由来 → SKYMという名前に込めた想い(current の 2 分割。縦ロゴの位置に S K Y M) -->
+<section class="cp-name" id="cp-name">
+  <div class="cp-inner">
+    <div class="cp-head">
+      <h2>社名の由来</h2>
+      <span class="cp-sub">Origin of a name</span>
+    </div>
+    <div class="cp-halves">
+      <div class="cp-letters" aria-label="SOUZOU × KODO × YOUR × MIRAI">
+        <div class="cp-letter"><b>S</b><span>SOUZOU</span><small>想像・創造</small></div>
+        <i>×</i>
+        <div class="cp-letter"><b>K</b><span>KODO</span><small>行動</small></div>
+        <i>×</i>
+        <div class="cp-letter"><b>Y</b><span>YOUR</span><small>あなたの</small></div>
+        <i>×</i>
+        <div class="cp-letter"><b>M</b><span>MIRAI</span><small>未来</small></div>
+      </div>
+      <div>
+        <h3>SKYMという名前に込めた想い。</h3>
+        <p class="cp-big">想像したことを、創造する。<br>創造したものを、行動に変える。</p>
+        <p>ITは、決められた仕事をするためだけのものではありません。<br class="cp-pc">「やってみたい」をカタチにし、<br class="cp-pc">一人ひとりの可能性を広げるためのもの。</p>
+        <p class="cp-em">あなたのアイデアから、あなたの未来をつくる。<br>SKYMは、そんな会社でありたいと考えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 企業理念(current と同じ黒板の写真 + 黒 50%、白文字、中央揃え) -->
+<section class="cp-policy" id="cp-policy">
+  <div class="cp-narrow">
+    <div class="cp-head">
+      <h2>企業理念</h2>
+      <span class="cp-sub">Policy</span>
+    </div>
+    <h3 class="cp-xl">想像を、創造へ。</h3>
+    <p>私たちSKYMは、<br class="cp-pc">一人ひとりの「やってみたい」を大切にします。</p>
+    <p><span class="cp-quotes">「こんなことができたら面白い。」<br>「こんなものがあったらいい。」</span><br>そんな小さな想像が、新しい仕事やサービスのはじまりです。</p>
+    <h3 class="cp-mid">想像する。創造する。行動する。<br>そして、自分らしい未来へ。</h3>
+    <p>ITやテクノロジーは、目的ではありません。<br class="cp-pc">人のアイデアや可能性をカタチにするための手段です。</p>
+    <p>私たちは、自由に考え、まずやってみることを大切にし、<br class="cp-pc">仲間とともに新しい価値を創り続けます。</p>
+    <p class="cp-em">一人ひとりの「やってみたい」から、<br>まだない未来をつくる。</p>
+    <p>それが、SKYMの企業理念です。</p>
+    <p class="cp-sign"><small>代表取締役</small>渡邉 浩一</p>
+  </div>
+</section>
+
+<!-- 4. あいさつ(current と同じ文章型。Buzip バナーは削除) -->
+<section class="cp-greeting" id="cp-greeting">
+  <div class="cp-narrow">
+    <div class="cp-head">
+      <h2>あいさつ</h2>
+      <span class="cp-sub">Greeting</span>
+    </div>
+    <h3 class="cp-catch">「やってみたい」から、<br class="cp-sp">未来をつくる。</h3>
+    <p>株式会社SKYMは、2013年の設立以来、ITを通じて人と仕事に向き合ってきました。</p>
+    <p>テクノロジーは、ただ便利にするためのものではなく、<br class="cp-pc">人の想いやアイデアをカタチにし、新しい可能性を生み出すためのものだと私たちは考えています。</p>
+    <p class="cp-quotes">「こんなことをやってみたい」<br>「こんなものがあったら面白い」<br>「もっと自分らしく働きたい」</p>
+    <p>そんな一人ひとりの小さな想像を、創造へ。<br>そして、行動につなげていく。</p>
+    <p>SKYMが大切にしているのは、決められた答えを探すことではなく、<br class="cp-pc">まず考え、まずやってみること。</p>
+    <p>社員、お客様、パートナー、そしてSKYMに関わるすべての人と一緒に、<br class="cp-pc">ITの可能性をもっと自由に、もっと面白く広げていきたいと考えています。</p>
+    <div class="cp-formula">（想像<span>＋</span>創造）<span>×</span> IT</div>
+    <p>これからもSKYMは、<br class="cp-pc">一人ひとりの「やってみたい」から、まだない未来をつくっていきます。</p>
+    <p class="cp-sign"><small>代表取締役</small>渡邉 浩一</p>
+  </div>
+</section>
+
+<!-- 5. SKYMの働く環境(current の キズナ と同じ型 + 5 項目の行) -->
+<section class="cp-env" id="cp-env">
+  <div class="cp-narrow">
+    <div class="cp-head">
+      <h2>SKYMの働く環境</h2>
+      <span class="cp-sub">Environment / Culture</span>
+    </div>
+    <h3 class="cp-catch">「自由に働く」だけではなく、<br>ちゃんと成長できる環境をつくる。</h3>
+    <p>SKYMでは、働き方やキャリアをひとつに決めつけません。</p>
+    <p class="cp-lines">案件を通じて技術を伸ばす。<br>興味のある分野を学ぶ。<br>新しいサービスや企画を考える。<br>社内プロジェクトに参加してみる。</p>
+    <p>それぞれの現在地に合わせて、次の選択肢を増やしていくことを大切にしています。</p>
+    <ol class="cp-list">
+      <li><div><span class="cp-en"><i>01</i>LEARN</span><span class="cp-ja">学ぶ</span></div><span class="cp-desc">研修・ソラすく・資格支援・勉強環境</span></li>
+      <li><div><span class="cp-en"><i>02</i>CAREER</span><span class="cp-ja">キャリア</span></div><span class="cp-desc">インフラ、クラウド、開発、AI、社内SEなどへのキャリア展開</span></li>
+      <li><div><span class="cp-en"><i>03</i>CHALLENGE</span><span class="cp-ja">挑戦</span></div><span class="cp-desc">新規事業、EC、イベント、AI活用、社内企画への参加</span></li>
+      <li><div><span class="cp-en"><i>04</i>COMMUNICATION</span><span class="cp-ja">コミュニケーション</span></div><span class="cp-desc">面談、相談、社員同士の交流、意見を言いやすい環境</span></li>
+      <li><div><span class="cp-en"><i>05</i>WORK STYLE</span><span class="cp-ja">働き方</span></div><span class="cp-desc">案件や役割に応じた柔軟な働き方</span></li>
+    </ol>
+  </div>
+</section>
+</div>
