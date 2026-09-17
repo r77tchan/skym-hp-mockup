@@ -2,6 +2,7 @@
   "_comment": "build-draft.py が index.html(モック)を生成するときだけ使う。本番 URL → モックのパス。block.html(WP に貼る本文)は書き換えない。モックがあるページだけ登録し、無いものは本番 URL のまま。版を進めたらここを更新して各ページを再 build する(2026-09-15 ユーザー依頼: Pages 上にあるものはそのリンクにしたい)",
   "links": {
     "": "top/draft10",
+    "company": "company/draft4",
     "service": "service/draft7",
     "service/ses": "it-solution/draft1",
     "service/order-made-system": "it-solution/draft1",
