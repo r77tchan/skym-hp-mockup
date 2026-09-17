@@ -105,6 +105,15 @@ window.MOCK = {
       ],
     },
     {
+      id: 'company',
+      name: '会社情報(トップ /company、ID 6159。サブページ 会社概要 /company/summary・アクセスマップ・トピック は別)',
+      live: 'https://skym.co.jp/company',
+      versions: [
+        { id: 'current', date: '2026-09-17', note: '現状再現(5 つの全画面行: SKYMとは / あいさつ + Buzip・東京の社長.tv バナー / キズナ / 企業理念(黒板の背景)/ 社名の由来(縦ロゴ、SKY + MESSAGE))' },
+        { id: 'draft1', date: '', note: '案1: ユーザー提示の文言で 4 面を差し替え(2026-09-17 依頼「デザインはお任せ」)。社名の由来 → 「SKYMという名前に込めた想い。」(S K Y M の 4 文字 = SOUZOU × KODO × YOUR × MIRAI、中央揃え)/ 企業理念 → 「想像を、創造へ。」/ あいさつ → 「『やってみたい』から、未来をつくる。」+ (想像＋創造)× IT の 1 行 / キズナ → 「SKYMの働く環境 Environment / Culture」(紺の面、LEARN〜WORK STYLE の 5 行)。Buzip バナーは削除。指示のなかった SKYMとは(Logical × Creative + Vibrant)は現行のまま最後に残した。理念・あいさつは左に見出し・右に本文の 2 カラム、写真なしの文章ページ' },
+      ],
+    },
+    {
       id: 'recruit',
       name: '採用情報',
       live: 'https://skym.co.jp/recruit',
