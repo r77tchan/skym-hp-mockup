@@ -1,7 +1,7 @@
 <!-- skym company draft4 (会社情報トップ /company、ID 6159 の改修案 4。2026-09-17 ユーザー「draft3 をベースに。面の並び順は current に。働く環境じゃなくてキズナに。企業理念は背景が動くように。SKYM のロゴ画像をどこかで使いたい。SKYMとは 以外は縦が長すぎるのでコンパクトに(社名の由来は長くないかも)」)
      draft3 からの変更:
-       ① 面の順を current と同じに: SKYMとは → あいさつ → キズナ → 企業理念 → 社名の由来(背景も current と同じ 薄グレー → 白 → 薄グレー → 黒板の写真 → 薄グレー)
-       ② 3 面目の見出しを「SKYMの働く環境 / Environment / Culture」から current の「キズナ / Bonds」に戻した(本文はユーザー提示の 働く環境 の文言のまま)
+       ① 面の順: 最初は current と同じ(SKYMとは → あいさつ → キズナ → 企業理念 → 社名の由来)にしたが、同日ユーザー「画像のある面とない面を交互に」→ **SKYMとは(イラスト)→ あいさつ(文)→ 企業理念(黒板の写真)→ SKYMの働く環境(文)→ 社名の由来(ロゴ)**。背景は 薄グレー → 白 → 黒板 → 白 → 薄グレー
+       ② 3 面目の見出しは最初 current の「キズナ / Bonds」に戻したが、同日ユーザー「キズナは 働く環境 に差し替える意味(指示ミス)」→ 「SKYMの働く環境 / Environment / Culture」に(本文はユーザー提示の 働く環境 の文言)
        ③ 企業理念の背景を動くように: current は Ultimate Addons の縦パララックス(data-ultimate-bg-style="vcpb-vz-jquery")。draft4 は CSS の background-attachment:fixed(スクロールすると背景が止まって見える型。iOS Safari は fixed を無視して通常の背景になる)。WP 実装時は VC 行の背景設定でパララックスを選ぶ想定
        ④ SKYM の縦ロゴ(WP 既存 logo_with_title_vertical.png、current の 社名の由来 と同じ。ただし背景が白なので Pillow のフラッドフィルで外周の白を透過にした logo-vertical.png を置いた。WP 実装時は透過版を uploads へ)を 社名の由来 の左に置き、その下に S K Y M の 4 文字
        ⑤ コンパクトに: 面の余白 100 → 80px、見出し下 64 → 40px、段落の行間 2 → 1.9・段落間 1.3em → .9em、PC 用の改行(cp-pc)を外して文章を流し込み(カギ括弧の行と対句の改行は残す)、企業理念の余白 120 → 88px、キズナの 5 項目は罫線の行から 5 列の並び(タブレット 3 列・スマホ 1 列)に。SKYMとは は draft3 のまま(見出し下だけ 56px)
@@ -73,9 +73,9 @@
 #skym-company .cp-formula{margin:28px 0;text-align:center;font-size:clamp(22px,2.4vw,30px);font-weight:400!important;letter-spacing:.1em;line-height:1.5;color:var(--navy)}
 #skym-company .cp-formula span{color:var(--blue)}
 
-/* 3 キズナ(薄グレー): current と同じ型(中央の h3 + 文章)+ 5 項目を 5 列に */
-#skym-company .cp-bonds{background:var(--light)}
-#skym-company .cp-bonds .cp-lines{color:var(--navy);font-weight:500!important;line-height:2!important}
+/* 4 SKYMの働く環境(白): current のキズナと同じ型(中央の h3 + 文章)+ 5 項目を 5 列に */
+#skym-company .cp-env{background:#fff}
+#skym-company .cp-env .cp-lines{color:var(--navy);font-weight:500!important;line-height:2!important}
 #skym-company .cp-list{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin:40px auto 0!important}
 #skym-company .cp-list li{border-top:1px solid #C9CED6;padding:16px 0 0!important}
 #skym-company .cp-list .cp-en{display:block;font-size:17px;font-weight:500!important;letter-spacing:.1em;color:var(--navy);line-height:1.3}
@@ -83,7 +83,7 @@
 #skym-company .cp-list .cp-ja{display:block;margin-top:4px;font-size:12px;letter-spacing:.08em;color:var(--muted);line-height:1.6}
 #skym-company .cp-list .cp-desc{display:block;margin-top:10px;font-size:13.5px;line-height:1.8;color:var(--body)}
 
-/* 4 企業理念(黒板の写真 + 黒 50%、白文字、中央揃え): current と同じ。背景は fixed で動く(パララックス) */
+/* 3 企業理念(黒板の写真 + 黒 50%、白文字、中央揃え): current と同じ。背景は fixed で動く(パララックス) */
 #skym-company .cp-policy{background:#111 url(https://skym.co.jp/wp20150417/wp-content/uploads/respect-yourself.jpg) center/cover no-repeat;background-attachment:fixed;color:#fff;padding:88px 0}
 #skym-company .cp-policy:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5)}
 #skym-company .cp-policy .cp-narrow{position:relative;text-align:center}
@@ -180,30 +180,7 @@
   </div>
 </section>
 
-<!-- 3. キズナ(見出しは current のまま、本文はユーザー提示の 働く環境 の文言。5 項目は 5 列) -->
-<section class="cp-bonds" id="cp-bonds">
-  <div class="cp-inner">
-    <div class="cp-narrow">
-      <div class="cp-head">
-        <h2>キズナ</h2>
-        <span class="cp-sub">Bonds</span>
-      </div>
-      <h3 class="cp-catch">「自由に働く」だけではなく、<br>ちゃんと成長できる環境をつくる。</h3>
-      <p>SKYMでは、働き方やキャリアをひとつに決めつけません。</p>
-      <p class="cp-lines">案件を通じて技術を伸ばす。<br>興味のある分野を学ぶ。<br>新しいサービスや企画を考える。<br>社内プロジェクトに参加してみる。</p>
-      <p>それぞれの現在地に合わせて、次の選択肢を増やしていくことを大切にしています。</p>
-    </div>
-    <ol class="cp-list">
-      <li><span class="cp-en"><i>01</i>LEARN</span><span class="cp-ja">学ぶ</span><span class="cp-desc">研修・ソラすく・資格支援・勉強環境</span></li>
-      <li><span class="cp-en"><i>02</i>CAREER</span><span class="cp-ja">キャリア</span><span class="cp-desc">インフラ、クラウド、開発、AI、社内SEなどへのキャリア展開</span></li>
-      <li><span class="cp-en"><i>03</i>CHALLENGE</span><span class="cp-ja">挑戦</span><span class="cp-desc">新規事業、EC、イベント、AI活用、社内企画への参加</span></li>
-      <li><span class="cp-en"><i>04</i>COMMUNICATION</span><span class="cp-ja">コミュニケーション</span><span class="cp-desc">面談、相談、社員同士の交流、意見を言いやすい環境</span></li>
-      <li><span class="cp-en"><i>05</i>WORK STYLE</span><span class="cp-ja">働き方</span><span class="cp-desc">案件や役割に応じた柔軟な働き方</span></li>
-    </ol>
-  </div>
-</section>
-
-<!-- 4. 企業理念(current と同じ黒板の写真 + 黒 50%、白文字、中央揃え。背景は fixed で動く) -->
+<!-- 3. 企業理念(current と同じ黒板の写真 + 黒 50%、白文字、中央揃え。背景は fixed で動く) -->
 <section class="cp-policy" id="cp-policy">
   <div class="cp-narrow">
     <div class="cp-head">
@@ -219,6 +196,29 @@
     <p class="cp-em">一人ひとりの「やってみたい」から、<br>まだない未来をつくる。</p>
     <p>それが、SKYMの企業理念です。</p>
     <p class="cp-sign"><small>代表取締役</small>渡邉 浩一</p>
+  </div>
+</section>
+
+<!-- 4. SKYMの働く環境(current のキズナの差し替え。中央の h3 + 文章 + 5 項目を 5 列) -->
+<section class="cp-env" id="cp-env">
+  <div class="cp-inner">
+    <div class="cp-narrow">
+      <div class="cp-head">
+        <h2>SKYMの働く環境</h2>
+        <span class="cp-sub">Environment / Culture</span>
+      </div>
+      <h3 class="cp-catch">「自由に働く」だけではなく、<br>ちゃんと成長できる環境をつくる。</h3>
+      <p>SKYMでは、働き方やキャリアをひとつに決めつけません。</p>
+      <p class="cp-lines">案件を通じて技術を伸ばす。<br>興味のある分野を学ぶ。<br>新しいサービスや企画を考える。<br>社内プロジェクトに参加してみる。</p>
+      <p>それぞれの現在地に合わせて、次の選択肢を増やしていくことを大切にしています。</p>
+    </div>
+    <ol class="cp-list">
+      <li><span class="cp-en"><i>01</i>LEARN</span><span class="cp-ja">学ぶ</span><span class="cp-desc">研修・ソラすく・資格支援・勉強環境</span></li>
+      <li><span class="cp-en"><i>02</i>CAREER</span><span class="cp-ja">キャリア</span><span class="cp-desc">インフラ、クラウド、開発、AI、社内SEなどへのキャリア展開</span></li>
+      <li><span class="cp-en"><i>03</i>CHALLENGE</span><span class="cp-ja">挑戦</span><span class="cp-desc">新規事業、EC、イベント、AI活用、社内企画への参加</span></li>
+      <li><span class="cp-en"><i>04</i>COMMUNICATION</span><span class="cp-ja">コミュニケーション</span><span class="cp-desc">面談、相談、社員同士の交流、意見を言いやすい環境</span></li>
+      <li><span class="cp-en"><i>05</i>WORK STYLE</span><span class="cp-ja">働き方</span><span class="cp-desc">案件や役割に応じた柔軟な働き方</span></li>
+    </ol>
   </div>
 </section>
 
