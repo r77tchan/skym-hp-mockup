@@ -57,6 +57,7 @@ window.MOCK = {
       live: 'https://skym.co.jp/service/ai-digital',
       versions: [
         { id: 'draft1', date: '', note: '案1: it-solution/draft1 と同じテンプレート(#skym-svsub)。タイトル帯(一覧のカードと同じ WP 既存の UI 画像 + AI & DIGITAL / AI活用・DX支援)→ リード → 取り組んでいること 3 つ(AI活用支援 / AIエージェント・ツールの開発 / 自社サービスでの実践)→ こんなご相談から(表)→ その他の事業 → お問い合わせ → 青い帯。文言は「抽象的でよい」方針の仮の文(カードの説明・採用メッセージ・中途素材から流用)。本文写真は Unsplash' },
+        { id: 'draft3', date: '', note: '案3(2026-09-17 採用): ユーザー提示の参考 HTML(~/Downloads/SKYM_AI_DIGITAL_white_background_preview/ai-digital/draft3)をそのまま移植した一新版。方針転換「ページごとにデザインを揃えない。良いと思ったデザインを採用する」の第 1 号。ヒーロー(AIを、仕事の力に。+ 架空の業務画面 SKYM AI WORKSPACE の CSS 図解)→ AI活用のしくみ(入力 3 → SKYM AI ORCHESTRATION → 出力 3 の図)→ 主な支援内容(角丸カード 6、アイコン + タグ + ミニチャート)→ 活用シーン(写真カード 4)→ 青いグラデーションの CTA → 濃紺のパートナー募集(独自 HTML)。その他の事業タイルなし、文言も参考どおり(共通のお問い合わせ文は使わない)。draft2 は欠番。移植時にメディアクエリのセレクタへ #skym-ai2 を付け、スマホ幅の崩れ(業務画面が 150px 列に潰れる・しくみの図が 5 列のまま)を修正。写真は draft1 と同じ Unsplash 3 枚' },
       ],
     },
     {
