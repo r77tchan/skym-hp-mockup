@@ -2,7 +2,7 @@
      draft3 からの変更:
        ① 面の順: 最初は current と同じ(SKYMとは → あいさつ → キズナ → 企業理念 → 社名の由来)にしたが、同日ユーザー「画像のある面とない面を交互に」→ **SKYMとは(イラスト)→ あいさつ(文)→ 企業理念(黒板の写真)→ SKYMの働く環境(文)→ 社名の由来(ロゴ)**。背景は 薄グレー → 白 → 黒板 → 白 → 薄グレー
        ② 3 面目の見出しは最初 current の「キズナ / Bonds」に戻したが、同日ユーザー「キズナは 働く環境 に差し替える意味(指示ミス)」→ 「SKYMの働く環境 / Environment / Culture」に(本文はユーザー提示の 働く環境 の文言)
-       ③ 企業理念の背景を動くように: current は Ultimate Addons の縦パララックス(data-ultimate-bg-style="vcpb-vz-jquery")。draft4 は CSS の background-attachment:fixed(スクロールすると背景が止まって見える型。iOS Safari は fixed を無視して通常の背景になる)。WP 実装時は VC 行の背景設定でパララックスを選ぶ想定
+       ③ 企業理念の背景を動くように: current は Ultimate Addons の縦パララックス(data-ultimate-bg-style="vcpb-vz-jquery")。最初は CSS の background-attachment:fixed にしたが iOS Safari で動かないので、同日(ユーザー「確認点は判断に任せる」)**小さな JS の縦パララックスに変更**(背景の層 .cp-bg を上下 15% 大きくし、スクロールに合わせて translate3d で ±15% ずらす。全端末で動く。prefers-reduced-motion の人には静止)。WP 実装時は本文の <script> ごと貼るか、VC 行の背景設定のパララックスを使う
        ④ SKYM の縦ロゴ(WP 既存 logo_with_title_vertical.png、current の 社名の由来 と同じ。ただし背景が白なので Pillow のフラッドフィルで外周の白を透過にした logo-vertical.png を置いた。WP 実装時は透過版を uploads へ)を 社名の由来 の左に置き、その下に S K Y M の 4 文字
        ⑤ コンパクトに: 面の余白 100 → 80px、見出し下 64 → 40px、段落の行間 2 → 1.9・段落間 1.3em → .9em、PC 用の改行(cp-pc)を外して文章を流し込み(カギ括弧の行と対句の改行は残す)、企業理念の余白 120 → 88px、キズナの 5 項目は罫線の行から 5 列の並び(タブレット 3 列・スマホ 1 列)に。SKYMとは は draft3 のまま(見出し下だけ 56px)
      以下は draft3 のコメント:
@@ -11,7 +11,7 @@
        企業理念 = 黒板 RESPECT YOURSELF の写真(respect-yourself.jpg)+ 黒 50% のオーバーレイ、白文字、中央揃えの h3・h6 + 文章 + 署名 / 社名の由来 = 薄グレー、縦ロゴ(左)| h3 + 文章 + 署名(右)の 2 分割
      整えた点: 行の高さは全画面ではなく固定の余白 / 見出しは細字のまま少し小さく、英字副題は current と同じ小さなグレー / 文章の幅は 880px に制限 / 署名は斜体をやめて右寄せ
      写真: 新規なし(current の logical-creative.jpg・respect-yourself.jpg・logo_with_title_vertical.png を WP の URL で参照)
-     文言はユーザー提示のまま(draft1〜3 と同じ)。SORAJYUKU → ソラすく、S K Y M の日本語の添え書きと 5 項目の日本語ラベルは Claude が付けたもの(外せる)
+     文言はユーザー提示のまま(draft1〜3 と同じ)。SORAJYUKU → ソラすく。S K Y M の日本語の添え書き(想像・創造 / 行動 / あなたの / 未来)は Claude が付けたもので、SOUZOU が想像と創造の両方を指す言葉遊びが伝わるよう残した(2026-09-17 ユーザー「判断に任せる」)。5 項目の日本語ラベル(学ぶ / キャリア 等)は英語が平易で説明文と重複するので外した
      WP 実装時: 固定ページ「会社情報」ID 6159 の本文(VC の 5 行)を [vc_row columns_type="none" width="full" el_class="cp-wrap"] 1 行に差し替えて貼る想定 -->
 <div id="skym-company" data-row-class="cp-wrap">
 <style>
@@ -80,13 +80,13 @@
 #skym-company .cp-list li{border-top:1px solid #C9CED6;padding:16px 0 0!important}
 #skym-company .cp-list .cp-en{display:block;font-size:17px;font-weight:500!important;letter-spacing:.1em;color:var(--navy);line-height:1.3}
 #skym-company .cp-list .cp-en i{font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--blue);font-weight:500!important;margin-right:10px}
-#skym-company .cp-list .cp-ja{display:block;margin-top:4px;font-size:12px;letter-spacing:.08em;color:var(--muted);line-height:1.6}
-#skym-company .cp-list .cp-desc{display:block;margin-top:10px;font-size:13.5px;line-height:1.8;color:var(--body)}
+#skym-company .cp-list .cp-desc{display:block;margin-top:8px;font-size:13.5px;line-height:1.8;color:var(--body)}
 
 /* 3 企業理念(黒板の写真 + 黒 50%、白文字、中央揃え): current と同じ。背景は fixed で動く(パララックス) */
-#skym-company .cp-policy{background:#111 url(https://skym.co.jp/wp20150417/wp-content/uploads/respect-yourself.jpg) center/cover no-repeat;background-attachment:fixed;color:#fff;padding:88px 0}
-#skym-company .cp-policy:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5)}
-#skym-company .cp-policy .cp-narrow{position:relative;text-align:center}
+#skym-company .cp-policy{background:#111;color:#fff;padding:88px 0;overflow:hidden}
+#skym-company .cp-policy .cp-bg{position:absolute;left:0;right:0;top:-15%;bottom:-15%;background:url(https://skym.co.jp/wp20150417/wp-content/uploads/respect-yourself.jpg) center/cover no-repeat;will-change:transform}
+#skym-company .cp-policy:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:1}
+#skym-company .cp-policy .cp-narrow{position:relative;z-index:2;text-align:center}
 #skym-company .cp-policy h2,#skym-company .cp-policy h3,#skym-company .cp-policy .cp-em,#skym-company .cp-policy .cp-quotes,#skym-company .cp-policy .cp-sign{color:#fff!important}
 #skym-company .cp-policy .cp-sub{color:rgba(255,255,255,.75)}
 #skym-company .cp-policy .cp-sign small{color:rgba(255,255,255,.7)}
@@ -114,7 +114,6 @@
   #skym-company .cp-halves figure{max-width:560px;margin:0 auto}
   #skym-company .cp-halves h3{text-align:center}
   #skym-company .cp-list{grid-template-columns:repeat(3,1fr);gap:20px}
-  #skym-company .cp-policy{background-attachment:scroll}
 }
 @media(max-width:600px){
   #skym-company section{padding:56px 0}
@@ -182,6 +181,7 @@
 
 <!-- 3. 企業理念(current と同じ黒板の写真 + 黒 50%、白文字、中央揃え。背景は fixed で動く) -->
 <section class="cp-policy" id="cp-policy">
+  <div class="cp-bg" aria-hidden="true"></div>
   <div class="cp-narrow">
     <div class="cp-head">
       <h2>企業理念</h2>
@@ -197,6 +197,25 @@
     <p>それが、SKYMの企業理念です。</p>
     <p class="cp-sign"><small>代表取締役</small>渡邉 浩一</p>
   </div>
+  <script>
+  /* 企業理念の背景を縦にゆっくり動かす(現行の Ultimate Addons 縦パララックスと同じ見え方)。背景の層を上下 15% 大きくして、面が画面を通過する間に ±15% だけずらす。動きを減らす設定(prefers-reduced-motion)の人には静止 */
+  (function(){
+    var sec=document.getElementById('cp-policy'),bg=sec&&sec.querySelector('.cp-bg');
+    if(!bg||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+    var ticking=false;
+    function update(){
+      ticking=false;
+      var r=sec.getBoundingClientRect(),vh=window.innerHeight||1;
+      var p=((r.top+r.height/2)-vh/2)/(vh/2+r.height/2); /* -1(通過後)〜 1(手前) */
+      if(p>1)p=1;if(p<-1)p=-1;
+      bg.style.transform='translate3d(0,'+Math.round(p*r.height*0.15)+'px,0)';
+    }
+    function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+    update();
+  })();
+  </script>
 </section>
 
 <!-- 4. SKYMの働く環境(current のキズナの差し替え。中央の h3 + 文章 + 5 項目を 5 列) -->
@@ -213,11 +232,11 @@
       <p>それぞれの現在地に合わせて、次の選択肢を増やしていくことを大切にしています。</p>
     </div>
     <ol class="cp-list">
-      <li><span class="cp-en"><i>01</i>LEARN</span><span class="cp-ja">学ぶ</span><span class="cp-desc">研修・ソラすく・資格支援・勉強環境</span></li>
-      <li><span class="cp-en"><i>02</i>CAREER</span><span class="cp-ja">キャリア</span><span class="cp-desc">インフラ、クラウド、開発、AI、社内SEなどへのキャリア展開</span></li>
-      <li><span class="cp-en"><i>03</i>CHALLENGE</span><span class="cp-ja">挑戦</span><span class="cp-desc">新規事業、EC、イベント、AI活用、社内企画への参加</span></li>
-      <li><span class="cp-en"><i>04</i>COMMUNICATION</span><span class="cp-ja">コミュニケーション</span><span class="cp-desc">面談、相談、社員同士の交流、意見を言いやすい環境</span></li>
-      <li><span class="cp-en"><i>05</i>WORK STYLE</span><span class="cp-ja">働き方</span><span class="cp-desc">案件や役割に応じた柔軟な働き方</span></li>
+      <li><span class="cp-en"><i>01</i>LEARN</span><span class="cp-desc">研修・ソラすく・資格支援・勉強環境</span></li>
+      <li><span class="cp-en"><i>02</i>CAREER</span><span class="cp-desc">インフラ、クラウド、開発、AI、社内SEなどへのキャリア展開</span></li>
+      <li><span class="cp-en"><i>03</i>CHALLENGE</span><span class="cp-desc">新規事業、EC、イベント、AI活用、社内企画への参加</span></li>
+      <li><span class="cp-en"><i>04</i>COMMUNICATION</span><span class="cp-desc">面談、相談、社員同士の交流、意見を言いやすい環境</span></li>
+      <li><span class="cp-en"><i>05</i>WORK STYLE</span><span class="cp-desc">案件や役割に応じた柔軟な働き方</span></li>
     </ol>
   </div>
 </section>
