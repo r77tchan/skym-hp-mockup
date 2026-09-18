@@ -58,7 +58,7 @@
 #skym-top .sz-card--4 img{transform:scaleX(-1)}
 #skym-top .sz-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.28))}
 #skym-top .sz-label{position:absolute;z-index:2;left:12px;top:12px;padding:7px 10px;background:var(--sz-lime);color:#090909;font-weight:900!important;font-size:10px;letter-spacing:.08em;line-height:1.05;transform:rotate(-2deg)}
-#skym-top .sz-big{position:absolute;z-index:2;right:9px;bottom:5px;font-family:inherit!important;font-size:clamp(34px,4.2vw,72px)!important;font-weight:900!important;line-height:.85!important;letter-spacing:-.08em;color:#fff!important;writing-mode:vertical-rl;text-shadow:0 3px 18px rgba(0,0,0,.32)}
+#skym-top .sz-big{position:absolute;z-index:2;right:9px;bottom:5px;font-family:inherit!important;font-size:clamp(34px,4.2vw,72px)!important;font-weight:900!important;line-height:.85!important;letter-spacing:-.08em;color:#fff!important;writing-mode:vertical-rl;text-orientation:upright;text-shadow:0 3px 18px rgba(0,0,0,.32)} /* text-orientation:upright = 英字(IT)を横倒しにせず I・T を縦に積む(参考では横倒しで端が切れ「ヨ」に見えた) */
 #skym-top .sz-card--1{width:22vw;height:36vh;left:-4vw;top:15vh;transform:rotate(-9deg)}
 #skym-top .sz-card--2{width:24vw;height:34vh;right:3vw;top:8vh;transform:rotate(7deg)}
 #skym-top .sz-card--3{width:23vw;height:35vh;right:-5vw;bottom:7vh;transform:rotate(-6deg)}
@@ -68,6 +68,9 @@
 #skym-top .sz-card--3 .sz-label{background:var(--sz-yellow)}
 #skym-top .sz-card--4 .sz-label{background:var(--sz-sky)}
 #skym-top .sz-card--5 .sz-label{background:var(--sz-orange)}
+/* 縦文字(発想 / IT / 実装 / 創造 / 未来)は「全部見えるカード」にだけ出す(2026-09-18 ユーザー「見えたり見えなかったりしている」→ お任せ)。
+   PC では下の 3 枚が帯の下・画面の外・画面の下端で切れるので出さず、上の 2 枚(発想・IT)だけ。900px 以下は上の 2 枚が SOUZOU に重なるので逆に消し、左下の「創造」だけ出す(下の @media) */
+#skym-top .sz-card--3 .sz-big,#skym-top .sz-card--4 .sz-big,#skym-top .sz-card--5 .sz-big{display:none}
 /* 中央の文字 */
 #skym-top .sz-content{position:relative;z-index:5;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:110px 24px 170px}
 #skym-top .sz-kicker{margin:0 0 12px!important;font-size:11px!important;font-weight:900!important;line-height:1.5!important;letter-spacing:.22em;text-transform:uppercase;padding:7px 12px;background:#fff;color:#111;transform:rotate(-1.5deg)}
@@ -99,7 +102,7 @@
   #skym-top .sz-card--1{width:34vw;height:28vh;left:-12vw;top:16vh}
   #skym-top .sz-card--2{width:37vw;height:27vh;right:-10vw;top:11vh}
   #skym-top .sz-card--3{width:39vw;height:30vh;right:-13vw;bottom:15vh}
-  #skym-top .sz-card--4{width:35vw;height:27vh;left:-10vw;bottom:14vh} /* 参考は 10vh。縦文字「創造」が帯に隠れるので上げた */
+  #skym-top .sz-card--4{width:35vw;height:22vh;left:-10vw;bottom:17vh} /* 参考は height 27vh / bottom 10vh。縦文字「創造」が帯に隠れるので、カードを少し低くして上げた */
   #skym-top .sz-card--5{display:none}
   #skym-top .sz-content{padding:110px 20px 185px}
   #skym-top .sz-souzou{font-size:clamp(72px,20vw,150px)!important}
@@ -108,8 +111,9 @@
   #skym-top .sz-tape-track{font-size:clamp(31px,7vw,56px)}
   #skym-top .sz-mini{display:none}
   #skym-top .sz-scroll{width:70px;height:70px;right:18px;bottom:15px}
-  /* 崩れ修正: 900px 以下ではカードが内側に寄り、上 2 枚の縦文字(発想 / IT)が SOUZOU の下に入り込んで透けて見える、右下(実装)は右端が画面外で帯にも隠れる → この 3 つは出さず、左下の「創造」だけ残す。左下のカードは帯に隠れないよう少し上げる */
-  #skym-top .sz-card--1 .sz-big,#skym-top .sz-card--2 .sz-big,#skym-top .sz-card--3 .sz-big{display:none}
+  /* 900px 以下ではカードが内側に寄り、上 2 枚の縦文字(発想 / IT)が SOUZOU の下に入り込んで透けて見える → 消す。代わりに左下の「創造」を出す(カードは帯に隠れないよう少し上げてある) */
+  #skym-top .sz-card--1 .sz-big,#skym-top .sz-card--2 .sz-big{display:none}
+  #skym-top .sz-card--4 .sz-big{display:block}
 }
 @media(max-width:560px){
   #skym-top .sz-video{object-position:58% center}
