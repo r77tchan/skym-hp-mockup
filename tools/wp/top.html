@@ -1,0 +1,397 @@
+<div id="skym-top">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="tp-wrap")。
+   トップはヘッダーが透過・固定で、テーマが最初の行に padding-top(50px)を付けるのでそれも外す(ヒーローの写真がヘッダーの下まで広がる) */
+.l-section.tp-wrap{padding:0!important}
+.l-section.tp-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.tp-wrap .g-cols,.l-section.tp-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-top{
+  --blue:#02A0E9;--navy:#111827;--lime:#D9FF55;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
+  font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-top *,#skym-top *:before,#skym-top *:after{box-sizing:border-box}
+#skym-top *{font-weight:inherit!important} /* 子テーマの * {font-weight:300!important} を外してルートの 400 を継承させる。個別の太さは !important で指定(下のルールはすべて付けてある) */
+/* 見出しは細め・1 色・字間ゆるめ(現行サイトの細い見出しに寄せる。太字と色替えはやめる) */
+#skym-top h1,#skym-top h2,#skym-top h3{
+  font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
+  color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
+}
+#skym-top h2{font-size:clamp(24px,2.6vw,32px)!important}
+#skym-top h1 span,#skym-top h2 span,#skym-top h3 span,#skym-top p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-top p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-top p:last-child{margin-bottom:0!important}
+#skym-top a{color:inherit;text-decoration:none!important}
+#skym-top img{border:0;box-shadow:none;margin:0}
+#skym-top ul{list-style:none!important;margin:0!important;padding:0!important}
+#skym-top li{margin:0!important;padding:0!important;list-style:none!important}
+#skym-top .tp-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-top section{padding:110px 0;margin:0}
+/* 見出しの下の英字(現行サイトの「日本語見出し + 英語の副題」の型) */
+#skym-top .tp-sub{display:block;font-size:12px;font-weight:400!important;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+/* 細い枠線のボタン(黒い丸ボタンはやめる) */
+#skym-top .tp-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500!important;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-top .tp-btn:hover{background:var(--navy);color:#fff!important}
+#skym-top .tp-btn svg{transition:transform .2s}
+#skym-top .tp-btn:hover svg{transform:translateX(3px)}
+#skym-top .tp-btn.white{border-color:rgba(255,255,255,.85);color:#fff!important}
+#skym-top .tp-btn.white:hover{background:#fff;border-color:#fff;color:var(--navy)!important}
+
+/* 1 ヒーロー(draft11): ユーザー提示の「SOUZOU.」ヒーロー。動画背景 + 傾いた写真カード 5 枚 + 大きな英字 + 斜めの帯。
+   参考 CSS を #skym-top .sz-* にスコープし、font-weight に !important(子テーマの * {font-weight:300!important} 対策)。draft10 の #skym-top h1 / p のルール(ID + 要素)には ID + クラスの詳細度で勝つ */
+#skym-top .sz-hero{--sz-lime:#dfff42;--sz-pink:#ff6ca8;--sz-sky:#6fd2ff;--sz-orange:#ff9f45;--sz-violet:#b78cff;--sz-yellow:#fff06a;
+  position:relative;min-height:100vh;min-height:100svh;overflow:hidden;isolation:isolate;background:#111;color:#fff;padding:0;margin:0}
+#skym-top .sz-video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;z-index:-5;margin:0;display:block;filter:saturate(.82) contrast(1.04)}
+#skym-top .sz-hero::before{content:"";position:absolute;inset:0;z-index:-4;background:linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.15) 55%,rgba(0,0,0,.38)),linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.38))}
+#skym-top .sz-hero::after{content:"";position:absolute;inset:0;z-index:8;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+/* 傾いた写真カード(装飾。文字の下の層) */
+/* 傾いた写真カード(装飾。文字の下の層。draft14: 右側 3 枚は縦積みで重なりなし(2 = 上 8〜33vh / 5 = 中 34〜47vh / 3 = 下 48〜73vh。vh だけなのでどの縦幅でも 1vh の隙間)。
+   左右は 2vw の余白(傾きで角が出る分を見込む)。左 2 枚は draft13 のまま(上下の隙間あり)。中央の文字・ボタンとは重ならない。900px 以下の幅別ルールは端装飾のまま変えない) */
+#skym-top .sz-cards{position:absolute;inset:0;z-index:1;pointer-events:none}
+#skym-top .sz-card{position:absolute;overflow:hidden;margin:0;padding:0;border:1px solid rgba(0,0,0,.16);box-shadow:0 18px 50px rgba(0,0,0,.26);background:#eee;transform-origin:center}
+#skym-top .sz-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95) contrast(1.04)}
+#skym-top .sz-card--4 img{transform:scaleX(-1)}
+#skym-top .sz-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.28))}
+#skym-top .sz-label{position:absolute;z-index:2;left:12px;top:12px;padding:7px 10px;background:var(--sz-lime);color:#090909;font-weight:900!important;font-size:10px;letter-spacing:.08em;line-height:1.05;transform:rotate(-2deg)}
+/* draft16: カード 1 の顔は写真の左上にあるので、左上のタグが顔に被る → カード 1 のタグだけ右上(ガラスビル)に移す(全幅共通。顔は左なのでどの切り抜きでも重ならない) */
+#skym-top .sz-card--1 .sz-label{left:auto;right:12px}
+/* draft17: カード 3・4 の顔は上にあるので、タグを下に移す(幅の狭い画面でカードが細くなっても、px 固定のタグが顔に被らない。どの切り抜きでも重ならない) */
+#skym-top .sz-card--3 .sz-label,#skym-top .sz-card--4 .sz-label{top:auto;bottom:12px}
+#skym-top .sz-big{position:absolute;z-index:2;right:9px;bottom:5px;font-family:inherit!important;font-size:clamp(34px,4.2vw,72px)!important;font-weight:900!important;line-height:.85!important;letter-spacing:-.08em;color:#fff!important;writing-mode:vertical-rl;text-shadow:0 3px 18px rgba(0,0,0,.32)}
+#skym-top .sz-card--1{width:20vw;height:30vh;left:2vw;top:12vh;transform:rotate(-9deg)}
+#skym-top .sz-card--2{width:18vw;height:25vh;right:2vw;top:8vh;transform:rotate(7deg)}
+#skym-top .sz-card--3{width:17vw;height:25vh;right:2vw;bottom:27vh;transform:rotate(-6deg)}
+#skym-top .sz-card--4{width:20vw;height:26vh;left:2vw;bottom:190px;transform:rotate(8deg)}
+/* 5 枚目は右の中段に小さめで重ねる(上下のカードと 1vh の隙間。中央下だとボタン・本文と重なって煩雑、下のカードのラベルにかからないよう右端で揃える) */
+#skym-top .sz-card--5{width:13vw;height:13vh;right:2vw;top:34vh;transform:rotate(4deg)}
+#skym-top .sz-card--2 .sz-label{background:var(--sz-pink)}
+#skym-top .sz-card--3 .sz-label{background:var(--sz-yellow)}
+#skym-top .sz-card--4 .sz-label{background:var(--sz-sky)}
+#skym-top .sz-card--5 .sz-label{background:var(--sz-orange)}
+/* 縦文字(draft16: 「発想」は削除(ユーザー指示)。残るは 900px 以下の左下の「創造」だけ。「IT」「実装」「未来」は出さない) */
+#skym-top .sz-card--2 .sz-big,#skym-top .sz-card--3 .sz-big,#skym-top .sz-card--4 .sz-big,#skym-top .sz-card--5 .sz-big{display:none}
+/* 中央の文字 */
+#skym-top .sz-content{position:relative;z-index:5;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:110px 24px 170px}
+#skym-top .sz-kicker{margin:0 0 12px!important;font-size:11px!important;font-weight:900!important;line-height:1.5!important;letter-spacing:.22em;text-transform:uppercase;padding:7px 12px;background:#fff;color:#111;transform:rotate(-1.5deg)}
+#skym-top .sz-souzou{margin:0!important;padding:0!important;font-family:inherit!important;font-size:clamp(78px,14vw,220px)!important;line-height:.78!important;letter-spacing:-.07em!important;font-weight:900!important;color:#fff!important;text-shadow:0 10px 45px rgba(0,0,0,.35)}
+#skym-top .sz-souzou .sz-dot{color:var(--sz-lime)!important}
+#skym-top .sz-meaning{margin:23px 0 0!important;font-size:clamp(12px,1.3vw,17px)!important;line-height:1.5!important;font-weight:900!important;letter-spacing:.2em;color:#fff}
+#skym-top .sz-meaning b{font-weight:inherit!important;color:var(--sz-lime)!important}
+#skym-top .sz-lead{margin:14px 0 0!important;font-size:clamp(29px,4.5vw,66px)!important;line-height:1.1!important;font-weight:900!important;letter-spacing:-.055em;color:#fff}
+#skym-top .sz-sub{margin:17px auto 0!important;max-width:650px;font-size:clamp(13px,1.05vw,16px)!important;line-height:1.9!important;font-weight:700!important;color:rgba(255,255,255,.86);text-shadow:0 2px 15px rgba(0,0,0,.45)}
+#skym-top .sz-cta{margin-top:25px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+#skym-top .sz-btn{height:48px;min-width:150px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:space-between;gap:22px;font-size:11px;font-weight:900!important;letter-spacing:.12em;line-height:1;text-decoration:none!important;transition:transform .2s,filter .2s}
+#skym-top .sz-btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+#skym-top .sz-btn--main{background:var(--sz-lime);color:#0a0a0a!important}
+#skym-top .sz-btn--sub{border:1px solid rgba(255,255,255,.65);background:rgba(0,0,0,.18);backdrop-filter:blur(8px);color:#fff!important}
+/* 斜めに流れる技術名の帯 */
+#skym-top .sz-tape{position:absolute;z-index:10;left:-5vw;bottom:7vh;width:110vw;height:116px;background:#fff;color:#0a0a0a;display:flex;align-items:center;overflow:hidden;transform:rotate(-3.4deg);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+#skym-top .sz-tape-track{display:flex;align-items:center;gap:34px;white-space:nowrap;animation:sz-marquee 22s linear infinite;font-size:clamp(34px,5vw,78px);font-weight:500!important;line-height:1;letter-spacing:-.05em}
+#skym-top .sz-tape-track strong{font-family:inherit!important;font-weight:900!important}
+#skym-top .sz-tape-dot{width:.19em;height:.19em;flex:none;background:var(--sz-lime);border-radius:50%;display:inline-block}
+@keyframes sz-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ミニワードと Scroll down */
+#skym-top .sz-mini{position:absolute;z-index:12;font-weight:900!important;letter-spacing:.08em;font-size:10px;line-height:1.3;color:#111;background:var(--sz-violet);padding:8px 11px;transform:rotate(7deg)}
+#skym-top .sz-mini--1{left:25vw;top:18vh}
+#skym-top .sz-mini--2{right:26vw;top:26vh;background:var(--sz-orange);transform:rotate(-6deg)}
+#skym-top .sz-mini--3{left:30vw;bottom:21vh;background:var(--sz-pink);transform:rotate(3deg)}
+#skym-top .sz-scroll{position:absolute;right:28px;bottom:23px;z-index:14;width:84px;height:84px;border-radius:50%;background:#fff;color:#111!important;display:grid;place-items:center;text-align:center;font-size:10px;font-weight:900!important;line-height:1.25;box-shadow:0 7px 25px rgba(0,0,0,.18);text-decoration:none!important}
+#skym-top .sz-scroll::after{content:"↓";display:block;font-size:17px;margin-top:3px;color:#ff9f00}
+@media(max-width:900px){
+  /* draft15: 5 枚とも枠内に収める(小さめにして内側に。5 枚目は表示に戻して上中央。文字の下の層なので文字との重なりはそのまま) */
+  #skym-top .sz-card--1{width:28vw;height:16vh;left:3vw;top:10vh}
+  #skym-top .sz-card--2{width:28vw;height:16vh;right:3vw;top:12vh}
+  #skym-top .sz-card--3{width:28vw;height:16vh;right:3vw;bottom:160px}
+  #skym-top .sz-card--4{width:27vw;height:15vh;left:3vw;bottom:160px}
+  #skym-top .sz-card--5{display:block;width:26vw;height:78px;left:50%;margin-left:-13vw;top:80px} /* draft20: 左右と揃える(見出しタグは下げる) */
+  /* draft16: SP・タブレット幅のカード 1 は横長の切り抜きで顔が大きく写るため、右上のタグでも顔に近くなる → タグを下(脚・舗装)に移す(560px 以下に継承) */
+  #skym-top .sz-card--1 .sz-label{left:12px;right:auto;top:auto;bottom:12px}
+  #skym-top .sz-content{padding:110px 20px 185px}
+  #skym-top .sz-kicker{margin-top:70px!important} /* draft20: 上中央のカード(下端 158px)と重ならないよう下げる(560px 以下に継承) */
+  #skym-top .sz-souzou{font-size:clamp(72px,20vw,150px)!important}
+  #skym-top .sz-sub{max-width:540px}
+  #skym-top .sz-tape{height:92px;bottom:6vh}
+  #skym-top .sz-tape-track{font-size:clamp(31px,7vw,56px)}
+  #skym-top .sz-mini{display:none}
+  #skym-top .sz-scroll{width:70px;height:70px;right:18px;bottom:15px}
+  /* 900px 以下では左下の「創造」だけ出す */
+  #skym-top .sz-card--4 .sz-big{display:block}
+}
+@media(max-width:560px){
+  #skym-top .sz-video{object-position:58% center}
+  #skym-top .sz-hero::before{background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.38) 45%,rgba(0,0,0,.64))}
+  #skym-top .sz-content{justify-content:center;padding:100px 18px 250px} /* draft18: 下の余白を 165px から 250px に広げ、ボタンを上げて下の 2 枚と分離(小さい SP でボタンが顔に被るため) */
+  #skym-top .sz-kicker{font-size:9px!important}
+  #skym-top .sz-souzou{font-size:20vw!important}
+  #skym-top .sz-meaning{margin-top:16px!important;font-size:11px!important}
+  /* 崩れ修正: 参考の 10vw だと 500px 幅で「る。」だけ 2 行目に落ちる → 9vw + 折り返し禁止(9 字 × 9vw = 81vw で収まる) */
+  #skym-top .sz-lead{font-size:9vw!important;white-space:nowrap}
+  /* 崩れ修正: 参考は <br> を消して流し込むが、390px 幅だと 3 行目に「社です。」だけ残る → <br> を残し、1 行目(29 字)が収まる大きさに */
+  #skym-top .sz-sub{font-size:clamp(11px,3.1vw,12.5px)!important;line-height:1.72!important;max-width:none}
+  #skym-top .sz-big{font-size:33px!important}
+  #skym-top .sz-label{font-size:8px;padding:6px 7px}
+  /* draft15: 5 枚とも枠内に収める(小さめにして内側に。下は帯の上、5 枚目は表示に戻して上中央。文字の下の層なので文字との重なりはそのまま) */
+  /* draft18: 下の 2 枚は少し低く 12vh に(ボタンとの隙間を広げる)。下は帯の上(140px)のまま */
+  #skym-top .sz-card--1{width:30vw;height:13vh;left:3vw;top:9vh}
+  #skym-top .sz-card--2{width:30vw;height:13vh;right:3vw;top:11vh}
+  #skym-top .sz-card--3{width:30vw;height:12vh;right:3vw;bottom:140px}
+  #skym-top .sz-card--4{width:30vw;height:12vh;left:3vw;bottom:140px}
+  #skym-top .sz-card--5{display:block;width:30vw;height:78px;left:50%;margin-left:-15vw;top:80px} /* draft20: 左右と揃える(見出しタグは下げる) */
+  #skym-top .sz-tape{height:77px;bottom:6vh;transform:rotate(-4.4deg)}
+  #skym-top .sz-tape-track{font-size:32px;gap:21px}
+  #skym-top .sz-scroll{display:none}
+  #skym-top .sz-btn{height:44px;min-width:138px;font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){#skym-top .sz-tape-track{animation:none}}
+/* draft18: 縦幅の狭い画面(横向きスマホ等)では vh 基準のカードが薄くなり、顔が切り抜きの中央に寄って消える
+   → 高さ 500px 以下では切り抜きを顔側(上)に寄せる。900px 以下では最低高さ 100px を確保する */
+/* draft19: 最低高さを全幅に広げる(80px)。NEXT の顔は右上にあるので、切り抜きを右上に寄せる */
+@media(max-height:500px){
+  #skym-top .sz-card img{object-position:center 15%}
+  #skym-top .sz-card--5 img{object-position:70% 35%}
+  #skym-top .sz-card{min-height:80px}
+}
+@media(max-width:900px) and (max-height:500px){
+  #skym-top .sz-card{min-height:100px}
+}
+/* 縦の狭い画面(Windows のノート PC 等)の詰め物: 中央の文字は px・vw 基準なので、縦が狭くても小さくならず 100vh に収まらない
+   → 高さが 780px/660px 以下のときだけ、上の余白・SOUZOU・リード・行間・帯を段階的に詰める(PC 幅のみ。min-width で縛るので 900px 以下の幅別ルールと競合しない)。
+   .sz-hero の min-height:100vh は残す = 内容が収まればヒーローはちょうど 1 画面になる(「最小の縦幅を小さく」は中の詰め物で実現) */
+@media(min-width:901px) and (max-height:780px){
+  #skym-top .sz-content{padding-top:88px;padding-bottom:148px}
+  #skym-top .sz-kicker{margin-bottom:8px!important}
+  #skym-top .sz-souzou{font-size:clamp(72px,11.5vw,160px)!important}
+  #skym-top .sz-meaning{margin-top:14px!important}
+  #skym-top .sz-lead{font-size:clamp(26px,3.8vw,54px)!important}
+  #skym-top .sz-sub{margin-top:12px!important}
+  #skym-top .sz-cta{margin-top:18px}
+  #skym-top .sz-tape{height:92px}
+}
+@media(min-width:901px) and (max-height:660px){
+  #skym-top .sz-content{padding-top:76px;padding-bottom:130px}
+  #skym-top .sz-souzou{font-size:clamp(64px,10vw,132px)!important}
+  #skym-top .sz-meaning{margin-top:10px!important}
+  #skym-top .sz-lead{font-size:clamp(24px,3.4vw,46px)!important}
+  #skym-top .sz-sub{margin-top:10px!important}
+  #skym-top .sz-cta{margin-top:14px}
+  #skym-top .sz-tape{height:78px;bottom:5vh}
+  /* 背の低い画面では下のカードも少し上げる(中央の文字との重なりを減らす) */
+  #skym-top .sz-card--3,#skym-top .sz-card--4{bottom:150px}
+  #skym-top .sz-card--5{bottom:145px}
+}
+
+/* 1.5 お知らせ: 薄グレーの細い帯。左に見出し(お知らせ / News)、右に 日付 + 題名 の 3 行(会社概要の表と同じ罫線の型)。写真なし。項目は仮 */
+#skym-top .tp-news{background:var(--light);padding:64px 0}
+#skym-top .tp-news .tp-inner{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+#skym-top .tp-news .tp-head{margin:0}
+#skym-top .tp-news-list{margin:0!important;padding:0!important;border-top:1px solid var(--navy)}
+#skym-top .tp-news-list li{border-bottom:1px solid var(--line)}
+#skym-top .tp-news-list a{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;padding:18px 0;color:var(--navy)!important;transition:color .2s}
+#skym-top .tp-news-list a:hover{color:var(--blue)!important}
+#skym-top .tp-news-list time{font-size:13px;letter-spacing:.06em;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1.9}
+#skym-top .tp-news-list span{font-size:15px;line-height:1.9;font-weight:400!important}
+#skym-top .tp-news .tp-links{margin-top:24px}
+
+/* 2 会社の一言: 写真(左)+ 文章(右)。見出しは 1 色 */
+#skym-top .tp-about{background:#fff}
+#skym-top .tp-about .tp-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+#skym-top .tp-photo{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+#skym-top .tp-about p{font-size:15px!important;line-height:2!important;color:var(--body);margin-top:0!important}
+#skym-top .tp-about h2{margin-bottom:28px!important}
+#skym-top .tp-about .tp-sub{margin:10px 0 28px}
+#skym-top .tp-more{margin-top:36px}
+
+/* 3 事業 6 つ: 写真タイル(英語名 + 日本語キャッチを写真の上に) */
+#skym-top .tp-business{background:#fff;padding-top:0}
+#skym-top .tp-head{margin-bottom:40px}
+#skym-top .tp-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+#skym-top .tp-tile{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-top .tp-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+#skym-top .tp-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,24,39,.05) 35%,rgba(17,24,39,.8) 100%)}
+#skym-top .tp-tile:hover img{transform:scale(1.04)}
+#skym-top .tp-tile-t{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:22px 24px;color:#fff}
+#skym-top .tp-tile-t b{display:block;font-family:inherit!important;font-size:16px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
+#skym-top .tp-tile-t span{display:block;font-size:13px;font-weight:400!important;line-height:1.6;margin-top:6px;color:rgba(255,255,255,.9)}
+#skym-top .tp-business .tp-more{margin-top:40px}
+
+/* 4 会社概要: 見出し行の下に 表(左)+ モノクロの地図(右)。値は本番の会社概要ページ(/company/summary)から。地図は API キー不要の通常埋め込み(iframe)。色はそのまま(モノクロ + ホバーで色 は「微妙」とのことでやめた) */
+#skym-top .tp-company{background:var(--light)}
+#skym-top .tp-company .tp-head{margin-bottom:40px}
+#skym-top .tp-company-grid{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:stretch}
+#skym-top .tp-map{display:flex;flex-direction:column}
+#skym-top .tp-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px}
+#skym-top .tp-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500!important;letter-spacing:.06em;line-height:1.4;border-bottom:1px solid var(--navy);padding-bottom:4px;transition:color .2s,border-color .2s}
+#skym-top .tp-links a:hover{color:var(--blue);border-color:var(--blue)}
+#skym-top .tp-table{margin:0;border-top:1px solid var(--navy)}
+#skym-top .tp-table div{display:grid;grid-template-columns:140px 1fr;gap:24px;padding:17px 0;border-bottom:1px solid var(--line)}
+#skym-top .tp-table dt{font-size:14px;font-weight:500!important;letter-spacing:.06em;color:var(--muted);line-height:1.9;margin:0;padding:0}
+#skym-top .tp-table dd{font-size:15px;line-height:1.9;color:var(--body);margin:0;padding:0}
+#skym-top .tp-table dd small{display:block;font-size:13px;color:var(--muted);line-height:1.8}
+#skym-top .tp-table dd a{border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
+#skym-top .tp-table dd a:hover{color:var(--blue);border-color:var(--blue)}
+#skym-top .tp-table dd .tp-tel{font-size:18px;letter-spacing:.04em}
+#skym-top .tp-table dd .tp-tel-l{display:inline-block;width:2.6em;font-size:12px;letter-spacing:.1em;color:var(--muted)}
+#skym-top .tp-table dd small+small{margin-top:6px}
+#skym-top .tp-map iframe{display:block;width:100%;flex:1;min-height:320px;border:0;margin:0;background:#E5E7EB}
+#skym-top .tp-map-note{margin:16px 0 0!important;font-size:13px!important;line-height:1.9!important;color:var(--muted)}
+#skym-top .tp-map-note span{display:inline-block;margin-right:1em}
+
+
+/* 5 採用(draft3: draft2 の細い調子に揃える。写真と文言は採用トップと同じ) */
+#skym-top .tp-recruit{position:relative;color:#fff;overflow:hidden;padding:120px 0;
+  background:linear-gradient(rgba(17,24,39,.72),rgba(17,24,39,.72)),url("https://skym.co.jp/wp20150417/wp-content/uploads/recruit-header.jpg") center/cover no-repeat,var(--navy)}
+#skym-top .tp-recruit h2{color:#fff!important;max-width:920px;font-size:clamp(28px,3.4vw,44px)!important;font-weight:300!important;letter-spacing:.1em!important;line-height:1.4!important;margin-bottom:0!important}
+#skym-top .tp-recruit .tp-sub{color:rgba(255,255,255,.8)}
+/* 先頭のカギ括弧をぶら下げて左端を揃える */
+#skym-top .tp-recruit .tp-msg-lead{margin:30px 0 12px!important;font-size:clamp(20px,2vw,26px)!important;font-weight:500!important;letter-spacing:.06em;line-height:1.6!important;color:#fff;text-indent:-.5em}
+#skym-top .tp-recruit .tp-msg{margin:0 0 40px!important;font-size:16px!important;font-weight:400!important;line-height:2!important;color:rgba(255,255,255,.92);text-indent:-.5em}
+
+/* 採用帯の背景はゆっくりスクロール(WP では行背景の Ultimate パララックスで付ける。モックは PC のみ fixed で近似) */
+@media(min-width:901px){
+  #skym-top .tp-recruit{background-attachment:fixed}
+}
+@media(max-width:900px){
+  #skym-top section{padding:80px 0}
+  #skym-top .tp-news{padding:56px 0}
+  #skym-top .tp-news .tp-inner{grid-template-columns:1fr;gap:28px}
+  #skym-top .tp-about .tp-inner{grid-template-columns:1fr;gap:36px}
+  #skym-top .tp-company-grid{grid-template-columns:1fr;gap:36px}
+  #skym-top .tp-table div{grid-template-columns:110px 1fr;gap:16px;padding:14px 0}
+  #skym-top .tp-map iframe{flex:none;aspect-ratio:16/10;min-height:0}
+  #skym-top .tp-tiles{grid-template-columns:1fr 1fr;gap:8px}
+  #skym-top .tp-recruit{padding:88px 0}
+}
+@media(max-width:600px){
+  #skym-top .tp-news-list a{grid-template-columns:1fr;gap:2px;padding:14px 0}
+  #skym-top .tp-tiles{grid-template-columns:1fr}
+  #skym-top .tp-tile{aspect-ratio:16/9}
+}
+</style>
+
+
+<section class="sz-hero" id="tp-top">
+  <video class="sz-video" autoplay muted loop playsinline preload="metadata" poster="https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-poster.jpg" aria-hidden="true">
+    <source src="https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-background.mp4" type="video/mp4">
+  </video>
+  <div class="sz-cards" aria-hidden="true">
+    <figure class="sz-card sz-card--1"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card1.jpg" alt=""><span class="sz-label">UNIQUE IDEA</span></figure>
+    <figure class="sz-card sz-card--2"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card2.jpg" alt=""><span class="sz-label">IT</span><b class="sz-big">IT</b></figure>
+    <figure class="sz-card sz-card--3"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card3.jpg" alt=""><span class="sz-label">TECHNOLOGY</span><b class="sz-big">実装</b></figure>
+    <figure class="sz-card sz-card--4"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card4.jpg" alt=""><span class="sz-label">CREATE</span><b class="sz-big">創造</b></figure>
+    <figure class="sz-card sz-card--5"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card5.jpg" alt=""><span class="sz-label">NEXT</span><b class="sz-big">未来</b></figure>
+  </div>
+  <span class="sz-mini sz-mini--1" aria-hidden="true">普通じゃない発想、歓迎。</span>
+  <span class="sz-mini sz-mini--2" aria-hidden="true">IDEA → BUILD</span>
+  <span class="sz-mini sz-mini--3" aria-hidden="true">MAKE IT REAL.</span>
+  <div class="sz-content">
+    <p class="sz-kicker">IT × IDEA × PEOPLE</p>
+    <h1 class="sz-souzou">SOUZOU<span class="sz-dot">.</span></h1>
+    <p class="sz-meaning">（創造＋想像） <b>×</b> IT</p>
+    <p class="sz-lead">まだないを、つくる。</p>
+    <p class="sz-sub">ユニークな発想も、若い視点も、未来を変えるアイデアになる。<br>SKYMは「やってみたい」をITでカタチにする会社です。</p>
+    <div class="sz-cta"><a class="sz-btn sz-btn--main" href="https://skym.co.jp/service">OUR PROJECTS <span>↗</span></a><a class="sz-btn sz-btn--sub" href="https://skym.co.jp/recruit">JOIN SKYM <span>→</span></a></div>
+  </div>
+  <div class="sz-tape" aria-hidden="true">
+    <div class="sz-tape-track">
+      <span><strong>HTML</strong></span><span class="sz-tape-dot"></span><span>CSS</span><span class="sz-tape-dot"></span><span>JavaScript</span><span class="sz-tape-dot"></span><span>TypeScript</span><span class="sz-tape-dot"></span><span>Python</span><span class="sz-tape-dot"></span><span>PHP</span><span class="sz-tape-dot"></span><span>Java</span><span class="sz-tape-dot"></span><span>SQL</span><span class="sz-tape-dot"></span><span>React</span><span class="sz-tape-dot"></span><span>GitHub</span><span class="sz-tape-dot"></span><span>AWS</span><span class="sz-tape-dot"></span><span>Docker</span><span class="sz-tape-dot"></span><span>VS Code</span><span class="sz-tape-dot"></span>
+      <span><strong>HTML</strong></span><span class="sz-tape-dot"></span><span>CSS</span><span class="sz-tape-dot"></span><span>JavaScript</span><span class="sz-tape-dot"></span><span>TypeScript</span><span class="sz-tape-dot"></span><span>Python</span><span class="sz-tape-dot"></span><span>PHP</span><span class="sz-tape-dot"></span><span>Java</span><span class="sz-tape-dot"></span><span>SQL</span><span class="sz-tape-dot"></span><span>React</span><span class="sz-tape-dot"></span><span>GitHub</span><span class="sz-tape-dot"></span><span>AWS</span><span class="sz-tape-dot"></span><span>Docker</span><span class="sz-tape-dot"></span><span>VS Code</span><span class="sz-tape-dot"></span>
+    </div>
+  </div>
+  <a class="sz-scroll" href="#tp-news">Scroll<br>down</a>
+  <script>(function(){var v=document.querySelector('#skym-top .sz-video');if(v){v.muted=true;var p=v.play();if(p&&p.catch){p.catch(function(){});}}})();</script>
+</section>
+
+
+<section class="tp-news" id="tp-news">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <h2>お知らせ</h2>
+      <span class="tp-sub">News</span>
+    </div>
+    <div>
+      <ul class="tp-news-list">
+        <li><a href="https://skym.co.jp/certification"><time datetime="2026-08-25">2026.08.25</time><span>資格一覧ページを公開しました</span></a></li>
+        <li><a href="https://skym.co.jp/dx-policy"><time datetime="2026-06-16">2026.06.16</time><span>DX推進方針を公開しました</span></a></li>
+        <li><a href="https://skym.co.jp/%e6%9c%89%e6%96%99%e8%81%b7%e6%a5%ad%e7%b4%b9%e4%bb%8b%e4%ba%8b%e6%a5%ad%e3%80%80%e6%89%8b%e6%95%b0%e6%96%99%e8%a1%a8"><time datetime="2026-03-08">2026.03.08</time><span>有料職業紹介事業についてのページを公開しました</span></a></li>
+      </ul>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="tp-about" id="tp-about">
+  <div class="tp-inner">
+    <img class="tp-photo" src="https://skym.co.jp/wp20150417/wp-content/uploads/top-about-engineer.jpg" alt="">
+    <div>
+      <h2>ITを軸に、<br>支える仕事と、つくる仕事を。</h2>
+      <span class="tp-sub">About SKYM</span>
+      <p>株式会社SKYMは、企業のシステム開発・インフラ運用を支えるITサービスを軸に、AIの活用支援、自社ECサイトの運営・商品企画、イベントの企画・運営まで、幅広く事業を行っています。</p>
+      <p>技術者を派遣してお客様の現場を支えるだけでなく、自分たちでサービスや商品をつくり、運営する。その両方を持っていることが私たちの特長です。</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="tp-business" id="tp-business">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <h2>事業内容</h2>
+      <span class="tp-sub">Our Business</span>
+    </div>
+    <div class="tp-tiles">
+      <a class="tp-tile" href="https://skym.co.jp/service/it-solution"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card1-ses.jpg" alt=""><div class="tp-tile-t"><b>IT SOLUTION</b><span>SESを軸に、受託開発とインフラ構築・運用まで。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service/ai-digital"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card2-ai.jpg" alt=""><div class="tp-tile-t"><b>AI &amp; DIGITAL</b><span>AI活用支援と、AIエージェント・ツールの開発。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service/ec-product"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card3-ec.jpg" alt=""><div class="tp-tile-t"><b>EC &amp; PRODUCT</b><span>自社オンラインストアと、オリジナル商品の企画。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service/event"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card4-event.jpg" alt=""><div class="tp-tile-t"><b>EVENT &amp; ENTERTAINMENT</b><span>フリーマーケットや体験会などの企画・運営。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service/education"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card5-edu.jpg" alt=""><div class="tp-tile-t"><b>EDUCATION</b><span>誰でも参加できる、ITの学び場。</span></div></a>
+      <a class="tp-tile" href="https://skym.co.jp/service/sakura"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card6-sakura.jpg" alt=""><div class="tp-tile-t"><b>SAKURA＋</b><span>挑戦する人を応援するプロジェクト。</span></div></a>
+    </div>
+    <div class="tp-more"><a class="tp-btn" href="https://skym.co.jp/service">事業内容を見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+
+<section class="tp-company" id="tp-company">
+  <div class="tp-inner">
+    <div class="tp-head">
+      <h2>会社概要</h2>
+      <span class="tp-sub">Company</span>
+    </div>
+    <div class="tp-company-grid">
+      <div>
+        <dl class="tp-table">
+          <div><dt>社名</dt><dd>株式会社SKYM<small>SKYM, Inc.</small></dd></div>
+          <div><dt>所在地</dt><dd>〒170-0013　東京都豊島区東池袋2-38-23 SAMビル5B</dd></div>
+          <div><dt>代表者</dt><dd>代表取締役社長　渡邉 浩一</dd></div>
+          <div><dt>設立</dt><dd>2013年7月</dd></div>
+          <div><dt>許認可</dt><dd>労働者派遣事業許可番号　派13-309914<small>有料職業紹介事業許可番号　13-ユ-319236<br>プライバシーマーク認定番号　第10824350号</small></dd></div>
+          <div><dt>お問い合わせ</dt><dd><span class="tp-tel-l">TEL</span><a class="tp-tel" href="tel:0353092175">03-5309-2175</a><small><span class="tp-tel-l">FAX</span>03-5309-2368</small><small><a href="https://skym.co.jp/contact">お問い合わせフォーム</a>からもご連絡いただけます。</small></dd></div>
+        </dl>
+        <div class="tp-links">
+          <a href="https://skym.co.jp/company/summary">会社概要を見る<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://skym.co.jp/company/accessmap">アクセスマップ<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="tp-map">
+        <iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E8%B1%8A%E5%B3%B6%E5%8C%BA%E6%9D%B1%E6%B1%A0%E8%A2%8B2-38-23%20SAM%E3%83%93%E3%83%AB&amp;z=16&amp;hl=ja&amp;output=embed" title="株式会社SKYM 本社の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <p class="tp-map-note"><span>有楽町線 東池袋駅 徒歩9分</span><span>JR 大塚駅 徒歩11分</span><span>各線 池袋駅 徒歩15分</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="tp-recruit" id="tp-recruit">
+  <div class="tp-inner">
+    <h2>採用情報</h2>
+    <span class="tp-sub">Recruit</span>
+    <p class="tp-msg-lead">「やってみたい」を、入社動機に。</p>
+    <p class="tp-msg">「こんなのあったら面白い」を、ガチに形にする。<br>SKYMで、仕事を動かせる人になろう。</p>
+    <a class="tp-btn white" href="https://skym.co.jp/recruit">採用情報を見る<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+</div>

@@ -1,0 +1,211 @@
+<!-- skym sakura draft8 (事業内容の個別ページ 06 SAKURA＋。**採用版(2026-09-16 ユーザー「draft3 の画像を採用したい。番号を一番大きくして」→ draft3 を draft8 に改名)。draft2 の複製で、取り組んでいることの写真を候補 B = Unsplash #77 の青い煙の中の後ろ姿のシルエット(顔なし)にした版**。draft2 = A・draft4〜7 = C〜F は比較用に残す。以下は draft2 のコメント: draft1 の複製で、**釣りの記述を消して抽象化した版**(2026-09-16 ユーザー依頼「既存のページから釣りを少し控えめに。釣りのことを書きすぎると釣りの会社かと思われる」): リード文の「そして釣り」と「第1弾として、釣具ショップ SKYMSHOP がトラウトアングラーをサポートしています」を削除、取り組んでいることの 02「PROJECT 01 ― TROUT ANGLER」を削除し、1 つだけになったので番号(ss-num)もやめた(ユーザー案)。「その他の事業」タイルの EC・EVENT の一言(釣具のオンラインストア / 釣り大会)は service/draft7・top/draft10 と共通の文言なので未変更(それらの版を進めるときに揃えて直す)。エントリー方法のボタンの先はショップのブログ(TROUT ANGLER の紹介)のまま。CSS は draft1(= it-solution/draft1)と同じ。
+     同日追記: **sakura+ は紹介業ではない。SKYM 自身が挑戦者をサポートする**(ユーザー)→ リード文の「企業・メディア・団体、そして応援してくれる人たちへつないでいきます」を「その挑戦を私たちがサポートしていきます」に、表の「紹介します」「橋渡し」をやめて「つなぐ」を「後押しする」に、お問い合わせの「応援・協賛のご相談」を削除。01 に「サポートの内容は、目標や活動スタイルに合わせて一緒に決めます。」を追加(旧 02 の文の抽象化)。紹介記事(下記)の「企業・メディア・団体・応援する人へつなぐ」という説明はサイトでは使わない。同日ユーザー指摘で リード文の「運営は株式会社SKYM。」を削除、01 の「関わっていきます」→「サポートしていきます」。
+     以下は draft1 のコメント: 共通テンプレート #skym-svsub = it-solution/draft1 と同じ CSS(正は it-solution 側。tools/sync-style.py で配る)
+     出どころ(2026-09-15): ショップのプロジェクト紹介 https://skymtackle.base.shop/blog/2026/09/05/134445 「sakura+ TROUT ANGLER supported by SKYMSHOP」(sakura+(サクラプラス)= 夢や目標に向かってがんばる人を企業・メディア・団体・応援する人へつなぐプロジェクト。ジャンル・実績不問。ENTRY 2026.1.1〜12.31、LINE でエントリー。5 つの役割 = 見つける / つなぐ / 支える / 伝える / 育てる。募集する人 4 タイプ。ジャンル例 6。PROJECT 01 = TROUT ANGLER supported by SKYMSHOP「強い人だけが、サポート選手じゃない。」サポート例 = タックルの提供 / 大会への挑戦を後押し / ショップ・SNS での発信 / 継続的な伴走。運営 株式会社SKYM)。文言はほぼそのまま流用
+     構成(draft2): リード → 取り組んでいること 1 つ(挑戦する人に、きっかけを。番号なし。プロジェクトの説明 + エントリー方法へのボタン)→ sakura+ ができること(表: 5 つの役割)→ その他の事業 → お問い合わせ → 青い帯
+     写真: タイトル帯 = Unsplash の桜 https://unsplash.com/photos/LYBSBjGo-5s(撮影 Jei Lee。**一覧のカード card6 も同じ写真に差し替えた** = それまでの card6 は 2026-09-08 の生成画像だったため、実写優先の方針で置き換え。service/draft7・top/draft10 の card6-sakura.jpg を上書き)。本文 = sv1-busker.jpg = ユーザー支給の画像(2026-09-17、draft9〜。街路でギターを弾きながら歌う女性、3:2 のまま)(draft8 までは Unsplash #77 https://unsplash.com/photos/krmhTfAWwlk 撮影 Zalfa Imani。青い煙の中の後ろ姿のシルエット、顔なし)(2026-09-16 まで WP 既存の partner_1920.jpg = 山頂で手を合わせる 2 人のシルエット)(draft1 の 02 で使った Unsplash のトラウトの写真 sv2-trout.jpg は draft2 では使わない)
+     data-base-page="ses": WP にまだ無い新規ページなので /service/ses の骨格を借りる。WP 実装時: 新規固定ページ(親 = 事業内容 ID 6170、スラッグ sakura、タイトル「SAKURA＋」、Zephyr サブタイトル「挑戦する人を応援するプロジェクト」、タイトル帯の背景 = tb-sakura.jpg を uploads へ)の本文に [vc_row columns_type="none" width="full" el_class="ss-wrap"] で貼る 
+     2026-09-16: お問い合わせの文を全ページ共通の「各事業に関するご相談、その他のお問い合わせをお待ちしております。」に統一(ユーザー: ページごとに変えるとその相談を受ける約束に読める。旧文「sakura+ へのご質問、その他のお問い合わせをお待ちしております。」) -->
+<!-- 2026-09-15: 書体をサイト全体で Google Fonts の Zen Kaku Gothic New に統一(ユーザー決定)。ページ個別の Noto Sans JP の <link> は外した(書体はサイト共通 = 本番では子テーマ style.css の * ルール、モックでは tools/site.json → build-draft.py が head に差し込む)。太さは子テーマの * {font-weight:300!important} に潰されないよう、ルートに 400 を置いて子孫に inherit させ、個別の太さはすべて !important で指定 -->
+<div id="skym-svsub" data-row-class="ss-wrap" data-base-page="ses" data-page-title="SAKURA＋" data-page-subtitle="挑戦する人を応援するプロジェクト" data-page-titlebar="tb-sakura.jpg" data-page-overlay="0.5">
+<style>
+/* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
+.l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.ss-wrap .g-cols,.l-section.ss-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+
+#skym-svsub{
+  --blue:#02A0E9;--navy:#111827;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
+  font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px;line-height:1.9;color:var(--navy);width:100%;text-align:left;background:#fff;
+}
+#skym-svsub *,#skym-svsub *:before,#skym-svsub *:after{box-sizing:border-box}
+#skym-svsub *{font-weight:inherit!important} /* 子テーマの * {font-weight:300!important} を外してルートの 400 を継承させる。個別の太さは !important で指定(下のルールはすべて付けてある) */
+#skym-svsub h2,#skym-svsub h3{
+  font-family:inherit!important;font-weight:500!important;line-height:1.45!important;letter-spacing:.05em!important;
+  color:inherit!important;margin:0!important;padding:0!important;text-transform:none!important;
+}
+#skym-svsub h2{font-size:clamp(24px,2.6vw,32px)!important}
+#skym-svsub h3{font-size:clamp(20px,2vw,24px)!important}
+#skym-svsub h2 span,#skym-svsub h3 span,#skym-svsub p span{font-weight:inherit!important;font-family:inherit!important;font-size:inherit!important;line-height:inherit!important}
+#skym-svsub p{margin:0 0 1.2em!important;font-size:inherit!important;line-height:inherit!important;color:inherit}
+#skym-svsub p:last-child{margin-bottom:0!important}
+#skym-svsub a{color:inherit;text-decoration:none!important}
+#skym-svsub img{border:0;box-shadow:none;margin:0}
+#skym-svsub figure{margin:0}
+#skym-svsub .ss-inner{width:min(1160px,calc(100% - 40px));margin:0 auto}
+#skym-svsub section{padding:110px 0;margin:0}
+#skym-svsub .ss-sub{display:block;font-size:12px;font-weight:400!important;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:14px 0 0;line-height:1.5}
+#skym-svsub .ss-num{display:block;font-size:12px;font-weight:500!important;letter-spacing:.14em;color:var(--muted);line-height:1.4;margin:0 0 14px}
+#skym-svsub .ss-head{margin-bottom:48px}
+#skym-svsub .ss-btn{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--navy);border-radius:2px;padding:15px 30px;font-size:14px;font-weight:500!important;letter-spacing:.1em;line-height:1;color:var(--navy)!important;background:transparent;transition:background .2s,color .2s,border-color .2s}
+#skym-svsub .ss-btn:hover{background:var(--navy);color:#fff!important}
+#skym-svsub .ss-btn svg{transition:transform .2s}
+#skym-svsub .ss-btn:hover svg{transform:translateX(3px)}
+
+/* 1 リード: タイトル帯(写真)の直下なので写真は置かず、1 カラムの文章(事業内容 draft6 と同じ) */
+#skym-svsub .ss-lead{background:#fff}
+#skym-svsub .ss-lead .ss-inner{max-width:820px}
+#skym-svsub .ss-lead .ss-sub{margin-bottom:32px}
+#skym-svsub .ss-lead p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-br-sp{display:none}
+
+/* 2 提供するサービス: 写真 + 文章の 2 カラムを左右交互に(トップの「会社の一言」と同じ型) */
+#skym-svsub .ss-services{background:var(--light)}
+#skym-svsub .ss-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#skym-svsub .ss-row + .ss-row{margin-top:88px}
+#skym-svsub .ss-row figure{aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-svsub .ss-row figure img{width:100%;height:100%;object-fit:cover;display:block}
+#skym-svsub .ss-row-rev figure{order:2}
+#skym-svsub .ss-row .ss-sub{margin:10px 0 24px}
+#skym-svsub .ss-row p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-row .ss-btn{margin-top:22px;font-size:13px;padding:13px 24px}
+
+/* 3 対応領域: 項目名(小さくグレー)+ 値 の表(トップの会社概要・採用の募集要項と同じ型) */
+#skym-svsub .ss-scope{background:#fff}
+#skym-svsub .ss-scope .ss-inner{max-width:900px}
+#skym-svsub .ss-table{margin:0;border-top:1px solid var(--line)}
+#skym-svsub .ss-table > div{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
+#skym-svsub .ss-table dt{font-size:13px;font-weight:500!important;letter-spacing:.08em;color:var(--muted);margin:0;padding-top:3px;line-height:1.7}
+#skym-svsub .ss-table dd{margin:0;font-size:15px;line-height:1.9;color:var(--body)}
+
+/* 4 その他の事業: 事業内容 draft6 と同じ写真タイル(小)。本番では各事業ページへリンク */
+#skym-svsub .ss-others{background:var(--light)}
+#skym-svsub .ss-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+#skym-svsub .ss-tile{position:relative;display:block;aspect-ratio:3/2;overflow:hidden;background:var(--navy)}
+#skym-svsub .ss-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+#skym-svsub .ss-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,24,39,.05) 35%,rgba(17,24,39,.8) 100%)}
+#skym-svsub .ss-tile span{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px;color:#fff}
+#skym-svsub .ss-tile b{display:block;font-family:inherit!important;font-size:13px!important;font-weight:700!important;letter-spacing:.06em;line-height:1.3!important;color:#fff!important}
+#skym-svsub .ss-tile small{display:block;font-size:11px;font-weight:400!important;line-height:1.5;margin-top:4px;color:rgba(255,255,255,.88)}
+#skym-svsub .ss-tile:hover img{transform:scale(1.04)}
+#skym-svsub .ss-center{text-align:center;margin-top:48px!important}
+
+/* 5 お問い合わせ: 見出し(左)+ 文章・電話・ボタン(右)(事業内容 draft6 と同じ) */
+#skym-svsub .ss-contact{background:#fff}
+#skym-svsub .ss-contact .ss-inner{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+#skym-svsub .ss-contact p{font-size:15px!important;line-height:2!important;color:var(--body)}
+#skym-svsub .ss-tel{display:block;margin:22px 0 28px;font-size:14px;color:var(--muted);letter-spacing:.06em}
+#skym-svsub .ss-tel a{font-size:22px;color:var(--navy);letter-spacing:.04em;margin-left:.6em}
+#skym-svsub .ss-tel small{display:block;font-size:13px;margin-top:6px}
+
+/* 6 パートナー募集: 現行サイトの青い帯(テーマの us_cta 行)と同じ見え方。WP 実装時はテーマの行をそのまま使う */
+#skym-svsub .ss-partner{background:#00A0E9;color:#fff;padding:64px 0}
+#skym-svsub .ss-partner .ss-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+#skym-svsub .ss-partner h2{color:#fff!important;font-size:clamp(26px,2.8vw,34px)!important;font-weight:300!important;margin-bottom:10px!important}
+#skym-svsub .ss-partner p{color:#fff;font-size:15px!important;line-height:1.9!important}
+#skym-svsub .ss-partner .ss-btn{flex:none;background:#F2F4F5;border-color:#F2F4F5;color:var(--navy)!important;padding:18px 32px;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+#skym-svsub .ss-partner .ss-btn:hover{background:#fff;border-color:#fff}
+
+@media(max-width:900px){
+  #skym-svsub section{padding:80px 0}
+  #skym-svsub .ss-row{grid-template-columns:1fr;gap:28px}
+  #skym-svsub .ss-row-rev figure{order:0}
+  #skym-svsub .ss-row + .ss-row{margin-top:64px}
+  #skym-svsub .ss-table > div{grid-template-columns:1fr;gap:6px;padding:16px 0}
+  #skym-svsub .ss-tiles{grid-template-columns:repeat(3,1fr)}
+  #skym-svsub .ss-contact .ss-inner{grid-template-columns:1fr;gap:28px}
+  #skym-svsub .ss-partner{padding:48px 0}
+}
+@media(max-width:600px){
+  #skym-svsub .ss-br-sp{display:inline}
+  #skym-svsub .ss-tiles{grid-template-columns:1fr 1fr;gap:12px}
+  #skym-svsub .ss-tile small{display:none}
+  #skym-svsub .ss-partner .ss-inner{flex-direction:column;align-items:flex-start;gap:24px}
+}
+</style>
+
+<!-- 1. リード(事業カードのキャッチ + プロジェクト紹介の文言) -->
+<section class="ss-lead" id="ss-lead">
+  <div class="ss-inner">
+    <h2>挑戦する人の、<br class="ss-br-sp">最初の「＋」になる。</h2>
+    <span class="ss-sub">sakura+</span>
+    <p>sakura+(サクラプラス)は、夢や目標に向かって一生懸命がんばる人を応援するプロジェクトです。</p>
+    <p>スポーツ、音楽、ファッション、IT、勉強など、ジャンルは問いません。まだ知られていない挑戦者を見つけ、その挑戦を私たちがサポートしていきます。ひとりじゃ届かない夢も、誰かとなら、きっと近づける。</p>
+  </div>
+</section>
+
+<!-- 2. 取り組んでいること(写真 + 文章の 2 カラム。draft2 は 1 つだけなので番号なし) -->
+<section class="ss-services" id="ss-services">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>取り組んでいること</h2>
+      <span class="ss-sub">What We Do</span>
+    </div>
+
+    <article class="ss-row">
+      <!-- 写真: ユーザー支給の画像(2026-09-17。街路でギターを弾きながら歌う女性、1536×1024 = 3:2 そのまま。draft8 までは Unsplash の青い煙のシルエット sv1-musician.jpg) -->
+      <figure><img src="sv1-busker.jpg" alt=""></figure>
+      <div>
+        <h3>挑戦する人に、きっかけを。</h3>
+        <span class="ss-sub">About sakura+</span>
+        <p>大切なのは、これからどんな挑戦をしたいか。年齢・ジャンル・実績は問いません。応募の時点で有名である必要もありません。大会やコンクール、オーディション、受験など目指す場所がある人。これから本気で始めたい人。自分の活動をもっと知ってほしい人。学業や仕事と両立しながら、好きなことに向き合い続けている人。そんな挑戦を、ひとりで抱えなくていいようにサポートしていきます。</p>
+        <p>サポートの内容は、目標や活動スタイルに合わせて一緒に決めます。エントリーは年間を通して受け付けています。LINEから、あなたの言葉で聞かせてください。</p>
+        <a class="ss-btn" href="https://skymtackle.base.shop/blog/2026/09/05/134445" target="_blank" rel="noopener">プロジェクトの詳細・エントリー方法<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- 3. sakura+ ができること(表: 5 つ。draft1 は紹介記事の 5 つの役割(見つける / つなぐ / 支える / 伝える / 育てる)そのままだったが、2026-09-16 ユーザー「紹介業はやってない。あくまでも弊社でサポートする」→「紹介します」「企業・メディア・団体との橋渡し」をやめ、SKYM 自身がすることだけに。「つなぐ」は「後押しする」(旧 02 の「大会への挑戦を後押し」を抽象化)に差し替え。同日「見つける」も削除(挑戦者への約束ではなく SKYM 側の発掘の話で、LINE のエントリー制とも噛み合わない)→「向き合う」(話を聞いてサポートの形を決める)に。上から サポートの流れ の順) -->
+<section class="ss-scope" id="ss-scope">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>sakura+ ができること</h2>
+      <span class="ss-sub">Five Roles</span>
+    </div>
+    <dl class="ss-table">
+      <div><dt>向き合う</dt><dd>まず話を聞き、目指す場所と今の活動に合わせてサポートの形を決めます</dd></div>
+      <div><dt>支える</dt><dd>活動に必要なサポートや機会を提供します</dd></div>
+      <div><dt>後押しする</dt><dd>大会や発表の場など、目指す場所への挑戦を後押しします</dd></div>
+      <div><dt>伝える</dt><dd>WEB・SNSで、挑戦者の魅力や活動を発信します</dd></div>
+      <div><dt>育てる</dt><dd>一度きりではなく、挑戦者の成長と活動に継続して伴走します</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- 4. その他の事業(タイルは service/draft7 の写真と 1 行。各個別ページのモックへリンク) -->
+<section class="ss-others" id="ss-others">
+  <div class="ss-inner">
+    <div class="ss-head">
+      <h2>その他の事業</h2>
+      <span class="ss-sub">Our Business</span>
+    </div>
+    <div class="ss-tiles">
+      <a class="ss-tile" href="../../it-solution/draft1/"><img src="../../service/draft7/card1-ses.jpg" alt=""><span><b>IT SOLUTION</b><small>SESを軸に、受託開発とインフラ構築・運用まで。</small></span></a>
+      <a class="ss-tile" href="../../ai-digital/draft3/"><img src="../../service/draft7/card2-ai.jpg" alt=""><span><b>AI &amp; DIGITAL</b><small>AI活用支援と、AIエージェント・ツールの開発。</small></span></a>
+      <a class="ss-tile" href="../../ec-product/draft2/"><img src="../../service/draft7/card3-ec.jpg" alt=""><span><b>EC &amp; PRODUCT</b><small>自社オンラインストアと、オリジナル商品の企画。</small></span></a>
+      <a class="ss-tile" href="../../event/draft2/"><img src="../../service/draft7/card4-event.jpg" alt=""><span><b>EVENT &amp; ENTERTAINMENT</b><small>フリーマーケットや体験会などの企画・運営。</small></span></a>
+      <a class="ss-tile" href="../../education/draft4/"><img src="../../service/draft7/card5-edu.jpg" alt=""><span><b>EDUCATION</b><small>誰でも参加できる、ITの学び場。</small></span></a>
+    </div>
+    <p class="ss-center"><a class="ss-btn" href="../../service/draft7/">事業内容トップへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+<!-- 5. お問い合わせ(事業内容 draft6 と同じ部品) -->
+<section class="ss-contact" id="ss-contact">
+  <div class="ss-inner">
+    <div>
+      <h2>お問い合わせ</h2>
+      <span class="ss-sub">Contact</span>
+    </div>
+    <div>
+      <p>各事業に関するご相談、その他のお問い合わせをお待ちしております。</p>
+      <span class="ss-tel">TEL<a href="tel:0353092175">03-5309-2175</a><small>FAX　03-5309-2368</small></span>
+      <a class="ss-btn" href="https://skym.co.jp/contact">お問い合わせフォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. パートナー募集(現行の青い帯と同じ文言・見え方。WP ではテーマの us_cta 行) -->
+<section class="ss-partner" id="ss-partner">
+  <div class="ss-inner">
+    <div>
+      <h2>パートナー募集</h2>
+      <p>ＳＥＳ事業において御協業いただけるビジネスパートナー企業様を募集しております。</p>
+    </div>
+    <a class="ss-btn" href="https://skym.co.jp/partnership">募集フォームへ</a>
+  </div>
+</section>
+</div>

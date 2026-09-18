@@ -1,0 +1,138 @@
+<div id="skym-ai2">
+<style>
+.l-section.ai2-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
+.l-section.ai2-wrap .g-cols,.l-section.ai2-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
+#skym-ai2{--blue:#00A0E9;--blue2:#3578F6;--navy:#101A35;--body:#46516B;--muted:#778197;--line:#DDE6F0;--pale:#F4F9FD;--white:#fff;font-family:"Zen Kaku Gothic New","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.8;color:var(--navy);background:#fff;font-weight:400!important;text-align:left}
+#skym-ai2 *,#skym-ai2 *:before,#skym-ai2 *:after{box-sizing:border-box;font-weight:inherit!important}
+#skym-ai2 h2,#skym-ai2 h3,#skym-ai2 h4{font-family:inherit!important;color:inherit!important;margin:0!important;padding:0!important;line-height:1.45!important;text-transform:none!important}
+#skym-ai2 h2{font-size:clamp(28px,3vw,42px)!important;font-weight:700!important;letter-spacing:.03em!important}
+#skym-ai2 h3{font-size:clamp(24px,2.3vw,32px)!important;font-weight:700!important}
+#skym-ai2 h4{font-size:17px!important;font-weight:700!important}
+#skym-ai2 p{margin:0!important;color:var(--body);font-size:15px!important;line-height:1.9!important}
+#skym-ai2 a{text-decoration:none!important;color:inherit}
+#skym-ai2 .ai2-inner{width:min(1140px,calc(100% - 48px));margin:auto}
+#skym-ai2 .ai2-section{padding:88px 0}
+#skym-ai2 .ai2-kicker{display:block;color:var(--blue);font-size:12px;font-weight:700!important;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+#skym-ai2 .ai2-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}
+#skym-ai2 .ai2-head h3:after{content:"";display:block;width:78px;height:6px;margin-top:16px;background:linear-gradient(90deg,var(--blue),#69D4EA);border-radius:1px}
+#skym-ai2 .ai2-head p{max-width:520px}
+#skym-ai2 .ai2-link{color:var(--blue)!important;font-size:13px;font-weight:700!important;white-space:nowrap}
+#skym-ai2 .ai2-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:0 28px;border:1px solid var(--blue);border-radius:3px;color:var(--blue)!important;background:#fff;font-size:14px;font-weight:700!important;letter-spacing:.04em;transition:.2s}
+#skym-ai2 .ai2-btn.primary{background:linear-gradient(100deg,var(--blue),var(--blue2));border-color:transparent;color:#fff!important}
+#skym-ai2 .ai2-btn:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(23,96,177,.15)}
+
+/* ヒーロー */
+#skym-ai2 .ai2-hero{position:relative;overflow:hidden;padding:74px 0 82px;background:linear-gradient(110deg,#fff 0%,#fff 48%,#F7FBFD 72%,#EFF8FC 100%)}
+#skym-ai2 .ai2-hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(30,126,206,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(30,126,206,.018) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(90deg,transparent 54%,#000 86%,transparent 100%)}
+#skym-ai2 .ai2-hero:after{content:"";position:absolute;width:700px;height:700px;border-radius:50%;right:-180px;top:-330px;background:radial-gradient(circle,rgba(0,160,233,.14),rgba(61,121,246,.045) 42%,rgba(0,160,233,0) 72%)}
+#skym-ai2 .ai2-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:40% 60%;align-items:center;gap:38px}
+#skym-ai2 .ai2-hero h2{font-size:clamp(34px,3.5vw,50px)!important;line-height:1.3!important;letter-spacing:.01em!important;margin-bottom:14px!important}
+#skym-ai2 .ai2-hero h2 em{font-style:normal;color:var(--blue);font-weight:700!important}
+#skym-ai2 .ai2-hero-lead{font-size:20px!important;font-weight:700!important;color:var(--navy)!important;margin-bottom:15px!important}
+#skym-ai2 .ai2-actions{display:flex;gap:12px;margin-top:30px}
+#skym-ai2 .ai2-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+#skym-ai2 .ai2-point{border-left:2px solid var(--blue);padding-left:12px}
+#skym-ai2 .ai2-point small{display:block;font-size:11px;color:var(--muted)}
+#skym-ai2 .ai2-point b{font-size:15px;font-weight:700!important}
+
+/* 架空の業務画面 */
+#skym-ai2 .ai2-screenwrap{position:relative;padding:22px 24px 26px 24px}
+#skym-ai2 .ai2-screen{position:relative;z-index:2;background:rgba(255,255,255,.96);border:5px solid #0A8FCB;border-radius:17px;box-shadow:0 30px 70px rgba(20,92,137,.25),0 4px 16px rgba(31,75,123,.10);overflow:hidden;min-height:410px;backdrop-filter:blur(8px)}
+#skym-ai2 .ai2-screenbar{height:46px;border-bottom:3px solid #C5E1EF;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#FBFDFF}
+#skym-ai2 .ai2-screenbar b{font-size:13px;font-weight:700!important}.ai2-dots{display:flex;gap:5px}.ai2-dots i{width:7px;height:7px;border-radius:50%;background:#C7D3DF}
+#skym-ai2 .ai2-app{display:grid;grid-template-columns:150px 1fr;min-height:364px}
+#skym-ai2 .ai2-side{padding:18px 12px;border-right:3px solid #C5E1EF;background:#F8FBFE}
+#skym-ai2 .ai2-side span{display:block;padding:9px 10px;border-radius:5px;font-size:11px;color:#667187;margin-bottom:3px}
+#skym-ai2 .ai2-side span.on{background:#E6F5FC;color:var(--blue);font-weight:700!important}
+#skym-ai2 .ai2-main{padding:24px}.ai2-greet{font-size:17px;font-weight:700!important;margin-bottom:4px}.ai2-date{font-size:11px;color:var(--muted)}
+#skym-ai2 .ai2-ask{margin:20px 0;border:1px solid #CFE0EF;border-radius:7px;padding:12px 14px;color:#8791A5;font-size:12px;box-shadow:0 3px 10px rgba(31,72,114,.06)}
+#skym-ai2 .ai2-quick{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}.ai2-quick span{padding:6px 9px;background:#EEF7FE;border-radius:20px;color:#2677B7;font-size:10px}
+#skym-ai2 .ai2-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ai2-panel{border:2px solid #C8DDEB;border-radius:8px;padding:14px;background:#fff}.ai2-panel b{display:block;font-size:12px;margin-bottom:10px;font-weight:700!important}.ai2-task{font-size:10px;padding:7px 0;border-top:1px solid #EDF1F5;color:#667187}
+#skym-ai2 .ai2-chart{height:54px;display:flex;align-items:end;gap:7px;padding:8px 4px 0;border-top:1px solid #EDF1F5}.ai2-chart i{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(180deg,#53C9F4,#397CF4)}.ai2-chart i:nth-child(1){height:28%}.ai2-chart i:nth-child(2){height:54%}.ai2-chart i:nth-child(3){height:42%}.ai2-chart i:nth-child(4){height:76%}.ai2-chart i:nth-child(5){height:64%}.ai2-chart i:nth-child(6){height:92%}
+#skym-ai2 .ai2-float{position:absolute;z-index:4;background:rgba(255,255,255,.97);border:3px solid #A9D5E9;border-radius:10px;box-shadow:0 15px 32px rgba(26,70,115,.17);padding:12px 15px;backdrop-filter:blur(10px)}
+#skym-ai2 .ai2-float strong{display:block;font-size:12px;font-weight:700!important}.ai2-float small{display:block;font-size:10px;color:var(--muted);margin-top:2px}.ai2-float b{color:#20A88A;font-size:18px;font-weight:700!important}
+#skym-ai2 .ai2-float.one{right:0;top:0;display:grid;grid-template-columns:auto auto;gap:15px;align-items:center}.ai2-float.two{left:0;bottom:4px;min-width:178px}.ai2-progress{height:5px;background:#E7EEF4;border-radius:5px;margin-top:8px;overflow:hidden}.ai2-progress i{display:block;width:78%;height:100%;background:linear-gradient(90deg,var(--blue),#4F77F4);border-radius:5px}
+
+/* 流れ */
+#skym-ai2 .ai2-flow{position:relative;overflow:hidden;background:#fff}
+#skym-ai2 .ai2-flow:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;left:-300px;top:40px;background:radial-gradient(circle,rgba(0,160,233,.09),transparent 68%)}
+#skym-ai2 .ai2-flowbox{position:relative;display:grid;grid-template-columns:1fr 46px 1.15fr 46px 1fr;align-items:center;gap:12px;margin-top:42px;padding:34px;border:4px solid #0A8FCB;border-radius:18px;background:linear-gradient(135deg,#fff,#F3FAFE);box-shadow:0 22px 60px rgba(14,97,143,.14)}
+#skym-ai2 .ai2-flowbox:before{content:"";position:absolute;left:8%;right:8%;top:50%;height:2px;background:linear-gradient(90deg,rgba(0,160,233,.08),rgba(0,160,233,.35),rgba(0,160,233,.08));z-index:0}
+#skym-ai2 .ai2-flowcol{position:relative;z-index:1;display:grid;gap:12px}
+#skym-ai2 .ai2-node{position:relative;min-height:64px;border:2px solid #C7DCE9;border-radius:12px;padding:12px 14px 12px 53px;background:rgba(255,255,255,.98);box-shadow:0 7px 18px rgba(28,59,95,.06)}
+#skym-ai2 .ai2-node:before{content:attr(data-icon);position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,#E5F7FE,#D5EDFB);color:var(--blue);font-size:12px;font-weight:700!important;box-shadow:inset 0 0 0 1px rgba(0,160,233,.14)}
+#skym-ai2 .ai2-node b{display:block;font-size:13px;font-weight:700!important}.ai2-node small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+#skym-ai2 .ai2-core{position:relative;z-index:2;padding:25px 24px;border:4px solid #64D5F0;border-radius:16px;background:linear-gradient(145deg,#0B203A,#074F78 66%,#008BCB);box-shadow:0 20px 48px rgba(5,74,117,.26)}
+#skym-ai2 .ai2-core:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-38px;top:-58px;border:1px solid rgba(255,255,255,.13);box-shadow:0 0 0 22px rgba(255,255,255,.035)}
+#skym-ai2 .ai2-core>strong{position:relative;display:block;text-align:center;color:#fff;font-size:14px;font-weight:700!important;letter-spacing:.05em;margin-bottom:14px}.ai2-core span{position:relative;display:block;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:7px;padding:8px 10px;font-size:11px;text-align:center;margin-top:7px;color:#fff}
+#skym-ai2 .ai2-arrow{position:relative;z-index:2;width:34px;height:34px;margin:auto;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:18px;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 7px 16px rgba(0,134,206,.22)}.ai2-arrow:before{display:none}
+#skym-ai2 .ai2-output .ai2-node:nth-child(1){border-color:#52C9B2}.ai2-output .ai2-node:nth-child(2){border-color:#F2AE71}.ai2-output .ai2-node:nth-child(3){border-color:#9CA4F2}
+#skym-ai2 .ai2-output .ai2-node:nth-child(1):before{background:#DFF8F3;color:#159E84}.ai2-output .ai2-node:nth-child(2):before{background:#FFF0E2;color:#EA8431}.ai2-output .ai2-node:nth-child(3):before{background:#ECECFF;color:#626BDC}
+
+/* 支援カード */
+#skym-ai2 .ai2-capabilities{background:#F7FAFC}
+#skym-ai2 .ai2-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#skym-ai2 .ai2-card{position:relative;overflow:hidden;background:#fff;border:2px solid #D5E3ED;border-radius:11px;padding:24px;min-height:260px;box-shadow:0 10px 28px rgba(32,68,108,.06);transition:.25s}
+#skym-ai2 .ai2-card:before{content:"";position:absolute;left:-2px;right:-2px;top:-2px;height:7px;background:linear-gradient(90deg,var(--blue),#517AF4)}
+#skym-ai2 .ai2-card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-55px;top:-55px;background:radial-gradient(circle,rgba(0,160,233,.10),transparent 70%)}
+#skym-ai2 .ai2-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(32,68,108,.11)}
+#skym-ai2 .ai2-icon{width:46px;height:46px;border:2px solid #9FDDF2;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#EDF9FE,#DCEFFE);color:var(--blue);font-size:21px;margin-bottom:18px}
+#skym-ai2 .ai2-card p{font-size:13px!important;line-height:1.75!important;margin-top:8px!important}
+#skym-ai2 .ai2-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}.ai2-tags span{font-size:10px;padding:5px 8px;background:#F2F6FA;border-radius:3px;color:#677388}
+#skym-ai2 .ai2-mini{height:42px;margin-top:18px;display:flex;align-items:end;gap:6px;padding-top:8px;border-top:1px solid #EEF2F6}.ai2-mini i{display:block;flex:1;border-radius:3px;background:linear-gradient(180deg,#70D4F5,#4B7AF3)}.ai2-mini i:nth-child(1){height:35%}.ai2-mini i:nth-child(2){height:65%}.ai2-mini i:nth-child(3){height:48%}.ai2-mini i:nth-child(4){height:88%}.ai2-mini i:nth-child(5){height:72%}
+
+/* 活用シーン */
+#skym-ai2 .ai2-scenes{background:#fff}
+#skym-ai2 .ai2-scenegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+#skym-ai2 .ai2-scene{position:relative;display:grid;grid-template-columns:1fr 190px;min-height:165px;border:2px solid #D2E1EC;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 8px 22px rgba(32,68,108,.05);transition:.25s}.ai2-scene:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 15px 30px rgba(32,68,108,.10)}
+#skym-ai2 .ai2-scenetxt{padding:24px}.ai2-scenetxt p{font-size:13px!important;margin-top:7px!important}.ai2-scene img{width:100%;height:100%;object-fit:cover}.ai2-code{background:linear-gradient(135deg,#10213C,#0B3851);display:grid;place-items:center;color:#71D9FF;font-family:monospace;font-size:12px;line-height:1.7;padding:18px}
+
+/* CTA */
+#skym-ai2 .ai2-cta{position:relative;overflow:hidden;padding:68px 0;color:#fff;background:linear-gradient(110deg,#009FE8,#387CF4)}
+#skym-ai2 .ai2-cta:before,#skym-ai2 .ai2-cta:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.18)}.ai2-cta:before{width:430px;height:430px;right:5%;top:-280px}.ai2-cta:after{width:280px;height:280px;right:17%;top:-170px}
+#skym-ai2 .ai2-ctagrid{position:relative;z-index:1}
+#skym-ai2 .ai2-ctagrid{display:flex;align-items:center;justify-content:space-between;gap:40px}.ai2-cta h3{color:#fff!important}.ai2-cta p{color:rgba(255,255,255,.9)!important;margin-top:7px!important}.ai2-cta .ai2-btn{background:#fff;border-color:#fff;color:var(--blue2)!important}
+#skym-ai2 .ai2-partner{padding:50px 0;background:#101A35;color:#fff}.ai2-partner .ai2-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}.ai2-partner h3{color:#fff!important;font-size:25px!important}.ai2-partner p{color:#C9D2E1!important;margin-top:5px!important}.ai2-partner .ai2-btn{border-color:#fff;color:#fff!important;background:transparent}
+
+@media(max-width:900px){#skym-ai2 .ai2-hero-grid{grid-template-columns:1fr}#skym-ai2 .ai2-screenwrap{max-width:720px}#skym-ai2 .ai2-flowbox{grid-template-columns:1fr}#skym-ai2 .ai2-arrow{transform:rotate(90deg)}#skym-ai2 .ai2-arrow:before{display:none}#skym-ai2 .ai2-cards{grid-template-columns:repeat(2,1fr)}#skym-ai2 .ai2-scenegrid{grid-template-columns:1fr}}
+@media(max-width:600px){#skym-ai2 .ai2-inner{width:calc(100% - 32px)}#skym-ai2 .ai2-section{padding:64px 0}#skym-ai2 .ai2-hero{padding:64px 0}#skym-ai2 .ai2-actions{flex-direction:column}#skym-ai2 .ai2-btn{width:100%}#skym-ai2 .ai2-points{grid-template-columns:1fr}#skym-ai2 .ai2-screen{min-height:auto}#skym-ai2 .ai2-app{grid-template-columns:1fr}#skym-ai2 .ai2-side{display:none}#skym-ai2 .ai2-panels{grid-template-columns:1fr}#skym-ai2 .ai2-head{display:block}#skym-ai2 .ai2-head p{margin-top:12px!important}#skym-ai2 .ai2-cards{grid-template-columns:1fr}#skym-ai2 .ai2-scene{grid-template-columns:1fr}#skym-ai2 .ai2-scene img,#skym-ai2 .ai2-code{height:150px}#skym-ai2 .ai2-ctagrid,#skym-ai2 .ai2-partner .ai2-inner{flex-direction:column;align-items:flex-start}}
+</style>
+
+<section class="ai2-hero">
+  <div class="ai2-inner ai2-hero-grid">
+    <div>
+      <span class="ai2-kicker">AI &amp; Digital Transformation</span>
+      <h2>AIを、<br><em>仕事の力に。</em></h2>
+      <p class="ai2-hero-lead">つながるAI、進化する仕事。</p>
+      <p>AIエージェント・業務ツール・既存システムをつなぎ、日々の仕事で使える仕組みへ。企画から開発、導入後の改善まで、SKYMが一緒に取り組みます。</p>
+      <div class="ai2-actions"><a class="ai2-btn primary" href="https://skym.co.jp/contact">AI活用を相談する　→</a><a class="ai2-btn" href="#ai2-flow">仕組みを見る　↓</a></div>
+      <div class="ai2-points"><div class="ai2-point"><small>相談</small><b>構想段階から</b></div><div class="ai2-point"><small>開発</small><b>小さく試せる</b></div><div class="ai2-point"><small>運用</small><b>現場で改善</b></div></div>
+    </div>
+    <div class="ai2-screenwrap"><div class="ai2-screen" aria-label="AI業務支援画面のイメージ">
+      <div class="ai2-screenbar"><b>SKYM AI WORKSPACE</b><span class="ai2-dots"><i></i><i></i><i></i></span></div>
+      <div class="ai2-app"><aside class="ai2-side"><span class="on">ホーム</span><span>プロジェクト</span><span>ワークフロー</span><span>テンプレート</span><span>データ連携</span><span>履歴</span><span>設定</span></aside><main class="ai2-main"><div class="ai2-greet">今日の業務を、AIと進める。</div><div class="ai2-date">必要な情報と作業を、ひとつの画面に。</div><div class="ai2-ask">何をお手伝いしましょうか？　　→</div><div class="ai2-quick"><span>資料を要約</span><span>問い合わせを整理</span><span>データを分析</span><span>文章を作成</span></div><div class="ai2-panels"><div class="ai2-panel"><b>進行中の業務</b><div class="ai2-task">問い合わせ対応を整理</div><div class="ai2-task">週次レポートを作成</div><div class="ai2-task">商品情報を更新</div></div><div class="ai2-panel"><b>業務データ</b><div class="ai2-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ai2-task">今週の処理量　＋24%</div></div></div></main></div>
+      </div><div class="ai2-float one"><span><strong>AI分析</strong><small>業務改善候補</small></span><b>12件</b></div><div class="ai2-float two"><strong>ワークフロー進捗</strong><small>7 / 9 ステップ完了</small><span class="ai2-progress"><i></i></span></div></div>
+  </div>
+</section>
+
+<section class="ai2-section ai2-flow" id="ai2-flow"><div class="ai2-inner"><div class="ai2-head"><div><span class="ai2-kicker">How It Works</span><h3>AI活用のしくみ</h3></div><p>人・業務・データをつなぎ、AIが単発のツールで終わらない仕組みをつくります。</p></div><div class="ai2-flowbox"><div class="ai2-flowcol"><div class="ai2-node" data-icon="PE"><b>人・チーム</b><small>相談、判断、確認</small></div><div class="ai2-node" data-icon="DA"><b>業務データ</b><small>文書、表、商品情報</small></div><div class="ai2-node" data-icon="SY"><b>既存システム</b><small>社内ツール、各種API</small></div></div><div class="ai2-arrow">›</div><div class="ai2-core"><strong>SKYM AI ORCHESTRATION</strong><span>業務の流れを整理</span><span>AI・ツールを選択</span><span>既存環境と連携</span><span>実行・確認・改善</span></div><div class="ai2-arrow">›</div><div class="ai2-flowcol ai2-output"><div class="ai2-node" data-icon="AI"><b>業務アシスタント</b><small>問い合わせ・資料作成</small></div><div class="ai2-node" data-icon="AU"><b>自動化ツール</b><small>定型業務・データ処理</small></div><div class="ai2-node" data-icon="NEW"><b>新しいサービス</b><small>AIを組み込んだ商品</small></div></div></div></div></section>
+
+<section class="ai2-section ai2-capabilities"><div class="ai2-inner"><div class="ai2-head"><div><span class="ai2-kicker">What We Do</span><h3>主な支援内容</h3></div><a class="ai2-link" href="https://skym.co.jp/contact">ご相談はこちら　→</a></div><div class="ai2-cards">
+  <article class="ai2-card"><div class="ai2-icon">◎</div><h4>AI活用設計</h4><p>どの業務から始めるかを整理し、導入の目的と進め方を一緒に設計します。</p><div class="ai2-tags"><span>業務整理</span><span>導入計画</span></div><div class="ai2-mini"><i></i><i></i><i></i><i></i><i></i></div></article>
+  <article class="ai2-card"><div class="ai2-icon">↻</div><h4>業務フロー自動化</h4><p>繰り返し発生する作業を、AIとシステムを組み合わせて効率化します。</p><div class="ai2-tags"><span>定型作業</span><span>ワークフロー</span></div><div class="ai2-mini"><i></i><i></i><i></i><i></i><i></i></div></article>
+  <article class="ai2-card"><div class="ai2-icon">◇</div><h4>AIエージェント開発</h4><p>特定の業務に合わせて、指示を受けて作業を進めるAIを構築します。</p><div class="ai2-tags"><span>専用AI</span><span>業務ツール</span></div><div class="ai2-mini"><i></i><i></i><i></i><i></i><i></i></div></article>
+  <article class="ai2-card"><div class="ai2-icon">⌁</div><h4>既存システム連携</h4><p>社内システムやデータとAIをつなぎ、現場でそのまま使える形にします。</p><div class="ai2-tags"><span>API</span><span>データ連携</span></div><div class="ai2-mini"><i></i><i></i><i></i><i></i><i></i></div></article>
+  <article class="ai2-card"><div class="ai2-icon">▣</div><h4>自社サービス開発</h4><p>AIを組み込んだ新しいサービスや商品の企画・試作・開発を支援します。</p><div class="ai2-tags"><span>企画</span><span>プロトタイプ</span></div><div class="ai2-mini"><i></i><i></i><i></i><i></i><i></i></div></article>
+  <article class="ai2-card"><div class="ai2-icon">✓</div><h4>導入後の改善</h4><p>実際の利用状況を見ながら、精度・使いやすさ・業務への定着を改善します。</p><div class="ai2-tags"><span>運用</span><span>継続改善</span></div><div class="ai2-mini"><i></i><i></i><i></i><i></i><i></i></div></article>
+</div></div></section>
+
+<section class="ai2-section ai2-scenes"><div class="ai2-inner"><div class="ai2-head"><div><span class="ai2-kicker">Use Cases</span><h3>活用シーン</h3></div><p>業種を限定せず、日々の業務から新しいサービスづくりまで対応します。</p></div><div class="ai2-scenegrid">
+  <article class="ai2-scene"><div class="ai2-scenetxt"><h4>問い合わせ対応</h4><p>内容の分類、回答案の作成、対応履歴の整理を支援。</p></div><img src="https://skym.co.jp/wp20150417/wp-content/uploads/ai-sv1-consult.jpg" alt="打ち合わせのイメージ"></article>
+  <article class="ai2-scene"><div class="ai2-scenetxt"><h4>資料・データ業務</h4><p>文書の要約、データ入力、レポート作成を効率化。</p></div><img src="https://skym.co.jp/wp20150417/wp-content/uploads/ai-sv3-ec.jpg" alt="データ活用のイメージ"></article>
+  <article class="ai2-scene"><div class="ai2-scenetxt"><h4>業務改善</h4><p>現場の流れを整理し、システムとAIを組み合わせて改善。</p></div><img src="https://skym.co.jp/wp20150417/wp-content/uploads/ai-sv2-agent.jpg" alt="開発のイメージ"></article>
+  <article class="ai2-scene"><div class="ai2-scenetxt"><h4>開発支援</h4><p>仕様整理、コード生成、テスト、レビューの効率化。</p></div><div class="ai2-code">&lt;AI + SYSTEM&gt;<br>plan();<br>build();<br>improve();</div></article>
+</div></div></section>
+
+<section class="ai2-cta"><div class="ai2-inner ai2-ctagrid"><div><h3>AIとともに、次の一歩を。</h3><p>まだ具体的でない段階から、一緒に整理します。</p></div><a class="ai2-btn" href="https://skym.co.jp/contact">お問い合わせ　→</a></div></section>
+<section class="ai2-partner"><div class="ai2-inner"><div><h3>パートナー募集</h3><p>SES事業において御協業いただける企業様を募集しております。</p></div><a class="ai2-btn" href="https://skym.co.jp/partnership">募集フォームへ</a></div></section>
+</div>

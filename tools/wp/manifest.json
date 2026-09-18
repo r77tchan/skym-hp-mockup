@@ -1,0 +1,540 @@
+[
+  {
+    "upload_name": "ai-sv1-consult.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/ai-sv1-consult.jpg",
+    "size": 50412,
+    "md5": "48f9b6b5f8ee0c9e4391aaab162995d0",
+    "sources": [
+      "ai-digital/draft3/sv1-consult.jpg"
+    ],
+    "used_by": [
+      "ai-digital"
+    ]
+  },
+  {
+    "upload_name": "ai-sv2-agent.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/ai-sv2-agent.jpg",
+    "size": 53054,
+    "md5": "ec2406c51ea18a05fb5efa9a93d70e32",
+    "sources": [
+      "ai-digital/draft3/sv2-agent.jpg"
+    ],
+    "used_by": [
+      "ai-digital"
+    ]
+  },
+  {
+    "upload_name": "ai-sv3-ec.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/ai-sv3-ec.jpg",
+    "size": 93130,
+    "md5": "1f90de32aa4c6c35624c67fe15519a6a",
+    "sources": [
+      "ai-digital/draft3/sv3-ec.jpg"
+    ],
+    "used_by": [
+      "ai-digital"
+    ]
+  },
+  {
+    "upload_name": "company-logo-vertical.png",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/company-logo-vertical.png",
+    "size": 13076,
+    "md5": "79f316d148180246d9e15a840f55ac61",
+    "sources": [
+      "company/draft4/logo-vertical.png"
+    ],
+    "used_by": [
+      "company"
+    ]
+  },
+  {
+    "upload_name": "ec-sv1-store.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/ec-sv1-store.jpg",
+    "size": 74232,
+    "md5": "6f202d07ef578638f0251c5ada3a9756",
+    "sources": [
+      "ec-product/draft2/sv1-store.jpg"
+    ],
+    "used_by": [
+      "ec-product"
+    ]
+  },
+  {
+    "upload_name": "ec-sv2-apparel.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/ec-sv2-apparel.jpg",
+    "size": 48201,
+    "md5": "3e543cc718f1a2db237ea20619b29a8c",
+    "sources": [
+      "ec-product/draft2/sv2-apparel.jpg"
+    ],
+    "used_by": [
+      "ec-product"
+    ]
+  },
+  {
+    "upload_name": "ec-sv3-connect.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/ec-sv3-connect.jpg",
+    "size": 53771,
+    "md5": "6b07aac82093086eab0fad23ed337df6",
+    "sources": [
+      "ec-product/draft2/sv3-connect.jpg"
+    ],
+    "used_by": [
+      "ec-product"
+    ]
+  },
+  {
+    "upload_name": "edu-about.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-about.jpg",
+    "size": 134063,
+    "md5": "2f0cbc578e6c9c3faad65533961a112e",
+    "sources": [
+      "education/draft4/about.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-event.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-event.jpg",
+    "size": 126889,
+    "md5": "fe0e00682bdebfdd6f64f1367ab254fa",
+    "sources": [
+      "education/draft4/event.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-hero.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-hero.jpg",
+    "size": 183733,
+    "md5": "0eecbba5c2d4715097cbdfa8ab23f0fd",
+    "sources": [
+      "education/draft4/hero.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-1.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-1.jpg",
+    "size": 112972,
+    "md5": "0e0d38dcf95afb77ce5bb951ea83d872",
+    "sources": [
+      "education/draft4/menu-1.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-2.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-2.jpg",
+    "size": 136672,
+    "md5": "1a8583bf5d4640f378d7b6800a965529",
+    "sources": [
+      "education/draft4/menu-2.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-3.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-3.jpg",
+    "size": 139381,
+    "md5": "9c0d367f8b1e03c2a7f8b993a00e3bef",
+    "sources": [
+      "education/draft4/menu-3.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-4.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-4.jpg",
+    "size": 116749,
+    "md5": "762b28d3215415349a4aa4aec2c9b4d0",
+    "sources": [
+      "education/draft4/menu-4.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-5.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-5.jpg",
+    "size": 230242,
+    "md5": "f86adc464858a6b5c39b768b7cdc0ef0",
+    "sources": [
+      "education/draft4/menu-5.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-6.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-6.jpg",
+    "size": 176845,
+    "md5": "8f0698ca80a61bf50746bd2d80779ffb",
+    "sources": [
+      "education/draft4/menu-6.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-7.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-7.jpg",
+    "size": 132951,
+    "md5": "e0bdfd79d6c1df4fc05fd172b5e6b17f",
+    "sources": [
+      "education/draft4/menu-7.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-menu-8.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-menu-8.jpg",
+    "size": 114844,
+    "md5": "253621c65203dc03703932b0d8583e10",
+    "sources": [
+      "education/draft4/menu-8.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "edu-together.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/edu-together.jpg",
+    "size": 191359,
+    "md5": "00b950e11a00e23423439bc0a34d1e9f",
+    "sources": [
+      "education/draft4/together.jpg"
+    ],
+    "used_by": [
+      "education"
+    ]
+  },
+  {
+    "upload_name": "event-sv1-market.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/event-sv1-market.jpg",
+    "size": 187706,
+    "md5": "402bc7dec81eb0a63d2e1531c403ce3e",
+    "sources": [
+      "event/draft2/sv1-market.jpg"
+    ],
+    "used_by": [
+      "event"
+    ]
+  },
+  {
+    "upload_name": "event-sv2-smart.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/event-sv2-smart.jpg",
+    "size": 55962,
+    "md5": "865664a5fbc23000a821cc647ebb52a6",
+    "sources": [
+      "event/draft2/sv2-smart.jpg"
+    ],
+    "used_by": [
+      "event"
+    ]
+  },
+  {
+    "upload_name": "event-sv2-workshop.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/event-sv2-workshop.jpg",
+    "size": 82890,
+    "md5": "c89d56a25aa44e3724ce2087993cb0c2",
+    "sources": [
+      "event/draft2/sv2-workshop.jpg"
+    ],
+    "used_by": [
+      "event"
+    ]
+  },
+  {
+    "upload_name": "itsol-sv1-ses.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/itsol-sv1-ses.jpg",
+    "size": 68564,
+    "md5": "cf906693f8207d38e0ceb1aa6cc1ac4e",
+    "sources": [
+      "it-solution/draft1/sv1-ses.jpg"
+    ],
+    "used_by": [
+      "it-solution"
+    ]
+  },
+  {
+    "upload_name": "itsol-sv2-dev.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/itsol-sv2-dev.jpg",
+    "size": 48711,
+    "md5": "674e7111041d6b2ff6ad7564f0e9aade",
+    "sources": [
+      "it-solution/draft1/sv2-dev.jpg"
+    ],
+    "used_by": [
+      "it-solution"
+    ]
+  },
+  {
+    "upload_name": "itsol-sv3-infra.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/itsol-sv3-infra.jpg",
+    "size": 60927,
+    "md5": "ce3ebe22cfb84d6d4d811855f7eb6d57",
+    "sources": [
+      "it-solution/draft1/sv3-infra.jpg"
+    ],
+    "used_by": [
+      "it-solution"
+    ]
+  },
+  {
+    "upload_name": "recruit-message-window.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/recruit-message-window.jpg",
+    "size": 171266,
+    "md5": "3cd7c746f5eaf82d77799e2aabfde30b",
+    "sources": [
+      "recruit/draft9/message-window.jpg",
+      "graduate-pre/draft5/tb-newbie.jpg"
+    ],
+    "used_by": [
+      "recruit",
+      "graduate-pre"
+    ]
+  },
+  {
+    "upload_name": "sakura-sv1-busker.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/sakura-sv1-busker.jpg",
+    "size": 325007,
+    "md5": "b09e0fc813125093f5537164f8ca7b25",
+    "sources": [
+      "sakura/draft9/sv1-busker.jpg"
+    ],
+    "used_by": [
+      "sakura"
+    ]
+  },
+  {
+    "upload_name": "sakura-tb-sakura.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/sakura-tb-sakura.jpg",
+    "size": 194571,
+    "md5": "e3c8717fba2b0599826be9c0dcc7b434",
+    "sources": [
+      "sakura/draft9/tb-sakura.jpg"
+    ],
+    "used_by": [
+      "sakura"
+    ]
+  },
+  {
+    "upload_name": "top-about-engineer.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-about-engineer.jpg",
+    "size": 90240,
+    "md5": "7fe059b2c2ac3769bd84fc39db7f8e41",
+    "sources": [
+      "top/draft20/about-engineer.jpg"
+    ],
+    "used_by": [
+      "top"
+    ]
+  },
+  {
+    "upload_name": "top-card1-ses.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-card1-ses.jpg",
+    "size": 153948,
+    "md5": "f718e0e10c675e4b5e614f54e88a90fa",
+    "sources": [
+      "top/draft20/card1-ses.jpg",
+      "service/draft7/card1-ses.jpg"
+    ],
+    "used_by": [
+      "top",
+      "service",
+      "ec-product",
+      "event",
+      "sakura"
+    ]
+  },
+  {
+    "upload_name": "top-card2-ai.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-card2-ai.jpg",
+    "size": 34682,
+    "md5": "88cd44c9b593194b2a864617be5c13fb",
+    "sources": [
+      "top/draft20/card2-ai.jpg",
+      "service/draft7/card2-ai.jpg"
+    ],
+    "used_by": [
+      "top",
+      "service",
+      "it-solution",
+      "ec-product",
+      "event",
+      "sakura"
+    ]
+  },
+  {
+    "upload_name": "top-card3-ec.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-card3-ec.jpg",
+    "size": 61929,
+    "md5": "e814502d5a8e88dc11150fcacc4927cc",
+    "sources": [
+      "top/draft20/card3-ec.jpg",
+      "service/draft7/card3-ec.jpg"
+    ],
+    "used_by": [
+      "top",
+      "service",
+      "it-solution",
+      "event",
+      "sakura"
+    ]
+  },
+  {
+    "upload_name": "top-card4-event.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-card4-event.jpg",
+    "size": 79236,
+    "md5": "29bda3575683c41e85656e1f6eb1268f",
+    "sources": [
+      "top/draft20/card4-event.jpg",
+      "service/draft7/card4-event.jpg"
+    ],
+    "used_by": [
+      "top",
+      "service",
+      "it-solution",
+      "ec-product",
+      "sakura"
+    ]
+  },
+  {
+    "upload_name": "top-card5-edu.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-card5-edu.jpg",
+    "size": 132100,
+    "md5": "fd664574126dc726708eab0dc4db6b74",
+    "sources": [
+      "top/draft20/card5-edu.jpg",
+      "service/draft7/card5-edu.jpg"
+    ],
+    "used_by": [
+      "top",
+      "service",
+      "it-solution",
+      "ec-product",
+      "event",
+      "sakura"
+    ]
+  },
+  {
+    "upload_name": "top-card6-sakura.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-card6-sakura.jpg",
+    "size": 47651,
+    "md5": "698c3802adfc5fcf3eea5d69b4712a36",
+    "sources": [
+      "top/draft20/card6-sakura.jpg",
+      "service/draft7/card6-sakura.jpg"
+    ],
+    "used_by": [
+      "top",
+      "service",
+      "it-solution",
+      "ec-product",
+      "event"
+    ]
+  },
+  {
+    "upload_name": "top-hero-background.mp4",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-background.mp4",
+    "size": 1953128,
+    "md5": "9a885ed48efbb6c8b2eb609e5b1e4322",
+    "sources": [
+      "top/draft20/hero-background.mp4"
+    ],
+    "used_by": [
+      "top"
+    ]
+  },
+  {
+    "upload_name": "top-hero-card1.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card1.jpg",
+    "size": 238381,
+    "md5": "2951896fc8ad4121722e6cf3becb7e35",
+    "sources": [
+      "top/draft20/hero-card1.jpg"
+    ],
+    "used_by": [
+      "top"
+    ]
+  },
+  {
+    "upload_name": "top-hero-card2.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card2.jpg",
+    "size": 234124,
+    "md5": "d46e49b95d69de7b5377a1e818b83e4f",
+    "sources": [
+      "top/draft20/hero-card2.jpg"
+    ],
+    "used_by": [
+      "top"
+    ]
+  },
+  {
+    "upload_name": "top-hero-card3.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card3.jpg",
+    "size": 245936,
+    "md5": "fc90e9816dbf7a9aacc356c0be088b01",
+    "sources": [
+      "top/draft20/hero-card3.jpg"
+    ],
+    "used_by": [
+      "top"
+    ]
+  },
+  {
+    "upload_name": "top-hero-card4.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card4.jpg",
+    "size": 211077,
+    "md5": "acc3ef1a60ef92af67f3f47e5ebb94e8",
+    "sources": [
+      "top/draft20/hero-card4.jpg"
+    ],
+    "used_by": [
+      "top"
+    ]
+  },
+  {
+    "upload_name": "top-hero-card5.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-card5.jpg",
+    "size": 193039,
+    "md5": "6e50b13509e3048db0551b19413fc257",
+    "sources": [
+      "top/draft20/hero-card5.jpg"
+    ],
+    "used_by": [
+      "top"
+    ]
+  },
+  {
+    "upload_name": "top-hero-poster.jpg",
+    "url": "https://skym.co.jp/wp20150417/wp-content/uploads/top-hero-poster.jpg",
+    "size": 109547,
+    "md5": "3c6d26b280bfb22dd0f0dd624f71fff7",
+    "sources": [
+      "top/draft20/hero-poster.jpg"
+    ],
+    "used_by": [
+      "top"
+    ]
+  }
+]
