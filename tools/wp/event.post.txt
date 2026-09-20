@@ -1,4 +1,4 @@
-<div id="skym-svsub">
+[vc_row height="auto" columns_type="none" width="full" el_class="ss-wrap"][vc_column]<div id="skym-svsub">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
 .l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -215,4 +215,4 @@
     <a class="ss-btn" href="https://skym.co.jp/partnership">募集フォームへ</a>
   </div>
 </section>
-</div>
+</div>[/vc_column][/vc_row]

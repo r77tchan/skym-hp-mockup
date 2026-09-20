@@ -1,4 +1,4 @@
-<div id="skym-rsub" class="rs-career">
+[vc_row height="auto" columns_type="none" width="full" el_class="rs-wrap"][vc_column]<div id="skym-rsub" class="rs-entry">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="rs-wrap") */
 .l-section.rs-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -130,14 +130,44 @@
 <section class="rs-intro" id="rs-intro">
   <div class="rs-inner rs-grid2">
     <div>
-      <span class="rs-kicker">SKYMが中途採用で大切にしていること</span>
-      <h2>現在のスキル ＋<br>これから伸ばせる力。</h2>
+      <span class="rs-kicker">未経験ITエンジニア採用</span>
+      <h2>ITの仕事を、<br>ここから始める。</h2>
     </div>
     <div class="rs-copy">
-      <p class="rs-lead">中途採用だからといって、入社初日からすべてできる必要があるとは考えていません。</p>
-      <p>技術は日々変わります。今まで使っていた技術が変わることもあれば、これまで存在しなかった仕事が生まれることもあります。</p>
-      <p>だから私たちが見ているのは、現在のスキルと、これから伸ばせる力。経験があるからこそ、次に何を身につけるかが重要だと考えています。</p>
+      <p class="rs-lead">経験や知識がなくても、ITへの興味と学ぶ意欲があればスタートできます。</p>
+      <p>SKYMでは、システム開発・インフラ・ITサポート・社内IT支援など、さまざまなITプロジェクトに携わっています。</p>
+      <p>入社後は、これまでの経験や希望、適性を確認しながら、一人ひとりに合ったキャリアを一緒に考えていきます。</p>
     </div>
+  </div>
+</section>
+
+
+<section class="rs-job rs-alt" id="rs-job">
+  <div class="rs-inner">
+    <h2>仕事内容</h2>
+    <div class="rs-prose">
+      <p>企業のシステム開発やITインフラの構築・運用、ITサポートなどのプロジェクトに参加していただきます。未経験の方は、現在のスキルや適性に合わせて、比較的取り組みやすい業務からスタートします。</p>
+      <p>経験を積んだ後は、より専門的な分野へのステップアップも可能です。</p>
+      <ul class="rs-arrows">
+        <li>ITサポート → インフラエンジニア</li>
+        <li>テスト・運用 → システム開発</li>
+        <li>運用 → クラウド・設計構築</li>
+      </ul>
+      <p>またSKYMでは、従来のIT業務だけでなく、AI活用、業務改善、自社サービスなど、新しい分野にも取り組んでいます。</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="rs-start" id="rs-start">
+  <div class="rs-inner">
+    <h2>未経験からのスタート</h2>
+    <ol class="rs-steps">
+      <li class="rs-step"><span class="rs-n">01</span><div><h3>ITの基礎を身につける</h3><p>PC、ネットワーク、サーバー、システム、セキュリティなど、IT業務に必要な基礎知識を身につけます。</p></div></li>
+      <li class="rs-step"><span class="rs-n">02</span><div><h3>実務を経験する</h3><p>本人のスキルや適性を確認しながら、実際のプロジェクトで経験を積んでいきます。</p></div></li>
+      <li class="rs-step"><span class="rs-n">03</span><div><h3>得意分野を見つける</h3><p>開発、インフラ、クラウド、ITサポートなど、実際の仕事を経験しながら自分に合った分野を見つけていきます。</p></div></li>
+      <li class="rs-step"><span class="rs-n">04</span><div><h3>専門性を高める</h3><p>より高度な技術や上位工程、プロジェクトリーダーなど、次のキャリアを目指します。</p></div></li>
+    </ol>
   </div>
 </section>
 
@@ -145,14 +175,15 @@
 <section class="rs-career rs-alt" id="rs-career">
   <div class="rs-inner">
     <h2>キャリアについて</h2>
+    <p class="rs-lead" style="margin-bottom:24px!important">キャリアの正解は、一つではありません。</p>
     <div class="rs-tracks">
-      <div class="rs-track"><h3>ENGINEER</h3><p>技術力を高め、専門性の高いエンジニアへ。設計・開発・構築など、より高度な技術領域へステップアップします。</p></div>
-      <div class="rs-track"><h3>INFRA / CLOUD</h3><p>サーバー・ネットワークから、クラウド・設計・構築へ。AWS、Azureなど新しいインフラ技術にもキャリアを広げていきます。</p></div>
-      <div class="rs-track"><h3>DEVELOPMENT</h3><p>プログラミングだけではなく、設計・要件定義など上流工程へ。技術と業務知識の両方を身につけていきます。</p></div>
-      <div class="rs-track"><h3>MANAGEMENT</h3><p>チームリーダー、プロジェクトリーダー、プロジェクトマネージャーへ。人やプロジェクトを動かす仕事に挑戦できます。</p></div>
-      <div class="rs-track"><h3>AI / DX</h3><p>AIやITを利用した業務改善、システム化、新しいサービス開発へ。これまでのIT経験とAIを組み合わせた仕事にも取り組みます。</p></div>
-      <div class="rs-track"><h3>NEW BUSINESS</h3><p>自社サービス、EC、イベントシステム、新規事業などの企画・開発・運営へ。「こんなのあったら面白い」から、仕事そのものをつくる側へ。</p></div>
+      <div class="rs-track"><h3>ENGINEER</h3><p>技術力を高め、専門性の高いエンジニアへ。</p></div>
+      <div class="rs-track"><h3>INFRA / CLOUD</h3><p>サーバー・ネットワークからクラウド、設計・構築へ。</p></div>
+      <div class="rs-track"><h3>MANAGEMENT</h3><p>チームリーダー、プロジェクトリーダー、マネジメントへ。</p></div>
+      <div class="rs-track"><h3>AI / DX</h3><p>AIやITを活用した業務改善、新しいサービス開発へ。</p></div>
+      <div class="rs-track"><h3>NEW BUSINESS</h3><p>自社サービスや新規事業の企画・運営へ。</p></div>
     </div>
+    <p class="rs-foot">本人の希望と適性を確認しながら、一緒にキャリアを考えていきます。</p>
   </div>
 </section>
 
@@ -161,9 +192,9 @@
   <div class="rs-inner">
     <h2>スキルアップ支援</h2>
     <div class="rs-prose">
-      <p>IT業界では、経験年数だけでキャリアが決まるわけではありません。新しい技術を学び、実務で使い、できる仕事を増やしていくことが重要です。</p>
-      <p>SKYMでは、<span class="rs-inline"><span>資格取得</span><span>技術学習</span><span>AI活用</span><span>キャリア面談</span><span>実務経験</span><span>新しい技術への挑戦</span></span> などを通じて、一人ひとりのキャリアアップを支援します。</p>
-      <p class="rs-strong">資格を増やすことだけではなく、「市場で使えるスキルを増やすこと」を大切にしています。</p>
+      <p>IT業界は、一度覚えれば終わりという仕事ではありません。新しい技術やサービスが次々と生まれるからこそ、継続して学ぶことが重要です。</p>
+      <p>SKYMでは、<span class="rs-inline"><span>資格取得</span><span>技術学習</span><span>AI活用</span><span>キャリア面談</span><span>実務経験</span></span> を通じて、一人ひとりの成長を支援します。</p>
+      <p class="rs-strong">資格を取得することだけを目的にするのではなく、「仕事で使えるスキルを増やすこと」を大切にしています。</p>
     </div>
   </div>
 </section>
@@ -172,7 +203,7 @@
 <section class="rs-band" id="rs-band">
   <div class="rs-inner">
     <div>
-      <p class="rs-band-msg">経験は、次の技術の土台になる。</p>
+      <p class="rs-band-msg">知らないことは、これから覚えればいい。</p>
     </div>
     <a class="rs-btn" href="https://skym.co.jp/recruit/form">応募フォームへ<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
@@ -183,10 +214,11 @@
   <div class="rs-inner">
     <h2>募集要項</h2>
     <div class="rs-table">
+      <div class="rs-row"><div class="rs-th">募集職種</div><div class="rs-td"><span class="rs-big">ITエンジニア／ITサポート</span><p class="rs-chips-label">主なキャリア領域</p><ul class="rs-chips"><li>システムエンジニア</li><li>プログラマー</li><li>インフラエンジニア</li><li>クラウドエンジニア</li><li>ネットワーク・サーバーエンジニア</li><li>ITサポート・ヘルプデスク</li><li>社内SE・情報システム支援</li><li>AI・DX関連業務</li></ul><p class="rs-note">※入社時点ですべての知識や経験を持っている必要はありません。</p></div></div>
       <div class="rs-row"><div class="rs-th">雇用形態</div><div class="rs-td"><p>正社員</p><p>試用期間：6か月</p><p class="rs-note">※試用期間中の給与・待遇については変更なし</p></div></div>
       <div class="rs-row"><div class="rs-th">勤務地</div><div class="rs-td"><p>本社または東京都・神奈川県・千葉県・埼玉県を中心としたプロジェクト先</p><p>プロジェクトによりリモートワークとなる場合があります。勤務地については、本人の希望・経験・適性・プロジェクト内容などを考慮して決定します。</p></div></div>
       <div class="rs-row"><div class="rs-th">勤務時間</div><div class="rs-td"><span class="rs-big">9:00〜18:00</span><p>実働8時間／休憩1時間</p><p class="rs-note">※プロジェクトにより勤務時間が異なる場合があります。</p></div></div>
-      <div class="rs-row"><div class="rs-th">給与</div><div class="rs-td"><span class="rs-big">月給 24万円〜</span><p>経験・能力・担当業務・前職給与等を考慮し、当社規定により決定します。</p><p>現在のスキルだけではなく、入社後の担当業務や役割、技術力の向上などを評価し、給与へ反映していきます。</p></div></div>
+      <div class="rs-row"><div class="rs-th">給与</div><div class="rs-td"><span class="rs-big">月給 24万円〜</span><p>経験・能力・前職給与等を考慮し、当社規定により決定します。</p><p>未経験からスタートした場合も、経験・スキル・担当業務の広がりに応じて給与アップを目指せる評価制度を設けています。</p></div></div>
       <div class="rs-row"><div class="rs-th">昇給・賞与</div><div class="rs-td"><ul class="rs-chips"><li>昇給：年1回</li><li>賞与：年1回</li></ul><p class="rs-note">※会社業績・本人評価等によります。</p></div></div>
       <div class="rs-row"><div class="rs-th">休日・休暇</div><div class="rs-td"><ul class="rs-chips"><li>完全週休2日制</li><li>土日祝日</li><li>年末年始休暇</li><li>夏季休暇</li><li>年次有給休暇</li><li>慶弔休暇</li><li>産前産後休暇</li><li>育児休暇</li></ul><p class="rs-note">※プロジェクトにより一部異なる場合があります。</p></div></div>
       <div class="rs-row"><div class="rs-th">福利厚生・制度</div><div class="rs-td"><ul class="rs-chips"><li>各種社会保険完備</li><li>交通費支給</li><li>時間外勤務手当</li><li>資格取得支援</li><li>資格手当</li><li>書籍・学習支援</li><li>定期健康診断</li><li>キャリア面談</li><li>社内研修</li><li>リモートワーク制度</li><li>その他各種社内制度</li></ul><p class="rs-note">※各制度には当社規定があります。</p></div></div>
@@ -199,22 +231,18 @@
   <div class="rs-inner">
     <h2>応募資格</h2>
     <div class="rs-prose">
-      <p class="rs-lead">IT業界での何らかの実務経験をお持ちの方</p>
-      <p>開発だけではなく、<span class="rs-inline"><span>インフラ</span><span>運用・監視</span><span>ITサポート</span><span>ヘルプデスク</span><span>テスト</span><span>社内SE</span><span>情報システム</span></span> などの経験も対象とします。</p>
-      <p>「経験年数が短いから応募できない」と決めつける必要はありません。これまでの経験と、これから挑戦したいことをお聞かせください。</p>
+      <p class="rs-lead">経験不問／IT業界未経験歓迎</p>
+      <p>学歴やIT経験だけではなく、人柄や仕事への姿勢も重視して採用します。</p>
     </div>
     <h3 style="margin-top:40px!important">こんな方を歓迎します</h3>
     <ul class="rs-list">
-      <li>今までのIT経験を活かしたい方</li>
-      <li>もう一段上の仕事に挑戦したい方</li>
-      <li>新しい技術を身につけたい方</li>
-      <li>インフラからクラウドへ進みたい方</li>
-      <li>開発の上流工程へ進みたい方</li>
-      <li>PL・PMを目指したい方</li>
-      <li>AIやDXに興味がある方</li>
-      <li>自社サービスや新規事業にも興味がある方</li>
-      <li>自分のキャリアを自分で考えていきたい方</li>
+      <li>IT業界に興味がある方</li>
+      <li>新しいことを学ぶ意欲がある方</li>
+      <li>分からないことを自分で調べられる方</li>
       <li>周囲とコミュニケーションを取りながら仕事ができる方</li>
+      <li>継続して努力できる方</li>
+      <li>将来、専門的なスキルを身につけたい方</li>
+      <li>AIや新しい技術に興味がある方</li>
     </ul>
   </div>
 </section>
@@ -225,21 +253,21 @@
     <h2>選考フロー</h2>
     <ol class="rs-flow">
       <li><span><b>エントリー</b><small>ENTRY</small></span></li>
-      <li><span><b>面談・面接</b><small>CASUAL TALK / INTERVIEW</small></span></li>
+      <li><span><b>面接</b><small>INTERVIEW</small></span></li>
       <li><span><b>最終面接</b><small>FINAL INTERVIEW</small></span></li>
       <li><span><b>内定</b><small>OFFER</small></span></li>
       <li><span><b>入社</b><small>JOIN US</small></span></li>
     </ol>
-    <p class="rs-note">※選考内容や回数は、経験・応募状況等により変更となる場合があります。<br>※在職中の方については、入社時期について相談可能です。</p>
+    <p class="rs-note">※選考内容や回数は応募状況等により変更となる場合があります。</p>
   </div>
 </section>
 
 
 <section class="rs-closing" id="rs-closing">
   <div class="rs-inner">
-    <p class="rs-msg">ご応募をお待ちしています。</p>
-    <p class="rs-sub">在職中の方は、入社時期についてもご相談ください。</p>
+    <p class="rs-msg">最初から、エンジニアである必要はありません。</p>
+    <p class="rs-sub rs-prose">IT業界に入る前は、誰もが未経験です。大切なのは、今何ができるかだけではなく、これから何ができるようになりたいか。ITを学び、仕事を経験し、自分の強みをつくる。そして将来は、技術だけではなく、AIや新しいサービスにも挑戦できる人へ。<br>あなたの「やってみたい」を、仕事に変えていきませんか。</p>
     <a class="rs-btn" href="https://skym.co.jp/recruit/form">応募フォームへ<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
-</div>
+</div>[/vc_column][/vc_row]

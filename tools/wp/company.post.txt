@@ -1,4 +1,4 @@
-<div id="skym-company">
+[vc_row height="auto" columns_type="none" width="full" el_class="cp-wrap"][vc_column]<div id="skym-company">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="cp-wrap") */
 .l-section.cp-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -245,4 +245,4 @@
     </div>
   </div>
 </section>
-</div>
+</div>[/vc_column][/vc_row]

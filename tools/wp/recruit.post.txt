@@ -1,4 +1,4 @@
-<div id="skym-recruit">
+[vc_row height="auto" columns_type="none" width="full" el_class="rc-wrap"][vc_column]<div id="skym-recruit">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="rc-wrap") */
 .l-section.rc-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -188,4 +188,4 @@
     <a class="rc-btn white" href="https://skym.co.jp/recruit/form">応募フォームへ<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
-</div>
+</div>[/vc_column][/vc_row]

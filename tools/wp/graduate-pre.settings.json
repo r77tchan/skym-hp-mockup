@@ -1,0 +1,10 @@
+{
+  "data-row-class": "rs-wrap",
+  "data-page-title": "新卒・未経験採用",
+  "data-page-subtitle": "New Graduate / Entry Level",
+  "data-page-parent": "採用情報|https://skym.co.jp/recruit",
+  "data-page-titlebar": "tb-newbie.jpg",
+  "source": "graduate-pre/v01",
+  "header_classes": "layout_standard pos_fixed bg_solid",
+  "post_sha256": "73f15f5956f8bdca9402a4e33f4ae689f708eda58cafc430e6fcbe0c18c9af3a"
+}

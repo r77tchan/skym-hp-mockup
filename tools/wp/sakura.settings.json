@@ -1,0 +1,11 @@
+{
+  "data-row-class": "ss-wrap",
+  "data-base-page": "ses",
+  "data-page-title": "SAKURA＋",
+  "data-page-subtitle": "挑戦する人を応援するプロジェクト",
+  "data-page-titlebar": "tb-sakura.jpg",
+  "data-page-overlay": "0.5",
+  "source": "sakura/v01",
+  "header_classes": "layout_standard pos_fixed bg_transparent transparent",
+  "post_sha256": "d734452bea90b6b93498b4eb92ff8e846fbe9f61f632fe2f6ce3759c89eb4eb9"
+}

@@ -1,4 +1,4 @@
-<div id="skym-top">
+[vc_row height="auto" columns_type="none" width="full" el_class="tp-wrap"][vc_column]<div id="skym-top">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="tp-wrap")。
    トップはヘッダーが透過・固定で、テーマが最初の行に padding-top(50px)を付けるのでそれも外す(ヒーローの写真がヘッダーの下まで広がる) */
@@ -385,4 +385,4 @@
   </div>
 </section>
 
-</div>
+</div>[/vc_column][/vc_row]

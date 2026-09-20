@@ -16,7 +16,8 @@
      1 つにまとめる(中身が同じなので別名で二重アップロードしない)
   4. モック内リンク(../../it-solution/draft1/ 等)→ 本番 URL(https://skym.co.jp/service/it-solution)。
      本番 URL・tel:・# はそのまま
-出力の tools/wp/<page>.html が、カスタム HTML ブロックの中に貼る本文そのもの。
+tools/wp/<page>.post.txt がVC外枠込みのカスタムHTMLブロック用本文。
+--all は凍結版v01を入力にする。*.html は外枠なしの中間成果物。
 画像は manifest の upload_name で uploads へ上げてある前提(URL は先に確定させる方式)。
 """
 import hashlib
@@ -52,9 +53,13 @@ ADOPTED = [
     ("sakura", "draft9", "https://skym.co.jp/service/sakura"),
 ]
 
+# Production must be derived from the approved snapshot, never a mutable draft.
+DRAFTS = list(ADOPTED)
+ADOPTED = [(page, "v01", live) for page, _draft, live in ADOPTED]
+
 # モックの版パス → 本番 URL(draft と v01 の両方を受ける)
 MOCK2LIVE = {}
-for _pg, _dr, _live in ADOPTED:
+for _pg, _dr, _live in DRAFTS:
     MOCK2LIVE[f"{_pg}/{_dr}/"] = _live
     MOCK2LIVE[f"{_pg}/v01/"] = _live
 
@@ -156,14 +161,18 @@ def convert(page, draft, key2url):
         return mo.group(0)
 
     out = re.sub(r'(src|href|poster)="([^"]+)"', _sub_attr, out)
+    # Avoid wpautop paragraph insertion inside CSS without altering declarations.
+    out = re.sub(r'<style>(.*?)</style>',
+                 lambda m: '<style>\n' + '\n'.join(line for line in m[1].splitlines() if line.strip()) + '\n</style>',
+                 out, flags=re.S)
     assert "../" not in out, "相対パスが残っている"
     return out.strip() + "\n", settings
 
 
 def report(page, draft, live, settings, html, key2url):
     print(f"=== {page} ({draft} → {live}) ===")
-    print(f"貼り方: カスタム HTML ブロックに tools/wp/{page}.html を貼る "
-          f"([vc_row columns_type=\"none\" width=\"full\" el_class=\"{settings.get('data-row-class', '')}\"] の中)")
+    print(f"貼り方: tools/wp/{page}.post.txt をカスタム HTML ブロックに貼る "
+          "(height=auto + vc_column。vc_column_textで包まない)")
     if settings.get("data-keep-tail"):
         print(f"注意: 既存行の末尾 {settings['data-keep-tail']} 行(青いパートナー募集の帯)は消さずに残す")
     if settings.get("data-page-title"):
@@ -194,6 +203,19 @@ def main():
     for page, draft, live in targets:
         html, settings = convert(page, draft, key2url)
         (OUTDIR / f"{page}.html").write_text(html, encoding="utf-8")
+        row = settings.get("data-row-class", "")
+        # vc_column_text adds .wpb_text_column and responsive 3%/5% padding.
+        # Direct content in vc_column reproduces build-draft.py's .full-width DOM.
+        post = (f'[vc_row height="auto" columns_type="none" width="full" el_class="{row}"][vc_column]'
+                + html.rstrip() + '[/vc_column][/vc_row]\n')
+        (OUTDIR / f"{page}.post.txt").write_text(post, encoding="utf-8")
+        snapshot = pathlib.Path(page, draft, "index.html").read_text(encoding="utf-8")
+        header = re.search(r'class="l-header ([^"]+)"', snapshot)
+        settings["source"] = f"{page}/{draft}"
+        settings["header_classes"] = header[1] if header else None
+        settings["post_sha256"] = hashlib.sha256(post.encode()).hexdigest()
+        (OUTDIR / f"{page}.settings.json").write_text(
+            json.dumps(settings, ensure_ascii=False, indent=2) + '\n', encoding="utf-8")
         report(page, draft, live, settings, html, key2url)
     if args == ["--all"]:
         (OUTDIR / "manifest.json").write_text(

@@ -1,4 +1,4 @@
-<style>
+[vc_row height="auto" columns_type="none" width="full" el_class="sorajyuku-wrap"][vc_column]<style>
 /* VC 行(width="full" el_class="sorajyuku-wrap")の余白を外す */
 .l-section.sorajyuku-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
 .l-section.sorajyuku-wrap .g-cols,.l-section.sorajyuku-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
@@ -560,4 +560,4 @@
   </div>
 </section>
 
-</div>
+</div>[/vc_column][/vc_row]

@@ -1,4 +1,4 @@
-<div id="skym-svsub">
+[vc_row height="auto" columns_type="none" width="full" el_class="ss-wrap"][vc_column]<div id="skym-svsub">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
 .l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -101,10 +101,10 @@
 
 <section class="ss-lead" id="ss-lead">
   <div class="ss-inner">
-    <h2>リアルな楽しさに、<br class="ss-br-sp">ITを掛け合わせる。</h2>
-    <span class="ss-sub">Event &amp; Entertainment</span>
-    <p>人が集まる場を、自分たちで企画し、運営しています。アウトドア用品のフリーマーケット、ドローンの体験会、音楽セッション、小学生向けのプログラミング・モノづくり体験、そして年間シリーズで開催している釣りの大会。ジャンルにこだわらず、自分たちが楽しいと思えることを形にしていきます。</p>
-    <p>イベントの楽しさは、当日だけで決まりません。申し込み、受付、抽選、結果の発表、次回の案内。そのひとつひとつにITの仕組みを組み合わせることで、待ち時間を減らし、参加する人も運営する人も楽しめる場をつくっています。</p>
+    <h2>企業の当たり前を、<br class="ss-br-sp">ITで支える。</h2>
+    <span class="ss-sub">IT Solution</span>
+    <p>システムの開発から、インフラの構築・運用まで。お客様の現場で、必要なスキルを持つエンジニアが業務を支援します。</p>
+    <p>スタッフの「技術力」と「人間力」を基盤に、高いスキルの技術者集団として、お客様のシステムの構築・開発・運用をサポートします。エンジニアがお客様の現場に入って支えるシステムエンジニアリングサービス(SES)を軸に、受託でのシステム開発、インフラの設計・構築・運用まで対応しています。</p>
   </div>
 </section>
 
@@ -112,43 +112,40 @@
 <section class="ss-services" id="ss-services">
   <div class="ss-inner">
     <div class="ss-head">
-      <h2>取り組んでいること</h2>
-      <span class="ss-sub">What We Do</span>
+      <h2>提供するサービス</h2>
+      <span class="ss-sub">Services</span>
     </div>
 
     <article class="ss-row">
-      
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/event-sv1-market.jpg" alt=""></figure>
+      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/itsol-sv1-ses.jpg" alt=""></figure>
       <div>
         <span class="ss-num">01</span>
-        <h3>イベントの企画・運営</h3>
-        <span class="ss-sub">Event Planning</span>
-        <p>人が集まる場を、企画から当日の運営まで自分たちで組み立てます。アウトドア用品を持ち寄って売り買いするフリーマーケット、楽器や歌を持ち寄って一緒に演奏する音楽セッション、年間シリーズで順位を競う大会。規模や形はさまざまですが、「自分たちが参加したいと思える場か」を軸に企画しています。</p>
-        <p>いずれも、これから形にしていく企画です。</p>
+        <h3>システムエンジニアリングサービス</h3>
+        <span class="ss-sub">System Engineering Service</span>
+        <p>お客様のニーズに合ったスキルを持つエンジニアを、必要な時に、必要な場所に常駐させて、開発・運用を支援します。Java、.NET、PHP、Ruby、JavaScript などの開発言語に精通した技術者を中心に、業務系からWeb・ゲーム系まで、業界に合わせたエンジニアをご提案しています。</p>
+        <p>銀行・証券・信販・保険などの金融系をはじめとする業務系システム開発、金融・通信業界での大規模プロジェクトの要件定義から運用まで、上流工程から携わる案件も多くあります。お客様の社内PMと要件をすり合わせるPMOのご相談にも対応しています。</p>
       </div>
     </article>
 
     <article class="ss-row ss-row-rev">
-      
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/event-sv2-workshop.jpg" alt=""></figure>
+      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/itsol-sv2-dev.jpg" alt=""></figure>
       <div>
         <span class="ss-num">02</span>
-        <h3>体験する・つくるイベント</h3>
-        <span class="ss-sub">Experience &amp; Workshop</span>
-        <p>見るだけでなく、手を動かして体験する場もつくっています。ドローンの操縦や空撮を気軽に試せる体験会。小学生がプログラミングやモノづくりに触れ、自分の手で動くものをつくるワークショップ。</p>
-        <p>ITの会社として日々使っている技術を、はじめて触れる人が楽しめる形に組み替えて届けます。</p>
+        <h3>受託システム開発</h3>
+        <span class="ss-sub">Contract Development</span>
+        <p>お客様の目線に立ち、本当に必要とするシステムをオーダーメイドで開発します。システムを入れれば必ず経営や業務が改善されるわけではありません。時にはシステムを導入せず、運用を改善するだけで目的を達成することもあります。課題の整理から一緒に考え、ITを活用した効率的な改善をご提案します。</p>
+        <p>私たちは少人数で開発を行います。一人ひとりが全工程を理解して進めるからこそ、仕様の変更や調整にも、ご要望の一つひとつに柔軟に対応できます。</p>
       </div>
     </article>
 
     <article class="ss-row">
-      
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/event-sv2-smart.jpg" alt=""></figure>
+      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/itsol-sv3-infra.jpg" alt=""></figure>
       <div>
         <span class="ss-num">03</span>
-        <h3>イベントを支える仕組みづくり</h3>
-        <span class="ss-sub">Event Apps</span>
-        <p>申し込み、QRコードでの受付、組み分けの自動抽選、その場で更新されるライブスコア、リマインドや中止連絡の自動配信。自分たちのイベントで必要になった仕組みを、自分たちでアプリにしてきました。</p>
-        <p>受付の列や集計の待ち時間をなくし、運営する人が参加者と向き合える時間を増やす。そのためのイベントアプリの制作にも取り組んでいます。</p>
+        <h3>インフラ設計・構築・運用</h3>
+        <span class="ss-sub">Infrastructure</span>
+        <p>企業の基幹システム・業務システムを動かすために必要なITインフラの企画から、構築、運用管理までを一手に担当します。システムの規模や用途に応じたアーキテクチャの選定、クラウド・オンプレミスの最適な配置、BCP・セキュリティなどの非機能要件を考慮した構成を、OSSの活用などコストの適正化も含めてご提案します。</p>
+        <p>サーバー仮想化(VMware vSphere)の設計・構築、物理環境からの移行(P2V / V2V)、バックアップ環境の導入、AWSへの移行・活用支援まで。独立系ならではのベンダーニュートラルな構成でご提案できることが強みです。</p>
       </div>
     </article>
   </div>
@@ -158,16 +155,15 @@
 <section class="ss-scope" id="ss-scope">
   <div class="ss-inner">
     <div class="ss-head">
-      <h2>企画しているイベント</h2>
-      <span class="ss-sub">Events</span>
+      <h2>対応領域</h2>
+      <span class="ss-sub">Technologies</span>
     </div>
     <dl class="ss-table">
-      <div><dt>アウトドア商品フリーマーケット</dt><dd>アウトドア用品を持ち寄って売り買いする、屋外の市</dd></div>
-      <div><dt>ドローン体験イベント</dt><dd>操縦や空撮を気軽に体験できる会</dd></div>
-      <div><dt>プログラミング・モノづくり体験</dt><dd>小学生向けに、手を動かしてつくるワークショップ</dd></div>
-      <div><dt>音楽セッションイベント</dt><dd>楽器や歌を持ち寄って、一緒に演奏する場</dd></div>
-      <div><dt>釣りの大会</dt><dd>年間シリーズとして開催している競技会</dd></div>
-      <div><dt>イベントアプリ制作</dt><dd>申し込み・受付・抽選・集計・連絡までを一つにした、イベント運営のためのアプリ</dd></div>
+      <div><dt>開発言語・フレームワーク</dt><dd>Java ／ .NET ／ PHP ／ Ruby・Ruby on Rails ／ JavaScript</dd></div>
+      <div><dt>OS・サーバー</dt><dd>Linux ／ UNIX(Solaris・AIX)／ Windows Server</dd></div>
+      <div><dt>仮想化・クラウド</dt><dd>VMware vSphere ／ Amazon Web Services(AWS)</dd></div>
+      <div><dt>運用・監視</dt><dd>JP1 ／ Systemwalker ／ Tivoli ／ バックアップ・遠隔地データ保護</dd></div>
+      <div><dt>主な業務領域</dt><dd>金融(銀行・証券・信販・保険)／ 通信 ／ 製造 ／ Webサービス・ゲーム</dd></div>
     </dl>
   </div>
 </section>
@@ -180,9 +176,9 @@
       <span class="ss-sub">Our Business</span>
     </div>
     <div class="ss-tiles">
-      <a class="ss-tile" href="https://skym.co.jp/service/it-solution"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card1-ses.jpg" alt=""><span><b>IT SOLUTION</b><small>SESを軸に、受託開発とインフラ構築・運用まで。</small></span></a>
       <a class="ss-tile" href="https://skym.co.jp/service/ai-digital"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card2-ai.jpg" alt=""><span><b>AI &amp; DIGITAL</b><small>AI活用支援と、AIエージェント・ツールの開発。</small></span></a>
       <a class="ss-tile" href="https://skym.co.jp/service/ec-product"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card3-ec.jpg" alt=""><span><b>EC &amp; PRODUCT</b><small>自社オンラインストアと、オリジナル商品の企画。</small></span></a>
+      <a class="ss-tile" href="https://skym.co.jp/service/event"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card4-event.jpg" alt=""><span><b>EVENT &amp; ENTERTAINMENT</b><small>フリーマーケットや体験会などの企画・運営。</small></span></a>
       <a class="ss-tile" href="https://skym.co.jp/service/education"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card5-edu.jpg" alt=""><span><b>EDUCATION</b><small>誰でも参加できる、ITの学び場。</small></span></a>
       <a class="ss-tile" href="https://skym.co.jp/service/sakura"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card6-sakura.jpg" alt=""><span><b>SAKURA＋</b><small>挑戦する人を応援するプロジェクト。</small></span></a>
     </div>
@@ -215,4 +211,4 @@
     <a class="ss-btn" href="https://skym.co.jp/partnership">募集フォームへ</a>
   </div>
 </section>
-</div>
+</div>[/vc_column][/vc_row]

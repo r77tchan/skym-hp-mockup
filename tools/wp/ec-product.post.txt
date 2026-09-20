@@ -1,4 +1,4 @@
-<div id="skym-svsub">
+[vc_row height="auto" columns_type="none" width="full" el_class="ss-wrap"][vc_column]<div id="skym-svsub">
 <style>
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
 .l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
@@ -101,10 +101,10 @@
 
 <section class="ss-lead" id="ss-lead">
   <div class="ss-inner">
-    <h2>リアルな楽しさに、<br class="ss-br-sp">ITを掛け合わせる。</h2>
-    <span class="ss-sub">Event &amp; Entertainment</span>
-    <p>人が集まる場を、自分たちで企画し、運営しています。アウトドア用品のフリーマーケット、ドローンの体験会、音楽セッション、小学生向けのプログラミング・モノづくり体験、そして年間シリーズで開催している釣りの大会。ジャンルにこだわらず、自分たちが楽しいと思えることを形にしていきます。</p>
-    <p>イベントの楽しさは、当日だけで決まりません。申し込み、受付、抽選、結果の発表、次回の案内。そのひとつひとつにITの仕組みを組み合わせることで、待ち時間を減らし、参加する人も運営する人も楽しめる場をつくっています。</p>
+    <h2>売るだけで終わらせない。<br class="ss-br-sp">売り方からつくる。</h2>
+    <span class="ss-sub">EC &amp; Product</span>
+    <p>自社ECサイトの運営と商品企画。仕入れから販売、発信までを自分たちで手がけています。</p>
+    <p>ただ商品を仕入れて並べるだけのECサイトにはしない。「今、何が売れているか」「どんな商品が品薄か」「これから何が求められるか」を読みながら、品揃えも売り方も、自分たちで考えてつくっていきます。アパレルなどのオリジナル商品も、自分たちで企画し、デザインし、販売する。ECサイトを運営するだけではなく、新しい「売り方」そのものを仕掛けていくことが、この事業の役割です。</p>
   </div>
 </section>
 
@@ -118,59 +118,43 @@
 
     <article class="ss-row">
       
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/event-sv1-market.jpg" alt=""></figure>
+      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/ec-sv1-store.jpg" alt=""></figure>
       <div>
         <span class="ss-num">01</span>
-        <h3>イベントの企画・運営</h3>
-        <span class="ss-sub">Event Planning</span>
-        <p>人が集まる場を、企画から当日の運営まで自分たちで組み立てます。アウトドア用品を持ち寄って売り買いするフリーマーケット、楽器や歌を持ち寄って一緒に演奏する音楽セッション、年間シリーズで順位を競う大会。規模や形はさまざまですが、「自分たちが参加したいと思える場か」を軸に企画しています。</p>
-        <p>いずれも、これから形にしていく企画です。</p>
+        <h3>自社オンラインストアの運営</h3>
+        <span class="ss-sub">Online Store</span>
+        <p>自分たちで企画し、運営しているオンラインストアです。商品の選定と仕入れ、撮影と商品ページの制作、値付け、受注から発送、お客様対応、SNSでの発信まで、すべて自分たちで行っています。実店舗を持たないネット販売で、全国へお届けします。</p>
+        <p>ITの会社が運営するストアとして、売れ行きや在庫の動きを見ながら、品揃えと売り方を日々見直しています。</p>
       </div>
     </article>
 
     <article class="ss-row ss-row-rev">
       
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/event-sv2-workshop.jpg" alt=""></figure>
+      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/ec-sv2-apparel.jpg" alt=""></figure>
       <div>
         <span class="ss-num">02</span>
-        <h3>体験する・つくるイベント</h3>
-        <span class="ss-sub">Experience &amp; Workshop</span>
-        <p>見るだけでなく、手を動かして体験する場もつくっています。ドローンの操縦や空撮を気軽に試せる体験会。小学生がプログラミングやモノづくりに触れ、自分の手で動くものをつくるワークショップ。</p>
-        <p>ITの会社として日々使っている技術を、はじめて触れる人が楽しめる形に組み替えて届けます。</p>
+        <h3>オリジナル商品の企画・製作</h3>
+        <span class="ss-sub">Original Products</span>
+        <p>自社ブランドの刺繍を入れたキャップやTシャツなどのアパレルを、自分たちで企画・デザインし、製作を依頼して販売しています。小さなロットでも、「ここにしかない」商品づくりに取り組んでいます。</p>
+        <p>売れるものを仕入れるだけでなく、欲しいものを自分たちでつくる。その両方を持っていることが、このストアの特長です。</p>
       </div>
     </article>
 
     <article class="ss-row">
       
-      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/event-sv2-smart.jpg" alt=""></figure>
+      <figure><img src="https://skym.co.jp/wp20150417/wp-content/uploads/ec-sv3-connect.jpg" alt=""></figure>
       <div>
         <span class="ss-num">03</span>
-        <h3>イベントを支える仕組みづくり</h3>
-        <span class="ss-sub">Event Apps</span>
-        <p>申し込み、QRコードでの受付、組み分けの自動抽選、その場で更新されるライブスコア、リマインドや中止連絡の自動配信。自分たちのイベントで必要になった仕組みを、自分たちでアプリにしてきました。</p>
-        <p>受付の列や集計の待ち時間をなくし、運営する人が参加者と向き合える時間を増やす。そのためのイベントアプリの制作にも取り組んでいます。</p>
+        <h3>新しい売り方をつくる</h3>
+        <span class="ss-sub">New Ways to Sell</span>
+        <p>使わなくなった商品を買い取る「買取」、お客様の代わりに当店が販売する「委託販売」など、商品を売るだけにとどまらない取り組みを進めています。</p>
+        <p>チャットでの相談窓口、SNSでの発信、AIを組み込んだ提案の仕組みまで。買う人と店との距離を縮める工夫を重ねています。</p>
       </div>
     </article>
   </div>
 </section>
 
 
-<section class="ss-scope" id="ss-scope">
-  <div class="ss-inner">
-    <div class="ss-head">
-      <h2>企画しているイベント</h2>
-      <span class="ss-sub">Events</span>
-    </div>
-    <dl class="ss-table">
-      <div><dt>アウトドア商品フリーマーケット</dt><dd>アウトドア用品を持ち寄って売り買いする、屋外の市</dd></div>
-      <div><dt>ドローン体験イベント</dt><dd>操縦や空撮を気軽に体験できる会</dd></div>
-      <div><dt>プログラミング・モノづくり体験</dt><dd>小学生向けに、手を動かしてつくるワークショップ</dd></div>
-      <div><dt>音楽セッションイベント</dt><dd>楽器や歌を持ち寄って、一緒に演奏する場</dd></div>
-      <div><dt>釣りの大会</dt><dd>年間シリーズとして開催している競技会</dd></div>
-      <div><dt>イベントアプリ制作</dt><dd>申し込み・受付・抽選・集計・連絡までを一つにした、イベント運営のためのアプリ</dd></div>
-    </dl>
-  </div>
-</section>
 
 
 <section class="ss-others" id="ss-others">
@@ -182,7 +166,7 @@
     <div class="ss-tiles">
       <a class="ss-tile" href="https://skym.co.jp/service/it-solution"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card1-ses.jpg" alt=""><span><b>IT SOLUTION</b><small>SESを軸に、受託開発とインフラ構築・運用まで。</small></span></a>
       <a class="ss-tile" href="https://skym.co.jp/service/ai-digital"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card2-ai.jpg" alt=""><span><b>AI &amp; DIGITAL</b><small>AI活用支援と、AIエージェント・ツールの開発。</small></span></a>
-      <a class="ss-tile" href="https://skym.co.jp/service/ec-product"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card3-ec.jpg" alt=""><span><b>EC &amp; PRODUCT</b><small>自社オンラインストアと、オリジナル商品の企画。</small></span></a>
+      <a class="ss-tile" href="https://skym.co.jp/service/event"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card4-event.jpg" alt=""><span><b>EVENT &amp; ENTERTAINMENT</b><small>フリーマーケットや体験会などの企画・運営。</small></span></a>
       <a class="ss-tile" href="https://skym.co.jp/service/education"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card5-edu.jpg" alt=""><span><b>EDUCATION</b><small>誰でも参加できる、ITの学び場。</small></span></a>
       <a class="ss-tile" href="https://skym.co.jp/service/sakura"><img src="https://skym.co.jp/wp20150417/wp-content/uploads/top-card6-sakura.jpg" alt=""><span><b>SAKURA＋</b><small>挑戦する人を応援するプロジェクト。</small></span></a>
     </div>
@@ -215,4 +199,4 @@
     <a class="ss-btn" href="https://skym.co.jp/partnership">募集フォームへ</a>
   </div>
 </section>
-</div>
+</div>[/vc_column][/vc_row]

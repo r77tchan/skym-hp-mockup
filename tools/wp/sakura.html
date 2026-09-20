@@ -3,7 +3,6 @@
 /* VC 行側の余白・幅制限を外して全幅にする(WP では vc_row の el_class="ss-wrap") */
 .l-section.ss-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
 .l-section.ss-wrap .g-cols,.l-section.ss-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
-
 #skym-svsub{
   --blue:#02A0E9;--navy:#111827;--light:#F6F8FA;--line:#DDE3E8;--muted:#6B7280;--body:#374151;
   font-weight:400!important; /* 本文の太さ。子テーマの * {font-weight:300!important} に勝つよう !important、子孫は下の * ルールで継承 */
@@ -33,14 +32,12 @@
 #skym-svsub .ss-btn:hover{background:var(--navy);color:#fff!important}
 #skym-svsub .ss-btn svg{transition:transform .2s}
 #skym-svsub .ss-btn:hover svg{transform:translateX(3px)}
-
 /* 1 リード: タイトル帯(写真)の直下なので写真は置かず、1 カラムの文章(事業内容 draft6 と同じ) */
 #skym-svsub .ss-lead{background:#fff}
 #skym-svsub .ss-lead .ss-inner{max-width:820px}
 #skym-svsub .ss-lead .ss-sub{margin-bottom:32px}
 #skym-svsub .ss-lead p{font-size:15px!important;line-height:2!important;color:var(--body)}
 #skym-svsub .ss-br-sp{display:none}
-
 /* 2 提供するサービス: 写真 + 文章の 2 カラムを左右交互に(トップの「会社の一言」と同じ型) */
 #skym-svsub .ss-services{background:var(--light)}
 #skym-svsub .ss-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -51,7 +48,6 @@
 #skym-svsub .ss-row .ss-sub{margin:10px 0 24px}
 #skym-svsub .ss-row p{font-size:15px!important;line-height:2!important;color:var(--body)}
 #skym-svsub .ss-row .ss-btn{margin-top:22px;font-size:13px;padding:13px 24px}
-
 /* 3 対応領域: 項目名(小さくグレー)+ 値 の表(トップの会社概要・採用の募集要項と同じ型) */
 #skym-svsub .ss-scope{background:#fff}
 #skym-svsub .ss-scope .ss-inner{max-width:900px}
@@ -59,7 +55,6 @@
 #skym-svsub .ss-table > div{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line)}
 #skym-svsub .ss-table dt{font-size:13px;font-weight:500!important;letter-spacing:.08em;color:var(--muted);margin:0;padding-top:3px;line-height:1.7}
 #skym-svsub .ss-table dd{margin:0;font-size:15px;line-height:1.9;color:var(--body)}
-
 /* 4 その他の事業: 事業内容 draft6 と同じ写真タイル(小)。本番では各事業ページへリンク */
 #skym-svsub .ss-others{background:var(--light)}
 #skym-svsub .ss-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
@@ -71,7 +66,6 @@
 #skym-svsub .ss-tile small{display:block;font-size:11px;font-weight:400!important;line-height:1.5;margin-top:4px;color:rgba(255,255,255,.88)}
 #skym-svsub .ss-tile:hover img{transform:scale(1.04)}
 #skym-svsub .ss-center{text-align:center;margin-top:48px!important}
-
 /* 5 お問い合わせ: 見出し(左)+ 文章・電話・ボタン(右)(事業内容 draft6 と同じ) */
 #skym-svsub .ss-contact{background:#fff}
 #skym-svsub .ss-contact .ss-inner{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
@@ -79,7 +73,6 @@
 #skym-svsub .ss-tel{display:block;margin:22px 0 28px;font-size:14px;color:var(--muted);letter-spacing:.06em}
 #skym-svsub .ss-tel a{font-size:22px;color:var(--navy);letter-spacing:.04em;margin-left:.6em}
 #skym-svsub .ss-tel small{display:block;font-size:13px;margin-top:6px}
-
 /* 6 パートナー募集: 現行サイトの青い帯(テーマの us_cta 行)と同じ見え方。WP 実装時はテーマの行をそのまま使う */
 #skym-svsub .ss-partner{background:#00A0E9;color:#fff;padding:64px 0}
 #skym-svsub .ss-partner .ss-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
@@ -87,7 +80,6 @@
 #skym-svsub .ss-partner p{color:#fff;font-size:15px!important;line-height:1.9!important}
 #skym-svsub .ss-partner .ss-btn{flex:none;background:#F2F4F5;border-color:#F2F4F5;color:var(--navy)!important;padding:18px 32px;box-shadow:0 2px 4px rgba(0,0,0,.15)}
 #skym-svsub .ss-partner .ss-btn:hover{background:#fff;border-color:#fff}
-
 @media(max-width:900px){
   #skym-svsub section{padding:80px 0}
   #skym-svsub .ss-row{grid-template-columns:1fr;gap:28px}

@@ -1,0 +1,11 @@
+{
+  "data-row-class": "sorajyuku-wrap",
+  "data-base-page": "ses",
+  "data-page-title": "EDUCATION",
+  "data-page-subtitle": "ソラすく",
+  "data-page-titlebar": "https://skym.co.jp/wp20150417/wp-content/uploads/service-top3.jpg",
+  "data-page-overlay": "0.55",
+  "source": "education/v01",
+  "header_classes": "layout_standard pos_fixed bg_transparent transparent",
+  "post_sha256": "99452d9e7ffb70216511dbce59c5357de7053f71370a44b8a21210f5158c4dd3"
+}

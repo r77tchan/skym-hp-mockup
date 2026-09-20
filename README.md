@@ -59,9 +59,19 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 
 - ヘッダー・フッター(`l-header`, `l-footer`)はテーマが生成する部分なので触らない(WP に戻せない)。**例外: モック内リンク**(2026-09-15)— `tools/mock-links.json` に「本番 URL のパス → モックのパス」を書いておくと、`build-draft.py` が index.html を生成するときにヘッダー・フッター・パンくず・本文の該当リンクを `../../<page>/<版>/` に置き換え、ヘッダーとフッターの「事業内容」メニューを `service_menu`(6 事業)、ヘッダーの「採用情報」を `recruit_menu` に差し替える。block.html(WP に貼る本文)は本番 URL のまま。版を進めたら json を更新して、モックを持つページ(top / service / recruit / career / graduate-pre / 個別 6 件)を再 build する。登録の無いページ(会社情報・働き方・お問い合わせ等)は本番へのリンクのまま
 - 本文は `<!-- MOCK:CONTENT START -->` 〜 `<!-- MOCK:CONTENT END -->` の内側だけを編集する
-- 本文は VC で再現できる書き方に留める: 行 = `<section class="l-section ...">`、中身は既存部品の HTML(w-btn, w-iconbox, uvc-heading など)か素の HTML(`vc_column_text` に直書きする前提)
+- 本文はテーマの行と生HTMLで再現する。WP移植は下記の外枠込み生成物を使い、`vc_column_text`を追加しない(レスポンシブ余白が増えるため)。
 - 新規画像はここに置かず、本番 uploads にアップロードしてから絶対 URL で参照する(モック段階は仮画像可)
-- ブラウザ MCP の `resize_window` は効かないので、スマホ幅の確認は `preview.html` を使う
+- `preview.html`は目視の比較用。厳密な検証は通常のブラウザviewportを375/400/820/1280/1455pxに設定し、実際のinnerWidth・clientWidthも測る。縦長iframeはvhやパララックスを変えるため合否判定には使わない。
+
+## 凍結版のWP移植・品質検証
+
+- `python3 tools/build-wp.py --all`は承認済みの各`v01`を入力とする。`.post.txt`が貼り付け用本文、`.html`は中間成果物、`.settings.json`は参照版と設定、`manifest.json`は素材対応表。凍結版を再ビルド・上書きしない。
+- `.post.txt`をGutenbergの単一カスタムHTMLブロックに入れる。コードエディターでは`<!-- wp:html -->`と`<!-- /wp:html -->`で囲む。外枠は`[vc_row height="auto" columns_type="none" width="full" ...][vc_column]`。`vc_column_text`・Classicブロック・100vwの補正は使わない。
+- ヘッダーやタイトル帯も凍結`index.html`を参照して設定する。新規6事業は透明ヘッダー、事業内容トップ等は不透明。トップの`data-keep-tail="1"`は既存末尾の青帯を保全する指定で、生成物だけで全本文を上書きしない。
+- 保存後の公開URLで画像読込・書体・DOM寸法・画素差・メニュー・スクロール・リンクを検証する。プレビューだけでは独自メタボックスの変更が反映されない場合がある。
+- `tools/qa-v01.js`はPlaywrightの`page`を受け取る関数。第2引数で`pageId` / `livePath` / `root` / `outputDir`を指定できる。出力先は事前に作成し、親リポジトリのgit管理外`backup/quality-40/after/`等を指定する。関数は独立した非ログインcontextを作り、5幅のPNGと`{result,raw}`を返す。動画・アニメーションは比較用context内だけで停止するため、実再生も別途検証する。
+- ページごとの戻り値を`{ "it-solution": {...}, ... }`形式の`final-metrics.json`に保存すると、`python3 tools/compare-v01.py <outputDir>`で画素差を集計できる(Pillow使用)。これはフッター前までの画像比較であり、フッターは別途検証する。許容差の閾値だけで合格にせず、差の箇所・描画条件を調べる。全ページ撮影の端数ピクセル差は同一スクロール位置のviewport撮影でも確認する。
+- 本番の現在地・旧URLの転送・メニュー変更の根拠は親リポジトリの作業記録40を参照。管理画面の情報・認証情報・バックアップをこの公開リポジトリに置かない。
 
 ## ファイルの由来(top。service / recruit も同じ加工を tools/make-current.py で実施)
 

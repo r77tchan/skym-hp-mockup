@@ -1,4 +1,4 @@
-<div id="skym-ai2">
+[vc_row height="auto" columns_type="none" width="full" el_class="ai2-wrap"][vc_column]<div id="skym-ai2">
 <style>
 .l-section.ai2-wrap .l-section-h{max-width:none!important;padding:0!important;margin:0!important}
 .l-section.ai2-wrap .g-cols,.l-section.ai2-wrap .full-width{margin:0!important;padding:0!important;width:100%!important}
@@ -128,4 +128,4 @@
 
 <section class="ai2-cta"><div class="ai2-inner ai2-ctagrid"><div><h3>AIとともに、次の一歩を。</h3><p>まだ具体的でない段階から、一緒に整理します。</p></div><a class="ai2-btn" href="https://skym.co.jp/contact">お問い合わせ　→</a></div></section>
 <section class="ai2-partner"><div class="ai2-inner"><div><h3>パートナー募集</h3><p>SES事業において御協業いただける企業様を募集しております。</p></div><a class="ai2-btn" href="https://skym.co.jp/partnership">募集フォームへ</a></div></section>
-</div>
+</div>[/vc_column][/vc_row]
