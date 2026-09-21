@@ -1,91 +1,111 @@
-# skym-hp-mockup — サイト改修の検討用モック
+# skym-hp-mockup
 
-株式会社スカイム コーポレートサイト(skym.co.jp)の改修案を、WP に反映する前に HTML で検討するためのモック置き場。
-`skym-hp-wp` リポジトリの `mockup/` に置く**独立した git リポジトリ**(親からは `.gitignore` で無視される)。経緯・決定事項は `skym-hp-wp/doc/作業記録/`(15: トップページ改修、18: この公開環境の構築)にある。
+skym.co.jpの改修案をWordPressへ反映する前に検討するためのモック。
+親のskym-hp-wpとは独立したgitリポジトリです。
 
-- 公開 URL: **https://r77tchan.github.io/skym-hp-mockup/** (GitHub Pages、`main` ブランチのルートを配信。push すると約 1 分で反映)
-- リポジトリ: https://github.com/r77tchan/skym-hp-mockup
-- **URL を知る人は誰でも見られる**(GitHub Pages はアクセス制限不可)。機密情報・未公開の社内情報は置かない。検索避けとして全ページに `noindex` メタ、`robots.txt` で全拒否
+- 公開一覧：https://r77tchan.github.io/skym-hp-mockup/
+- GitHub：r77tchan/skym-hp-mockup
+- mainへのpushでGitHub Pagesへ公開。反映完了は実際のページで確認する。
+- 公開物のため機密情報・管理画面情報・バックアップを置かない。noindex／robots.txtはアクセス制限ではない。
 
-## 構成と URL
+## 版の意味
 
-```
-/                         index.html   一覧(ページ × 版の表。versions.js から生成)
-/preview.html                          幅指定・並列比較(?a=top/v01/&b=top/current/&w=390)
-/versions.js                           一覧データ(ページ・版・メモ)。凍結時にここへ 1 行足す
-/assets/                               Web フォントと、それを宣言する CSS のミラー(全ページ・全版で共有)
-/top/current/             index.html   トップページの現状再現(凍結。触らない)
-/top/draft1/, /top/draft2/ … index.html 検討中の案(案ごとに番号。編集するのはここだけ)
-/top/v01/, /top/v02/ …    index.html   節目で draftN を凍結したコピー(以後変更しない。共有用の固定 URL)
-/top/source/                           参照用の原本(公開ページの無加工スナップショット、WP 本文の VC ショートコード全文)
-/<page>/…                              別ページも同じ型(current / draftN / vNN / source)
-/<page>/lab/                           部品や見え方の試作(版ではない。比較用の単体ページ。例: recruit/lab/cards.html = 事業カードの 4 スタイル比較)
-```
+| パス | 意味 | 編集 |
+|---|---|---|
+| <page>/current/ | 初回取得当時の現状再現。名前に反して最新本番ではない | 不可 |
+| <page>/draftN/ | 検討・修正中の案 | 可 |
+| <page>/vNN/ | 承認や共有の節目で固定した版 | 不可 |
+| <page>/source/ | 取得時点の原本・参照資料 | 原本を上書きしない |
+| <page>/lab/ | 部品等の試作 | 可 |
+| assets/ | モック用フォント等の共有資産 | 凍結版への影響を確認 |
 
-「このページのこの版」= `https://r77tchan.github.io/skym-hp-mockup/<page>/<版>/` で直接開ける。
+- 新しい案・別基準から作る場合は、そのページの次の空きdraft番号を使う。同じ案の手直しは同じdraftでよい。
+- 凍結するときは承認済みdraftを未使用のvNNへコピーし、versions.jsに元版・日付・説明を登録する。既存vNNの再生成・上書きは禁止。
+- 2026-09-21時点：作業40の12ページはv01を元に本番反映・ユーザー表示確認済み。v01は移植元であって、導線整理後の本番と完全同一ではない。
+- 本番に合わせた新draft→v02は今後の提案であり、未作成・実施GO待ち。既存currentを最新本番に差し替えない。
+- 凍結版にも本番CSS/JS/画像や共有assetsへの参照がある。フォルダの凍結は、依存先を含む完全アーカイブを意味しない。
 
-## 版のルール
+## 表示する
 
-- `current/` と `vNN/` は**凍結**(変更しない)。編集するのは `draftN/` だけ。番号は「案」の単位(案 1 = `draft1`、別方向の案 2 = `draft2`)。同じ案の手直しは同じディレクトリで上書きする(履歴は git)
-- 共有用に固定 URL が欲しいとき(節目)は凍結する: `cp -r top/draft1 top/v01` → `versions.js` の該当ページに `{ id: 'v01', date: '…', note: 'draft1 の YYYY-MM-DD 時点' }` を足す → commit → push
-- 案を作るとき(生 HTML + 独自 CSS 方式): `<page>/draftN/block.html` に **WP に貼る本文そのもの**(`<style>` + HTML。ルート要素に `data-row-class="…"` で VC 行に付けるクラスを書く)を書き、`python3 tools/build-draft.py <page> draftN` で current の骨格(ヘッダー/フッター)に差し込んだ `index.html` を生成する。current を直接コピーして本文だけ書き換えてもよい
-- `versions.js` に `{ id: 'draft1', date: '', note: '案1: 何を狙った案か' }` を足す
-- WP 側でページタイトルを変える予定の案は、block.html のルート要素に `data-page-title="新卒・未経験採用" data-page-subtitle="New Graduate / Entry Level"` を書くと、build-draft.py がテーマ生成のタイトル帯(h1・サブタイトル・パンくず末尾)と `<title>` の該当語を差し替える。`data-page-parent="採用情報|https://skym.co.jp/recruit"` でパンくずに親階層を挿入(WP で親ページを付ける予定の表示合わせ。例: graduate-pre/draft2)。ヘッダー・フッターは触らないルールの唯一の例外
-- **WP にまだ無い新規ページ**のモックは、ルート要素に `data-base-page="ses"` を書くと自ページの current ではなく `ses/current/index.html` を骨格に使う(例: 事業内容の個別ページ `it-solution/draft1` は既存サブページ /service/ses の骨格 = タイトル帯 + パンくず「ホーム › 事業内容 › …」を借り、`data-page-title` / `data-page-subtitle` で題名を差し替える。`data-page-overlay="0.55"` でタイトル帯の黒オーバーレイの不透明度も変えられる)。借りる側の current は先に `tools/make-current.py` で作る。versions.js にはその新規ページを `versions: [draft1 …]`(current なし)、`live` は予定 URL で登録する
-- 同じくルート要素に `data-page-titlebar="tb-newbie.jpg"` を書くと、テーマ生成のタイトル帯の背景画像を差し替える(WP ではページ編集画面の Zephyr タイトル帯設定で変える想定。URL は index.html からの相対でも絶対でも可)。`data-keep-tail="1"` を書くと、current の本文の末尾 1 行(`<section class="l-section …`。例: トップの青いパートナー募集の帯 = テーマの us_cta 行)をそのまま後ろに残す(WP では既存の行を消さず、その上の行だけ差し替える想定)
-- **サイト全体の書体は `tools/site.json` の `font`**(2026-09-15 ユーザー決定: Google Fonts の Zen Kaku Gothic New)。`build-draft.py` が index.html の head 末尾(子テーマ style.css の後)に Google Fonts の `<link>` と、子テーマと同じ形の `* { font-family: <書体>, 'mdfonticon', -apple-system, … !important }` を差し込む = 本番で子テーマ style.css の `*` ルールの font-family を書き換えたときの見え方。**block.html にはページ個別のフォントの `<link>` を置かない**(以前の Noto Sans JP の `<link>` は外した)。太さ: 子テーマの `* { font-weight: 300 !important }` は残す(既存ページは変えない)ので、ドラフトはルートに `font-weight:400!important`、直下に `#<id> *{font-weight:inherit!important}` を置いて本文 400 を継承させ、個別の太さはすべて `!important` 付きで書く(付け忘れると 300 に潰れる)
-- 見た目の型は `top/draft3` が基準(細い書体・1 色の見出し + 英字の副題・写真タイル・細い枠線のボタン・テーマの青い帯。詳細は skym-hp-wp/AGENTS.md「現在の決定事項」)。新しい案はこの型に合わせる → **2026-09-17 以降は合わせなくてよい**(ユーザー決定: ページごとにデザインを揃えない。良いと思ったデザインを採用する。例: `ai-digital/draft3`)
-- 複数ページで同じ `<style>` を使うとき(採用の個別ページ `career` / `graduate-pre` / `newbie` の `#skym-rsub`)は、CSS を 1 つの block.html(`career/draft1`)で直し、`python3 tools/sync-style.py career/draft1 graduate-pre/draft1 …` で他ページに配ってから各ページを build-draft.py で再生成する
-- 写真がまだ無い場所は `.rc-ph` のような**撮影指示付きプレースホルダー**(ラベルに被写体と比率)を置き、写真が来たら `<img>` に置き換える
-- 何を変えた版かの詳細は `skym-hp-wp/doc/作業記録/` に書く(versions.js の note は一行の要約)
+以下は親skym-hp-wpのルートで実行する。
 
-## 表示方法
-
-ローカル(`skym-hp-wp` のルートで実行):
-
-```
+```sh
+curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8765/
 python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 ```
 
-- 一覧: http://127.0.0.1:8765/
-- 現状: http://127.0.0.1:8765/top/current/
-- 幅指定・比較: http://127.0.0.1:8765/preview.html?a=top/draft1/&b=top/current/&w=390 (ヘッダーで幅・表示を切替。`b` には URL も指定可)
-- 全景(スマホ幅の縦長スクロール確認): `preview.html?a=recruit/draft1/&w=390&h=7200`(`h` = iframe の高さ px。ページ側をスクロールして見る。ブラウザ MCP は iframe 内をスクロールできないため)
-- 書体の差し替え: `preview.html?a=top/draft10/&w=1280&f=zen-new`(`f` = `zen-new` / `zen-antique` / `noto`、省略 = 現状。`b` 側は `fb`)。同一オリジンの iframe の head 末尾に Google Fonts の `<link>` と `* { font-family: … !important }` を足すだけなので、どの版・current にも効く(本物の URL には効かない)。サイト全体の書体を変えたときの見え方の確認用(2026-09-15)
+最初の確認で200なら、既存サーバーを使い二重起動しない。起動が必要な場合だけ2行目を実行する。
 
-公開側も同じパス(`https://r77tchan.github.io/skym-hp-mockup/` 以下)。
+- 一覧：http://127.0.0.1:8765/
+- 版の直リンク：/<page>/<版>/
+- 並列比較：/preview.html?a=top/v01/&b=top/current/&w=390
+- previewの縦長iframeは目視補助。vhやパララックスの条件が変わるため、厳密な比較には通常のviewportを使う。
+- versions.jsが一覧の表示データ。本文や設定の正本ではない。
 
-## 編集ルール(モック → WP に戻せる書き方に限る)
+## draftを作る
 
-- ヘッダー・フッター(`l-header`, `l-footer`)はテーマが生成する部分なので触らない(WP に戻せない)。**例外: モック内リンク**(2026-09-15)— `tools/mock-links.json` に「本番 URL のパス → モックのパス」を書いておくと、`build-draft.py` が index.html を生成するときにヘッダー・フッター・パンくず・本文の該当リンクを `../../<page>/<版>/` に置き換え、ヘッダーとフッターの「事業内容」メニューを `service_menu`(6 事業)、ヘッダーの「採用情報」を `recruit_menu` に差し替える。block.html(WP に貼る本文)は本番 URL のまま。版を進めたら json を更新して、モックを持つページ(top / service / recruit / career / graduate-pre / 個別 6 件)を再 build する。登録の無いページ(会社情報・働き方・お問い合わせ等)は本番へのリンクのまま
-- 本文は `<!-- MOCK:CONTENT START -->` 〜 `<!-- MOCK:CONTENT END -->` の内側だけを編集する
-- 本文はテーマの行と生HTMLで再現する。WP移植は下記の外枠込み生成物を使い、`vc_column_text`を追加しない(レスポンシブ余白が増えるため)。
-- 新規画像はここに置かず、本番 uploads にアップロードしてから絶対 URL で参照する(モック段階は仮画像可)
-- `preview.html`は目視の比較用。厳密な検証は通常のブラウザviewportを375/400/820/1280/1455pxに設定し、実際のinnerWidth・clientWidthも測る。縦長iframeはvhやパララックスを変えるため合否判定には使わない。
+以下の生成コマンドはmockup/で実行する。実行前に出力先が編集対象draftであることを確認する。
 
-## 凍結版のWP移植・品質検証
+1. <page>/draftN/block.htmlに本文のstyleとルートHTMLを置く。
+2. ルートのdata属性で外枠・タイトル帯等を指定する。
+3. `python3 tools/build-draft.py <page> draftN`でindex.htmlを生成する。
+4. 画像・書体・PC/SP・リンクを確認し、versions.jsへ版と説明を登録する。
+5. 対象ファイルだけコミット・pushし、公開結果を確認する。
 
-- `python3 tools/build-wp.py --all`は承認済みの各`v01`を入力とする。`.post.txt`が貼り付け用本文、`.html`は中間成果物、`.settings.json`は参照版と設定、`manifest.json`は素材対応表。凍結版を再ビルド・上書きしない。
-- `.post.txt`をGutenbergの単一カスタムHTMLブロックに入れる。コードエディターでは`<!-- wp:html -->`と`<!-- /wp:html -->`で囲む。外枠は`[vc_row height="auto" columns_type="none" width="full" ...][vc_column]`。`vc_column_text`・Classicブロック・100vwの補正は使わない。
-- ヘッダーやタイトル帯も凍結`index.html`を参照して設定する。新規6事業は透明ヘッダー、事業内容トップ等は不透明。トップの`data-keep-tail="1"`は既存末尾の青帯を保全する指定で、生成物だけで全本文を上書きしない。
-- 保存後の公開URLで画像読込・書体・DOM寸法・画素差・メニュー・スクロール・リンクを検証する。プレビューだけでは独自メタボックスの変更が反映されない場合がある。
-- `tools/qa-v01.js`はPlaywrightの`page`を受け取る関数。第2引数で`pageId` / `livePath` / `root` / `outputDir`を指定できる。出力先は事前に作成し、親リポジトリのgit管理外`backup/quality-40/after/`等を指定する。関数は独立した非ログインcontextを作り、5幅のPNGと`{result,raw}`を返す。動画・アニメーションは比較用context内だけで停止するため、実再生も別途検証する。
-- ページごとの戻り値を`{ "it-solution": {...}, ... }`形式の`final-metrics.json`に保存すると、`python3 tools/compare-v01.py <outputDir>`で画素差を集計できる(Pillow使用)。これはフッター前までの画像比較であり、フッターは別途検証する。許容差の閾値だけで合格にせず、差の箇所・描画条件を調べる。全ページ撮影の端数ピクセル差は同一スクロール位置のviewport撮影でも確認する。
-- 本番の現在地・旧URLの転送・メニュー変更の根拠は親リポジトリの作業記録40を参照。管理画面の情報・認証情報・バックアップをこの公開リポジトリに置かない。
-
-## ファイルの由来(top。service / recruit も同じ加工を tools/make-current.py で実施)
-
-| ファイル | 内容 |
+| 属性 | 用途 |
 |---|---|
-| `top/source/live-2026-09-01.html` | 公開トップページ https://skym.co.jp/ の無加工スナップショット(curl、非ログイン) |
-| `top/current/index.html` | 上記を元にした現状再現版。CSS/JS/画像は本番を参照(要ネット接続)。計測タグ除去・相対パス絶対化・フォント CSS 4 本を `../../assets/` に変更・`noindex` 追加・`MOCK:CONTENT START/END` マーカー挿入 |
-| `assets/` | Web フォント(mdfonticon / FontAwesome / ult-silk / smile_fonts)と、それを宣言する CSS 4 本のミラー。**CORS 制約で別オリジンのフォントは読めないため**ローカルに置く。パス構造は本番と同じ |
-| `top/source/home-6155-raw.txt` | WP 固定ページ「ホーム」(ID 6155)の本文 = VC ショートコード全文(5778 文字、チェックサム 930333684)。ロールバック・書き戻しの参照用 |
+| data-row-class | VC行のクラス |
+| data-base-page | 別ページのcurrentを骨格として使用 |
+| data-page-title / data-page-subtitle | タイトル・副題 |
+| data-page-parent | パンくずの親。例：採用情報\|https://skym.co.jp/recruit |
+| data-page-titlebar | タイトル帯画像 |
+| data-page-overlay | オーバーレイ不透明度 |
+| data-keep-tail | 元本文末尾の行を保持。トップは1 |
 
-## 別ページを追加するとき
+現在のbuild-draft.pyは過去のcurrentを骨格として使うため、生成しただけで最新本番のヘッダー・フッターになるわけではない。
+今後の本番対応版では生成方法も検討する。index.htmlだけを手修正して再生成で失う運用は避ける。
 
-1. `python3 tools/make-current.py <page> <url> <WP のページ ID>`(例: `python3 tools/make-current.py service https://skym.co.jp/service 6170`)。無加工スナップショットを `<page>/source/live-YYYY-MM-DD.html` に取得し、`<page>/current/index.html` を生成する。加工内容: 計測・広告タグ除去 / 相対パスを絶対 URL 化 / フォント CSS 4 本を `../../assets/...` に差し替え / `noindex` メタ / title に `[snapshot]` / 本文の前後に `MOCK:CONTENT START/END` マーカー。件数が想定と違うと assert で止まる(テーマ側の構造が変わったときは手で確認)
-2. `versions.js` の `pages` にページ(id・name・live・versions: current)を足す
-3. ローカルで表示確認(`preview.html?a=<page>/current/&b=<本物の URL>&w=390`)→ commit → push
+## リンク・書体・素材
 
-作成済み: `top`(2026-09-01、手作業。上の加工を先に手で行ったもの)/ `service`(事業内容、ID 6170、2026-09-04)/ `recruit`(採用情報、ID 6177、2026-09-04)/ `career`(中途採用、ID 7807)・`newbie`(未経験採用、ID 8464)・`graduate-pre`(新卒採用、ID 8577)(いずれも 2026-09-07)/ `ses`(システムエンジニアリングサービス、ID 6181、2026-09-14。事業内容の個別ページ `it-solution` 等の骨格用)。URL は末尾スラッシュ無し(`/service/` は `/service` へ 301)
+- tools/mock-links.jsonが、本番URLからモック版へのリンク対応とメニュー生成を管理する。変更の影響先を確認し、既存凍結版を再ビルドしない。
+- tools/site.jsonのfontをbuild-draft.pyが反映する。現在はZen Kaku Gothic New。block.htmlに重複したフォント読込を追加しない。
+- 子テーマのfont-weight:300!importantの影響があるため、承認版の継承・個別ウェイト指定を保持する。
+- ページ間のデザイン統一は必須ではない。古いtop/draft3等の型を新しい案へ強制しない。
+- モック素材は版から参照できる場所に置き、本番用には承認後にWPメディアへ登録する。相対参照先も凍結時に確認する。
+- tools/sync-style.pyは複数draftのCSS同期用。凍結版へ適用しない。
+- tools/make-current.pyは未作成ページの初回スナップショット用。既存currentを更新するコマンドとして使わない。取得データの公開可否も確認する。
+
+## WP向け生成
+
+```sh
+python3 tools/build-wp.py --all
+```
+
+現在の--allは12ページのv01を入力とする。自動で「最新draft」や「本番対応版」を選ばない。
+新しい入力版への切替は別途承認とツール確認が必要。
+
+| 出力 | 用途 |
+|---|---|
+| tools/wp/<page>.post.txt | VC外枠込みの貼り付け用本文 |
+| tools/wp/<page>.html | 外枠なしの中間成果物 |
+| tools/wp/<page>.settings.json | 元版・ヘッダー等の設定・生成本文ハッシュ |
+| tools/wp/manifest.json | 素材対応表 |
+
+.post.txtは単一カスタムHTMLブロックで保存する。
+外枠は `[vc_row height="auto" columns_type="none" width="full" ...][vc_column]`。
+vc_column_textを追加するとテーマのSP余白が増えるため使わない。
+トップのdata-keep-tail="1"は既存青帯の保全指定であり、生成本文だけで全体を置換しない。
+WP上のページ設定・メニュー・転送は生成本文とは別に保存・確認する。
+
+## 視覚検証
+
+- 同じOS・ブラウザ・viewport・DPR・スクロール位置・読込状態で比較する。
+- 基本幅は375/400/820/1280/1455px。innerWidthとclientWidthを測り、スクロールバーも条件に含める。
+- tools/qa-v01.jsはPlaywrightのpageを受け取る関数。第2引数はpageId／livePath／root／outputDir。出力先を事前作成する。
+- 独立した非ログインcontextで5幅のPNGを保存し、{result,raw}を返す。動画・アニメーション停止はその検証context内だけ。実再生は別途確認する。
+- ページ別の返り値を `{"it-solution": {...}, ...}` 形式のfinal-metrics.jsonに保存する。
+- `python3 tools/compare-v01.py <outputDir>`で画素差を集計する（Pillow使用）。比較はフッター前までで、フッターは別途検証する。
+- 閾値だけで合格とせず、差の場所・寸法・スタイル・描画条件を確認する。全景撮影の端数差は同じスクロール位置のviewport撮影でも調べる。
+- 検証画像・JSONは親のgit管理外backup/等へ置き、公開リポジトリに混ぜない。
+
+本番の承認範囲・現状・復旧資料は、親リポジトリのサイト情報・反映手順・作業記録40を参照する。
