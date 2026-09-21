@@ -1,0 +1,15 @@
+{
+  "data-row-class": "ss-wrap",
+  "data-base-page": "ses",
+  "data-page-title": "EC &amp; PRODUCT",
+  "data-page-subtitle": "自社ECサイト運営・商品企画",
+  "data-page-titlebar": "https://skym.co.jp/wp20150417/wp-content/uploads/shutterstock_316593017.jpg",
+  "data-page-overlay": "0.55",
+  "source": "public-live",
+  "header_classes": "layout_standard pos_fixed bg_transparent transparent",
+  "captured_at": "2026-09-21T02:21:24.100930+00:00",
+  "live_url": "https://skym.co.jp/service/ec-product",
+  "raw_sha256": "dd9153661a4627511b2bbd964285cfedcdb8783968ca7cdd7f80d52a2359b330",
+  "builder": "tools/live-baseline.py",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}

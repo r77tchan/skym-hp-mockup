@@ -1,0 +1,15 @@
+{
+  "data-row-class": "ss-wrap",
+  "data-base-page": "ses",
+  "data-page-title": "IT SOLUTION",
+  "data-page-subtitle": "システム開発・インフラ運用支援",
+  "data-page-titlebar": "https://skym.co.jp/wp20150417/wp-content/uploads/ses-e1433056571651.jpg",
+  "data-page-overlay": "0.55",
+  "source": "public-live",
+  "header_classes": "layout_standard pos_fixed bg_transparent transparent",
+  "captured_at": "2026-09-21T02:21:24.100930+00:00",
+  "live_url": "https://skym.co.jp/service/it-solution",
+  "raw_sha256": "9509beef27554da696fd6f6b0ae7b3447e481597196df9625e8e9bb2a5623acf",
+  "builder": "tools/live-baseline.py",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}

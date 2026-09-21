@@ -1,0 +1,15 @@
+{
+  "data-row-class": "ss-wrap",
+  "data-base-page": "ses",
+  "data-page-title": "SAKURA＋",
+  "data-page-subtitle": "挑戦する人を応援するプロジェクト",
+  "data-page-titlebar": "tb-sakura.jpg",
+  "data-page-overlay": "0.5",
+  "source": "public-live",
+  "header_classes": "layout_standard pos_fixed bg_transparent transparent",
+  "captured_at": "2026-09-21T02:21:24.100930+00:00",
+  "live_url": "https://skym.co.jp/service/sakura",
+  "raw_sha256": "0cb41fc56a6f4ee1ea72f3df0470a6d81225b648ee2304fd49f0c425c73022c2",
+  "builder": "tools/live-baseline.py",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}

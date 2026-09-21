@@ -1,0 +1,15 @@
+{
+  "data-row-class": "sorajyuku-wrap",
+  "data-base-page": "ses",
+  "data-page-title": "EDUCATION",
+  "data-page-subtitle": "ソラすく",
+  "data-page-titlebar": "https://skym.co.jp/wp20150417/wp-content/uploads/service-top3.jpg",
+  "data-page-overlay": "0.55",
+  "source": "public-live",
+  "header_classes": "layout_standard pos_fixed bg_transparent transparent",
+  "captured_at": "2026-09-21T02:21:24.100930+00:00",
+  "live_url": "https://skym.co.jp/service/education",
+  "raw_sha256": "3be7443a196a2b4df6bcde0009375ce1ca1eaa766bd2d1a432f79b43c047ed86",
+  "builder": "tools/live-baseline.py",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}

@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-21",
+  "pages": {
+    "top": {"path": "/", "root": "skym-top", "draft": "draft21"},
+    "company": {"path": "/company", "root": "skym-company", "draft": "draft5"},
+    "service": {"path": "/service", "root": "skym-service", "draft": "draft8"},
+    "it-solution": {"path": "/service/it-solution", "root": "skym-svsub", "draft": "draft2"},
+    "ai-digital": {"path": "/service/ai-digital", "root": "skym-ai2", "draft": "draft4"},
+    "ec-product": {"path": "/service/ec-product", "root": "skym-svsub", "draft": "draft3"},
+    "event": {"path": "/service/event", "root": "skym-svsub", "draft": "draft3"},
+    "education": {"path": "/service/education", "root": "skym-sorajyuku", "draft": "draft5"},
+    "sakura": {"path": "/service/sakura", "root": "skym-svsub", "draft": "draft10"},
+    "recruit": {"path": "/recruit", "root": "skym-recruit", "draft": "draft10"},
+    "career": {"path": "/recruit/career", "root": "skym-rsub", "draft": "draft6"},
+    "graduate-pre": {"path": "/recruit/newbie", "root": "skym-rsub", "draft": "draft6"}
+  }
+}

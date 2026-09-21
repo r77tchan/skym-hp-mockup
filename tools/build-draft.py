@@ -10,6 +10,8 @@ block.html のルートに data-base-page="ses" があれば、自ページの c
 """
 import json, pathlib, re, sys
 page, draft = sys.argv[1], sys.argv[2]
+assert re.fullmatch(r'draft[1-9][0-9]*', draft), 'current/vNN are frozen; choose a draft'
+assert not pathlib.Path(page, draft, 'base.html').exists(), 'Live-based draft: use tools/live-baseline.py build <page> <draft>'
 block = pathlib.Path(page, draft, 'block.html').read_text(encoding='utf-8')
 base = re.search(r'data-base-page="([^"]+)"', block)
 base_page = base.group(1) if base else page

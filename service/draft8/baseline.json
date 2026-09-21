@@ -1,0 +1,10 @@
+{
+  "data-row-class": "sv-wrap",
+  "source": "public-live",
+  "header_classes": "layout_standard pos_fixed bg_solid",
+  "captured_at": "2026-09-21T02:21:24.100930+00:00",
+  "live_url": "https://skym.co.jp/service",
+  "raw_sha256": "302950d98d4e3ba3ac57b94a05c85bd931cc8e0e69f598b62db2d03ba63b8abb",
+  "builder": "tools/live-baseline.py",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}

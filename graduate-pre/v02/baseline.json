@@ -1,0 +1,14 @@
+{
+  "data-row-class": "rs-wrap",
+  "data-page-title": "新卒・未経験採用",
+  "data-page-subtitle": "New Graduate / Entry Level",
+  "data-page-parent": "採用情報|https://skym.co.jp/recruit",
+  "data-page-titlebar": "tb-newbie.jpg",
+  "source": "public-live",
+  "header_classes": "layout_standard pos_fixed bg_solid",
+  "captured_at": "2026-09-21T02:21:24.100930+00:00",
+  "live_url": "https://skym.co.jp/recruit/newbie",
+  "raw_sha256": "037b8c16e53d526fc3715eb21346988beb375c062f0fd185c8c0a714654027fb",
+  "builder": "tools/live-baseline.py",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}

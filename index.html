@@ -40,16 +40,18 @@
       <h2>${esc(page.name)} <small>${esc(page.id)}/ ・ 本物: <a href="${esc(page.live)}" target="_blank" rel="noopener">${esc(page.live)}</a></small></h2>
       <table>
         <tr><th>版</th><th>日付</th><th>メモ</th><th>表示</th></tr>
-        ${page.versions.map(v => `
+        ${page.versions.slice().reverse().map(v => `
           <tr>
-            <td class="id"><a href="${page.id}/${v.id}/">${esc(v.id)}</a>${v.id.startsWith('draft') ? '<span class="tag draft">検討中</span>' : v.id==='current' ? '<span class="tag">現状</span>' : ''}</td>
+            <td class="id"><a href="${page.id}/${v.id}/">${esc(v.id)}</a>${v.id.startsWith('draft') ? '<span class="tag draft">編集用</span>' : v.id==='current' ? '<span class="tag">取得当時</span>' : v.id==='v02' ? '<span class="tag">本番対応基準</span>' : ''}</td>
             <td class="date">${esc(v.date || '')}</td>
             <td>${esc(v.note || '')}</td>
             <td class="links">
               <a href="${page.id}/${v.id}/">単体</a>
               <a href="${cmp(page, v, 390, '')}">390</a>
               <a href="${cmp(page, v, 1280, '')}">1280</a>
-              ${v.id!=='current' ? `<a href="${cmp(page, v, 390, page.id+'/current/')}">現状と比較 390</a><a href="${cmp(page, v, 1280, page.id+'/current/')}">1280</a>` : `<a href="${cmp(page, v, 390, page.live)}">本物と比較 390</a>`}
+              ${v.id!=='current' && page.versions.some(x => x.id==='current') ? `<a href="${cmp(page, v, 390, page.id+'/current/')}">旧本番と比較 390</a>` : ''}
+              ${v.id==='v02' ? `<a href="${cmp(page, v, 390, page.id+'/v01/')}">v01と比較 390</a>` : ''}
+              <a href="${cmp(page, v, 390, page.live)}">本番と比較 390</a>
             </td>
           </tr>`).join('')}
       </table>
