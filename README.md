@@ -14,7 +14,7 @@ skym.co.jpの改修案をWordPressへ反映する前に検討するためのモ�
 |---|---|---|
 | <page>/current/ | 初回取得当時の現状再現。名前に反して最新本番ではない | 不可 |
 | <page>/draftN/ | 検討・修正中の案 | 可 |
-| <page>/vNN/ | 承認や共有の節目で固定した版 | 不可 |
+| <page>/vNN/ | ユーザーが承認した案を反映前に固定した版。v02は例外的に作業42当時の本番の写し | 不可 |
 | <page>/source/ | 取得時点の原本・参照資料 | 原本を上書きしない |
 | <page>/lab/ | 部品等の試作 | 可 |
 | assets/ | モック用フォント等の共有資産 | 凍結版への影響を確認 |
@@ -22,7 +22,8 @@ skym.co.jpの改修案をWordPressへ反映する前に検討するためのモ�
 - 新しい案・別基準から作る場合は、そのページの次の空きdraft番号を使う。同じ案の手直しは同じdraftでよい。
 - 凍結するときは承認済みdraftを未使用のvNNへコピーし、versions.jsに元版・日付・説明を登録する。既存vNNの再生成・上書きは禁止。
 - 2026-09-21時点：作業40の12ページはv01を元に本番反映・ユーザー表示確認済み。v01は移植元であって、導線整理後の本番と完全同一ではない。
-- 2026-09-21の本番を基に12ページの新draftとv02を作成済み（作業42）。現行メニュー・フッター・現在ページ選択色を反映。既存current/v01は変更していない。
+- 2026-09-21の本番を基に12ページの新draftとv02を作成済み（作業42）。当時のメニュー・フッター・現在ページ選択色を反映。既存current/v01は変更していない。
+- 2026-09-24（作業45）：正は現在の本番。v02は当時の参考として残し、比較・修正の基準にしない。本番の写しとしての版は今後作らず、本番の記録は親の非公開backupへ保存する。
 - 凍結版にも本番CSS/JS/画像や共有assetsへの参照がある。フォルダの凍結は、依存先を含む完全アーカイブを意味しない。
 
 ## 表示する
@@ -67,7 +68,9 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 
 ## 現行本番対応の新形式（作業42）
 
-対応：top/draft21、company/draft5、service/draft8、it-solution/draft2、ai-digital/draft4、ec-product/draft3、event/draft3、education/draft5、sakura/draft10、recruit/draft10、career/draft6、graduate-pre/draft6。各ページのv02はこれらの凍結版。
+作業42の初期draft：top/draft21、company/draft5、service/draft8、it-solution/draft2、ai-digital/draft4、ec-product/draft3、event/draft3、education/draft5、sakura/draft10、recruit/draft10、career/draft6、graduate-pre/draft6。各ページのv02はこれらの凍結版（当時の参考）。その後の新draft（例：event/draft4）はversions.jsを参照。
+
+新draftの作り方：最新の本番対応draftのblock.htmlが現在の公開HTMLにそのまま含まれるなら、次の空き番号へ複製して編集し、`build`で生成する。含まれなければ、非公開の保存先へcaptureし、tools/live-baseline.jsonの対象draftを次の空き番号にしてinitする。
 
 - base.html：現行本番から計測タグ等を除去した骨格。ヘッダー・タイトル帯・本文外枠・フッター・トップ末尾の青帯を保持する。
 - block.html：公開HTMLから文字列を保って分離した本文ルート。WPへ直接保存する全文ではない。
@@ -81,15 +84,15 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 python3 tools/live-baseline.py build it-solution draft2
 ```
 
-capture／assetsは非公開の保存先を明示し、既存保存先を上書きしない。initはtools/live-baseline.jsonで指定した未作成draftのみ作り、freezeは未使用のvNNのみ作る。既存v02を作り直すコマンドではない。
-今回の設定ファイルは9/21の作成対象。次の改版で既存draftを初期化し直さない。
+capture／assetsは非公開の保存先を明示し、既存保存先を上書きしない。initはtools/live-baseline.jsonで指定した未作成draftのみ作り、freezeは未使用のvNNのみ作る。既存v02を作り直すコマンドではない。freezeは今後、承認済みの案を固定するときだけ使う。
+設定ファイルのdraft番号は9/21の作成対象。既存draftを初期化し直さない。
 新draftからWPへ反映する場合は、対象版・本文・ページ設定を別途確認する。build-wp.py --allは作業40（v01）の再現専用。
 assetsはtools/retired-assets.jsonの削除済み素材を取得せず、assets-manifest.jsonのskipped_retiredに記録する。
 
 qa-baseline.jsはqa-v01.jsと同様のpage関数にversionを追加した検証用。フッター・ヘッダー内リンクの寸法・文字スタイルも採取する。
 compare-baseline.pyはフッターを含む全景を比較する。PNG名はfinal-<page>-<version>-<width>.png。draftの番号はlive-baseline.jsonから参照する。
-例：`python3 tools/compare-baseline.py <outputDir>`。凍結版の比較は`--version v02`を指定する。
-静的リンク書換え以外のHTMLがdraftとv02で一致すること、リンク先とアンカーの存在も検査した。
+例：`python3 tools/compare-baseline.py <outputDir>`。`--version v02`は作業42当時の検証用。
+作業42では、静的リンク書換え以外のHTMLがdraftとv02で一致すること、リンク先とアンカーの存在も検査した。
 全景60条件中48条件は全画素一致。残る微差を含めた検証資料と詳細は親の作業42に保存。完全なオフライン複製や復旧用バックアップではない。
 取得HTML由来の改行・行末空白は保存しているため、新形式のHTMLにはgitのwhitespace警告が出る。凍結後の整形は行わない。
 
