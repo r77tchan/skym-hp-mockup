@@ -71,6 +71,7 @@ python3 -m http.server 8765 --directory mockup --bind 127.0.0.1
 作業42の初期draft：top/draft21、company/draft5、service/draft8、it-solution/draft2、ai-digital/draft4、ec-product/draft3、event/draft3、education/draft5、sakura/draft10、recruit/draft10、career/draft6、graduate-pre/draft6。各ページのv02はこれらの凍結版（当時の参考）。その後の新draft（例：event/draft4）はversions.jsを参照。
 
 新draftの作り方：最新の本番対応draftのblock.htmlが現在の公開HTMLにそのまま含まれるなら、次の空き番号へ複製して編集し、`build`で生成する。含まれなければ、非公開の保存先へcaptureし、tools/live-baseline.jsonの対象draftを次の空き番号にしてinitする。
+複製する場合は、base.htmlの`<style type="text/css" id="wp-custom-css">`（WPの追加CSS）の中身も現在の公開HTMLと照合する。違えば、新draftのbase.htmlのその中身だけを公開HTMLの値にそろえてから`build`する（またはcaptureからinitし直す）。既存draftのbase.htmlは直さない。2026-09-24時点の既存draftは、本番の追加CSSに足したスマホ幅のフッター・トップのパートナー募集帯の指定（task48）を含まない。
 
 - base.html：現行本番から計測タグ等を除去した骨格。ヘッダー・タイトル帯・本文外枠・フッター・トップ末尾の青帯を保持する。
 - block.html：公開HTMLから文字列を保って分離した本文ルート。WPへ直接保存する全文ではない。
