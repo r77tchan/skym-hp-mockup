@@ -31,6 +31,7 @@ window.MOCK = {
         { id: 'v01', date: '2026-09-18', note: 'draft20(採用版)の凍結。WP本番反映用' },
         { id: 'draft21', date: '2026-09-21', note: '現行本番対応の編集用。公開HTMLから本文と骨格を分離。live-baseline.pyで再生成' },
         { id: 'v02', date: '2026-09-21', note: 'draft21を凍結。2026-09-21当時の本番の参考(基準ではない。正は現在の本番)。当時のメニューとフッターを反映。本番の画像等を参照するため、本番の変更で表示が変わる' },
+        { id: 'draft22', date: '2026-09-24', note: 'draft21の複製。採用帯の背景写真の固定表示(background-attachment:fixed)をタッチ端末(hover:none)とiOS/iPadOS Safariでだけ外す(作業47)。iPad横向きで写真が極端に拡大され暗い無地に見える不具合の修正。PCの見た目は変えない' },
       ],
     },
     {
@@ -172,6 +173,7 @@ window.MOCK = {
         { id: 'v01', date: '2026-09-18', note: 'draft9(採用版)の凍結。WP本番反映用' },
         { id: 'draft10', date: '2026-09-21', note: '現行本番対応の編集用。公開HTMLから本文と骨格を分離。live-baseline.pyで再生成' },
         { id: 'v02', date: '2026-09-21', note: 'draft10を凍結。2026-09-21当時の本番の参考(基準ではない。正は現在の本番)。当時のメニューとフッターを反映。本番の画像等を参照するため、本番の変更で表示が変わる' },
+        { id: 'draft11', date: '2026-09-24', note: 'draft10の複製。冒頭と締めの帯の背景写真の固定表示(background-attachment:fixed)をタッチ端末(hover:none)とiOS/iPadOS Safariでだけ外す(作業47)。iPad横向きで写真が極端に拡大され暗い無地に見える不具合の修正。PCの見た目は変えない' },
       ],
     },
     {
@@ -188,6 +190,7 @@ window.MOCK = {
         { id: 'v01', date: '2026-09-18', note: 'draft5(採用版)の凍結。WP本番反映用' },
         { id: 'draft6', date: '2026-09-21', note: '現行本番対応の編集用。公開HTMLから本文と骨格を分離。live-baseline.pyで再生成' },
         { id: 'v02', date: '2026-09-21', note: 'draft6を凍結。2026-09-21当時の本番の参考(基準ではない。正は現在の本番)。当時のメニューとフッターを反映。本番の画像等を参照するため、本番の変更で表示が変わる' },
+        { id: 'draft7', date: '2026-09-24', note: 'draft6の複製。締めの帯の背景写真の固定表示(background-attachment:fixed)をタッチ端末(hover:none)とiOS/iPadOS Safariでだけ外す(作業47)。iPad横向きで写真が極端に拡大され暗い無地に見える不具合の修正。PCの見た目は変えない' },
       ],
     },
     {
@@ -212,6 +215,7 @@ window.MOCK = {
         { id: 'v01', date: '2026-09-18', note: 'draft5(採用版)の凍結。WP本番反映用' },
         { id: 'draft6', date: '2026-09-21', note: '現行本番対応の編集用。公開HTMLから本文と骨格を分離。live-baseline.pyで再生成' },
         { id: 'v02', date: '2026-09-21', note: 'draft6を凍結。2026-09-21当時の本番の参考(基準ではない。正は現在の本番)。当時のメニューとフッターを反映。本番の画像等を参照するため、本番の変更で表示が変わる' },
+        { id: 'draft7', date: '2026-09-24', note: 'draft6の複製。締めの帯の背景写真の固定表示(background-attachment:fixed)をタッチ端末(hover:none)とiOS/iPadOS Safariでだけ外す(作業47)。iPad横向きで写真が極端に拡大され暗い無地に見える不具合の修正。PCの見た目は変えない' },
       ],
     },
   ],
