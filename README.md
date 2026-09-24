@@ -83,7 +83,8 @@ python3 tools/live-baseline.py build it-solution draft2
 
 capture／assetsは非公開の保存先を明示し、既存保存先を上書きしない。initはtools/live-baseline.jsonで指定した未作成draftのみ作り、freezeは未使用のvNNのみ作る。既存v02を作り直すコマンドではない。
 今回の設定ファイルは9/21の作成対象。次の改版で既存draftを初期化し直さない。
-新draftからWPへ反映する場合は、対象版・本文・ページ設定を別途確認する。build-wp.py --allはv01用のまま。
+新draftからWPへ反映する場合は、対象版・本文・ページ設定を別途確認する。build-wp.py --allは作業40（v01）の再現専用。
+assetsはtools/retired-assets.jsonの削除済み素材を取得せず、assets-manifest.jsonのskipped_retiredに記録する。
 
 qa-baseline.jsはqa-v01.jsと同様のpage関数にversionを追加した検証用。フッター・ヘッダー内リンクの寸法・文字スタイルも採取する。
 compare-baseline.pyはフッターを含む全景を比較する。PNG名はfinal-<page>-<version>-<width>.png。draftの番号はlive-baseline.jsonから参照する。
@@ -105,11 +106,18 @@ compare-baseline.pyはフッターを含む全景を比較する。PNG名はfina
 ## WP向け生成
 
 ```sh
-python3 tools/build-wp.py --all
+python3 tools/build-wp.py --all --reproduce-task40
 ```
 
-現在の--allは12ページのv01を入力とする。自動で「最新draft」や「本番対応版」を選ばない。
+--allは作業40の12ページのv01を入力とする再現専用。v01以降の本番の変更を戻すため、出力を本番へ貼り直さない。
+明示フラグなしの`--all`は実行しない。自動で「最新draft」や「本番対応版」を選ばない。
 新しい入力版への切替は別途承認とツール確認が必要。
+
+tools/retired-assets.jsonは本番から削除した素材の一覧（名前・MD5・理由・代替）。
+出力がこれを参照する場合、build-wp.pyは何も書き出さずに失敗する。
+2026-09-24時点ではEVENTのv01が削除済みのQR写真を含むため、`--all --reproduce-task40`と`event v01`は失敗する（作業44）。
+コミット済みのtools/wp/*は作業40当時の生成物。event.post.txtとmanifest.jsonには削除済みのQR写真が残るので、貼り付け・再アップロードに使わない。
+現在の本番の変更は、live-baseline.pyで作ったdraftを基に変更箇所だけ反映する。
 
 | 出力 | 用途 |
 |---|---|

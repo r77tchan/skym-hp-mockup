@@ -38,6 +38,10 @@ def capture_assets(directory):
     assets = directory / 'assets'
     assets.mkdir(exist_ok=False)
     sources = json.loads((ROOT / 'tools/wp/manifest.json').read_text())
+    # Assets removed from production (tools/retired-assets.json) are skipped, not fetched.
+    retired = {r['upload_name'] for r in json.loads((ROOT / 'tools/retired-assets.json').read_text())}
+    skipped = [item['upload_name'] for item in sources if item['upload_name'] in retired]
+    sources = [item for item in sources if item['upload_name'] not in retired]
     def download(item):
         url = item['url']
         assert url.startswith('https://skym.co.jp/wp20150417/wp-content/uploads/')
@@ -50,8 +54,8 @@ def capture_assets(directory):
                 'matches_v01': hashlib.md5(data).hexdigest() == item['md5']}
     with ThreadPoolExecutor(max_workers=4) as pool:
         results = list(pool.map(download, sources))
-    json_write(directory / 'assets-manifest.json', {'captured_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'assets': results})
-    print('saved assets:', len(results), 'matches_v01:', sum(x['matches_v01'] for x in results))
+    json_write(directory / 'assets-manifest.json', {'captured_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'assets': results, 'skipped_retired': skipped})
+    print('saved assets:', len(results), 'matches_v01:', sum(x['matches_v01'] for x in results), 'skipped retired:', len(skipped))
 
 
 def capture(directory):

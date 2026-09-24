@@ -3,7 +3,13 @@
 
 使い方(mockup/ で実行):
   python3 tools/build-wp.py <page> <draft>   # tools/wp/<page>.html を作り、手作業設定を表示
-  python3 tools/build-wp.py --all            # 採用版 12 件を全部変換 + tools/wp/manifest.json(画像一覧)
+  python3 tools/build-wp.py --all --reproduce-task40
+                                             # 作業40の v01 12 件を全部変換 + tools/wp/manifest.json(画像一覧)
+
+--all は作業40(v01)の再現専用。v01 以降の本番の変更を戻すため、出力を本番へ貼り直さない。
+明示フラグ --reproduce-task40 なしでは実行しない。
+tools/retired-assets.json の削除済み素材(例: 作業44の QR 写真)を出力が参照する場合は、
+何も書き出さずに失敗する。
 
 変換内容:
   1. HTML コメント(<!-- ... -->)を除去(検討時のメモなので WP には貼らない)
@@ -28,6 +34,8 @@ import sys
 
 UPLOADS = "https://skym.co.jp/wp20150417/wp-content/uploads"
 OUTDIR = pathlib.Path("tools", "wp")
+RETIRED = json.loads(pathlib.Path("tools", "retired-assets.json").read_text(encoding="utf-8"))
+REPRODUCE_FLAG = "--reproduce-task40"
 
 # ページごとの画像ファイル名の接頭辞(uploads 上での衝突回避)
 PREFIX = {
@@ -190,18 +198,43 @@ def report(page, draft, live, settings, html, key2url):
     print(f"本文: {len(html)} 文字 / 画像 {n_img} 件(すべて uploads 絶対パス)")
 
 
+def retired_urls(manifest):
+    """削除済み素材の URL。名前が同じもの・内容(md5)が同じものの両方を含む。"""
+    names = {r["upload_name"] for r in RETIRED}
+    digests = {r["md5"] for r in RETIRED}
+    urls = {f"{UPLOADS}/{n}" for n in names}
+    urls |= {e["url"] for e in manifest if e["md5"] in digests or e["upload_name"] in names}
+    return urls
+
+
 def main():
     args = sys.argv[1:]
-    OUTDIR.mkdir(exist_ok=True)
-    manifest, key2url = collect_media()
-    if args == ["--all"]:
+    if "--all" in args:
+        if args != ["--all", REPRODUCE_FLAG]:
+            sys.exit("--all は作業40(v01)の再現専用で、現在の本番とは異なる。出力を本番へ貼り直さないこと。\n"
+                     f"再現する場合だけ: python3 tools/build-wp.py --all {REPRODUCE_FLAG}")
         targets = ADOPTED
-    else:
+    elif len(args) == 2 and not args[0].startswith("-"):
         page, draft = args
         live = next((l for p, _d, l in ADOPTED if p == page), "")
         targets = [(page, draft, live)]
+    else:
+        sys.exit(__doc__)
+    manifest, key2url = collect_media()
+    # 先に全件を変換・検査し、1 件でも削除済み素材を参照していれば何も書き出さない
+    retired = retired_urls(manifest)
+    converted, blocked = [], []
     for page, draft, live in targets:
         html, settings = convert(page, draft, key2url)
+        hits = sorted(u for u in retired if u in html)
+        if hits:
+            blocked.append(f"{page}/{draft}: " + ", ".join(hits))
+        converted.append((page, draft, live, html, settings))
+    if blocked:
+        sys.exit("削除済み素材(tools/retired-assets.json)を参照しているため中止。何も書き出していない:\n  "
+                 + "\n  ".join(blocked))
+    OUTDIR.mkdir(exist_ok=True)
+    for page, draft, live, html, settings in converted:
         (OUTDIR / f"{page}.html").write_text(html, encoding="utf-8")
         row = settings.get("data-row-class", "")
         # vc_column_text adds .wpb_text_column and responsive 3%/5% padding.
@@ -217,7 +250,7 @@ def main():
         (OUTDIR / f"{page}.settings.json").write_text(
             json.dumps(settings, ensure_ascii=False, indent=2) + '\n', encoding="utf-8")
         report(page, draft, live, settings, html, key2url)
-    if args == ["--all"]:
+    if targets is ADOPTED:
         (OUTDIR / "manifest.json").write_text(
             json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         total = sum(e["size"] for e in manifest)

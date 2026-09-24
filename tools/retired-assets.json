@@ -1,0 +1,9 @@
+[
+  {
+    "upload_name": "event-sv2-smart.jpg",
+    "md5": "865664a5fbc23000a821cc647ebb52a6",
+    "retired": "2026-09-24",
+    "reason": "写真内のQRコードが読み取れ、無関係なサイトへ飛ぶ。本番から削除済み(作業44)",
+    "replacement": "https://skym.co.jp/wp20150417/wp-content/uploads/event-sv2-apps.jpg"
+  }
+]
