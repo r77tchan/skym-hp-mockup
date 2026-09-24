@@ -118,6 +118,7 @@ window.MOCK = {
         { id: 'v01', date: '2026-09-18', note: 'draft2(採用版)の凍結。WP本番反映用' },
         { id: 'draft3', date: '2026-09-21', note: '現行本番対応の編集用。公開HTMLから本文と骨格を分離。live-baseline.pyで再生成' },
         { id: 'v02', date: '2026-09-21', note: 'draft3を凍結。本番反映・確認済みの表示基準。現行メニューとフッターを反映。外部資産への参照あり' },
+        { id: 'draft4', date: '2026-09-24', note: 'draft3の03「イベントを支える仕組みづくり」の写真だけ差し替え(作業44)。旧写真はAlipayのQRコードが読み取れ無関係なサイトへ飛ぶため、Unsplash ToaDflKHwTU(夜の盆踊り会場でスマホを構える手元。QRなし)に。本番へ反映済み(event-sv2-apps.jpg)。凍結は未実施' },
       ],
     },
     {

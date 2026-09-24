@@ -1,0 +1,15 @@
+{
+  "data-row-class": "ss-wrap",
+  "data-base-page": "ses",
+  "data-page-title": "EVENT &amp; ENTERTAINMENT",
+  "data-page-subtitle": "イベントの企画・運営",
+  "data-page-titlebar": "https://skym.co.jp/wp20150417/wp-content/uploads/enjoy_1920.jpg",
+  "data-page-overlay": "0.55",
+  "source": "public-live",
+  "header_classes": "layout_standard pos_fixed bg_transparent transparent",
+  "captured_at": "2026-09-21T02:21:24.100930+00:00",
+  "live_url": "https://skym.co.jp/service/event",
+  "raw_sha256": "e490b1c4ae02911b87692a608b04fc9e15caf33fd19b63cbe98cb3e762fbf60c",
+  "builder": "tools/live-baseline.py",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}
