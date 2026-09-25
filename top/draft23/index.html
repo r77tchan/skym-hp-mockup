@@ -263,7 +263,7 @@ img.emoji {
 #skym-top .sz-btn--main{background:var(--sz-lime);color:#0a0a0a!important}
 #skym-top .sz-btn--sub{border:1px solid rgba(255,255,255,.65);background:rgba(0,0,0,.18);backdrop-filter:blur(8px);color:#fff!important}
 /* draft23(作業49): 法人向けの主要CTA「お問い合わせ・ご相談」を先頭に。3 つは同じ大きさ(幅 212px・高さ 50px・12px)にそろえ、主要CTAは色(ライムの塗り)だけで区別する。OUR PROJECTS・JOIN SKYM は半透明の枠線 */
-#skym-top .sz-cta .sz-btn{width:212px;min-width:0;height:50px;padding:0 22px;font-size:12px}
+#skym-top .sz-cta .sz-btn{width:212px;min-width:0;height:50px;padding:0 22px;font-size:12px;justify-content:center;gap:18px;white-space:nowrap} /* 幅をそろえたので、文字と矢印は両端に離さず中央にまとめる */
 #skym-top .sz-btn--contact{letter-spacing:.08em}
 /* 601〜700px は 3 つを少し小さくして 1 行に(2 段にすると下の写真カードにかかるため) */
 @media(min-width:601px) and (max-width:700px){
@@ -272,7 +272,7 @@ img.emoji {
 /* 600px 以下は 3 つが 1 行に入らないので、2 列のグリッドにして主要CTAを 1 行目に全幅、他の 2 つを 2 行目に(高さ・文字の大きさは 3 つとも共通) */
 @media(max-width:600px){
   #skym-top .sz-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:min(100%,320px);margin-left:auto;margin-right:auto}
-  #skym-top .sz-cta .sz-btn{width:auto;height:46px;padding:0 16px;gap:10px;font-size:11px}
+  #skym-top .sz-cta .sz-btn{width:auto;height:46px;padding:0 10px;gap:12px;font-size:11px}
   #skym-top .sz-btn--contact{grid-column:1/-1}
 }
 /* 斜めに流れる技術名の帯 */
@@ -286,6 +286,7 @@ img.emoji {
 #skym-top .sz-mini--1{left:25vw;top:18vh}
 #skym-top .sz-mini--2{right:26vw;top:26vh;background:var(--sz-orange);transform:rotate(-6deg)}
 #skym-top .sz-mini--3{left:30vw;bottom:21vh;background:var(--sz-pink);transform:rotate(3deg)}
+#skym-top .sz-mini--3{display:none} /* draft23: ボタンが 3 つになり「MAKE IT REAL.」がボタンに重なるため出さない(ユーザー了承待ち。戻すならこの行を消す) */
 #skym-top .sz-scroll{position:absolute;right:28px;bottom:23px;z-index:14;width:84px;height:84px;border-radius:50%;background:#fff;color:#111!important;display:grid;place-items:center;text-align:center;font-size:10px;font-weight:900!important;line-height:1.25;box-shadow:0 7px 25px rgba(0,0,0,.18);text-decoration:none!important}
 #skym-top .sz-scroll::after{content:"↓";display:block;font-size:17px;margin-top:3px;color:#ff9f00}
 @media(max-width:900px){
@@ -336,7 +337,7 @@ img.emoji {
   #skym-top .sz-cta{margin-top:20px}
   #skym-top .sz-content{padding-bottom:230px} /* ボタンが 2 行になった分、中央の文字が上のカードへ寄らないよう下の余白を 250px から詰める(下の 2 枚との隙間は約 20px 残る) */
 }
-@media(max-width:380px){#skym-top .sz-cta .sz-btn{padding:0 12px;letter-spacing:.06em}}
+@media(max-width:380px){#skym-top .sz-cta .sz-btn{padding:0 8px;gap:8px;letter-spacing:.06em}}
 @media(prefers-reduced-motion:reduce){#skym-top .sz-tape-track{animation:none}}
 /* draft18: 縦幅の狭い画面(横向きスマホ等)では vh 基準のカードが薄くなり、顔が切り抜きの中央に寄って消える
    → 高さ 500px 以下では切り抜きを顔側(上)に寄せる。900px 以下では最低高さ 100px を確保する */
@@ -407,14 +408,12 @@ img.emoji {
 #skym-top .tp-business .tp-more{margin-top:40px}
 /* 3.5 CONTACT(draft23・作業49): 事業の直後に、法人のお客様向けの相談の入口。中央ぞろえの濃紺の帯。
    相談例は吹き出し(ヒーローのタグと同じ 4 色の点 + わずかな傾き)、ボタンはヒーローの主要CTAと同じライムの丸ボタン */
-#skym-top .tp-contact{position:relative;overflow:hidden;color:#fff;text-align:center;
+#skym-top .tp-contact{position:relative;overflow:hidden;color:#fff;text-align:center;padding:80px 0!important;
   background:radial-gradient(50% 70% at 0% 0%,rgba(2,160,233,.12),transparent 65%),radial-gradient(55% 75% at 100% 100%,rgba(2,160,233,.20),transparent 60%),var(--navy)}
-#skym-top .tp-contact-eyebrow{display:inline-block;margin:0 0 22px;padding:6px 12px;background:#fff;color:var(--navy);font-size:11px;font-weight:900!important;letter-spacing:.22em;line-height:1.4;text-transform:uppercase;transform:rotate(-1.5deg)}
-#skym-top .tp-contact h2{color:#fff!important;font-size:clamp(28px,3.6vw,46px)!important;font-weight:700!important;letter-spacing:.04em!important;line-height:1.5!important}
-#skym-top .tp-contact-voices{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;gap:16px 18px;margin:48px auto 44px!important}
-#skym-top .tp-contact-voices li:nth-child(odd){justify-self:end}
-#skym-top .tp-contact-voices li:nth-child(even){justify-self:start}
-#skym-top .tp-contact-voices li{display:inline-flex;align-items:center;gap:10px;padding:14px 22px!important;border:1px solid rgba(255,255,255,.22);border-radius:22px 22px 22px 4px;background:rgba(255,255,255,.06);font-size:15px;font-weight:500!important;line-height:1.5;transform:rotate(-1.2deg)}
+#skym-top .tp-contact-eyebrow{display:inline-block;margin:0 0 16px;padding:6px 12px;background:#fff;color:var(--navy);font-size:11px;font-weight:900!important;letter-spacing:.22em;line-height:1.4;text-transform:uppercase;transform:rotate(-1.5deg)}
+#skym-top .tp-contact h2{color:#fff!important;font-size:clamp(24px,2.8vw,36px)!important;font-weight:700!important;letter-spacing:.04em!important;line-height:1.5!important}
+#skym-top .tp-contact-voices{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 14px;margin:32px auto 28px!important}
+#skym-top .tp-contact-voices li{display:inline-flex;align-items:center;gap:10px;padding:10px 18px!important;border:1px solid rgba(255,255,255,.22);border-radius:20px 20px 20px 4px;background:rgba(255,255,255,.06);font-size:14px;font-weight:500!important;line-height:1.5;transform:rotate(-1.2deg)}
 #skym-top .tp-contact-voices li:nth-child(2){transform:rotate(1deg);border-radius:22px 22px 4px 22px}
 #skym-top .tp-contact-voices li:nth-child(3){transform:rotate(-.6deg)}
 #skym-top .tp-contact-voices li:nth-child(4){transform:rotate(1.3deg);border-radius:22px 22px 4px 22px}
@@ -425,14 +424,14 @@ img.emoji {
 #skym-top .tp-contact p{font-size:15px!important;line-height:2!important;color:rgba(255,255,255,.85)}
 #skym-top .tp-contact .tp-sp{display:none}
 @media(max-width:600px){#skym-top .tp-contact .tp-sp{display:inline}}
-#skym-top .tp-contact-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-width:300px;height:60px;margin-top:36px;padding:0 30px;border-radius:999px;background:#dfff42;color:#0a0a0a!important;font-size:15px;font-weight:900!important;letter-spacing:.08em;line-height:1;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .2s,filter .2s}
+#skym-top .tp-contact-btn{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-width:300px;height:54px;margin-top:28px;padding:0 30px;border-radius:999px;background:#dfff42;color:#0a0a0a!important;font-size:15px;font-weight:900!important;letter-spacing:.08em;line-height:1;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .2s,filter .2s}
 #skym-top .tp-contact-btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
 @media(max-width:600px){
-  #skym-top .tp-contact-voices{grid-template-columns:1fr;gap:12px;margin:36px auto 32px!important}
-  #skym-top .tp-contact-voices li:nth-child(n){justify-self:center}
-  #skym-top .tp-contact-voices li{font-size:14px;padding:12px 18px!important}
+  #skym-top .tp-contact{padding:64px 0!important}
+  #skym-top .tp-contact-voices{flex-direction:column;align-items:center;gap:8px;margin:24px auto 22px!important}
+  #skym-top .tp-contact-voices li{font-size:13px;padding:8px 14px!important}
   #skym-top .tp-contact p{font-size:14px!important;line-height:1.9!important}
-  #skym-top .tp-contact-btn{display:flex;width:100%;min-width:0;height:56px;margin-top:28px}
+  #skym-top .tp-contact-btn{display:flex;width:100%;min-width:0;height:52px;margin-top:22px}
 }
 /* 4 会社概要: 見出し行の下に 表(左)+ モノクロの地図(右)。値は本番の会社概要ページ(/company/summary)から。地図は API キー不要の通常埋め込み(iframe)。色はそのまま(モノクロ + ホバーで色 は「微妙」とのことでやめた) */
 #skym-top .tp-company{background:var(--light)}
@@ -575,14 +574,14 @@ img.emoji {
 <section class="tp-contact" id="tp-contact">
   <div class="tp-inner">
     <span class="tp-contact-eyebrow">Contact</span>
-    <h2>「こんなこと、できる？」<br>からで大丈夫です。</h2>
+    <h2>「こんなこと、できる？」<br class="tp-sp">からで大丈夫です。</h2>
     <ul class="tp-contact-voices">
       <li>AIを仕事に取り入れたい。</li>
       <li>こんなシステムがあったら便利。</li>
       <li>IT環境を見直したい。</li>
       <li>新しいサービスを一緒につくってみたい。</li>
     </ul>
-    <p>まだ具体的に決まっていなくても構いません。<br>「これってできる？」の段階から、<br class="tp-sp">お気軽にご相談ください。</p>
+    <p>まだ具体的に決まっていなくても構いません。<br class="tp-sp">「これってできる？」の段階から、<br class="tp-sp">お気軽にご相談ください。</p>
     <a class="tp-contact-btn" href="https://skym.co.jp/contact">お問い合わせ・ご相談 <span>→</span></a>
   </div>
 </section>
