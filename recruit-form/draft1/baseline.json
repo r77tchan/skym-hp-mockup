@@ -1,0 +1,10 @@
+{
+  "source": "public-live",
+  "live_url": "https://skym.co.jp/recruit/form",
+  "page_id": 8017,
+  "captured_at": "2026-10-09T01:02:22.400055+00:00",
+  "raw_sha256": "75890e4b112a01559faafb0a7d428359af52fb496a549cb3fcebb09611b92b35",
+  "builder": "scratch casual_mock.py (作業54)",
+  "note": "本文(タブとCF7 8034/8021)をVC行1つ(el_class=\"cs-wrap\")の枠に置き換えた骨格。block.htmlのフォームはCF7 8034の出力を手で組んだ見本で、WPでは [contact-form-7 id=\"8034\"] に置き換える。",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}
