@@ -1,0 +1,10 @@
+{
+  "source": "public-live",
+  "live_url": "https://skym.co.jp/certification",
+  "page_id": 8787,
+  "captured_at": "2026-10-16T08:45:27.344243+00:00",
+  "raw_sha256": "157a49b543a166f1509a41074a21135069e93c745bc02934af6a8509b88b220d",
+  "builder": "backup/work-59/cert_mock.py (作業59。作業57の同名スクリプトの複製)",
+  "note": "block.html は本番の section#certification_list（VCショートコードの出力）。WPでは本文のショートコード内の該当行だけを書き換える。block.html はWPへ貼る全文ではない。",
+  "limitations": "External CSS/JS/media remain live dependencies; not a complete WordPress backup."
+}
